@@ -1,2 +1,1 @@
-# SDK-
-Tribufu C++ SDK
+# C++ SDK
