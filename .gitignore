@@ -1,32 +1,33 @@
-# Prerequisites
-*.d
+.vs/
+.vscode/
+bin/
+binaries/
+build/
+obj/
+saved/
+target/
 
-# Compiled Object files
-*.slo
-*.lo
-*.o
-*.obj
-
-# Precompiled Headers
-*.gch
-*.pch
-
-# Compiled Dynamic libraries
-*.so
-*.dylib
-*.dll
-
-# Fortran module files
-*.mod
-*.smod
-
-# Compiled Static libraries
-*.lai
-*.la
-*.a
-*.lib
-
-# Executables
-*.exe
-*.out
-*.app
+.DS_Store
+.env
+*.crt
+*.csproj
+*.filters
+*.fsproj
+*.key
+*.log
+*.make
+*.mwb.bak
+*.pem
+*.sln
+*.user
+*.vcxproj
+*.vpp.*
+*.wasm
+*.xcodeproj
+*.xcworkspace
+Cargo.lock
+desktop.ini
+keystore.jks
+local.properties
+Makefile
+next-env.d.ts
