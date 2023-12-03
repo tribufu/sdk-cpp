@@ -40,7 +40,7 @@ namespace tribufu
         }
         catch (std::exception &e)
         {
-            std::cout << "exception" << e.what() << std::endl;
+            std::cout << "exception: " << e.what() << std::endl;
         }
     }
 }
