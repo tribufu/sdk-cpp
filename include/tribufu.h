@@ -2,4 +2,4 @@
 
 #pragma once
 
-#include <tribufu/sdk.h>
+#include <tribufu/client.h>

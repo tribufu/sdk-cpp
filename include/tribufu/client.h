@@ -2,25 +2,25 @@
 
 #pragma once
 
-#include <tribufu/pch.h>
+#include <tribufu/base.h>
 
 const char *VERSION = "0.0.4";
 
-class TribufuClient
+namespace tribufu
 {
-private:
-    uint64_t id;
-    std::string secret;
-
-public:
-    TribufuClient(uint64_t id, const std::string &secret)
+    class TRIBUFU_API TribufuClient
     {
-        this->id = id;
-        this->secret = secret;
-    }
+    private:
+        uint64_t id;
+        std::string secret;
 
-    uint64_t get_id() const
-    {
-        return this->id;
-    }
-};
+    public:
+        TribufuClient(uint64_t id, const std::string &secret);
+        ~TribufuClient();
+
+        uint64_t get_id() const
+        {
+            return this->id;
+        }
+    };
+}

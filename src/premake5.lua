@@ -9,9 +9,6 @@ project "tribufu_cpp"
     targetdir("../bin/%{cfg.platform:gsub('-', '/')}")
     objdir("../target/%{cfg.buildcfg}/obj/%{prj.name}/%{cfg.platform:gsub('-', '/')}")
 
-    -- pchheader "tribufu/pch.h"
-    -- pchsource "pch.cpp"
-
     files
     {
         "./**.cpp",
