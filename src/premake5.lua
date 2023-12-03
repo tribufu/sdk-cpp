@@ -63,7 +63,7 @@ project "tribufu_cpp"
     -- Platform
 
     filter { "platforms:windows-*" }
-        kind "StaticLib"
+        kind "SharedLib"
         system "windows"
         systemversion "latest"
         staticruntime "On"
@@ -87,7 +87,7 @@ project "tribufu_cpp"
         }
 
     filter { "platforms:mac-*" }
-        kind "StaticLib"
+        kind "SharedLib"
         system "macosx"
         systemversion "10.15"
 
@@ -111,7 +111,7 @@ project "tribufu_cpp"
         }
 
     filter { "platforms:linux-*" }
-        kind "StaticLib"
+        kind "SharedLib"
         system "linux"
 
         toolset "gcc"
@@ -134,7 +134,7 @@ project "tribufu_cpp"
         }
 
     filter { "platforms:android-*" }
-        kind "StaticLib"
+        kind "SharedLib"
         system "android"
 
         toolset "clang"
