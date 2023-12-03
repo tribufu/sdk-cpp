@@ -68,7 +68,7 @@ project "example"
 
         links
         {
-            "tribufu_sdk++",
+            "tribufu_cpp",
         }
 
         prelinkcommands
@@ -90,7 +90,7 @@ project "example"
 
         links
         {
-            "tribufu_sdk++",
+            "tribufu_cpp",
         }
 
         prelinkcommands
@@ -111,7 +111,7 @@ project "example"
 
         links
         {
-            "tribufu_sdk++",
+            "tribufu_cpp",
         }
 
         prelinkcommands
@@ -132,7 +132,7 @@ project "example"
 
         links
         {
-            "tribufu_sdk++",
+            "tribufu_cpp",
         }
 
         prelinkcommands
@@ -154,7 +154,7 @@ project "example"
 
         links
         {
-            "tribufu_sdk++",
+            "tribufu_cpp",
         }
 
     -- Architecture

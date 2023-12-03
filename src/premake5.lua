@@ -1,6 +1,6 @@
 --- @diagnostic disable: undefined-global
 
-project "tribufu_sdk++"
+project "tribufu_cpp"
     location "."
     language "C++"
 

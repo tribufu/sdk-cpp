@@ -1,6 +1,6 @@
 --- @diagnostic disable: undefined-global
 
-workspace "SDK-CPP"
+workspace "tribufu_cpp"
     location "."
 
     configurations { "debug", "release" }
