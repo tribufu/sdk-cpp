@@ -16,15 +16,13 @@ project "tribufu_cpp"
     {
         "./**.cpp",
         "./**.h",
-        "./**.h",
-        "../include/tribufu/**.h",
         "../include/tribufu/**.h",
     }
 
     vpaths
     {
         ["Sources"] = { "./**.cpp" },
-        ["Headers"] = { "./**.h", "./**.h", "../include/tribufu/**.h", "../include/tribufu/**.h"  },
+        ["Headers"] = { "./**.h", "../include/tribufu/**.h" },
     }
 
     includedirs
