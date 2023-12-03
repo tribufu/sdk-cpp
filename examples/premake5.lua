@@ -77,7 +77,6 @@ project "example"
 
         postbuildcommands
         {
-            "{COPYFILE} ../vendor/libhv/lib/%{cfg.platform:gsub('-', '/')}/hv.dll %{cfg.targetdir}/hv.dll",
         }
 
     filter { "platforms:mac-*" }
@@ -102,6 +101,10 @@ project "example"
         {
         }
 
+        postbuildcommands
+        {
+        }
+
     filter { "platforms:linux-*" }
         system "linux"
 
@@ -123,6 +126,10 @@ project "example"
         {
         }
 
+        postbuildcommands
+        {
+        }
+
     filter { "platforms:android-*" }
         system "android"
 
@@ -141,6 +148,10 @@ project "example"
         }
 
         prelinkcommands
+        {
+        }
+
+        postbuildcommands
         {
         }
 
