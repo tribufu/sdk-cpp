@@ -78,11 +78,16 @@ project "tribufu_cpp"
 
         links
         {
-            "hv.lib"
+            "hv.lib",
         }
 
         prelinkcommands
         {
+        }
+
+        postbuildcommands
+        {
+            "{COPYFILE} ../vendor/libhv/lib/%{cfg.platform:gsub('-', '/')}/hv.dll %{cfg.targetdir}/hv.dll",
         }
 
     filter { "platforms:mac-*" }
@@ -109,6 +114,10 @@ project "tribufu_cpp"
         {
         }
 
+        postbuildcommands
+        {
+        }
+
     filter { "platforms:linux-*" }
         kind "SharedLib"
         system "linux"
@@ -132,6 +141,10 @@ project "tribufu_cpp"
         {
         }
 
+        postbuildcommands
+        {
+        }
+
     filter { "platforms:android-*" }
         kind "SharedLib"
         system "android"
@@ -152,6 +165,10 @@ project "tribufu_cpp"
         }
 
         prelinkcommands
+        {
+        }
+
+        postbuildcommands
         {
         }
 
