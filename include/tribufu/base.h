@@ -3,5 +3,5 @@
 #pragma once
 
 #include <tribufu/defines.h>
-#include <tribufu/platform.h>
+#include <tribufu/platform/platform.h>
 #include <tribufu/std.h>

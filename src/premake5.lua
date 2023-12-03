@@ -25,12 +25,13 @@ project "tribufu_cpp"
     includedirs
     {
         "../include",
-        "../vendor",
+        "../vendor/*/include",
     }
 
     libdirs
     {
         "../bin/%{cfg.platform:gsub('-', '/')}",
+        "../vendor/*/lib/%{cfg.platform:gsub('-', '/')}",
     }
 
     -- Profile
@@ -77,6 +78,7 @@ project "tribufu_cpp"
 
         links
         {
+            "hv.lib"
         }
 
         prelinkcommands

@@ -3,6 +3,8 @@
 #pragma once
 
 #include <tribufu/base.h>
+#include <tribufu/json.h>
+#include <tribufu/http.h>
 
 const char *VERSION = "0.0.4";
 
@@ -13,6 +15,7 @@ namespace tribufu
     private:
         uint64_t id;
         std::string secret;
+        hv::HttpClient http;
 
     public:
         TribufuClient(uint64_t id, const std::string &secret);
@@ -22,5 +25,7 @@ namespace tribufu
         {
             return this->id;
         }
+
+        void get_token();
     };
 }

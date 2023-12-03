@@ -20,7 +20,7 @@ project "example"
     includedirs
     {
         "../include",
-        "../vendor",
+        "../vendor/*/include",
     }
 
     libdirs
@@ -73,6 +73,11 @@ project "example"
 
         prelinkcommands
         {
+        }
+
+        postbuildcommands
+        {
+            "{COPYFILE} ../vendor/libhv/lib/%{cfg.platform:gsub('-', '/')}/hv.dll %{cfg.targetdir}/hv.dll",
         }
 
     filter { "platforms:mac-*" }
