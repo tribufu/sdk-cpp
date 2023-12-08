@@ -7,7 +7,7 @@ project "tribufu_cpp"
     cppdialect "C++20"
 
     targetdir("../bin/%{cfg.platform:gsub('-', '/')}")
-    objdir("../target/%{cfg.buildcfg}/obj/%{prj.name}/%{cfg.platform:gsub('-', '/')}")
+    objdir("../target/%{cfg.buildcfg}/%{cfg.platform}/%{prj.name}}")
 
     files
     {
@@ -88,7 +88,6 @@ project "tribufu_cpp"
 
         postbuildcommands
         {
-            "{COPYFILE} ../target/%{cfg.buildcfg}/deps/mintaka_native.dll %{cfg.targetdir}/mintaka_native.dll",
         }
 
     filter { "platforms:mac-*" }
