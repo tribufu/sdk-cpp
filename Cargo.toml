@@ -1,0 +1,17 @@
+[package]
+name = "tribufu-native"
+version = "0.0.4"
+description = "Tribufu Native"
+repository = "https://github.com/Tribufu/TribufuNative"
+authors = ["Tribufu <contact@tribufu.com>"]
+license = "Apache-2.0"
+edition = "2021"
+publish = false
+
+[lib]
+name = "tribufu_native"
+crate-type = ["staticlib"]
+path = "src/lib.rs"
+
+[dependencies]
+mintaka-native = { path = "./vendor/Mintaka/src/native" }

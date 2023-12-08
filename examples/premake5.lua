@@ -20,7 +20,7 @@ project "example"
     includedirs
     {
         "../include",
-        "../vendor",
+        "../vendor/*/include",
     }
 
     libdirs
@@ -75,6 +75,10 @@ project "example"
         {
         }
 
+        postbuildcommands
+        {
+        }
+
     filter { "platforms:mac-*" }
         system "macosx"
         systemversion "10.15"
@@ -94,6 +98,10 @@ project "example"
         }
 
         prelinkcommands
+        {
+        }
+
+        postbuildcommands
         {
         }
 
@@ -118,6 +126,10 @@ project "example"
         {
         }
 
+        postbuildcommands
+        {
+        }
+
     filter { "platforms:android-*" }
         system "android"
 
@@ -136,6 +148,10 @@ project "example"
         }
 
         prelinkcommands
+        {
+        }
+
+        postbuildcommands
         {
         }
 

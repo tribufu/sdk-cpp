@@ -25,12 +25,13 @@ project "tribufu_cpp"
     includedirs
     {
         "../include",
-        "../vendor",
+        "../vendor/*/include",
     }
 
     libdirs
     {
         "../bin/%{cfg.platform:gsub('-', '/')}",
+        "../vendor/*/lib/%{cfg.platform:gsub('-', '/')}",
     }
 
     -- Profile
@@ -77,10 +78,17 @@ project "tribufu_cpp"
 
         links
         {
+            "tribufu_native.lib",
+            "mintaka_native.dll.lib",
         }
 
         prelinkcommands
         {
+        }
+
+        postbuildcommands
+        {
+            "{COPYFILE} ../target/%{cfg.buildcfg}/deps/mintaka_native.dll %{cfg.targetdir}/mintaka_native.dll",
         }
 
     filter { "platforms:mac-*" }
@@ -101,9 +109,15 @@ project "tribufu_cpp"
 
         links
         {
+            "tribufu_native",
+            "mintaka_native",
         }
 
         prelinkcommands
+        {
+        }
+
+        postbuildcommands
         {
         }
 
@@ -124,9 +138,15 @@ project "tribufu_cpp"
 
         links
         {
+            "tribufu_native",
+            "mintaka_native",
         }
 
         prelinkcommands
+        {
+        }
+
+        postbuildcommands
         {
         }
 
@@ -147,9 +167,15 @@ project "tribufu_cpp"
 
         links
         {
+            "tribufu_native",
+            "mintaka_native",
         }
 
         prelinkcommands
+        {
+        }
+
+        postbuildcommands
         {
         }
 
@@ -170,6 +196,16 @@ project "tribufu_cpp"
         }
 
         links
+        {
+            "tribufu_native",
+            "mintaka_native",
+        }
+
+        prelinkcommands
+        {
+        }
+
+        postbuildcommands
         {
         }
 
