@@ -78,7 +78,8 @@ project "tribufu_cpp"
 
         links
         {
-            "hv.lib",
+            "tribufu_native.lib",
+            "mintaka_native.dll.lib",
         }
 
         prelinkcommands
@@ -87,7 +88,7 @@ project "tribufu_cpp"
 
         postbuildcommands
         {
-            "{COPYFILE} ../vendor/libhv/lib/%{cfg.platform:gsub('-', '/')}/hv.dll %{cfg.targetdir}/hv.dll",
+            "{COPYFILE} ../target/%{cfg.buildcfg}/deps/mintaka_native.dll %{cfg.targetdir}/mintaka_native.dll",
         }
 
     filter { "platforms:mac-*" }
@@ -108,6 +109,8 @@ project "tribufu_cpp"
 
         links
         {
+            "tribufu_native",
+            "mintaka_native",
         }
 
         prelinkcommands
@@ -135,6 +138,8 @@ project "tribufu_cpp"
 
         links
         {
+            "tribufu_native",
+            "mintaka_native",
         }
 
         prelinkcommands
@@ -162,6 +167,8 @@ project "tribufu_cpp"
 
         links
         {
+            "tribufu_native",
+            "mintaka_native",
         }
 
         prelinkcommands
@@ -189,6 +196,16 @@ project "tribufu_cpp"
         }
 
         links
+        {
+            "tribufu_native",
+            "mintaka_native",
+        }
+
+        prelinkcommands
+        {
+        }
+
+        postbuildcommands
         {
         }
 

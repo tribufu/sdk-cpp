@@ -2,7 +2,7 @@
 
 #pragma once
 
-#include <tribufu/base.h>
+#include <tribufu/prelude.h>
 
 namespace tribufu
 {

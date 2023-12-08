@@ -8,7 +8,7 @@ namespace tribufu
     {
         this->id = id;
         this->secret = secret;
-        this->http = hv::HttpClient();
+        this->http = HttpClient();
     }
 
     TribufuClient::~TribufuClient()
@@ -19,24 +19,18 @@ namespace tribufu
     {
         try
         {
-            const char *base_url = "http://localhost:5000";
+            std::string url = "https://api.tribufu.com/v1/servers";
+            FHttpResponse response = this->http.get(url);
+            std::cout << "status_code: " << response.status_code << std::endl;
 
-            HttpRequest req;
-            req.SetMethod("POST");
-            req.SetUrl(base_url);
-
-            HttpResponse resp;
-
-            int ret = this->http.send(&req, &resp);
-
-            if (ret != 0)
+            if (response.body != nullptr)
             {
-                std::cout << "request_failed" << std::endl;
+                json response_body = json::parse(response.body);
+                std::string json_str = response_body.dump(4);
+                std::cout << json_str << std::endl;
             }
-            else
-            {
-                std::cout << "request_success" << std::endl;
-            }
+
+            mintaka_http_free_response(response);
         }
         catch (std::exception &e)
         {

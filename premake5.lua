@@ -1,8 +1,7 @@
 --- @diagnostic disable: undefined-global
 
-workspace "tribufu_cpp"
+workspace "tribufu"
     location "."
-
     configurations { "debug", "release" }
 
 if _ACTION == "vs2022" then
