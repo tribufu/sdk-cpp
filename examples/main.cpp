@@ -9,7 +9,7 @@ using namespace tribufu;
 int main(int argc, char **argv)
 {
     auto client = new TribufuClient(0, "client_secret");
-    std::cout << "client_id: " << client->get_id() << std::endl;
+    std::cout << "client_id: " << client->get_client_id() << std::endl;
 
     json json_obj = {
         {"nome", "John"},
@@ -20,7 +20,7 @@ int main(int argc, char **argv)
 
     std::cout << json_str << std::endl;
 
-    client->get_token();
+    //client->get_token();
 
     return 0;
 }
