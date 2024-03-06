@@ -79,7 +79,6 @@ project "tribufu_cpp"
         links
         {
             "tribufu_native.lib",
-            "mintaka_native.dll.lib",
         }
 
         prelinkcommands
@@ -109,7 +108,6 @@ project "tribufu_cpp"
         links
         {
             "tribufu_native",
-            "mintaka_native",
         }
 
         prelinkcommands
@@ -138,7 +136,6 @@ project "tribufu_cpp"
         links
         {
             "tribufu_native",
-            "mintaka_native",
         }
 
         prelinkcommands
@@ -167,7 +164,6 @@ project "tribufu_cpp"
         links
         {
             "tribufu_native",
-            "mintaka_native",
         }
 
         prelinkcommands
@@ -197,7 +193,6 @@ project "tribufu_cpp"
         links
         {
             "tribufu_native",
-            "mintaka_native",
         }
 
         prelinkcommands
