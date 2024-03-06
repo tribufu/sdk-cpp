@@ -14,4 +14,3 @@ crate-type = ["staticlib"]
 path = "src/lib.rs"
 
 [dependencies]
-mintaka-native = { path = "./vendor/Mintaka/src/native" }

@@ -4,17 +4,22 @@
 
 namespace tribufu
 {
-    TribufuClient::TribufuClient(uint64_t id, const std::string &secret)
+    TribufuClient::TribufuClient(uint64_t client_id, const std::string &client_secret) : TribufuApi()
     {
-        this->id = id;
-        this->secret = secret;
-        this->http = HttpClient();
+        this->client_id = client_id;
+        this->client_secret = client_secret;
     }
 
     TribufuClient::~TribufuClient()
     {
     }
 
+    uint64_t &TribufuClient::get_client_id()
+    {
+        return this->client_id;
+    }
+
+    /*
     void TribufuClient::get_token()
     {
         try
@@ -37,4 +42,5 @@ namespace tribufu
             std::cout << "exception: " << e.what() << std::endl;
         }
     }
+    */
 }
