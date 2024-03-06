@@ -2,8 +2,8 @@
 
 #pragma once
 
-#include <tribufu/prelude.h>
 #include <tribufu/options.h>
+#include <tribufu/prelude.h>
 
 namespace tribufu
 {
@@ -15,19 +15,13 @@ namespace tribufu
     private:
         std::string base_url;
         TribufuApiOptions options;
-        HttpClient http;
 
     public:
         TribufuApi();
-
         TribufuApi(std::string api_key);
-
         TribufuApi(TribufuApiOptions options);
-
         ~TribufuApi();
-
         static TribufuApi from_env();
-
         static TribufuApi from_env(std::string prefix);
     };
 }

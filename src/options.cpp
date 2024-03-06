@@ -12,11 +12,13 @@ namespace tribufu
     {
     }
 
-    TribufuApiOptions::TribufuApiOptions(std::string access_token, std::string refresh_token, float expires_in) : TribufuApiOptions(nullptr, access_token, refresh_token, expires_in)
+    TribufuApiOptions::TribufuApiOptions(std::string access_token, std::string refresh_token, float expires_in)
+        : TribufuApiOptions(nullptr, access_token, refresh_token, expires_in)
     {
     }
 
-    TribufuApiOptions::TribufuApiOptions(std::string api_key, std::string access_token, std::string refresh_token, float expires_in)
+    TribufuApiOptions::TribufuApiOptions(std::string api_key, std::string access_token, std::string refresh_token,
+                                         float expires_in)
     {
         this->api_key = api_key;
         this->access_token = access_token;

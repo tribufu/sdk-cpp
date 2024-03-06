@@ -2,8 +2,8 @@
 
 #pragma once
 
-#include <tribufu/prelude.h>
 #include <tribufu/api.h>
+#include <tribufu/prelude.h>
 
 namespace tribufu
 {
@@ -15,9 +15,7 @@ namespace tribufu
 
     public:
         TribufuClient(uint64_t id, const std::string &secret);
-
         ~TribufuClient();
-
         uint64_t &get_client_id();
     };
 }

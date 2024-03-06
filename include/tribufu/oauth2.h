@@ -61,7 +61,8 @@ namespace tribufu
 
     public:
         OAuth2AuthorizeRequest();
-        OAuth2AuthorizeRequest(OAuth2ResponseType response_type, uint64_t client_id, const std::string &client_secret, const std::string &redirect_uri, const std::string &scope, const std::string &state);
+        OAuth2AuthorizeRequest(OAuth2ResponseType response_type, uint64_t client_id, const std::string &client_secret,
+                               const std::string &redirect_uri, const std::string &scope, const std::string &state);
         ~OAuth2AuthorizeRequest();
     };
 
@@ -87,7 +88,8 @@ namespace tribufu
 
     public:
         OAuth2ErrorResponse();
-        OAuth2ErrorResponse(OAuth2AuthorizeError error, const std::string &error_description, const std::string &error_uri, const std::string &state);
+        OAuth2ErrorResponse(OAuth2AuthorizeError error, const std::string &error_description,
+                            const std::string &error_uri, const std::string &state);
         ~OAuth2ErrorResponse();
     };
 
@@ -105,7 +107,9 @@ namespace tribufu
 
     public:
         OAuth2TokenRequest();
-        OAuth2TokenRequest(OAuth2GrantType grant_type, uint64_t client_id, const std::string &client_secret, const std::string &redirect_uri, const std::string &code, const std::string &refresh_token, const std::string &username, const std::string &password);
+        OAuth2TokenRequest(OAuth2GrantType grant_type, uint64_t client_id, const std::string &client_secret,
+                           const std::string &redirect_uri, const std::string &code, const std::string &refresh_token,
+                           const std::string &username, const std::string &password);
         ~OAuth2TokenRequest();
     };
 
@@ -121,7 +125,9 @@ namespace tribufu
 
     public:
         OAuth2TokenResponse();
-        OAuth2TokenResponse(OAuth2TokenType token_type, const std::string &access_token, const std::string &refresh_token, const std::string &scope, const std::string &state, uint64_t expires_in);
+        OAuth2TokenResponse(OAuth2TokenType token_type, const std::string &access_token,
+                            const std::string &refresh_token, const std::string &scope, const std::string &state,
+                            uint64_t expires_in);
         ~OAuth2TokenResponse();
     };
 }

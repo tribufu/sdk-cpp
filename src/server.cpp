@@ -4,7 +4,8 @@
 
 namespace tribufu
 {
-    TribufuServer::TribufuServer(uint64_t server_id, uint64_t client_id, const std::string &client_secret) : TribufuClient(client_id, client_secret)
+    TribufuServer::TribufuServer(uint64_t server_id, uint64_t client_id, const std::string &client_secret)
+        : TribufuClient(client_id, client_secret)
     {
         this->server_id = server_id;
     }
