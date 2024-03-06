@@ -3,6 +3,7 @@
 #pragma once
 
 #include <tribufu/prelude.h>
+#include <tribufu/json.h>
 
 namespace tribufu
 {

@@ -3,3 +3,4 @@
 #pragma once
 
 #include <tribufu/client.h>
+#include <tribufu/json.h>
