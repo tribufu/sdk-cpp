@@ -26,6 +26,7 @@ project "tribufu_cpp"
     {
         "../include",
         "../vendor/*/include",
+        "../vendor/*/vendor/*/include",
     }
 
     libdirs
