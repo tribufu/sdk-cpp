@@ -6,7 +6,7 @@ project "tribufu_cpp"
 
     cppdialect "C++20"
 
-    targetdir("../bin/%{cfg.platform:gsub('-', '/')}")
+    targetdir("../bin/%{cfg.platform}")
     objdir("../target/%{cfg.buildcfg}/%{cfg.platform}/%{prj.name}}")
 
     files
@@ -24,6 +24,7 @@ project "tribufu_cpp"
 
     includedirs
     {
+        "../../TribufuSdk/include",
         "../include",
         "../vendor/*/include",
         "../vendor/*/vendor/*/include",
@@ -31,8 +32,9 @@ project "tribufu_cpp"
 
     libdirs
     {
-        "../bin/%{cfg.platform:gsub('-', '/')}",
-        "../vendor/*/lib/%{cfg.platform:gsub('-', '/')}",
+        "../../TribufuSdk/bin/%{cfg.platform}",
+        "../bin/%{cfg.platform}",
+        "../vendor/*/lib/%{cfg.platform}",
     }
 
     -- Profile
@@ -79,7 +81,7 @@ project "tribufu_cpp"
 
         links
         {
-            "tribufu_native.lib",
+            "tribufu_sdk.lib",
         }
 
         prelinkcommands
@@ -88,6 +90,7 @@ project "tribufu_cpp"
 
         postbuildcommands
         {
+            "{COPYFILE} ../../TribufuSdk/bin/%{cfg.platform}/tribufu_sdk.dll ../bin/%{cfg.platform}",
         }
 
     filter { "platforms:mac-*" }
@@ -108,7 +111,7 @@ project "tribufu_cpp"
 
         links
         {
-            "tribufu_native",
+            "tribufu_sdk",
         }
 
         prelinkcommands
@@ -117,6 +120,7 @@ project "tribufu_cpp"
 
         postbuildcommands
         {
+            "{COPYFILE} ../../TribufuSdk/bin/%{cfg.platform}/libtribufu_sdk.dylib ../bin/%{cfg.platform}",
         }
 
     filter { "platforms:linux-*" }
@@ -136,7 +140,7 @@ project "tribufu_cpp"
 
         links
         {
-            "tribufu_native",
+            "tribufu_sdk",
         }
 
         prelinkcommands
@@ -145,6 +149,7 @@ project "tribufu_cpp"
 
         postbuildcommands
         {
+            "{COPYFILE} ../../TribufuSdk/bin/%{cfg.platform}/libtribufu_sdk.so ../bin/%{cfg.platform}",
         }
 
     filter { "platforms:android-*" }
@@ -164,7 +169,7 @@ project "tribufu_cpp"
 
         links
         {
-            "tribufu_native",
+            "tribufu_sdk",
         }
 
         prelinkcommands
@@ -173,6 +178,7 @@ project "tribufu_cpp"
 
         postbuildcommands
         {
+            "{COPYFILE} ../../TribufuSdk/bin/%{cfg.platform}/libtribufu_sdk.so ../bin/%{cfg.platform}",
         }
 
     filter { "platforms:ios-*" }
@@ -193,7 +199,7 @@ project "tribufu_cpp"
 
         links
         {
-            "tribufu_native",
+            "tribufu_sdk",
         }
 
         prelinkcommands

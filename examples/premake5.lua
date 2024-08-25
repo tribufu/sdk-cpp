@@ -7,8 +7,8 @@ project "example"
 
     cppdialect "C++20"
 
-    targetdir("../bin/%{cfg.platform:gsub('-', '/')}")
-    objdir("../target/%{cfg.buildcfg}/obj/%{prj.name}/%{cfg.platform:gsub('-', '/')}")
+    targetdir("../bin/%{cfg.platform}")
+    objdir("../target/%{cfg.buildcfg}/obj/%{prj.name}/%{cfg.platform}")
 
     files
     {
@@ -19,13 +19,14 @@ project "example"
 
     includedirs
     {
+        "../../TribufuSdk/include",
         "../include",
         "../vendor/*/include",
     }
 
     libdirs
     {
-        "../bin/%{cfg.platform:gsub('-', '/')}",
+        "../bin/%{cfg.platform}",
     }
 
     -- Profile

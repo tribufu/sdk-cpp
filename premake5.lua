@@ -1,6 +1,6 @@
 --- @diagnostic disable: undefined-global
 
-workspace "tribufu"
+workspace "tribufu_cpp"
     location "."
     configurations { "debug", "release" }
 
