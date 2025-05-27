@@ -1,6 +1,6 @@
 --- @diagnostic disable: undefined-global
 
-project "tribufu_cpp"
+project "tribufu"
     location "."
     language "C++"
 
@@ -31,8 +31,8 @@ project "tribufu_cpp"
 
     libdirs
     {
-        "../bin/%{cfg.platform:gsub('-', '/')}",
-        "../vendor/*/lib/%{cfg.platform:gsub('-', '/')}",
+        "../bin/%{cfg.platform}",
+        "../vendor/*/lib/%{cfg.platform}",
     }
 
     -- Profile
@@ -61,7 +61,7 @@ project "tribufu_cpp"
 
     -- Platform
 
-    filter { "platforms:windows-*" }
+    filter { "platforms:win-*" }
         kind "SharedLib"
         system "windows"
         systemversion "latest"
@@ -79,7 +79,6 @@ project "tribufu_cpp"
 
         links
         {
-            "tribufu_native.lib",
         }
 
         prelinkcommands
@@ -90,7 +89,7 @@ project "tribufu_cpp"
         {
         }
 
-    filter { "platforms:mac-*" }
+    filter { "platforms:osx-*" }
         kind "SharedLib"
         system "macosx"
         systemversion "10.15"
@@ -108,7 +107,6 @@ project "tribufu_cpp"
 
         links
         {
-            "tribufu_native",
         }
 
         prelinkcommands
@@ -136,7 +134,6 @@ project "tribufu_cpp"
 
         links
         {
-            "tribufu_native",
         }
 
         prelinkcommands
@@ -164,7 +161,6 @@ project "tribufu_cpp"
 
         links
         {
-            "tribufu_native",
         }
 
         prelinkcommands
@@ -193,7 +189,6 @@ project "tribufu_cpp"
 
         links
         {
-            "tribufu_native",
         }
 
         prelinkcommands
@@ -206,29 +201,29 @@ project "tribufu_cpp"
 
     -- Architecture
 
-    filter { "platforms:*-i686" }
+    filter { "platforms:*-x86" }
         architecture "x32"
 
         defines
         {
-            "TRIBUFU_I686",
+            "TRIBUFU_X86",
             "TRIBUFU_32BITS",
         }
 
-    filter { "platforms:*-x86_64" }
+    filter { "platforms:*-x64" }
         architecture "x64"
 
         defines
         {
-            "TRIBUFU_X8664",
+            "TRIBUFU_X64",
             "TRIBUFU_64BITS",
         }
 
-    filter { "platforms:*-aarch64" }
+    filter { "platforms:*-arm64" }
         architecture "ARM64"
 
         defines
         {
-            "TRIBUFU_AARCH64",
+            "TRIBUFU_ARM64",
             "TRIBUFU_64BITS",
         }

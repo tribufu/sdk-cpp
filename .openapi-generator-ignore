@@ -1,0 +1,5 @@
+docs/
+
+.gitignore
+git_push.sh
+README.md
