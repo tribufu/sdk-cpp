@@ -6,7 +6,7 @@ project "tribufu"
 
     cppdialect "C++20"
 
-    targetdir("../bin/%{cfg.platform:gsub('-', '/')}")
+    targetdir("../bin/%{cfg.platform}")
     objdir("../target/%{cfg.buildcfg}/%{cfg.platform}/%{prj.name}}")
 
     files
