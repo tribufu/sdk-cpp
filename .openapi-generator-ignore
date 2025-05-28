@@ -1,5 +1,7 @@
 docs/
 
 .gitignore
+CMakeLists.txt
+Config.cmake.in
 git_push.sh
 README.md

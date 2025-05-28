@@ -13,20 +13,19 @@ project "tribufu"
     {
         "./**.cpp",
         "./**.h",
-        "../include/tribufu/**.h",
+        "../include/**.h",
     }
 
     vpaths
     {
         ["Sources"] = { "./**.cpp" },
-        ["Headers"] = { "./**.h", "../include/tribufu/**.h" },
+        ["Headers"] = { "./**.h", "../include/**.h" },
     }
 
     includedirs
     {
         "../include",
         "../vendor/*/include",
-        "../vendor/*/vendor/*/include",
     }
 
     libdirs
@@ -71,14 +70,16 @@ project "tribufu"
 
         defines
         {
-            "TRIBUFU_WINDOWS",
             "TRIBUFU_DESKTOP",
             "TRIBUFU_DYNAMIC",
             "TRIBUFU_LIBRARY",
+            "TRIBUFU_WINDOWS",
         }
 
         links
         {
+            "bcrypt",
+            "cpprest_2_10.lib",
         }
 
         prelinkcommands
@@ -98,15 +99,16 @@ project "tribufu"
 
         defines
         {
-            "TRIBUFU_MAC",
             "TRIBUFU_APPLE",
             "TRIBUFU_DESKTOP",
             "TRIBUFU_DYNAMIC",
             "TRIBUFU_LIBRARY",
+            "TRIBUFU_MAC",
         }
 
         links
         {
+            "crypto",
         }
 
         prelinkcommands
@@ -125,15 +127,16 @@ project "tribufu"
 
         defines
         {
-            "TRIBUFU_LINUX",
-            "TRIBUFU_UNIX",
             "TRIBUFU_DESKTOP",
             "TRIBUFU_DYNAMIC",
             "TRIBUFU_LIBRARY",
+            "TRIBUFU_LINUX",
+            "TRIBUFU_UNIX",
         }
 
         links
         {
+            "crypto",
         }
 
         prelinkcommands
@@ -153,10 +156,10 @@ project "tribufu"
         defines
         {
             "TRIBUFU_ANDROID",
-            "TRIBUFU_UNIX",
-            "TRIBUFU_MOBILE",
             "TRIBUFU_DYNAMIC",
             "TRIBUFU_LIBRARY",
+            "TRIBUFU_MOBILE",
+            "TRIBUFU_UNIX",
         }
 
         links
@@ -206,8 +209,8 @@ project "tribufu"
 
         defines
         {
-            "TRIBUFU_X86",
             "TRIBUFU_32BITS",
+            "TRIBUFU_X86",
         }
 
     filter { "platforms:*-x64" }
@@ -215,8 +218,8 @@ project "tribufu"
 
         defines
         {
-            "TRIBUFU_X64",
             "TRIBUFU_64BITS",
+            "TRIBUFU_X64",
         }
 
     filter { "platforms:*-arm64" }
@@ -224,6 +227,6 @@ project "tribufu"
 
         defines
         {
-            "TRIBUFU_ARM64",
             "TRIBUFU_64BITS",
+            "TRIBUFU_ARM64",
         }

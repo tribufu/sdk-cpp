@@ -2,6 +2,7 @@
 .vscode/
 bin/
 target/
+vendor/
 
 .DS_Store
 .env
