@@ -13,67 +13,62 @@
 /*
  * CryptoViewModel.h
  *
- * 
+ *
  */
 
 #ifndef TRIBUFU_MODELS_CryptoViewModel_H_
 #define TRIBUFU_MODELS_CryptoViewModel_H_
 
-
 #include "tribufu++/ModelBase.h"
 
 #include <cpprest/details/basic_types.h>
 
-namespace tribufu {
-namespace models {
-
-
-
-class  CryptoViewModel
-    : public ModelBase
+namespace tribufu
 {
-public:
-    CryptoViewModel();
-    virtual ~CryptoViewModel();
+    namespace models
+    {
 
-    /////////////////////////////////////////////
-    /// ModelBase overrides
+        class CryptoViewModel : public ModelBase
+        {
+        public:
+            CryptoViewModel();
+            virtual ~CryptoViewModel();
 
-    void validate() override;
+            /////////////////////////////////////////////
+            /// ModelBase overrides
 
-    web::json::value toJson() const override;
-    bool fromJson(const web::json::value& json) override;
+            void validate() override;
 
-    void toMultipart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& namePrefix) const override;
-    bool fromMultiPart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& namePrefix) override;
+            web::json::value toJson() const override;
+            bool fromJson(const web::json::value &json) override;
 
+            void toMultipart(std::shared_ptr<MultipartFormData> multipart,
+                             const utility::string_t &namePrefix) const override;
+            bool fromMultiPart(std::shared_ptr<MultipartFormData> multipart,
+                               const utility::string_t &namePrefix) override;
 
-    /////////////////////////////////////////////
-    /// CryptoViewModel members
+            /////////////////////////////////////////////
+            /// CryptoViewModel members
 
+            utility::string_t getEncoded() const;
+            bool encodedIsSet() const;
+            void unsetEncoded();
+            void setEncoded(const utility::string_t &value);
 
-    utility::string_t getEncoded() const;
-    bool encodedIsSet() const;
-    void unsetEncoded();
-    void setEncoded(const utility::string_t& value);
+            utility::string_t getDecoded() const;
+            bool decodedIsSet() const;
+            void unsetDecoded();
+            void setDecoded(const utility::string_t &value);
 
-    utility::string_t getDecoded() const;
-    bool decodedIsSet() const;
-    void unsetDecoded();
-    void setDecoded(const utility::string_t& value);
+        protected:
+            utility::string_t m_Encoded;
+            bool m_EncodedIsSet;
 
+            utility::string_t m_Decoded;
+            bool m_DecodedIsSet;
+        };
 
-protected:
-    utility::string_t m_Encoded;
-    bool m_EncodedIsSet;
-
-    utility::string_t m_Decoded;
-    bool m_DecodedIsSet;
-
-};
-
-
-}
+    }
 }
 
 #endif /* TRIBUFU_MODELS_CryptoViewModel_H_ */

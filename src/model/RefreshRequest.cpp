@@ -10,112 +10,114 @@
  * Do not edit the class manually.
  */
 
-
-
 #include "tribufu++/model/RefreshRequest.h"
 
-namespace tribufu {
-namespace models {
-
-RefreshRequest::RefreshRequest()
+namespace tribufu
 {
-    m_Refresh_token = utility::conversions::to_string_t("");
-    m_Refresh_tokenIsSet = false;
-}
-
-RefreshRequest::~RefreshRequest()
-{
-}
-
-void RefreshRequest::validate()
-{
-    // TODO: implement validation
-}
-
-web::json::value RefreshRequest::toJson() const
-{
-    web::json::value val = web::json::value::object();
-    if(m_Refresh_tokenIsSet)
-    {   
-        
-        val[utility::conversions::to_string_t(U("refresh_token"))] = ModelBase::toJson(m_Refresh_token);
-    }
-
-    return val;
-}
-
-bool RefreshRequest::fromJson(const web::json::value& val)
-{
-    bool ok = true;
-    if(val.has_field(utility::conversions::to_string_t(U("refresh_token"))))
+    namespace models
     {
-        const web::json::value& fieldValue = val.at(utility::conversions::to_string_t(U("refresh_token")));
-        if(!fieldValue.is_null())
+
+        RefreshRequest::RefreshRequest()
         {
-            utility::string_t refVal_setRefreshToken;
-            ok &= ModelBase::fromJson(fieldValue, refVal_setRefreshToken);
-            setRefreshToken(refVal_setRefreshToken);
-            
+            m_Refresh_token = utility::conversions::to_string_t("");
+            m_Refresh_tokenIsSet = false;
         }
+
+        RefreshRequest::~RefreshRequest()
+        {
+        }
+
+        void RefreshRequest::validate()
+        {
+            // TODO: implement validation
+        }
+
+        web::json::value RefreshRequest::toJson() const
+        {
+            web::json::value val = web::json::value::object();
+            if (m_Refresh_tokenIsSet)
+            {
+
+                val[utility::conversions::to_string_t(U("refresh_token"))] = ModelBase::toJson(m_Refresh_token);
+            }
+
+            return val;
+        }
+
+        bool RefreshRequest::fromJson(const web::json::value &val)
+        {
+            bool ok = true;
+            if (val.has_field(utility::conversions::to_string_t(U("refresh_token"))))
+            {
+                const web::json::value &fieldValue = val.at(utility::conversions::to_string_t(U("refresh_token")));
+                if (!fieldValue.is_null())
+                {
+                    utility::string_t refVal_setRefreshToken;
+                    ok &= ModelBase::fromJson(fieldValue, refVal_setRefreshToken);
+                    setRefreshToken(refVal_setRefreshToken);
+                }
+            }
+            return ok;
+        }
+
+        void RefreshRequest::toMultipart(std::shared_ptr<MultipartFormData> multipart,
+                                         const utility::string_t &prefix) const
+        {
+            utility::string_t namePrefix = prefix;
+            if (namePrefix.size() > 0 &&
+                namePrefix.substr(namePrefix.size() - 1) != utility::conversions::to_string_t(U(".")))
+            {
+                namePrefix += utility::conversions::to_string_t(U("."));
+            }
+            if (m_Refresh_tokenIsSet)
+            {
+                multipart->add(ModelBase::toHttpContent(
+                    namePrefix + utility::conversions::to_string_t(U("refresh_token")), m_Refresh_token));
+            }
+        }
+
+        bool RefreshRequest::fromMultiPart(std::shared_ptr<MultipartFormData> multipart,
+                                           const utility::string_t &prefix)
+        {
+            bool ok = true;
+            utility::string_t namePrefix = prefix;
+            if (namePrefix.size() > 0 &&
+                namePrefix.substr(namePrefix.size() - 1) != utility::conversions::to_string_t(U(".")))
+            {
+                namePrefix += utility::conversions::to_string_t(U("."));
+            }
+
+            if (multipart->hasContent(utility::conversions::to_string_t(U("refresh_token"))))
+            {
+                utility::string_t refVal_setRefreshToken;
+                ok &= ModelBase::fromHttpContent(
+                    multipart->getContent(utility::conversions::to_string_t(U("refresh_token"))),
+                    refVal_setRefreshToken);
+                setRefreshToken(refVal_setRefreshToken);
+            }
+            return ok;
+        }
+
+        utility::string_t RefreshRequest::getRefreshToken() const
+        {
+            return m_Refresh_token;
+        }
+
+        void RefreshRequest::setRefreshToken(const utility::string_t &value)
+        {
+            m_Refresh_token = value;
+            m_Refresh_tokenIsSet = true;
+        }
+
+        bool RefreshRequest::refreshTokenIsSet() const
+        {
+            return m_Refresh_tokenIsSet;
+        }
+
+        void RefreshRequest::unsetRefresh_token()
+        {
+            m_Refresh_tokenIsSet = false;
+        }
+
     }
-    return ok;
 }
-
-void RefreshRequest::toMultipart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& prefix) const
-{
-    utility::string_t namePrefix = prefix;
-    if(namePrefix.size() > 0 && namePrefix.substr(namePrefix.size() - 1) != utility::conversions::to_string_t(U(".")))
-    {
-        namePrefix += utility::conversions::to_string_t(U("."));
-    }
-    if(m_Refresh_tokenIsSet)
-    {
-        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("refresh_token")), m_Refresh_token));
-    }
-}
-
-bool RefreshRequest::fromMultiPart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& prefix)
-{
-    bool ok = true;
-    utility::string_t namePrefix = prefix;
-    if(namePrefix.size() > 0 && namePrefix.substr(namePrefix.size() - 1) != utility::conversions::to_string_t(U(".")))
-    {
-        namePrefix += utility::conversions::to_string_t(U("."));
-    }
-
-    if(multipart->hasContent(utility::conversions::to_string_t(U("refresh_token"))))
-    {
-        utility::string_t refVal_setRefreshToken;
-        ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(U("refresh_token"))), refVal_setRefreshToken );
-        setRefreshToken(refVal_setRefreshToken);
-    }
-    return ok;
-}
-
-
-utility::string_t RefreshRequest::getRefreshToken() const
-{
-    return m_Refresh_token;
-}
-
-
-void RefreshRequest::setRefreshToken(const utility::string_t& value)
-{
-    m_Refresh_token = value;
-    m_Refresh_tokenIsSet = true;
-}
-
-bool RefreshRequest::refreshTokenIsSet() const
-{
-    return m_Refresh_tokenIsSet;
-}
-
-void RefreshRequest::unsetRefresh_token()
-{
-    m_Refresh_tokenIsSet = false;
-}
-
-}
-}
-
-

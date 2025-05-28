@@ -13,83 +13,78 @@
 /*
  * RegisterRequest.h
  *
- * 
+ *
  */
 
 #ifndef TRIBUFU_MODELS_RegisterRequest_H_
 #define TRIBUFU_MODELS_RegisterRequest_H_
 
-
 #include "tribufu++/ModelBase.h"
 
 #include <cpprest/details/basic_types.h>
 
-namespace tribufu {
-namespace models {
-
-
-
-class  RegisterRequest
-    : public ModelBase
+namespace tribufu
 {
-public:
-    RegisterRequest();
-    virtual ~RegisterRequest();
+    namespace models
+    {
 
-    /////////////////////////////////////////////
-    /// ModelBase overrides
+        class RegisterRequest : public ModelBase
+        {
+        public:
+            RegisterRequest();
+            virtual ~RegisterRequest();
 
-    void validate() override;
+            /////////////////////////////////////////////
+            /// ModelBase overrides
 
-    web::json::value toJson() const override;
-    bool fromJson(const web::json::value& json) override;
+            void validate() override;
 
-    void toMultipart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& namePrefix) const override;
-    bool fromMultiPart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& namePrefix) override;
+            web::json::value toJson() const override;
+            bool fromJson(const web::json::value &json) override;
 
+            void toMultipart(std::shared_ptr<MultipartFormData> multipart,
+                             const utility::string_t &namePrefix) const override;
+            bool fromMultiPart(std::shared_ptr<MultipartFormData> multipart,
+                               const utility::string_t &namePrefix) override;
 
-    /////////////////////////////////////////////
-    /// RegisterRequest members
+            /////////////////////////////////////////////
+            /// RegisterRequest members
 
+            utility::string_t getUuid() const;
+            bool uuidIsSet() const;
+            void unsetUuid();
+            void setUuid(const utility::string_t &value);
 
-    utility::string_t getUuid() const;
-    bool uuidIsSet() const;
-    void unsetUuid();
-    void setUuid(const utility::string_t& value);
+            utility::string_t getName() const;
+            bool nameIsSet() const;
+            void unsetName();
+            void setName(const utility::string_t &value);
 
-    utility::string_t getName() const;
-    bool nameIsSet() const;
-    void unsetName();
-    void setName(const utility::string_t& value);
+            utility::string_t getEmail() const;
+            bool emailIsSet() const;
+            void unsetEmail();
+            void setEmail(const utility::string_t &value);
 
-    utility::string_t getEmail() const;
-    bool emailIsSet() const;
-    void unsetEmail();
-    void setEmail(const utility::string_t& value);
+            utility::string_t getPassword() const;
+            bool passwordIsSet() const;
+            void unsetPassword();
+            void setPassword(const utility::string_t &value);
 
-    utility::string_t getPassword() const;
-    bool passwordIsSet() const;
-    void unsetPassword();
-    void setPassword(const utility::string_t& value);
+        protected:
+            utility::string_t m_Uuid;
+            bool m_UuidIsSet;
 
+            utility::string_t m_Name;
+            bool m_NameIsSet;
 
-protected:
-    utility::string_t m_Uuid;
-    bool m_UuidIsSet;
+            utility::string_t m_Email;
+            bool m_EmailIsSet;
 
-    utility::string_t m_Name;
-    bool m_NameIsSet;
+            utility::string_t m_Password;
+            bool m_PasswordIsSet;
+        };
 
-    utility::string_t m_Email;
-    bool m_EmailIsSet;
-
-    utility::string_t m_Password;
-    bool m_PasswordIsSet;
-
-};
-
-
-}
+    }
 }
 
 #endif /* TRIBUFU_MODELS_RegisterRequest_H_ */

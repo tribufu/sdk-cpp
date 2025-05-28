@@ -13,54 +13,54 @@
 /*
  * GrantType.h
  *
- * 
+ *
  */
 
 #ifndef TRIBUFU_MODELS_GrantType_H_
 #define TRIBUFU_MODELS_GrantType_H_
 
-
 #include "tribufu++/ModelBase.h"
 
-
-namespace tribufu {
-namespace models {
-
-
-class  GrantType
-    : public ModelBase
+namespace tribufu
 {
-public:
-    GrantType();
-    virtual ~GrantType();
-
-    /////////////////////////////////////////////
-    /// ModelBase overrides
-
-    void validate() override;
-
-    web::json::value toJson() const override;
-    bool fromJson(const web::json::value& json) override;
-
-    void toMultipart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& namePrefix) const override;
-    bool fromMultiPart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& namePrefix) override;
-
-    enum class eGrantType
+    namespace models
     {
-        GrantType_AUTHORIZATION_CODE,
-        GrantType_CLIENT_CREDENTIALS,
-        GrantType_PASSWORD,
-        GrantType_REFRESH_TOKEN,
-    };
 
-    eGrantType getValue() const;
-    void setValue(eGrantType const value);
+        class GrantType : public ModelBase
+        {
+        public:
+            GrantType();
+            virtual ~GrantType();
 
-    protected:
-        eGrantType m_value;
-};
+            /////////////////////////////////////////////
+            /// ModelBase overrides
 
-}
+            void validate() override;
+
+            web::json::value toJson() const override;
+            bool fromJson(const web::json::value &json) override;
+
+            void toMultipart(std::shared_ptr<MultipartFormData> multipart,
+                             const utility::string_t &namePrefix) const override;
+            bool fromMultiPart(std::shared_ptr<MultipartFormData> multipart,
+                               const utility::string_t &namePrefix) override;
+
+            enum class eGrantType
+            {
+                GrantType_AUTHORIZATION_CODE,
+                GrantType_CLIENT_CREDENTIALS,
+                GrantType_PASSWORD,
+                GrantType_REFRESH_TOKEN,
+            };
+
+            eGrantType getValue() const;
+            void setValue(eGrantType const value);
+
+        protected:
+            eGrantType m_value;
+        };
+
+    }
 }
 
 #endif /* TRIBUFU_MODELS_GrantType_H_ */

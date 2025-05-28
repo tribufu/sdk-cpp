@@ -19,40 +19,40 @@
 #ifndef TRIBUFU_MODELS_MultipartFormData_H_
 #define TRIBUFU_MODELS_MultipartFormData_H_
 
-
-#include "tribufu++/IHttpBody.h"
 #include "tribufu++/HttpContent.h"
+#include "tribufu++/IHttpBody.h"
 
 #include <cpprest/details/basic_types.h>
 
-#include <vector>
 #include <map>
 #include <memory>
+#include <vector>
 
-namespace tribufu {
-namespace models {
-
-class  MultipartFormData
-    : public IHttpBody
+namespace tribufu
 {
-public:
-    MultipartFormData();
-    MultipartFormData(const utility::string_t& boundary);
-    virtual ~MultipartFormData();
+    namespace models
+    {
 
-    virtual void add( std::shared_ptr<HttpContent> content );
-    virtual utility::string_t getBoundary();
-    virtual std::shared_ptr<HttpContent> getContent(const utility::string_t& name) const;
-    virtual bool hasContent(const utility::string_t& name) const;
-    virtual void writeTo( std::ostream& target );
+        class MultipartFormData : public IHttpBody
+        {
+        public:
+            MultipartFormData();
+            MultipartFormData(const utility::string_t &boundary);
+            virtual ~MultipartFormData();
 
-protected:
-    std::vector<std::shared_ptr<HttpContent>> m_Contents;
-    utility::string_t m_Boundary;
-    std::map<utility::string_t, std::shared_ptr<HttpContent>> m_ContentLookup;
-};
+            virtual void add(std::shared_ptr<HttpContent> content);
+            virtual utility::string_t getBoundary();
+            virtual std::shared_ptr<HttpContent> getContent(const utility::string_t &name) const;
+            virtual bool hasContent(const utility::string_t &name) const;
+            virtual void writeTo(std::ostream &target);
 
-}
+        protected:
+            std::vector<std::shared_ptr<HttpContent>> m_Contents;
+            utility::string_t m_Boundary;
+            std::map<utility::string_t, std::shared_ptr<HttpContent>> m_ContentLookup;
+        };
+
+    }
 }
 
 #endif /* TRIBUFU_MODELS_MultipartFormData_H_ */

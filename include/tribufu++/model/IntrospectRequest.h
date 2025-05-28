@@ -13,7 +13,7 @@
 /*
  * IntrospectRequest.h
  *
- * 
+ *
  */
 
 #ifndef TRIBUFU_MODELS_IntrospectRequest_H_
@@ -23,59 +23,55 @@
 
 #include "tribufu++/ModelBase.h"
 
-#include <cpprest/details/basic_types.h>
 #include "tribufu++/model/TokenHintType.h"
+#include <cpprest/details/basic_types.h>
 
-namespace tribufu {
-namespace models {
-
-
-
-class  IntrospectRequest
-    : public ModelBase
+namespace tribufu
 {
-public:
-    IntrospectRequest();
-    virtual ~IntrospectRequest();
+    namespace models
+    {
 
-    /////////////////////////////////////////////
-    /// ModelBase overrides
+        class IntrospectRequest : public ModelBase
+        {
+        public:
+            IntrospectRequest();
+            virtual ~IntrospectRequest();
 
-    void validate() override;
+            /////////////////////////////////////////////
+            /// ModelBase overrides
 
-    web::json::value toJson() const override;
-    bool fromJson(const web::json::value& json) override;
+            void validate() override;
 
-    void toMultipart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& namePrefix) const override;
-    bool fromMultiPart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& namePrefix) override;
+            web::json::value toJson() const override;
+            bool fromJson(const web::json::value &json) override;
 
+            void toMultipart(std::shared_ptr<MultipartFormData> multipart,
+                             const utility::string_t &namePrefix) const override;
+            bool fromMultiPart(std::shared_ptr<MultipartFormData> multipart,
+                               const utility::string_t &namePrefix) override;
 
-    /////////////////////////////////////////////
-    /// IntrospectRequest members
+            /////////////////////////////////////////////
+            /// IntrospectRequest members
 
+            utility::string_t getToken() const;
+            bool tokenIsSet() const;
+            void unsetToken();
+            void setToken(const utility::string_t &value);
 
-    utility::string_t getToken() const;
-    bool tokenIsSet() const;
-    void unsetToken();
-    void setToken(const utility::string_t& value);
+            std::shared_ptr<TokenHintType> getTokenTypeHint() const;
+            bool tokenTypeHintIsSet() const;
+            void unsetToken_type_hint();
+            void setTokenTypeHint(const std::shared_ptr<TokenHintType> &value);
 
-    std::shared_ptr<TokenHintType> getTokenTypeHint() const;
-    bool tokenTypeHintIsSet() const;
-    void unsetToken_type_hint();
-    void setTokenTypeHint(const std::shared_ptr<TokenHintType>& value);
+        protected:
+            utility::string_t m_Token;
+            bool m_TokenIsSet;
 
+            std::shared_ptr<TokenHintType> m_Token_type_hint;
+            bool m_Token_type_hintIsSet;
+        };
 
-protected:
-    utility::string_t m_Token;
-    bool m_TokenIsSet;
-
-    std::shared_ptr<TokenHintType> m_Token_type_hint;
-    bool m_Token_type_hintIsSet;
-
-};
-
-
-}
+    }
 }
 
 #endif /* TRIBUFU_MODELS_IntrospectRequest_H_ */

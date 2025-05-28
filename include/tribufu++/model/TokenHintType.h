@@ -13,52 +13,52 @@
 /*
  * TokenHintType.h
  *
- * 
+ *
  */
 
 #ifndef TRIBUFU_MODELS_TokenHintType_H_
 #define TRIBUFU_MODELS_TokenHintType_H_
 
-
 #include "tribufu++/ModelBase.h"
 
-
-namespace tribufu {
-namespace models {
-
-
-class  TokenHintType
-    : public ModelBase
+namespace tribufu
 {
-public:
-    TokenHintType();
-    virtual ~TokenHintType();
-
-    /////////////////////////////////////////////
-    /// ModelBase overrides
-
-    void validate() override;
-
-    web::json::value toJson() const override;
-    bool fromJson(const web::json::value& json) override;
-
-    void toMultipart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& namePrefix) const override;
-    bool fromMultiPart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& namePrefix) override;
-
-    enum class eTokenHintType
+    namespace models
     {
-        TokenHintType_ACCESS_TOKEN,
-        TokenHintType_REFRESH_TOKEN,
-    };
 
-    eTokenHintType getValue() const;
-    void setValue(eTokenHintType const value);
+        class TokenHintType : public ModelBase
+        {
+        public:
+            TokenHintType();
+            virtual ~TokenHintType();
 
-    protected:
-        eTokenHintType m_value;
-};
+            /////////////////////////////////////////////
+            /// ModelBase overrides
 
-}
+            void validate() override;
+
+            web::json::value toJson() const override;
+            bool fromJson(const web::json::value &json) override;
+
+            void toMultipart(std::shared_ptr<MultipartFormData> multipart,
+                             const utility::string_t &namePrefix) const override;
+            bool fromMultiPart(std::shared_ptr<MultipartFormData> multipart,
+                               const utility::string_t &namePrefix) override;
+
+            enum class eTokenHintType
+            {
+                TokenHintType_ACCESS_TOKEN,
+                TokenHintType_REFRESH_TOKEN,
+            };
+
+            eTokenHintType getValue() const;
+            void setValue(eTokenHintType const value);
+
+        protected:
+            eTokenHintType m_value;
+        };
+
+    }
 }
 
 #endif /* TRIBUFU_MODELS_TokenHintType_H_ */

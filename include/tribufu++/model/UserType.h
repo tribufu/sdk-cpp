@@ -13,52 +13,52 @@
 /*
  * UserType.h
  *
- * 
+ *
  */
 
 #ifndef TRIBUFU_MODELS_UserType_H_
 #define TRIBUFU_MODELS_UserType_H_
 
-
 #include "tribufu++/ModelBase.h"
 
-
-namespace tribufu {
-namespace models {
-
-
-class  UserType
-    : public ModelBase
+namespace tribufu
 {
-public:
-    UserType();
-    virtual ~UserType();
-
-    /////////////////////////////////////////////
-    /// ModelBase overrides
-
-    void validate() override;
-
-    web::json::value toJson() const override;
-    bool fromJson(const web::json::value& json) override;
-
-    void toMultipart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& namePrefix) const override;
-    bool fromMultiPart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& namePrefix) override;
-
-    enum class eUserType
+    namespace models
     {
-        UserType_USER,
-        UserType_BOT,
-    };
 
-    eUserType getValue() const;
-    void setValue(eUserType const value);
+        class UserType : public ModelBase
+        {
+        public:
+            UserType();
+            virtual ~UserType();
 
-    protected:
-        eUserType m_value;
-};
+            /////////////////////////////////////////////
+            /// ModelBase overrides
 
-}
+            void validate() override;
+
+            web::json::value toJson() const override;
+            bool fromJson(const web::json::value &json) override;
+
+            void toMultipart(std::shared_ptr<MultipartFormData> multipart,
+                             const utility::string_t &namePrefix) const override;
+            bool fromMultiPart(std::shared_ptr<MultipartFormData> multipart,
+                               const utility::string_t &namePrefix) override;
+
+            enum class eUserType
+            {
+                UserType_USER,
+                UserType_BOT,
+            };
+
+            eUserType getValue() const;
+            void setValue(eUserType const value);
+
+        protected:
+            eUserType m_value;
+        };
+
+    }
 }
 
 #endif /* TRIBUFU_MODELS_UserType_H_ */

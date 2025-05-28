@@ -10,454 +10,456 @@
  * Do not edit the class manually.
  */
 
-
-
 #include "tribufu++/model/TokenRequest.h"
 
-namespace tribufu {
-namespace models {
-
-TokenRequest::TokenRequest()
+namespace tribufu
 {
-    m_Grant_typeIsSet = false;
-    m_Code = utility::conversions::to_string_t("");
-    m_CodeIsSet = false;
-    m_Username = utility::conversions::to_string_t("");
-    m_UsernameIsSet = false;
-    m_Password = utility::conversions::to_string_t("");
-    m_PasswordIsSet = false;
-    m_Refresh_token = utility::conversions::to_string_t("");
-    m_Refresh_tokenIsSet = false;
-    m_Client_id = utility::conversions::to_string_t("");
-    m_Client_idIsSet = false;
-    m_Redirect_uri = utility::conversions::to_string_t("");
-    m_Redirect_uriIsSet = false;
-    m_Code_verifier = utility::conversions::to_string_t("");
-    m_Code_verifierIsSet = false;
-}
-
-TokenRequest::~TokenRequest()
-{
-}
-
-void TokenRequest::validate()
-{
-    // TODO: implement validation
-}
-
-web::json::value TokenRequest::toJson() const
-{
-    web::json::value val = web::json::value::object();
-    if(m_Grant_typeIsSet)
-    {   
-        
-        val[utility::conversions::to_string_t(U("grant_type"))] = ModelBase::toJson(m_Grant_type);
-    }
-    if(m_CodeIsSet)
-    {   
-        
-        val[utility::conversions::to_string_t(U("code"))] = ModelBase::toJson(m_Code);
-    }
-    if(m_UsernameIsSet)
-    {   
-        
-        val[utility::conversions::to_string_t(U("username"))] = ModelBase::toJson(m_Username);
-    }
-    if(m_PasswordIsSet)
-    {   
-        
-        val[utility::conversions::to_string_t(U("password"))] = ModelBase::toJson(m_Password);
-    }
-    if(m_Refresh_tokenIsSet)
-    {   
-        
-        val[utility::conversions::to_string_t(U("refresh_token"))] = ModelBase::toJson(m_Refresh_token);
-    }
-    if(m_Client_idIsSet)
-    {   
-        
-        val[utility::conversions::to_string_t(U("client_id"))] = ModelBase::toJson(m_Client_id);
-    }
-    if(m_Redirect_uriIsSet)
-    {   
-        
-        val[utility::conversions::to_string_t(U("redirect_uri"))] = ModelBase::toJson(m_Redirect_uri);
-    }
-    if(m_Code_verifierIsSet)
-    {   
-        
-        val[utility::conversions::to_string_t(U("code_verifier"))] = ModelBase::toJson(m_Code_verifier);
-    }
-
-    return val;
-}
-
-bool TokenRequest::fromJson(const web::json::value& val)
-{
-    bool ok = true;
-    if(val.has_field(utility::conversions::to_string_t(U("grant_type"))))
+    namespace models
     {
-        const web::json::value& fieldValue = val.at(utility::conversions::to_string_t(U("grant_type")));
-        if(!fieldValue.is_null())
+
+        TokenRequest::TokenRequest()
         {
-            std::shared_ptr<GrantType> refVal_setGrantType;
-            ok &= ModelBase::fromJson(fieldValue, refVal_setGrantType);
-            setGrantType(refVal_setGrantType);
-            
+            m_Grant_typeIsSet = false;
+            m_Code = utility::conversions::to_string_t("");
+            m_CodeIsSet = false;
+            m_Username = utility::conversions::to_string_t("");
+            m_UsernameIsSet = false;
+            m_Password = utility::conversions::to_string_t("");
+            m_PasswordIsSet = false;
+            m_Refresh_token = utility::conversions::to_string_t("");
+            m_Refresh_tokenIsSet = false;
+            m_Client_id = utility::conversions::to_string_t("");
+            m_Client_idIsSet = false;
+            m_Redirect_uri = utility::conversions::to_string_t("");
+            m_Redirect_uriIsSet = false;
+            m_Code_verifier = utility::conversions::to_string_t("");
+            m_Code_verifierIsSet = false;
         }
-    }
-    if(val.has_field(utility::conversions::to_string_t(U("code"))))
-    {
-        const web::json::value& fieldValue = val.at(utility::conversions::to_string_t(U("code")));
-        if(!fieldValue.is_null())
+
+        TokenRequest::~TokenRequest()
         {
-            utility::string_t refVal_setCode;
-            ok &= ModelBase::fromJson(fieldValue, refVal_setCode);
-            setCode(refVal_setCode);
-            
         }
-    }
-    if(val.has_field(utility::conversions::to_string_t(U("username"))))
-    {
-        const web::json::value& fieldValue = val.at(utility::conversions::to_string_t(U("username")));
-        if(!fieldValue.is_null())
+
+        void TokenRequest::validate()
         {
-            utility::string_t refVal_setUsername;
-            ok &= ModelBase::fromJson(fieldValue, refVal_setUsername);
-            setUsername(refVal_setUsername);
-            
+            // TODO: implement validation
         }
-    }
-    if(val.has_field(utility::conversions::to_string_t(U("password"))))
-    {
-        const web::json::value& fieldValue = val.at(utility::conversions::to_string_t(U("password")));
-        if(!fieldValue.is_null())
+
+        web::json::value TokenRequest::toJson() const
         {
-            utility::string_t refVal_setPassword;
-            ok &= ModelBase::fromJson(fieldValue, refVal_setPassword);
-            setPassword(refVal_setPassword);
-            
+            web::json::value val = web::json::value::object();
+            if (m_Grant_typeIsSet)
+            {
+
+                val[utility::conversions::to_string_t(U("grant_type"))] = ModelBase::toJson(m_Grant_type);
+            }
+            if (m_CodeIsSet)
+            {
+
+                val[utility::conversions::to_string_t(U("code"))] = ModelBase::toJson(m_Code);
+            }
+            if (m_UsernameIsSet)
+            {
+
+                val[utility::conversions::to_string_t(U("username"))] = ModelBase::toJson(m_Username);
+            }
+            if (m_PasswordIsSet)
+            {
+
+                val[utility::conversions::to_string_t(U("password"))] = ModelBase::toJson(m_Password);
+            }
+            if (m_Refresh_tokenIsSet)
+            {
+
+                val[utility::conversions::to_string_t(U("refresh_token"))] = ModelBase::toJson(m_Refresh_token);
+            }
+            if (m_Client_idIsSet)
+            {
+
+                val[utility::conversions::to_string_t(U("client_id"))] = ModelBase::toJson(m_Client_id);
+            }
+            if (m_Redirect_uriIsSet)
+            {
+
+                val[utility::conversions::to_string_t(U("redirect_uri"))] = ModelBase::toJson(m_Redirect_uri);
+            }
+            if (m_Code_verifierIsSet)
+            {
+
+                val[utility::conversions::to_string_t(U("code_verifier"))] = ModelBase::toJson(m_Code_verifier);
+            }
+
+            return val;
         }
-    }
-    if(val.has_field(utility::conversions::to_string_t(U("refresh_token"))))
-    {
-        const web::json::value& fieldValue = val.at(utility::conversions::to_string_t(U("refresh_token")));
-        if(!fieldValue.is_null())
+
+        bool TokenRequest::fromJson(const web::json::value &val)
         {
-            utility::string_t refVal_setRefreshToken;
-            ok &= ModelBase::fromJson(fieldValue, refVal_setRefreshToken);
-            setRefreshToken(refVal_setRefreshToken);
-            
+            bool ok = true;
+            if (val.has_field(utility::conversions::to_string_t(U("grant_type"))))
+            {
+                const web::json::value &fieldValue = val.at(utility::conversions::to_string_t(U("grant_type")));
+                if (!fieldValue.is_null())
+                {
+                    std::shared_ptr<GrantType> refVal_setGrantType;
+                    ok &= ModelBase::fromJson(fieldValue, refVal_setGrantType);
+                    setGrantType(refVal_setGrantType);
+                }
+            }
+            if (val.has_field(utility::conversions::to_string_t(U("code"))))
+            {
+                const web::json::value &fieldValue = val.at(utility::conversions::to_string_t(U("code")));
+                if (!fieldValue.is_null())
+                {
+                    utility::string_t refVal_setCode;
+                    ok &= ModelBase::fromJson(fieldValue, refVal_setCode);
+                    setCode(refVal_setCode);
+                }
+            }
+            if (val.has_field(utility::conversions::to_string_t(U("username"))))
+            {
+                const web::json::value &fieldValue = val.at(utility::conversions::to_string_t(U("username")));
+                if (!fieldValue.is_null())
+                {
+                    utility::string_t refVal_setUsername;
+                    ok &= ModelBase::fromJson(fieldValue, refVal_setUsername);
+                    setUsername(refVal_setUsername);
+                }
+            }
+            if (val.has_field(utility::conversions::to_string_t(U("password"))))
+            {
+                const web::json::value &fieldValue = val.at(utility::conversions::to_string_t(U("password")));
+                if (!fieldValue.is_null())
+                {
+                    utility::string_t refVal_setPassword;
+                    ok &= ModelBase::fromJson(fieldValue, refVal_setPassword);
+                    setPassword(refVal_setPassword);
+                }
+            }
+            if (val.has_field(utility::conversions::to_string_t(U("refresh_token"))))
+            {
+                const web::json::value &fieldValue = val.at(utility::conversions::to_string_t(U("refresh_token")));
+                if (!fieldValue.is_null())
+                {
+                    utility::string_t refVal_setRefreshToken;
+                    ok &= ModelBase::fromJson(fieldValue, refVal_setRefreshToken);
+                    setRefreshToken(refVal_setRefreshToken);
+                }
+            }
+            if (val.has_field(utility::conversions::to_string_t(U("client_id"))))
+            {
+                const web::json::value &fieldValue = val.at(utility::conversions::to_string_t(U("client_id")));
+                if (!fieldValue.is_null())
+                {
+                    utility::string_t refVal_setClientId;
+                    ok &= ModelBase::fromJson(fieldValue, refVal_setClientId);
+                    setClientId(refVal_setClientId);
+                }
+            }
+            if (val.has_field(utility::conversions::to_string_t(U("redirect_uri"))))
+            {
+                const web::json::value &fieldValue = val.at(utility::conversions::to_string_t(U("redirect_uri")));
+                if (!fieldValue.is_null())
+                {
+                    utility::string_t refVal_setRedirectUri;
+                    ok &= ModelBase::fromJson(fieldValue, refVal_setRedirectUri);
+                    setRedirectUri(refVal_setRedirectUri);
+                }
+            }
+            if (val.has_field(utility::conversions::to_string_t(U("code_verifier"))))
+            {
+                const web::json::value &fieldValue = val.at(utility::conversions::to_string_t(U("code_verifier")));
+                if (!fieldValue.is_null())
+                {
+                    utility::string_t refVal_setCodeVerifier;
+                    ok &= ModelBase::fromJson(fieldValue, refVal_setCodeVerifier);
+                    setCodeVerifier(refVal_setCodeVerifier);
+                }
+            }
+            return ok;
         }
-    }
-    if(val.has_field(utility::conversions::to_string_t(U("client_id"))))
-    {
-        const web::json::value& fieldValue = val.at(utility::conversions::to_string_t(U("client_id")));
-        if(!fieldValue.is_null())
+
+        void TokenRequest::toMultipart(std::shared_ptr<MultipartFormData> multipart,
+                                       const utility::string_t &prefix) const
         {
-            utility::string_t refVal_setClientId;
-            ok &= ModelBase::fromJson(fieldValue, refVal_setClientId);
-            setClientId(refVal_setClientId);
-            
+            utility::string_t namePrefix = prefix;
+            if (namePrefix.size() > 0 &&
+                namePrefix.substr(namePrefix.size() - 1) != utility::conversions::to_string_t(U(".")))
+            {
+                namePrefix += utility::conversions::to_string_t(U("."));
+            }
+            if (m_Grant_typeIsSet)
+            {
+                multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("grant_type")),
+                                                        m_Grant_type));
+            }
+            if (m_CodeIsSet)
+            {
+                multipart->add(
+                    ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("code")), m_Code));
+            }
+            if (m_UsernameIsSet)
+            {
+                multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("username")),
+                                                        m_Username));
+            }
+            if (m_PasswordIsSet)
+            {
+                multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("password")),
+                                                        m_Password));
+            }
+            if (m_Refresh_tokenIsSet)
+            {
+                multipart->add(ModelBase::toHttpContent(
+                    namePrefix + utility::conversions::to_string_t(U("refresh_token")), m_Refresh_token));
+            }
+            if (m_Client_idIsSet)
+            {
+                multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("client_id")),
+                                                        m_Client_id));
+            }
+            if (m_Redirect_uriIsSet)
+            {
+                multipart->add(ModelBase::toHttpContent(
+                    namePrefix + utility::conversions::to_string_t(U("redirect_uri")), m_Redirect_uri));
+            }
+            if (m_Code_verifierIsSet)
+            {
+                multipart->add(ModelBase::toHttpContent(
+                    namePrefix + utility::conversions::to_string_t(U("code_verifier")), m_Code_verifier));
+            }
         }
-    }
-    if(val.has_field(utility::conversions::to_string_t(U("redirect_uri"))))
-    {
-        const web::json::value& fieldValue = val.at(utility::conversions::to_string_t(U("redirect_uri")));
-        if(!fieldValue.is_null())
+
+        bool TokenRequest::fromMultiPart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t &prefix)
         {
-            utility::string_t refVal_setRedirectUri;
-            ok &= ModelBase::fromJson(fieldValue, refVal_setRedirectUri);
-            setRedirectUri(refVal_setRedirectUri);
-            
+            bool ok = true;
+            utility::string_t namePrefix = prefix;
+            if (namePrefix.size() > 0 &&
+                namePrefix.substr(namePrefix.size() - 1) != utility::conversions::to_string_t(U(".")))
+            {
+                namePrefix += utility::conversions::to_string_t(U("."));
+            }
+
+            if (multipart->hasContent(utility::conversions::to_string_t(U("grant_type"))))
+            {
+                std::shared_ptr<GrantType> refVal_setGrantType;
+                ok &= ModelBase::fromHttpContent(
+                    multipart->getContent(utility::conversions::to_string_t(U("grant_type"))), refVal_setGrantType);
+                setGrantType(refVal_setGrantType);
+            }
+            if (multipart->hasContent(utility::conversions::to_string_t(U("code"))))
+            {
+                utility::string_t refVal_setCode;
+                ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(U("code"))),
+                                                 refVal_setCode);
+                setCode(refVal_setCode);
+            }
+            if (multipart->hasContent(utility::conversions::to_string_t(U("username"))))
+            {
+                utility::string_t refVal_setUsername;
+                ok &= ModelBase::fromHttpContent(
+                    multipart->getContent(utility::conversions::to_string_t(U("username"))), refVal_setUsername);
+                setUsername(refVal_setUsername);
+            }
+            if (multipart->hasContent(utility::conversions::to_string_t(U("password"))))
+            {
+                utility::string_t refVal_setPassword;
+                ok &= ModelBase::fromHttpContent(
+                    multipart->getContent(utility::conversions::to_string_t(U("password"))), refVal_setPassword);
+                setPassword(refVal_setPassword);
+            }
+            if (multipart->hasContent(utility::conversions::to_string_t(U("refresh_token"))))
+            {
+                utility::string_t refVal_setRefreshToken;
+                ok &= ModelBase::fromHttpContent(
+                    multipart->getContent(utility::conversions::to_string_t(U("refresh_token"))),
+                    refVal_setRefreshToken);
+                setRefreshToken(refVal_setRefreshToken);
+            }
+            if (multipart->hasContent(utility::conversions::to_string_t(U("client_id"))))
+            {
+                utility::string_t refVal_setClientId;
+                ok &= ModelBase::fromHttpContent(
+                    multipart->getContent(utility::conversions::to_string_t(U("client_id"))), refVal_setClientId);
+                setClientId(refVal_setClientId);
+            }
+            if (multipart->hasContent(utility::conversions::to_string_t(U("redirect_uri"))))
+            {
+                utility::string_t refVal_setRedirectUri;
+                ok &= ModelBase::fromHttpContent(
+                    multipart->getContent(utility::conversions::to_string_t(U("redirect_uri"))), refVal_setRedirectUri);
+                setRedirectUri(refVal_setRedirectUri);
+            }
+            if (multipart->hasContent(utility::conversions::to_string_t(U("code_verifier"))))
+            {
+                utility::string_t refVal_setCodeVerifier;
+                ok &= ModelBase::fromHttpContent(
+                    multipart->getContent(utility::conversions::to_string_t(U("code_verifier"))),
+                    refVal_setCodeVerifier);
+                setCodeVerifier(refVal_setCodeVerifier);
+            }
+            return ok;
         }
-    }
-    if(val.has_field(utility::conversions::to_string_t(U("code_verifier"))))
-    {
-        const web::json::value& fieldValue = val.at(utility::conversions::to_string_t(U("code_verifier")));
-        if(!fieldValue.is_null())
+
+        std::shared_ptr<GrantType> TokenRequest::getGrantType() const
         {
-            utility::string_t refVal_setCodeVerifier;
-            ok &= ModelBase::fromJson(fieldValue, refVal_setCodeVerifier);
-            setCodeVerifier(refVal_setCodeVerifier);
-            
+            return m_Grant_type;
         }
+
+        void TokenRequest::setGrantType(const std::shared_ptr<GrantType> &value)
+        {
+            m_Grant_type = value;
+            m_Grant_typeIsSet = true;
+        }
+
+        bool TokenRequest::grantTypeIsSet() const
+        {
+            return m_Grant_typeIsSet;
+        }
+
+        void TokenRequest::unsetGrant_type()
+        {
+            m_Grant_typeIsSet = false;
+        }
+        utility::string_t TokenRequest::getCode() const
+        {
+            return m_Code;
+        }
+
+        void TokenRequest::setCode(const utility::string_t &value)
+        {
+            m_Code = value;
+            m_CodeIsSet = true;
+        }
+
+        bool TokenRequest::codeIsSet() const
+        {
+            return m_CodeIsSet;
+        }
+
+        void TokenRequest::unsetCode()
+        {
+            m_CodeIsSet = false;
+        }
+        utility::string_t TokenRequest::getUsername() const
+        {
+            return m_Username;
+        }
+
+        void TokenRequest::setUsername(const utility::string_t &value)
+        {
+            m_Username = value;
+            m_UsernameIsSet = true;
+        }
+
+        bool TokenRequest::usernameIsSet() const
+        {
+            return m_UsernameIsSet;
+        }
+
+        void TokenRequest::unsetUsername()
+        {
+            m_UsernameIsSet = false;
+        }
+        utility::string_t TokenRequest::getPassword() const
+        {
+            return m_Password;
+        }
+
+        void TokenRequest::setPassword(const utility::string_t &value)
+        {
+            m_Password = value;
+            m_PasswordIsSet = true;
+        }
+
+        bool TokenRequest::passwordIsSet() const
+        {
+            return m_PasswordIsSet;
+        }
+
+        void TokenRequest::unsetPassword()
+        {
+            m_PasswordIsSet = false;
+        }
+        utility::string_t TokenRequest::getRefreshToken() const
+        {
+            return m_Refresh_token;
+        }
+
+        void TokenRequest::setRefreshToken(const utility::string_t &value)
+        {
+            m_Refresh_token = value;
+            m_Refresh_tokenIsSet = true;
+        }
+
+        bool TokenRequest::refreshTokenIsSet() const
+        {
+            return m_Refresh_tokenIsSet;
+        }
+
+        void TokenRequest::unsetRefresh_token()
+        {
+            m_Refresh_tokenIsSet = false;
+        }
+        utility::string_t TokenRequest::getClientId() const
+        {
+            return m_Client_id;
+        }
+
+        void TokenRequest::setClientId(const utility::string_t &value)
+        {
+            m_Client_id = value;
+            m_Client_idIsSet = true;
+        }
+
+        bool TokenRequest::clientIdIsSet() const
+        {
+            return m_Client_idIsSet;
+        }
+
+        void TokenRequest::unsetClient_id()
+        {
+            m_Client_idIsSet = false;
+        }
+        utility::string_t TokenRequest::getRedirectUri() const
+        {
+            return m_Redirect_uri;
+        }
+
+        void TokenRequest::setRedirectUri(const utility::string_t &value)
+        {
+            m_Redirect_uri = value;
+            m_Redirect_uriIsSet = true;
+        }
+
+        bool TokenRequest::redirectUriIsSet() const
+        {
+            return m_Redirect_uriIsSet;
+        }
+
+        void TokenRequest::unsetRedirect_uri()
+        {
+            m_Redirect_uriIsSet = false;
+        }
+        utility::string_t TokenRequest::getCodeVerifier() const
+        {
+            return m_Code_verifier;
+        }
+
+        void TokenRequest::setCodeVerifier(const utility::string_t &value)
+        {
+            m_Code_verifier = value;
+            m_Code_verifierIsSet = true;
+        }
+
+        bool TokenRequest::codeVerifierIsSet() const
+        {
+            return m_Code_verifierIsSet;
+        }
+
+        void TokenRequest::unsetCode_verifier()
+        {
+            m_Code_verifierIsSet = false;
+        }
+
     }
-    return ok;
 }
-
-void TokenRequest::toMultipart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& prefix) const
-{
-    utility::string_t namePrefix = prefix;
-    if(namePrefix.size() > 0 && namePrefix.substr(namePrefix.size() - 1) != utility::conversions::to_string_t(U(".")))
-    {
-        namePrefix += utility::conversions::to_string_t(U("."));
-    }
-    if(m_Grant_typeIsSet)
-    {
-        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("grant_type")), m_Grant_type));
-    }
-    if(m_CodeIsSet)
-    {
-        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("code")), m_Code));
-    }
-    if(m_UsernameIsSet)
-    {
-        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("username")), m_Username));
-    }
-    if(m_PasswordIsSet)
-    {
-        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("password")), m_Password));
-    }
-    if(m_Refresh_tokenIsSet)
-    {
-        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("refresh_token")), m_Refresh_token));
-    }
-    if(m_Client_idIsSet)
-    {
-        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("client_id")), m_Client_id));
-    }
-    if(m_Redirect_uriIsSet)
-    {
-        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("redirect_uri")), m_Redirect_uri));
-    }
-    if(m_Code_verifierIsSet)
-    {
-        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("code_verifier")), m_Code_verifier));
-    }
-}
-
-bool TokenRequest::fromMultiPart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& prefix)
-{
-    bool ok = true;
-    utility::string_t namePrefix = prefix;
-    if(namePrefix.size() > 0 && namePrefix.substr(namePrefix.size() - 1) != utility::conversions::to_string_t(U(".")))
-    {
-        namePrefix += utility::conversions::to_string_t(U("."));
-    }
-
-    if(multipart->hasContent(utility::conversions::to_string_t(U("grant_type"))))
-    {
-        std::shared_ptr<GrantType> refVal_setGrantType;
-        ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(U("grant_type"))), refVal_setGrantType );
-        setGrantType(refVal_setGrantType);
-    }
-    if(multipart->hasContent(utility::conversions::to_string_t(U("code"))))
-    {
-        utility::string_t refVal_setCode;
-        ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(U("code"))), refVal_setCode );
-        setCode(refVal_setCode);
-    }
-    if(multipart->hasContent(utility::conversions::to_string_t(U("username"))))
-    {
-        utility::string_t refVal_setUsername;
-        ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(U("username"))), refVal_setUsername );
-        setUsername(refVal_setUsername);
-    }
-    if(multipart->hasContent(utility::conversions::to_string_t(U("password"))))
-    {
-        utility::string_t refVal_setPassword;
-        ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(U("password"))), refVal_setPassword );
-        setPassword(refVal_setPassword);
-    }
-    if(multipart->hasContent(utility::conversions::to_string_t(U("refresh_token"))))
-    {
-        utility::string_t refVal_setRefreshToken;
-        ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(U("refresh_token"))), refVal_setRefreshToken );
-        setRefreshToken(refVal_setRefreshToken);
-    }
-    if(multipart->hasContent(utility::conversions::to_string_t(U("client_id"))))
-    {
-        utility::string_t refVal_setClientId;
-        ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(U("client_id"))), refVal_setClientId );
-        setClientId(refVal_setClientId);
-    }
-    if(multipart->hasContent(utility::conversions::to_string_t(U("redirect_uri"))))
-    {
-        utility::string_t refVal_setRedirectUri;
-        ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(U("redirect_uri"))), refVal_setRedirectUri );
-        setRedirectUri(refVal_setRedirectUri);
-    }
-    if(multipart->hasContent(utility::conversions::to_string_t(U("code_verifier"))))
-    {
-        utility::string_t refVal_setCodeVerifier;
-        ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(U("code_verifier"))), refVal_setCodeVerifier );
-        setCodeVerifier(refVal_setCodeVerifier);
-    }
-    return ok;
-}
-
-
-std::shared_ptr<GrantType> TokenRequest::getGrantType() const
-{
-    return m_Grant_type;
-}
-
-
-void TokenRequest::setGrantType(const std::shared_ptr<GrantType>& value)
-{
-    m_Grant_type = value;
-    m_Grant_typeIsSet = true;
-}
-
-bool TokenRequest::grantTypeIsSet() const
-{
-    return m_Grant_typeIsSet;
-}
-
-void TokenRequest::unsetGrant_type()
-{
-    m_Grant_typeIsSet = false;
-}
-utility::string_t TokenRequest::getCode() const
-{
-    return m_Code;
-}
-
-
-void TokenRequest::setCode(const utility::string_t& value)
-{
-    m_Code = value;
-    m_CodeIsSet = true;
-}
-
-bool TokenRequest::codeIsSet() const
-{
-    return m_CodeIsSet;
-}
-
-void TokenRequest::unsetCode()
-{
-    m_CodeIsSet = false;
-}
-utility::string_t TokenRequest::getUsername() const
-{
-    return m_Username;
-}
-
-
-void TokenRequest::setUsername(const utility::string_t& value)
-{
-    m_Username = value;
-    m_UsernameIsSet = true;
-}
-
-bool TokenRequest::usernameIsSet() const
-{
-    return m_UsernameIsSet;
-}
-
-void TokenRequest::unsetUsername()
-{
-    m_UsernameIsSet = false;
-}
-utility::string_t TokenRequest::getPassword() const
-{
-    return m_Password;
-}
-
-
-void TokenRequest::setPassword(const utility::string_t& value)
-{
-    m_Password = value;
-    m_PasswordIsSet = true;
-}
-
-bool TokenRequest::passwordIsSet() const
-{
-    return m_PasswordIsSet;
-}
-
-void TokenRequest::unsetPassword()
-{
-    m_PasswordIsSet = false;
-}
-utility::string_t TokenRequest::getRefreshToken() const
-{
-    return m_Refresh_token;
-}
-
-
-void TokenRequest::setRefreshToken(const utility::string_t& value)
-{
-    m_Refresh_token = value;
-    m_Refresh_tokenIsSet = true;
-}
-
-bool TokenRequest::refreshTokenIsSet() const
-{
-    return m_Refresh_tokenIsSet;
-}
-
-void TokenRequest::unsetRefresh_token()
-{
-    m_Refresh_tokenIsSet = false;
-}
-utility::string_t TokenRequest::getClientId() const
-{
-    return m_Client_id;
-}
-
-
-void TokenRequest::setClientId(const utility::string_t& value)
-{
-    m_Client_id = value;
-    m_Client_idIsSet = true;
-}
-
-bool TokenRequest::clientIdIsSet() const
-{
-    return m_Client_idIsSet;
-}
-
-void TokenRequest::unsetClient_id()
-{
-    m_Client_idIsSet = false;
-}
-utility::string_t TokenRequest::getRedirectUri() const
-{
-    return m_Redirect_uri;
-}
-
-
-void TokenRequest::setRedirectUri(const utility::string_t& value)
-{
-    m_Redirect_uri = value;
-    m_Redirect_uriIsSet = true;
-}
-
-bool TokenRequest::redirectUriIsSet() const
-{
-    return m_Redirect_uriIsSet;
-}
-
-void TokenRequest::unsetRedirect_uri()
-{
-    m_Redirect_uriIsSet = false;
-}
-utility::string_t TokenRequest::getCodeVerifier() const
-{
-    return m_Code_verifier;
-}
-
-
-void TokenRequest::setCodeVerifier(const utility::string_t& value)
-{
-    m_Code_verifier = value;
-    m_Code_verifierIsSet = true;
-}
-
-bool TokenRequest::codeVerifierIsSet() const
-{
-    return m_Code_verifierIsSet;
-}
-
-void TokenRequest::unsetCode_verifier()
-{
-    m_Code_verifierIsSet = false;
-}
-
-}
-}
-
-

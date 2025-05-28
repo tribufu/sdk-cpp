@@ -13,54 +13,54 @@
 /*
  * SearchType.h
  *
- * 
+ *
  */
 
 #ifndef TRIBUFU_MODELS_SearchType_H_
 #define TRIBUFU_MODELS_SearchType_H_
 
-
 #include "tribufu++/ModelBase.h"
 
-
-namespace tribufu {
-namespace models {
-
-
-class  SearchType
-    : public ModelBase
+namespace tribufu
 {
-public:
-    SearchType();
-    virtual ~SearchType();
-
-    /////////////////////////////////////////////
-    /// ModelBase overrides
-
-    void validate() override;
-
-    web::json::value toJson() const override;
-    bool fromJson(const web::json::value& json) override;
-
-    void toMultipart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& namePrefix) const override;
-    bool fromMultiPart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& namePrefix) override;
-
-    enum class eSearchType
+    namespace models
     {
-        SearchType_USER,
-        SearchType_GROUP,
-        SearchType_SERVER,
-        SearchType_CLUSTER,
-    };
 
-    eSearchType getValue() const;
-    void setValue(eSearchType const value);
+        class SearchType : public ModelBase
+        {
+        public:
+            SearchType();
+            virtual ~SearchType();
 
-    protected:
-        eSearchType m_value;
-};
+            /////////////////////////////////////////////
+            /// ModelBase overrides
 
-}
+            void validate() override;
+
+            web::json::value toJson() const override;
+            bool fromJson(const web::json::value &json) override;
+
+            void toMultipart(std::shared_ptr<MultipartFormData> multipart,
+                             const utility::string_t &namePrefix) const override;
+            bool fromMultiPart(std::shared_ptr<MultipartFormData> multipart,
+                               const utility::string_t &namePrefix) override;
+
+            enum class eSearchType
+            {
+                SearchType_USER,
+                SearchType_GROUP,
+                SearchType_SERVER,
+                SearchType_CLUSTER,
+            };
+
+            eSearchType getValue() const;
+            void setValue(eSearchType const value);
+
+        protected:
+            eSearchType m_value;
+        };
+
+    }
 }
 
 #endif /* TRIBUFU_MODELS_SearchType_H_ */

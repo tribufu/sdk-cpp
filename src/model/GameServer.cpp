@@ -10,1572 +10,1584 @@
  * Do not edit the class manually.
  */
 
-
-
 #include "tribufu++/model/GameServer.h"
 
-namespace tribufu {
-namespace models {
-
-GameServer::GameServer()
+namespace tribufu
 {
-    m_Id = utility::conversions::to_string_t("");
-    m_IdIsSet = false;
-    m_Name = utility::conversions::to_string_t("");
-    m_NameIsSet = false;
-    m_Description = utility::conversions::to_string_t("");
-    m_DescriptionIsSet = false;
-    m_Address = utility::conversions::to_string_t("");
-    m_AddressIsSet = false;
-    m_Game_port = 0;
-    m_Game_portIsSet = false;
-    m_Query_port = 0;
-    m_Query_portIsSet = false;
-    m_Game_id = utility::conversions::to_string_t("");
-    m_Game_idIsSet = false;
-    m_Game_icon_url = utility::conversions::to_string_t("");
-    m_Game_icon_urlIsSet = false;
-    m_Version = utility::conversions::to_string_t("");
-    m_VersionIsSet = false;
-    m_Featured = false;
-    m_FeaturedIsSet = false;
-    m_Cluster_id = utility::conversions::to_string_t("");
-    m_Cluster_idIsSet = false;
-    m_Website_url = utility::conversions::to_string_t("");
-    m_Website_urlIsSet = false;
-    m_Banner_url = utility::conversions::to_string_t("");
-    m_Banner_urlIsSet = false;
-    m_Owner_id = utility::conversions::to_string_t("");
-    m_Owner_idIsSet = false;
-    m_Uptime = 0.0;
-    m_UptimeIsSet = false;
-    m_StatusIsSet = false;
-    m_Ping = 0;
-    m_PingIsSet = false;
-    m_map = utility::conversions::to_string_t("");
-    m_mapIsSet = false;
-    m_Used_slots = 0;
-    m_Used_slotsIsSet = false;
-    m_Max_slots = 0;
-    m_Max_slotsIsSet = false;
-    m_Motd = utility::conversions::to_string_t("");
-    m_MotdIsSet = false;
-    m_Players = utility::conversions::to_string_t("");
-    m_PlayersIsSet = false;
-    m_Last_online = utility::datetime();
-    m_Last_onlineIsSet = false;
-    m_Country = utility::conversions::to_string_t("");
-    m_CountryIsSet = false;
-    m_Steam = false;
-    m_SteamIsSet = false;
-    m_Discord_server_id = utility::conversions::to_string_t("");
-    m_Discord_server_idIsSet = false;
-    m_Youtube_video_url = utility::conversions::to_string_t("");
-    m_Youtube_video_urlIsSet = false;
-    m_Tags = utility::conversions::to_string_t("");
-    m_TagsIsSet = false;
-    m_Comment_count = 0;
-    m_Comment_countIsSet = false;
-    m_Created = utility::datetime();
-    m_CreatedIsSet = false;
-    m_Updated = utility::datetime();
-    m_UpdatedIsSet = false;
-}
-
-GameServer::~GameServer()
-{
-}
-
-void GameServer::validate()
-{
-    // TODO: implement validation
-}
-
-web::json::value GameServer::toJson() const
-{
-    web::json::value val = web::json::value::object();
-    if(m_IdIsSet)
-    {   
-        
-        val[utility::conversions::to_string_t(U("id"))] = ModelBase::toJson(m_Id);
-    }
-    if(m_NameIsSet)
-    {   
-        
-        val[utility::conversions::to_string_t(U("name"))] = ModelBase::toJson(m_Name);
-    }
-    if(m_DescriptionIsSet)
-    {   
-        
-        val[utility::conversions::to_string_t(U("description"))] = ModelBase::toJson(m_Description);
-    }
-    if(m_AddressIsSet)
-    {   
-        
-        val[utility::conversions::to_string_t(U("address"))] = ModelBase::toJson(m_Address);
-    }
-    if(m_Game_portIsSet)
-    {   
-        
-        val[utility::conversions::to_string_t(U("game_port"))] = ModelBase::toJson(m_Game_port);
-    }
-    if(m_Query_portIsSet)
-    {   
-        
-        val[utility::conversions::to_string_t(U("query_port"))] = ModelBase::toJson(m_Query_port);
-    }
-    if(m_Game_idIsSet)
-    {   
-        
-        val[utility::conversions::to_string_t(U("game_id"))] = ModelBase::toJson(m_Game_id);
-    }
-    if(m_Game_icon_urlIsSet)
-    {   
-        
-        val[utility::conversions::to_string_t(U("game_icon_url"))] = ModelBase::toJson(m_Game_icon_url);
-    }
-    if(m_VersionIsSet)
-    {   
-        
-        val[utility::conversions::to_string_t(U("version"))] = ModelBase::toJson(m_Version);
-    }
-    if(m_FeaturedIsSet)
-    {   
-        
-        val[utility::conversions::to_string_t(U("featured"))] = ModelBase::toJson(m_Featured);
-    }
-    if(m_Cluster_idIsSet)
-    {   
-        
-        val[utility::conversions::to_string_t(U("cluster_id"))] = ModelBase::toJson(m_Cluster_id);
-    }
-    if(m_Website_urlIsSet)
-    {   
-        
-        val[utility::conversions::to_string_t(U("website_url"))] = ModelBase::toJson(m_Website_url);
-    }
-    if(m_Banner_urlIsSet)
-    {   
-        
-        val[utility::conversions::to_string_t(U("banner_url"))] = ModelBase::toJson(m_Banner_url);
-    }
-    if(m_Owner_idIsSet)
-    {   
-        
-        val[utility::conversions::to_string_t(U("owner_id"))] = ModelBase::toJson(m_Owner_id);
-    }
-    if(m_UptimeIsSet)
-    {   
-        
-        val[utility::conversions::to_string_t(U("uptime"))] = ModelBase::toJson(m_Uptime);
-    }
-    if(m_StatusIsSet)
-    {   
-        
-        val[utility::conversions::to_string_t(U("status"))] = ModelBase::toJson(m_Status);
-    }
-    if(m_PingIsSet)
-    {   
-        
-        val[utility::conversions::to_string_t(U("ping"))] = ModelBase::toJson(m_Ping);
-    }
-    if(m_mapIsSet)
-    {   
-        
-        val[utility::conversions::to_string_t(U("map"))] = ModelBase::toJson(m_map);
-    }
-    if(m_Used_slotsIsSet)
-    {   
-        
-        val[utility::conversions::to_string_t(U("used_slots"))] = ModelBase::toJson(m_Used_slots);
-    }
-    if(m_Max_slotsIsSet)
-    {   
-        
-        val[utility::conversions::to_string_t(U("max_slots"))] = ModelBase::toJson(m_Max_slots);
-    }
-    if(m_MotdIsSet)
-    {   
-        
-        val[utility::conversions::to_string_t(U("motd"))] = ModelBase::toJson(m_Motd);
-    }
-    if(m_PlayersIsSet)
-    {   
-        
-        val[utility::conversions::to_string_t(U("players"))] = ModelBase::toJson(m_Players);
-    }
-    if(m_Last_onlineIsSet)
-    {   
-        
-        val[utility::conversions::to_string_t(U("last_online"))] = ModelBase::toJson(m_Last_online);
-    }
-    if(m_CountryIsSet)
-    {   
-        
-        val[utility::conversions::to_string_t(U("country"))] = ModelBase::toJson(m_Country);
-    }
-    if(m_SteamIsSet)
-    {   
-        
-        val[utility::conversions::to_string_t(U("steam"))] = ModelBase::toJson(m_Steam);
-    }
-    if(m_Discord_server_idIsSet)
-    {   
-        
-        val[utility::conversions::to_string_t(U("discord_server_id"))] = ModelBase::toJson(m_Discord_server_id);
-    }
-    if(m_Youtube_video_urlIsSet)
-    {   
-        
-        val[utility::conversions::to_string_t(U("youtube_video_url"))] = ModelBase::toJson(m_Youtube_video_url);
-    }
-    if(m_TagsIsSet)
-    {   
-        
-        val[utility::conversions::to_string_t(U("tags"))] = ModelBase::toJson(m_Tags);
-    }
-    if(m_Comment_countIsSet)
-    {   
-        
-        val[utility::conversions::to_string_t(U("comment_count"))] = ModelBase::toJson(m_Comment_count);
-    }
-    if(m_CreatedIsSet)
-    {   
-        
-        val[utility::conversions::to_string_t(U("created"))] = ModelBase::toJson(m_Created);
-    }
-    if(m_UpdatedIsSet)
-    {   
-        
-        val[utility::conversions::to_string_t(U("updated"))] = ModelBase::toJson(m_Updated);
-    }
-
-    return val;
-}
-
-bool GameServer::fromJson(const web::json::value& val)
-{
-    bool ok = true;
-    if(val.has_field(utility::conversions::to_string_t(U("id"))))
+    namespace models
     {
-        const web::json::value& fieldValue = val.at(utility::conversions::to_string_t(U("id")));
-        if(!fieldValue.is_null())
+
+        GameServer::GameServer()
         {
-            utility::string_t refVal_setId;
-            ok &= ModelBase::fromJson(fieldValue, refVal_setId);
-            setId(refVal_setId);
-            
+            m_Id = utility::conversions::to_string_t("");
+            m_IdIsSet = false;
+            m_Name = utility::conversions::to_string_t("");
+            m_NameIsSet = false;
+            m_Description = utility::conversions::to_string_t("");
+            m_DescriptionIsSet = false;
+            m_Address = utility::conversions::to_string_t("");
+            m_AddressIsSet = false;
+            m_Game_port = 0;
+            m_Game_portIsSet = false;
+            m_Query_port = 0;
+            m_Query_portIsSet = false;
+            m_Game_id = utility::conversions::to_string_t("");
+            m_Game_idIsSet = false;
+            m_Game_icon_url = utility::conversions::to_string_t("");
+            m_Game_icon_urlIsSet = false;
+            m_Version = utility::conversions::to_string_t("");
+            m_VersionIsSet = false;
+            m_Featured = false;
+            m_FeaturedIsSet = false;
+            m_Cluster_id = utility::conversions::to_string_t("");
+            m_Cluster_idIsSet = false;
+            m_Website_url = utility::conversions::to_string_t("");
+            m_Website_urlIsSet = false;
+            m_Banner_url = utility::conversions::to_string_t("");
+            m_Banner_urlIsSet = false;
+            m_Owner_id = utility::conversions::to_string_t("");
+            m_Owner_idIsSet = false;
+            m_Uptime = 0.0;
+            m_UptimeIsSet = false;
+            m_StatusIsSet = false;
+            m_Ping = 0;
+            m_PingIsSet = false;
+            m_map = utility::conversions::to_string_t("");
+            m_mapIsSet = false;
+            m_Used_slots = 0;
+            m_Used_slotsIsSet = false;
+            m_Max_slots = 0;
+            m_Max_slotsIsSet = false;
+            m_Motd = utility::conversions::to_string_t("");
+            m_MotdIsSet = false;
+            m_Players = utility::conversions::to_string_t("");
+            m_PlayersIsSet = false;
+            m_Last_online = utility::datetime();
+            m_Last_onlineIsSet = false;
+            m_Country = utility::conversions::to_string_t("");
+            m_CountryIsSet = false;
+            m_Steam = false;
+            m_SteamIsSet = false;
+            m_Discord_server_id = utility::conversions::to_string_t("");
+            m_Discord_server_idIsSet = false;
+            m_Youtube_video_url = utility::conversions::to_string_t("");
+            m_Youtube_video_urlIsSet = false;
+            m_Tags = utility::conversions::to_string_t("");
+            m_TagsIsSet = false;
+            m_Comment_count = 0;
+            m_Comment_countIsSet = false;
+            m_Created = utility::datetime();
+            m_CreatedIsSet = false;
+            m_Updated = utility::datetime();
+            m_UpdatedIsSet = false;
         }
-    }
-    if(val.has_field(utility::conversions::to_string_t(U("name"))))
-    {
-        const web::json::value& fieldValue = val.at(utility::conversions::to_string_t(U("name")));
-        if(!fieldValue.is_null())
+
+        GameServer::~GameServer()
         {
-            utility::string_t refVal_setName;
-            ok &= ModelBase::fromJson(fieldValue, refVal_setName);
-            setName(refVal_setName);
-            
         }
-    }
-    if(val.has_field(utility::conversions::to_string_t(U("description"))))
-    {
-        const web::json::value& fieldValue = val.at(utility::conversions::to_string_t(U("description")));
-        if(!fieldValue.is_null())
+
+        void GameServer::validate()
         {
-            utility::string_t refVal_setDescription;
-            ok &= ModelBase::fromJson(fieldValue, refVal_setDescription);
-            setDescription(refVal_setDescription);
-            
+            // TODO: implement validation
         }
-    }
-    if(val.has_field(utility::conversions::to_string_t(U("address"))))
-    {
-        const web::json::value& fieldValue = val.at(utility::conversions::to_string_t(U("address")));
-        if(!fieldValue.is_null())
+
+        web::json::value GameServer::toJson() const
         {
-            utility::string_t refVal_setAddress;
-            ok &= ModelBase::fromJson(fieldValue, refVal_setAddress);
-            setAddress(refVal_setAddress);
-            
+            web::json::value val = web::json::value::object();
+            if (m_IdIsSet)
+            {
+
+                val[utility::conversions::to_string_t(U("id"))] = ModelBase::toJson(m_Id);
+            }
+            if (m_NameIsSet)
+            {
+
+                val[utility::conversions::to_string_t(U("name"))] = ModelBase::toJson(m_Name);
+            }
+            if (m_DescriptionIsSet)
+            {
+
+                val[utility::conversions::to_string_t(U("description"))] = ModelBase::toJson(m_Description);
+            }
+            if (m_AddressIsSet)
+            {
+
+                val[utility::conversions::to_string_t(U("address"))] = ModelBase::toJson(m_Address);
+            }
+            if (m_Game_portIsSet)
+            {
+
+                val[utility::conversions::to_string_t(U("game_port"))] = ModelBase::toJson(m_Game_port);
+            }
+            if (m_Query_portIsSet)
+            {
+
+                val[utility::conversions::to_string_t(U("query_port"))] = ModelBase::toJson(m_Query_port);
+            }
+            if (m_Game_idIsSet)
+            {
+
+                val[utility::conversions::to_string_t(U("game_id"))] = ModelBase::toJson(m_Game_id);
+            }
+            if (m_Game_icon_urlIsSet)
+            {
+
+                val[utility::conversions::to_string_t(U("game_icon_url"))] = ModelBase::toJson(m_Game_icon_url);
+            }
+            if (m_VersionIsSet)
+            {
+
+                val[utility::conversions::to_string_t(U("version"))] = ModelBase::toJson(m_Version);
+            }
+            if (m_FeaturedIsSet)
+            {
+
+                val[utility::conversions::to_string_t(U("featured"))] = ModelBase::toJson(m_Featured);
+            }
+            if (m_Cluster_idIsSet)
+            {
+
+                val[utility::conversions::to_string_t(U("cluster_id"))] = ModelBase::toJson(m_Cluster_id);
+            }
+            if (m_Website_urlIsSet)
+            {
+
+                val[utility::conversions::to_string_t(U("website_url"))] = ModelBase::toJson(m_Website_url);
+            }
+            if (m_Banner_urlIsSet)
+            {
+
+                val[utility::conversions::to_string_t(U("banner_url"))] = ModelBase::toJson(m_Banner_url);
+            }
+            if (m_Owner_idIsSet)
+            {
+
+                val[utility::conversions::to_string_t(U("owner_id"))] = ModelBase::toJson(m_Owner_id);
+            }
+            if (m_UptimeIsSet)
+            {
+
+                val[utility::conversions::to_string_t(U("uptime"))] = ModelBase::toJson(m_Uptime);
+            }
+            if (m_StatusIsSet)
+            {
+
+                val[utility::conversions::to_string_t(U("status"))] = ModelBase::toJson(m_Status);
+            }
+            if (m_PingIsSet)
+            {
+
+                val[utility::conversions::to_string_t(U("ping"))] = ModelBase::toJson(m_Ping);
+            }
+            if (m_mapIsSet)
+            {
+
+                val[utility::conversions::to_string_t(U("map"))] = ModelBase::toJson(m_map);
+            }
+            if (m_Used_slotsIsSet)
+            {
+
+                val[utility::conversions::to_string_t(U("used_slots"))] = ModelBase::toJson(m_Used_slots);
+            }
+            if (m_Max_slotsIsSet)
+            {
+
+                val[utility::conversions::to_string_t(U("max_slots"))] = ModelBase::toJson(m_Max_slots);
+            }
+            if (m_MotdIsSet)
+            {
+
+                val[utility::conversions::to_string_t(U("motd"))] = ModelBase::toJson(m_Motd);
+            }
+            if (m_PlayersIsSet)
+            {
+
+                val[utility::conversions::to_string_t(U("players"))] = ModelBase::toJson(m_Players);
+            }
+            if (m_Last_onlineIsSet)
+            {
+
+                val[utility::conversions::to_string_t(U("last_online"))] = ModelBase::toJson(m_Last_online);
+            }
+            if (m_CountryIsSet)
+            {
+
+                val[utility::conversions::to_string_t(U("country"))] = ModelBase::toJson(m_Country);
+            }
+            if (m_SteamIsSet)
+            {
+
+                val[utility::conversions::to_string_t(U("steam"))] = ModelBase::toJson(m_Steam);
+            }
+            if (m_Discord_server_idIsSet)
+            {
+
+                val[utility::conversions::to_string_t(U("discord_server_id"))] = ModelBase::toJson(m_Discord_server_id);
+            }
+            if (m_Youtube_video_urlIsSet)
+            {
+
+                val[utility::conversions::to_string_t(U("youtube_video_url"))] = ModelBase::toJson(m_Youtube_video_url);
+            }
+            if (m_TagsIsSet)
+            {
+
+                val[utility::conversions::to_string_t(U("tags"))] = ModelBase::toJson(m_Tags);
+            }
+            if (m_Comment_countIsSet)
+            {
+
+                val[utility::conversions::to_string_t(U("comment_count"))] = ModelBase::toJson(m_Comment_count);
+            }
+            if (m_CreatedIsSet)
+            {
+
+                val[utility::conversions::to_string_t(U("created"))] = ModelBase::toJson(m_Created);
+            }
+            if (m_UpdatedIsSet)
+            {
+
+                val[utility::conversions::to_string_t(U("updated"))] = ModelBase::toJson(m_Updated);
+            }
+
+            return val;
         }
-    }
-    if(val.has_field(utility::conversions::to_string_t(U("game_port"))))
-    {
-        const web::json::value& fieldValue = val.at(utility::conversions::to_string_t(U("game_port")));
-        if(!fieldValue.is_null())
+
+        bool GameServer::fromJson(const web::json::value &val)
         {
-            int32_t refVal_setGamePort;
-            ok &= ModelBase::fromJson(fieldValue, refVal_setGamePort);
-            setGamePort(refVal_setGamePort);
-            
+            bool ok = true;
+            if (val.has_field(utility::conversions::to_string_t(U("id"))))
+            {
+                const web::json::value &fieldValue = val.at(utility::conversions::to_string_t(U("id")));
+                if (!fieldValue.is_null())
+                {
+                    utility::string_t refVal_setId;
+                    ok &= ModelBase::fromJson(fieldValue, refVal_setId);
+                    setId(refVal_setId);
+                }
+            }
+            if (val.has_field(utility::conversions::to_string_t(U("name"))))
+            {
+                const web::json::value &fieldValue = val.at(utility::conversions::to_string_t(U("name")));
+                if (!fieldValue.is_null())
+                {
+                    utility::string_t refVal_setName;
+                    ok &= ModelBase::fromJson(fieldValue, refVal_setName);
+                    setName(refVal_setName);
+                }
+            }
+            if (val.has_field(utility::conversions::to_string_t(U("description"))))
+            {
+                const web::json::value &fieldValue = val.at(utility::conversions::to_string_t(U("description")));
+                if (!fieldValue.is_null())
+                {
+                    utility::string_t refVal_setDescription;
+                    ok &= ModelBase::fromJson(fieldValue, refVal_setDescription);
+                    setDescription(refVal_setDescription);
+                }
+            }
+            if (val.has_field(utility::conversions::to_string_t(U("address"))))
+            {
+                const web::json::value &fieldValue = val.at(utility::conversions::to_string_t(U("address")));
+                if (!fieldValue.is_null())
+                {
+                    utility::string_t refVal_setAddress;
+                    ok &= ModelBase::fromJson(fieldValue, refVal_setAddress);
+                    setAddress(refVal_setAddress);
+                }
+            }
+            if (val.has_field(utility::conversions::to_string_t(U("game_port"))))
+            {
+                const web::json::value &fieldValue = val.at(utility::conversions::to_string_t(U("game_port")));
+                if (!fieldValue.is_null())
+                {
+                    int32_t refVal_setGamePort;
+                    ok &= ModelBase::fromJson(fieldValue, refVal_setGamePort);
+                    setGamePort(refVal_setGamePort);
+                }
+            }
+            if (val.has_field(utility::conversions::to_string_t(U("query_port"))))
+            {
+                const web::json::value &fieldValue = val.at(utility::conversions::to_string_t(U("query_port")));
+                if (!fieldValue.is_null())
+                {
+                    int32_t refVal_setQueryPort;
+                    ok &= ModelBase::fromJson(fieldValue, refVal_setQueryPort);
+                    setQueryPort(refVal_setQueryPort);
+                }
+            }
+            if (val.has_field(utility::conversions::to_string_t(U("game_id"))))
+            {
+                const web::json::value &fieldValue = val.at(utility::conversions::to_string_t(U("game_id")));
+                if (!fieldValue.is_null())
+                {
+                    utility::string_t refVal_setGameId;
+                    ok &= ModelBase::fromJson(fieldValue, refVal_setGameId);
+                    setGameId(refVal_setGameId);
+                }
+            }
+            if (val.has_field(utility::conversions::to_string_t(U("game_icon_url"))))
+            {
+                const web::json::value &fieldValue = val.at(utility::conversions::to_string_t(U("game_icon_url")));
+                if (!fieldValue.is_null())
+                {
+                    utility::string_t refVal_setGameIconUrl;
+                    ok &= ModelBase::fromJson(fieldValue, refVal_setGameIconUrl);
+                    setGameIconUrl(refVal_setGameIconUrl);
+                }
+            }
+            if (val.has_field(utility::conversions::to_string_t(U("version"))))
+            {
+                const web::json::value &fieldValue = val.at(utility::conversions::to_string_t(U("version")));
+                if (!fieldValue.is_null())
+                {
+                    utility::string_t refVal_setVersion;
+                    ok &= ModelBase::fromJson(fieldValue, refVal_setVersion);
+                    setVersion(refVal_setVersion);
+                }
+            }
+            if (val.has_field(utility::conversions::to_string_t(U("featured"))))
+            {
+                const web::json::value &fieldValue = val.at(utility::conversions::to_string_t(U("featured")));
+                if (!fieldValue.is_null())
+                {
+                    bool refVal_setFeatured;
+                    ok &= ModelBase::fromJson(fieldValue, refVal_setFeatured);
+                    setFeatured(refVal_setFeatured);
+                }
+            }
+            if (val.has_field(utility::conversions::to_string_t(U("cluster_id"))))
+            {
+                const web::json::value &fieldValue = val.at(utility::conversions::to_string_t(U("cluster_id")));
+                if (!fieldValue.is_null())
+                {
+                    utility::string_t refVal_setClusterId;
+                    ok &= ModelBase::fromJson(fieldValue, refVal_setClusterId);
+                    setClusterId(refVal_setClusterId);
+                }
+            }
+            if (val.has_field(utility::conversions::to_string_t(U("website_url"))))
+            {
+                const web::json::value &fieldValue = val.at(utility::conversions::to_string_t(U("website_url")));
+                if (!fieldValue.is_null())
+                {
+                    utility::string_t refVal_setWebsiteUrl;
+                    ok &= ModelBase::fromJson(fieldValue, refVal_setWebsiteUrl);
+                    setWebsiteUrl(refVal_setWebsiteUrl);
+                }
+            }
+            if (val.has_field(utility::conversions::to_string_t(U("banner_url"))))
+            {
+                const web::json::value &fieldValue = val.at(utility::conversions::to_string_t(U("banner_url")));
+                if (!fieldValue.is_null())
+                {
+                    utility::string_t refVal_setBannerUrl;
+                    ok &= ModelBase::fromJson(fieldValue, refVal_setBannerUrl);
+                    setBannerUrl(refVal_setBannerUrl);
+                }
+            }
+            if (val.has_field(utility::conversions::to_string_t(U("owner_id"))))
+            {
+                const web::json::value &fieldValue = val.at(utility::conversions::to_string_t(U("owner_id")));
+                if (!fieldValue.is_null())
+                {
+                    utility::string_t refVal_setOwnerId;
+                    ok &= ModelBase::fromJson(fieldValue, refVal_setOwnerId);
+                    setOwnerId(refVal_setOwnerId);
+                }
+            }
+            if (val.has_field(utility::conversions::to_string_t(U("uptime"))))
+            {
+                const web::json::value &fieldValue = val.at(utility::conversions::to_string_t(U("uptime")));
+                if (!fieldValue.is_null())
+                {
+                    double refVal_setUptime;
+                    ok &= ModelBase::fromJson(fieldValue, refVal_setUptime);
+                    setUptime(refVal_setUptime);
+                }
+            }
+            if (val.has_field(utility::conversions::to_string_t(U("status"))))
+            {
+                const web::json::value &fieldValue = val.at(utility::conversions::to_string_t(U("status")));
+                if (!fieldValue.is_null())
+                {
+                    std::shared_ptr<ServerStatus> refVal_setStatus;
+                    ok &= ModelBase::fromJson(fieldValue, refVal_setStatus);
+                    setStatus(refVal_setStatus);
+                }
+            }
+            if (val.has_field(utility::conversions::to_string_t(U("ping"))))
+            {
+                const web::json::value &fieldValue = val.at(utility::conversions::to_string_t(U("ping")));
+                if (!fieldValue.is_null())
+                {
+                    int32_t refVal_setPing;
+                    ok &= ModelBase::fromJson(fieldValue, refVal_setPing);
+                    setPing(refVal_setPing);
+                }
+            }
+            if (val.has_field(utility::conversions::to_string_t(U("map"))))
+            {
+                const web::json::value &fieldValue = val.at(utility::conversions::to_string_t(U("map")));
+                if (!fieldValue.is_null())
+                {
+                    utility::string_t refVal_setMap;
+                    ok &= ModelBase::fromJson(fieldValue, refVal_setMap);
+                    setMap(refVal_setMap);
+                }
+            }
+            if (val.has_field(utility::conversions::to_string_t(U("used_slots"))))
+            {
+                const web::json::value &fieldValue = val.at(utility::conversions::to_string_t(U("used_slots")));
+                if (!fieldValue.is_null())
+                {
+                    int32_t refVal_setUsedSlots;
+                    ok &= ModelBase::fromJson(fieldValue, refVal_setUsedSlots);
+                    setUsedSlots(refVal_setUsedSlots);
+                }
+            }
+            if (val.has_field(utility::conversions::to_string_t(U("max_slots"))))
+            {
+                const web::json::value &fieldValue = val.at(utility::conversions::to_string_t(U("max_slots")));
+                if (!fieldValue.is_null())
+                {
+                    int32_t refVal_setMaxSlots;
+                    ok &= ModelBase::fromJson(fieldValue, refVal_setMaxSlots);
+                    setMaxSlots(refVal_setMaxSlots);
+                }
+            }
+            if (val.has_field(utility::conversions::to_string_t(U("motd"))))
+            {
+                const web::json::value &fieldValue = val.at(utility::conversions::to_string_t(U("motd")));
+                if (!fieldValue.is_null())
+                {
+                    utility::string_t refVal_setMotd;
+                    ok &= ModelBase::fromJson(fieldValue, refVal_setMotd);
+                    setMotd(refVal_setMotd);
+                }
+            }
+            if (val.has_field(utility::conversions::to_string_t(U("players"))))
+            {
+                const web::json::value &fieldValue = val.at(utility::conversions::to_string_t(U("players")));
+                if (!fieldValue.is_null())
+                {
+                    utility::string_t refVal_setPlayers;
+                    ok &= ModelBase::fromJson(fieldValue, refVal_setPlayers);
+                    setPlayers(refVal_setPlayers);
+                }
+            }
+            if (val.has_field(utility::conversions::to_string_t(U("last_online"))))
+            {
+                const web::json::value &fieldValue = val.at(utility::conversions::to_string_t(U("last_online")));
+                if (!fieldValue.is_null())
+                {
+                    utility::datetime refVal_setLastOnline;
+                    ok &= ModelBase::fromJson(fieldValue, refVal_setLastOnline);
+                    setLastOnline(refVal_setLastOnline);
+                }
+            }
+            if (val.has_field(utility::conversions::to_string_t(U("country"))))
+            {
+                const web::json::value &fieldValue = val.at(utility::conversions::to_string_t(U("country")));
+                if (!fieldValue.is_null())
+                {
+                    utility::string_t refVal_setCountry;
+                    ok &= ModelBase::fromJson(fieldValue, refVal_setCountry);
+                    setCountry(refVal_setCountry);
+                }
+            }
+            if (val.has_field(utility::conversions::to_string_t(U("steam"))))
+            {
+                const web::json::value &fieldValue = val.at(utility::conversions::to_string_t(U("steam")));
+                if (!fieldValue.is_null())
+                {
+                    bool refVal_setSteam;
+                    ok &= ModelBase::fromJson(fieldValue, refVal_setSteam);
+                    setSteam(refVal_setSteam);
+                }
+            }
+            if (val.has_field(utility::conversions::to_string_t(U("discord_server_id"))))
+            {
+                const web::json::value &fieldValue = val.at(utility::conversions::to_string_t(U("discord_server_id")));
+                if (!fieldValue.is_null())
+                {
+                    utility::string_t refVal_setDiscordServerId;
+                    ok &= ModelBase::fromJson(fieldValue, refVal_setDiscordServerId);
+                    setDiscordServerId(refVal_setDiscordServerId);
+                }
+            }
+            if (val.has_field(utility::conversions::to_string_t(U("youtube_video_url"))))
+            {
+                const web::json::value &fieldValue = val.at(utility::conversions::to_string_t(U("youtube_video_url")));
+                if (!fieldValue.is_null())
+                {
+                    utility::string_t refVal_setYoutubeVideoUrl;
+                    ok &= ModelBase::fromJson(fieldValue, refVal_setYoutubeVideoUrl);
+                    setYoutubeVideoUrl(refVal_setYoutubeVideoUrl);
+                }
+            }
+            if (val.has_field(utility::conversions::to_string_t(U("tags"))))
+            {
+                const web::json::value &fieldValue = val.at(utility::conversions::to_string_t(U("tags")));
+                if (!fieldValue.is_null())
+                {
+                    utility::string_t refVal_setTags;
+                    ok &= ModelBase::fromJson(fieldValue, refVal_setTags);
+                    setTags(refVal_setTags);
+                }
+            }
+            if (val.has_field(utility::conversions::to_string_t(U("comment_count"))))
+            {
+                const web::json::value &fieldValue = val.at(utility::conversions::to_string_t(U("comment_count")));
+                if (!fieldValue.is_null())
+                {
+                    int32_t refVal_setCommentCount;
+                    ok &= ModelBase::fromJson(fieldValue, refVal_setCommentCount);
+                    setCommentCount(refVal_setCommentCount);
+                }
+            }
+            if (val.has_field(utility::conversions::to_string_t(U("created"))))
+            {
+                const web::json::value &fieldValue = val.at(utility::conversions::to_string_t(U("created")));
+                if (!fieldValue.is_null())
+                {
+                    utility::datetime refVal_setCreated;
+                    ok &= ModelBase::fromJson(fieldValue, refVal_setCreated);
+                    setCreated(refVal_setCreated);
+                }
+            }
+            if (val.has_field(utility::conversions::to_string_t(U("updated"))))
+            {
+                const web::json::value &fieldValue = val.at(utility::conversions::to_string_t(U("updated")));
+                if (!fieldValue.is_null())
+                {
+                    utility::datetime refVal_setUpdated;
+                    ok &= ModelBase::fromJson(fieldValue, refVal_setUpdated);
+                    setUpdated(refVal_setUpdated);
+                }
+            }
+            return ok;
         }
-    }
-    if(val.has_field(utility::conversions::to_string_t(U("query_port"))))
-    {
-        const web::json::value& fieldValue = val.at(utility::conversions::to_string_t(U("query_port")));
-        if(!fieldValue.is_null())
+
+        void GameServer::toMultipart(std::shared_ptr<MultipartFormData> multipart,
+                                     const utility::string_t &prefix) const
         {
-            int32_t refVal_setQueryPort;
-            ok &= ModelBase::fromJson(fieldValue, refVal_setQueryPort);
-            setQueryPort(refVal_setQueryPort);
-            
+            utility::string_t namePrefix = prefix;
+            if (namePrefix.size() > 0 &&
+                namePrefix.substr(namePrefix.size() - 1) != utility::conversions::to_string_t(U(".")))
+            {
+                namePrefix += utility::conversions::to_string_t(U("."));
+            }
+            if (m_IdIsSet)
+            {
+                multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("id")), m_Id));
+            }
+            if (m_NameIsSet)
+            {
+                multipart->add(
+                    ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("name")), m_Name));
+            }
+            if (m_DescriptionIsSet)
+            {
+                multipart->add(ModelBase::toHttpContent(
+                    namePrefix + utility::conversions::to_string_t(U("description")), m_Description));
+            }
+            if (m_AddressIsSet)
+            {
+                multipart->add(
+                    ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("address")), m_Address));
+            }
+            if (m_Game_portIsSet)
+            {
+                multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("game_port")),
+                                                        m_Game_port));
+            }
+            if (m_Query_portIsSet)
+            {
+                multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("query_port")),
+                                                        m_Query_port));
+            }
+            if (m_Game_idIsSet)
+            {
+                multipart->add(
+                    ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("game_id")), m_Game_id));
+            }
+            if (m_Game_icon_urlIsSet)
+            {
+                multipart->add(ModelBase::toHttpContent(
+                    namePrefix + utility::conversions::to_string_t(U("game_icon_url")), m_Game_icon_url));
+            }
+            if (m_VersionIsSet)
+            {
+                multipart->add(
+                    ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("version")), m_Version));
+            }
+            if (m_FeaturedIsSet)
+            {
+                multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("featured")),
+                                                        m_Featured));
+            }
+            if (m_Cluster_idIsSet)
+            {
+                multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("cluster_id")),
+                                                        m_Cluster_id));
+            }
+            if (m_Website_urlIsSet)
+            {
+                multipart->add(ModelBase::toHttpContent(
+                    namePrefix + utility::conversions::to_string_t(U("website_url")), m_Website_url));
+            }
+            if (m_Banner_urlIsSet)
+            {
+                multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("banner_url")),
+                                                        m_Banner_url));
+            }
+            if (m_Owner_idIsSet)
+            {
+                multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("owner_id")),
+                                                        m_Owner_id));
+            }
+            if (m_UptimeIsSet)
+            {
+                multipart->add(
+                    ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("uptime")), m_Uptime));
+            }
+            if (m_StatusIsSet)
+            {
+                multipart->add(
+                    ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("status")), m_Status));
+            }
+            if (m_PingIsSet)
+            {
+                multipart->add(
+                    ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("ping")), m_Ping));
+            }
+            if (m_mapIsSet)
+            {
+                multipart->add(
+                    ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("map")), m_map));
+            }
+            if (m_Used_slotsIsSet)
+            {
+                multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("used_slots")),
+                                                        m_Used_slots));
+            }
+            if (m_Max_slotsIsSet)
+            {
+                multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("max_slots")),
+                                                        m_Max_slots));
+            }
+            if (m_MotdIsSet)
+            {
+                multipart->add(
+                    ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("motd")), m_Motd));
+            }
+            if (m_PlayersIsSet)
+            {
+                multipart->add(
+                    ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("players")), m_Players));
+            }
+            if (m_Last_onlineIsSet)
+            {
+                multipart->add(ModelBase::toHttpContent(
+                    namePrefix + utility::conversions::to_string_t(U("last_online")), m_Last_online));
+            }
+            if (m_CountryIsSet)
+            {
+                multipart->add(
+                    ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("country")), m_Country));
+            }
+            if (m_SteamIsSet)
+            {
+                multipart->add(
+                    ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("steam")), m_Steam));
+            }
+            if (m_Discord_server_idIsSet)
+            {
+                multipart->add(ModelBase::toHttpContent(
+                    namePrefix + utility::conversions::to_string_t(U("discord_server_id")), m_Discord_server_id));
+            }
+            if (m_Youtube_video_urlIsSet)
+            {
+                multipart->add(ModelBase::toHttpContent(
+                    namePrefix + utility::conversions::to_string_t(U("youtube_video_url")), m_Youtube_video_url));
+            }
+            if (m_TagsIsSet)
+            {
+                multipart->add(
+                    ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("tags")), m_Tags));
+            }
+            if (m_Comment_countIsSet)
+            {
+                multipart->add(ModelBase::toHttpContent(
+                    namePrefix + utility::conversions::to_string_t(U("comment_count")), m_Comment_count));
+            }
+            if (m_CreatedIsSet)
+            {
+                multipart->add(
+                    ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("created")), m_Created));
+            }
+            if (m_UpdatedIsSet)
+            {
+                multipart->add(
+                    ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("updated")), m_Updated));
+            }
         }
-    }
-    if(val.has_field(utility::conversions::to_string_t(U("game_id"))))
-    {
-        const web::json::value& fieldValue = val.at(utility::conversions::to_string_t(U("game_id")));
-        if(!fieldValue.is_null())
+
+        bool GameServer::fromMultiPart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t &prefix)
         {
-            utility::string_t refVal_setGameId;
-            ok &= ModelBase::fromJson(fieldValue, refVal_setGameId);
-            setGameId(refVal_setGameId);
-            
+            bool ok = true;
+            utility::string_t namePrefix = prefix;
+            if (namePrefix.size() > 0 &&
+                namePrefix.substr(namePrefix.size() - 1) != utility::conversions::to_string_t(U(".")))
+            {
+                namePrefix += utility::conversions::to_string_t(U("."));
+            }
+
+            if (multipart->hasContent(utility::conversions::to_string_t(U("id"))))
+            {
+                utility::string_t refVal_setId;
+                ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(U("id"))),
+                                                 refVal_setId);
+                setId(refVal_setId);
+            }
+            if (multipart->hasContent(utility::conversions::to_string_t(U("name"))))
+            {
+                utility::string_t refVal_setName;
+                ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(U("name"))),
+                                                 refVal_setName);
+                setName(refVal_setName);
+            }
+            if (multipart->hasContent(utility::conversions::to_string_t(U("description"))))
+            {
+                utility::string_t refVal_setDescription;
+                ok &= ModelBase::fromHttpContent(
+                    multipart->getContent(utility::conversions::to_string_t(U("description"))), refVal_setDescription);
+                setDescription(refVal_setDescription);
+            }
+            if (multipart->hasContent(utility::conversions::to_string_t(U("address"))))
+            {
+                utility::string_t refVal_setAddress;
+                ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(U("address"))),
+                                                 refVal_setAddress);
+                setAddress(refVal_setAddress);
+            }
+            if (multipart->hasContent(utility::conversions::to_string_t(U("game_port"))))
+            {
+                int32_t refVal_setGamePort;
+                ok &= ModelBase::fromHttpContent(
+                    multipart->getContent(utility::conversions::to_string_t(U("game_port"))), refVal_setGamePort);
+                setGamePort(refVal_setGamePort);
+            }
+            if (multipart->hasContent(utility::conversions::to_string_t(U("query_port"))))
+            {
+                int32_t refVal_setQueryPort;
+                ok &= ModelBase::fromHttpContent(
+                    multipart->getContent(utility::conversions::to_string_t(U("query_port"))), refVal_setQueryPort);
+                setQueryPort(refVal_setQueryPort);
+            }
+            if (multipart->hasContent(utility::conversions::to_string_t(U("game_id"))))
+            {
+                utility::string_t refVal_setGameId;
+                ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(U("game_id"))),
+                                                 refVal_setGameId);
+                setGameId(refVal_setGameId);
+            }
+            if (multipart->hasContent(utility::conversions::to_string_t(U("game_icon_url"))))
+            {
+                utility::string_t refVal_setGameIconUrl;
+                ok &= ModelBase::fromHttpContent(
+                    multipart->getContent(utility::conversions::to_string_t(U("game_icon_url"))),
+                    refVal_setGameIconUrl);
+                setGameIconUrl(refVal_setGameIconUrl);
+            }
+            if (multipart->hasContent(utility::conversions::to_string_t(U("version"))))
+            {
+                utility::string_t refVal_setVersion;
+                ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(U("version"))),
+                                                 refVal_setVersion);
+                setVersion(refVal_setVersion);
+            }
+            if (multipart->hasContent(utility::conversions::to_string_t(U("featured"))))
+            {
+                bool refVal_setFeatured;
+                ok &= ModelBase::fromHttpContent(
+                    multipart->getContent(utility::conversions::to_string_t(U("featured"))), refVal_setFeatured);
+                setFeatured(refVal_setFeatured);
+            }
+            if (multipart->hasContent(utility::conversions::to_string_t(U("cluster_id"))))
+            {
+                utility::string_t refVal_setClusterId;
+                ok &= ModelBase::fromHttpContent(
+                    multipart->getContent(utility::conversions::to_string_t(U("cluster_id"))), refVal_setClusterId);
+                setClusterId(refVal_setClusterId);
+            }
+            if (multipart->hasContent(utility::conversions::to_string_t(U("website_url"))))
+            {
+                utility::string_t refVal_setWebsiteUrl;
+                ok &= ModelBase::fromHttpContent(
+                    multipart->getContent(utility::conversions::to_string_t(U("website_url"))), refVal_setWebsiteUrl);
+                setWebsiteUrl(refVal_setWebsiteUrl);
+            }
+            if (multipart->hasContent(utility::conversions::to_string_t(U("banner_url"))))
+            {
+                utility::string_t refVal_setBannerUrl;
+                ok &= ModelBase::fromHttpContent(
+                    multipart->getContent(utility::conversions::to_string_t(U("banner_url"))), refVal_setBannerUrl);
+                setBannerUrl(refVal_setBannerUrl);
+            }
+            if (multipart->hasContent(utility::conversions::to_string_t(U("owner_id"))))
+            {
+                utility::string_t refVal_setOwnerId;
+                ok &= ModelBase::fromHttpContent(
+                    multipart->getContent(utility::conversions::to_string_t(U("owner_id"))), refVal_setOwnerId);
+                setOwnerId(refVal_setOwnerId);
+            }
+            if (multipart->hasContent(utility::conversions::to_string_t(U("uptime"))))
+            {
+                double refVal_setUptime;
+                ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(U("uptime"))),
+                                                 refVal_setUptime);
+                setUptime(refVal_setUptime);
+            }
+            if (multipart->hasContent(utility::conversions::to_string_t(U("status"))))
+            {
+                std::shared_ptr<ServerStatus> refVal_setStatus;
+                ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(U("status"))),
+                                                 refVal_setStatus);
+                setStatus(refVal_setStatus);
+            }
+            if (multipart->hasContent(utility::conversions::to_string_t(U("ping"))))
+            {
+                int32_t refVal_setPing;
+                ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(U("ping"))),
+                                                 refVal_setPing);
+                setPing(refVal_setPing);
+            }
+            if (multipart->hasContent(utility::conversions::to_string_t(U("map"))))
+            {
+                utility::string_t refVal_setMap;
+                ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(U("map"))),
+                                                 refVal_setMap);
+                setMap(refVal_setMap);
+            }
+            if (multipart->hasContent(utility::conversions::to_string_t(U("used_slots"))))
+            {
+                int32_t refVal_setUsedSlots;
+                ok &= ModelBase::fromHttpContent(
+                    multipart->getContent(utility::conversions::to_string_t(U("used_slots"))), refVal_setUsedSlots);
+                setUsedSlots(refVal_setUsedSlots);
+            }
+            if (multipart->hasContent(utility::conversions::to_string_t(U("max_slots"))))
+            {
+                int32_t refVal_setMaxSlots;
+                ok &= ModelBase::fromHttpContent(
+                    multipart->getContent(utility::conversions::to_string_t(U("max_slots"))), refVal_setMaxSlots);
+                setMaxSlots(refVal_setMaxSlots);
+            }
+            if (multipart->hasContent(utility::conversions::to_string_t(U("motd"))))
+            {
+                utility::string_t refVal_setMotd;
+                ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(U("motd"))),
+                                                 refVal_setMotd);
+                setMotd(refVal_setMotd);
+            }
+            if (multipart->hasContent(utility::conversions::to_string_t(U("players"))))
+            {
+                utility::string_t refVal_setPlayers;
+                ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(U("players"))),
+                                                 refVal_setPlayers);
+                setPlayers(refVal_setPlayers);
+            }
+            if (multipart->hasContent(utility::conversions::to_string_t(U("last_online"))))
+            {
+                utility::datetime refVal_setLastOnline;
+                ok &= ModelBase::fromHttpContent(
+                    multipart->getContent(utility::conversions::to_string_t(U("last_online"))), refVal_setLastOnline);
+                setLastOnline(refVal_setLastOnline);
+            }
+            if (multipart->hasContent(utility::conversions::to_string_t(U("country"))))
+            {
+                utility::string_t refVal_setCountry;
+                ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(U("country"))),
+                                                 refVal_setCountry);
+                setCountry(refVal_setCountry);
+            }
+            if (multipart->hasContent(utility::conversions::to_string_t(U("steam"))))
+            {
+                bool refVal_setSteam;
+                ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(U("steam"))),
+                                                 refVal_setSteam);
+                setSteam(refVal_setSteam);
+            }
+            if (multipart->hasContent(utility::conversions::to_string_t(U("discord_server_id"))))
+            {
+                utility::string_t refVal_setDiscordServerId;
+                ok &= ModelBase::fromHttpContent(
+                    multipart->getContent(utility::conversions::to_string_t(U("discord_server_id"))),
+                    refVal_setDiscordServerId);
+                setDiscordServerId(refVal_setDiscordServerId);
+            }
+            if (multipart->hasContent(utility::conversions::to_string_t(U("youtube_video_url"))))
+            {
+                utility::string_t refVal_setYoutubeVideoUrl;
+                ok &= ModelBase::fromHttpContent(
+                    multipart->getContent(utility::conversions::to_string_t(U("youtube_video_url"))),
+                    refVal_setYoutubeVideoUrl);
+                setYoutubeVideoUrl(refVal_setYoutubeVideoUrl);
+            }
+            if (multipart->hasContent(utility::conversions::to_string_t(U("tags"))))
+            {
+                utility::string_t refVal_setTags;
+                ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(U("tags"))),
+                                                 refVal_setTags);
+                setTags(refVal_setTags);
+            }
+            if (multipart->hasContent(utility::conversions::to_string_t(U("comment_count"))))
+            {
+                int32_t refVal_setCommentCount;
+                ok &= ModelBase::fromHttpContent(
+                    multipart->getContent(utility::conversions::to_string_t(U("comment_count"))),
+                    refVal_setCommentCount);
+                setCommentCount(refVal_setCommentCount);
+            }
+            if (multipart->hasContent(utility::conversions::to_string_t(U("created"))))
+            {
+                utility::datetime refVal_setCreated;
+                ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(U("created"))),
+                                                 refVal_setCreated);
+                setCreated(refVal_setCreated);
+            }
+            if (multipart->hasContent(utility::conversions::to_string_t(U("updated"))))
+            {
+                utility::datetime refVal_setUpdated;
+                ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(U("updated"))),
+                                                 refVal_setUpdated);
+                setUpdated(refVal_setUpdated);
+            }
+            return ok;
         }
-    }
-    if(val.has_field(utility::conversions::to_string_t(U("game_icon_url"))))
-    {
-        const web::json::value& fieldValue = val.at(utility::conversions::to_string_t(U("game_icon_url")));
-        if(!fieldValue.is_null())
+
+        utility::string_t GameServer::getId() const
         {
-            utility::string_t refVal_setGameIconUrl;
-            ok &= ModelBase::fromJson(fieldValue, refVal_setGameIconUrl);
-            setGameIconUrl(refVal_setGameIconUrl);
-            
+            return m_Id;
         }
-    }
-    if(val.has_field(utility::conversions::to_string_t(U("version"))))
-    {
-        const web::json::value& fieldValue = val.at(utility::conversions::to_string_t(U("version")));
-        if(!fieldValue.is_null())
+
+        void GameServer::setId(const utility::string_t &value)
         {
-            utility::string_t refVal_setVersion;
-            ok &= ModelBase::fromJson(fieldValue, refVal_setVersion);
-            setVersion(refVal_setVersion);
-            
+            m_Id = value;
+            m_IdIsSet = true;
         }
-    }
-    if(val.has_field(utility::conversions::to_string_t(U("featured"))))
-    {
-        const web::json::value& fieldValue = val.at(utility::conversions::to_string_t(U("featured")));
-        if(!fieldValue.is_null())
+
+        bool GameServer::idIsSet() const
         {
-            bool refVal_setFeatured;
-            ok &= ModelBase::fromJson(fieldValue, refVal_setFeatured);
-            setFeatured(refVal_setFeatured);
-            
+            return m_IdIsSet;
         }
-    }
-    if(val.has_field(utility::conversions::to_string_t(U("cluster_id"))))
-    {
-        const web::json::value& fieldValue = val.at(utility::conversions::to_string_t(U("cluster_id")));
-        if(!fieldValue.is_null())
+
+        void GameServer::unsetId()
         {
-            utility::string_t refVal_setClusterId;
-            ok &= ModelBase::fromJson(fieldValue, refVal_setClusterId);
-            setClusterId(refVal_setClusterId);
-            
+            m_IdIsSet = false;
         }
-    }
-    if(val.has_field(utility::conversions::to_string_t(U("website_url"))))
-    {
-        const web::json::value& fieldValue = val.at(utility::conversions::to_string_t(U("website_url")));
-        if(!fieldValue.is_null())
+        utility::string_t GameServer::getName() const
         {
-            utility::string_t refVal_setWebsiteUrl;
-            ok &= ModelBase::fromJson(fieldValue, refVal_setWebsiteUrl);
-            setWebsiteUrl(refVal_setWebsiteUrl);
-            
+            return m_Name;
         }
-    }
-    if(val.has_field(utility::conversions::to_string_t(U("banner_url"))))
-    {
-        const web::json::value& fieldValue = val.at(utility::conversions::to_string_t(U("banner_url")));
-        if(!fieldValue.is_null())
+
+        void GameServer::setName(const utility::string_t &value)
         {
-            utility::string_t refVal_setBannerUrl;
-            ok &= ModelBase::fromJson(fieldValue, refVal_setBannerUrl);
-            setBannerUrl(refVal_setBannerUrl);
-            
+            m_Name = value;
+            m_NameIsSet = true;
         }
-    }
-    if(val.has_field(utility::conversions::to_string_t(U("owner_id"))))
-    {
-        const web::json::value& fieldValue = val.at(utility::conversions::to_string_t(U("owner_id")));
-        if(!fieldValue.is_null())
+
+        bool GameServer::nameIsSet() const
         {
-            utility::string_t refVal_setOwnerId;
-            ok &= ModelBase::fromJson(fieldValue, refVal_setOwnerId);
-            setOwnerId(refVal_setOwnerId);
-            
+            return m_NameIsSet;
         }
-    }
-    if(val.has_field(utility::conversions::to_string_t(U("uptime"))))
-    {
-        const web::json::value& fieldValue = val.at(utility::conversions::to_string_t(U("uptime")));
-        if(!fieldValue.is_null())
+
+        void GameServer::unsetName()
         {
-            double refVal_setUptime;
-            ok &= ModelBase::fromJson(fieldValue, refVal_setUptime);
-            setUptime(refVal_setUptime);
-            
+            m_NameIsSet = false;
         }
-    }
-    if(val.has_field(utility::conversions::to_string_t(U("status"))))
-    {
-        const web::json::value& fieldValue = val.at(utility::conversions::to_string_t(U("status")));
-        if(!fieldValue.is_null())
+        utility::string_t GameServer::getDescription() const
         {
-            std::shared_ptr<ServerStatus> refVal_setStatus;
-            ok &= ModelBase::fromJson(fieldValue, refVal_setStatus);
-            setStatus(refVal_setStatus);
-            
+            return m_Description;
         }
-    }
-    if(val.has_field(utility::conversions::to_string_t(U("ping"))))
-    {
-        const web::json::value& fieldValue = val.at(utility::conversions::to_string_t(U("ping")));
-        if(!fieldValue.is_null())
+
+        void GameServer::setDescription(const utility::string_t &value)
         {
-            int32_t refVal_setPing;
-            ok &= ModelBase::fromJson(fieldValue, refVal_setPing);
-            setPing(refVal_setPing);
-            
+            m_Description = value;
+            m_DescriptionIsSet = true;
         }
-    }
-    if(val.has_field(utility::conversions::to_string_t(U("map"))))
-    {
-        const web::json::value& fieldValue = val.at(utility::conversions::to_string_t(U("map")));
-        if(!fieldValue.is_null())
+
+        bool GameServer::descriptionIsSet() const
         {
-            utility::string_t refVal_setMap;
-            ok &= ModelBase::fromJson(fieldValue, refVal_setMap);
-            setMap(refVal_setMap);
-            
+            return m_DescriptionIsSet;
         }
-    }
-    if(val.has_field(utility::conversions::to_string_t(U("used_slots"))))
-    {
-        const web::json::value& fieldValue = val.at(utility::conversions::to_string_t(U("used_slots")));
-        if(!fieldValue.is_null())
+
+        void GameServer::unsetDescription()
         {
-            int32_t refVal_setUsedSlots;
-            ok &= ModelBase::fromJson(fieldValue, refVal_setUsedSlots);
-            setUsedSlots(refVal_setUsedSlots);
-            
+            m_DescriptionIsSet = false;
         }
-    }
-    if(val.has_field(utility::conversions::to_string_t(U("max_slots"))))
-    {
-        const web::json::value& fieldValue = val.at(utility::conversions::to_string_t(U("max_slots")));
-        if(!fieldValue.is_null())
+        utility::string_t GameServer::getAddress() const
         {
-            int32_t refVal_setMaxSlots;
-            ok &= ModelBase::fromJson(fieldValue, refVal_setMaxSlots);
-            setMaxSlots(refVal_setMaxSlots);
-            
+            return m_Address;
         }
-    }
-    if(val.has_field(utility::conversions::to_string_t(U("motd"))))
-    {
-        const web::json::value& fieldValue = val.at(utility::conversions::to_string_t(U("motd")));
-        if(!fieldValue.is_null())
+
+        void GameServer::setAddress(const utility::string_t &value)
         {
-            utility::string_t refVal_setMotd;
-            ok &= ModelBase::fromJson(fieldValue, refVal_setMotd);
-            setMotd(refVal_setMotd);
-            
+            m_Address = value;
+            m_AddressIsSet = true;
         }
-    }
-    if(val.has_field(utility::conversions::to_string_t(U("players"))))
-    {
-        const web::json::value& fieldValue = val.at(utility::conversions::to_string_t(U("players")));
-        if(!fieldValue.is_null())
+
+        bool GameServer::addressIsSet() const
         {
-            utility::string_t refVal_setPlayers;
-            ok &= ModelBase::fromJson(fieldValue, refVal_setPlayers);
-            setPlayers(refVal_setPlayers);
-            
+            return m_AddressIsSet;
         }
-    }
-    if(val.has_field(utility::conversions::to_string_t(U("last_online"))))
-    {
-        const web::json::value& fieldValue = val.at(utility::conversions::to_string_t(U("last_online")));
-        if(!fieldValue.is_null())
+
+        void GameServer::unsetAddress()
         {
-            utility::datetime refVal_setLastOnline;
-            ok &= ModelBase::fromJson(fieldValue, refVal_setLastOnline);
-            setLastOnline(refVal_setLastOnline);
-            
+            m_AddressIsSet = false;
         }
-    }
-    if(val.has_field(utility::conversions::to_string_t(U("country"))))
-    {
-        const web::json::value& fieldValue = val.at(utility::conversions::to_string_t(U("country")));
-        if(!fieldValue.is_null())
+        int32_t GameServer::getGamePort() const
         {
-            utility::string_t refVal_setCountry;
-            ok &= ModelBase::fromJson(fieldValue, refVal_setCountry);
-            setCountry(refVal_setCountry);
-            
+            return m_Game_port;
         }
-    }
-    if(val.has_field(utility::conversions::to_string_t(U("steam"))))
-    {
-        const web::json::value& fieldValue = val.at(utility::conversions::to_string_t(U("steam")));
-        if(!fieldValue.is_null())
+
+        void GameServer::setGamePort(int32_t value)
         {
-            bool refVal_setSteam;
-            ok &= ModelBase::fromJson(fieldValue, refVal_setSteam);
-            setSteam(refVal_setSteam);
-            
+            m_Game_port = value;
+            m_Game_portIsSet = true;
         }
-    }
-    if(val.has_field(utility::conversions::to_string_t(U("discord_server_id"))))
-    {
-        const web::json::value& fieldValue = val.at(utility::conversions::to_string_t(U("discord_server_id")));
-        if(!fieldValue.is_null())
+
+        bool GameServer::gamePortIsSet() const
         {
-            utility::string_t refVal_setDiscordServerId;
-            ok &= ModelBase::fromJson(fieldValue, refVal_setDiscordServerId);
-            setDiscordServerId(refVal_setDiscordServerId);
-            
+            return m_Game_portIsSet;
         }
-    }
-    if(val.has_field(utility::conversions::to_string_t(U("youtube_video_url"))))
-    {
-        const web::json::value& fieldValue = val.at(utility::conversions::to_string_t(U("youtube_video_url")));
-        if(!fieldValue.is_null())
+
+        void GameServer::unsetGame_port()
         {
-            utility::string_t refVal_setYoutubeVideoUrl;
-            ok &= ModelBase::fromJson(fieldValue, refVal_setYoutubeVideoUrl);
-            setYoutubeVideoUrl(refVal_setYoutubeVideoUrl);
-            
+            m_Game_portIsSet = false;
         }
-    }
-    if(val.has_field(utility::conversions::to_string_t(U("tags"))))
-    {
-        const web::json::value& fieldValue = val.at(utility::conversions::to_string_t(U("tags")));
-        if(!fieldValue.is_null())
+        int32_t GameServer::getQueryPort() const
         {
-            utility::string_t refVal_setTags;
-            ok &= ModelBase::fromJson(fieldValue, refVal_setTags);
-            setTags(refVal_setTags);
-            
+            return m_Query_port;
         }
-    }
-    if(val.has_field(utility::conversions::to_string_t(U("comment_count"))))
-    {
-        const web::json::value& fieldValue = val.at(utility::conversions::to_string_t(U("comment_count")));
-        if(!fieldValue.is_null())
+
+        void GameServer::setQueryPort(int32_t value)
         {
-            int32_t refVal_setCommentCount;
-            ok &= ModelBase::fromJson(fieldValue, refVal_setCommentCount);
-            setCommentCount(refVal_setCommentCount);
-            
+            m_Query_port = value;
+            m_Query_portIsSet = true;
         }
-    }
-    if(val.has_field(utility::conversions::to_string_t(U("created"))))
-    {
-        const web::json::value& fieldValue = val.at(utility::conversions::to_string_t(U("created")));
-        if(!fieldValue.is_null())
+
+        bool GameServer::queryPortIsSet() const
         {
-            utility::datetime refVal_setCreated;
-            ok &= ModelBase::fromJson(fieldValue, refVal_setCreated);
-            setCreated(refVal_setCreated);
-            
+            return m_Query_portIsSet;
         }
-    }
-    if(val.has_field(utility::conversions::to_string_t(U("updated"))))
-    {
-        const web::json::value& fieldValue = val.at(utility::conversions::to_string_t(U("updated")));
-        if(!fieldValue.is_null())
+
+        void GameServer::unsetQuery_port()
         {
-            utility::datetime refVal_setUpdated;
-            ok &= ModelBase::fromJson(fieldValue, refVal_setUpdated);
-            setUpdated(refVal_setUpdated);
-            
+            m_Query_portIsSet = false;
         }
-    }
-    return ok;
-}
-
-void GameServer::toMultipart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& prefix) const
-{
-    utility::string_t namePrefix = prefix;
-    if(namePrefix.size() > 0 && namePrefix.substr(namePrefix.size() - 1) != utility::conversions::to_string_t(U(".")))
-    {
-        namePrefix += utility::conversions::to_string_t(U("."));
-    }
-    if(m_IdIsSet)
-    {
-        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("id")), m_Id));
-    }
-    if(m_NameIsSet)
-    {
-        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("name")), m_Name));
-    }
-    if(m_DescriptionIsSet)
-    {
-        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("description")), m_Description));
-    }
-    if(m_AddressIsSet)
-    {
-        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("address")), m_Address));
-    }
-    if(m_Game_portIsSet)
-    {
-        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("game_port")), m_Game_port));
-    }
-    if(m_Query_portIsSet)
-    {
-        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("query_port")), m_Query_port));
-    }
-    if(m_Game_idIsSet)
-    {
-        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("game_id")), m_Game_id));
-    }
-    if(m_Game_icon_urlIsSet)
-    {
-        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("game_icon_url")), m_Game_icon_url));
-    }
-    if(m_VersionIsSet)
-    {
-        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("version")), m_Version));
-    }
-    if(m_FeaturedIsSet)
-    {
-        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("featured")), m_Featured));
-    }
-    if(m_Cluster_idIsSet)
-    {
-        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("cluster_id")), m_Cluster_id));
-    }
-    if(m_Website_urlIsSet)
-    {
-        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("website_url")), m_Website_url));
-    }
-    if(m_Banner_urlIsSet)
-    {
-        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("banner_url")), m_Banner_url));
-    }
-    if(m_Owner_idIsSet)
-    {
-        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("owner_id")), m_Owner_id));
-    }
-    if(m_UptimeIsSet)
-    {
-        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("uptime")), m_Uptime));
-    }
-    if(m_StatusIsSet)
-    {
-        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("status")), m_Status));
-    }
-    if(m_PingIsSet)
-    {
-        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("ping")), m_Ping));
-    }
-    if(m_mapIsSet)
-    {
-        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("map")), m_map));
-    }
-    if(m_Used_slotsIsSet)
-    {
-        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("used_slots")), m_Used_slots));
-    }
-    if(m_Max_slotsIsSet)
-    {
-        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("max_slots")), m_Max_slots));
-    }
-    if(m_MotdIsSet)
-    {
-        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("motd")), m_Motd));
-    }
-    if(m_PlayersIsSet)
-    {
-        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("players")), m_Players));
-    }
-    if(m_Last_onlineIsSet)
-    {
-        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("last_online")), m_Last_online));
-    }
-    if(m_CountryIsSet)
-    {
-        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("country")), m_Country));
-    }
-    if(m_SteamIsSet)
-    {
-        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("steam")), m_Steam));
-    }
-    if(m_Discord_server_idIsSet)
-    {
-        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("discord_server_id")), m_Discord_server_id));
-    }
-    if(m_Youtube_video_urlIsSet)
-    {
-        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("youtube_video_url")), m_Youtube_video_url));
-    }
-    if(m_TagsIsSet)
-    {
-        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("tags")), m_Tags));
-    }
-    if(m_Comment_countIsSet)
-    {
-        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("comment_count")), m_Comment_count));
-    }
-    if(m_CreatedIsSet)
-    {
-        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("created")), m_Created));
-    }
-    if(m_UpdatedIsSet)
-    {
-        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("updated")), m_Updated));
-    }
-}
+        utility::string_t GameServer::getGameId() const
+        {
+            return m_Game_id;
+        }
+
+        void GameServer::setGameId(const utility::string_t &value)
+        {
+            m_Game_id = value;
+            m_Game_idIsSet = true;
+        }
+
+        bool GameServer::gameIdIsSet() const
+        {
+            return m_Game_idIsSet;
+        }
+
+        void GameServer::unsetGame_id()
+        {
+            m_Game_idIsSet = false;
+        }
+        utility::string_t GameServer::getGameIconUrl() const
+        {
+            return m_Game_icon_url;
+        }
+
+        void GameServer::setGameIconUrl(const utility::string_t &value)
+        {
+            m_Game_icon_url = value;
+            m_Game_icon_urlIsSet = true;
+        }
+
+        bool GameServer::gameIconUrlIsSet() const
+        {
+            return m_Game_icon_urlIsSet;
+        }
+
+        void GameServer::unsetGame_icon_url()
+        {
+            m_Game_icon_urlIsSet = false;
+        }
+        utility::string_t GameServer::getVersion() const
+        {
+            return m_Version;
+        }
+
+        void GameServer::setVersion(const utility::string_t &value)
+        {
+            m_Version = value;
+            m_VersionIsSet = true;
+        }
+
+        bool GameServer::versionIsSet() const
+        {
+            return m_VersionIsSet;
+        }
+
+        void GameServer::unsetVersion()
+        {
+            m_VersionIsSet = false;
+        }
+        bool GameServer::isFeatured() const
+        {
+            return m_Featured;
+        }
+
+        void GameServer::setFeatured(bool value)
+        {
+            m_Featured = value;
+            m_FeaturedIsSet = true;
+        }
+
+        bool GameServer::featuredIsSet() const
+        {
+            return m_FeaturedIsSet;
+        }
+
+        void GameServer::unsetFeatured()
+        {
+            m_FeaturedIsSet = false;
+        }
+        utility::string_t GameServer::getClusterId() const
+        {
+            return m_Cluster_id;
+        }
+
+        void GameServer::setClusterId(const utility::string_t &value)
+        {
+            m_Cluster_id = value;
+            m_Cluster_idIsSet = true;
+        }
+
+        bool GameServer::clusterIdIsSet() const
+        {
+            return m_Cluster_idIsSet;
+        }
+
+        void GameServer::unsetCluster_id()
+        {
+            m_Cluster_idIsSet = false;
+        }
+        utility::string_t GameServer::getWebsiteUrl() const
+        {
+            return m_Website_url;
+        }
+
+        void GameServer::setWebsiteUrl(const utility::string_t &value)
+        {
+            m_Website_url = value;
+            m_Website_urlIsSet = true;
+        }
+
+        bool GameServer::websiteUrlIsSet() const
+        {
+            return m_Website_urlIsSet;
+        }
+
+        void GameServer::unsetWebsite_url()
+        {
+            m_Website_urlIsSet = false;
+        }
+        utility::string_t GameServer::getBannerUrl() const
+        {
+            return m_Banner_url;
+        }
+
+        void GameServer::setBannerUrl(const utility::string_t &value)
+        {
+            m_Banner_url = value;
+            m_Banner_urlIsSet = true;
+        }
+
+        bool GameServer::bannerUrlIsSet() const
+        {
+            return m_Banner_urlIsSet;
+        }
+
+        void GameServer::unsetBanner_url()
+        {
+            m_Banner_urlIsSet = false;
+        }
+        utility::string_t GameServer::getOwnerId() const
+        {
+            return m_Owner_id;
+        }
+
+        void GameServer::setOwnerId(const utility::string_t &value)
+        {
+            m_Owner_id = value;
+            m_Owner_idIsSet = true;
+        }
+
+        bool GameServer::ownerIdIsSet() const
+        {
+            return m_Owner_idIsSet;
+        }
+
+        void GameServer::unsetOwner_id()
+        {
+            m_Owner_idIsSet = false;
+        }
+        double GameServer::getUptime() const
+        {
+            return m_Uptime;
+        }
+
+        void GameServer::setUptime(double value)
+        {
+            m_Uptime = value;
+            m_UptimeIsSet = true;
+        }
+
+        bool GameServer::uptimeIsSet() const
+        {
+            return m_UptimeIsSet;
+        }
+
+        void GameServer::unsetUptime()
+        {
+            m_UptimeIsSet = false;
+        }
+        std::shared_ptr<ServerStatus> GameServer::getStatus() const
+        {
+            return m_Status;
+        }
+
+        void GameServer::setStatus(const std::shared_ptr<ServerStatus> &value)
+        {
+            m_Status = value;
+            m_StatusIsSet = true;
+        }
+
+        bool GameServer::statusIsSet() const
+        {
+            return m_StatusIsSet;
+        }
+
+        void GameServer::unsetStatus()
+        {
+            m_StatusIsSet = false;
+        }
+        int32_t GameServer::getPing() const
+        {
+            return m_Ping;
+        }
+
+        void GameServer::setPing(int32_t value)
+        {
+            m_Ping = value;
+            m_PingIsSet = true;
+        }
+
+        bool GameServer::pingIsSet() const
+        {
+            return m_PingIsSet;
+        }
+
+        void GameServer::unsetPing()
+        {
+            m_PingIsSet = false;
+        }
+        utility::string_t GameServer::getMap() const
+        {
+            return m_map;
+        }
+
+        void GameServer::setMap(const utility::string_t &value)
+        {
+            m_map = value;
+            m_mapIsSet = true;
+        }
+
+        bool GameServer::mapIsSet() const
+        {
+            return m_mapIsSet;
+        }
+
+        void GameServer::unsetmap()
+        {
+            m_mapIsSet = false;
+        }
+        int32_t GameServer::getUsedSlots() const
+        {
+            return m_Used_slots;
+        }
+
+        void GameServer::setUsedSlots(int32_t value)
+        {
+            m_Used_slots = value;
+            m_Used_slotsIsSet = true;
+        }
+
+        bool GameServer::usedSlotsIsSet() const
+        {
+            return m_Used_slotsIsSet;
+        }
+
+        void GameServer::unsetUsed_slots()
+        {
+            m_Used_slotsIsSet = false;
+        }
+        int32_t GameServer::getMaxSlots() const
+        {
+            return m_Max_slots;
+        }
+
+        void GameServer::setMaxSlots(int32_t value)
+        {
+            m_Max_slots = value;
+            m_Max_slotsIsSet = true;
+        }
+
+        bool GameServer::maxSlotsIsSet() const
+        {
+            return m_Max_slotsIsSet;
+        }
+
+        void GameServer::unsetMax_slots()
+        {
+            m_Max_slotsIsSet = false;
+        }
+        utility::string_t GameServer::getMotd() const
+        {
+            return m_Motd;
+        }
+
+        void GameServer::setMotd(const utility::string_t &value)
+        {
+            m_Motd = value;
+            m_MotdIsSet = true;
+        }
+
+        bool GameServer::motdIsSet() const
+        {
+            return m_MotdIsSet;
+        }
+
+        void GameServer::unsetMotd()
+        {
+            m_MotdIsSet = false;
+        }
+        utility::string_t GameServer::getPlayers() const
+        {
+            return m_Players;
+        }
+
+        void GameServer::setPlayers(const utility::string_t &value)
+        {
+            m_Players = value;
+            m_PlayersIsSet = true;
+        }
+
+        bool GameServer::playersIsSet() const
+        {
+            return m_PlayersIsSet;
+        }
+
+        void GameServer::unsetPlayers()
+        {
+            m_PlayersIsSet = false;
+        }
+        utility::datetime GameServer::getLastOnline() const
+        {
+            return m_Last_online;
+        }
+
+        void GameServer::setLastOnline(const utility::datetime &value)
+        {
+            m_Last_online = value;
+            m_Last_onlineIsSet = true;
+        }
+
+        bool GameServer::lastOnlineIsSet() const
+        {
+            return m_Last_onlineIsSet;
+        }
+
+        void GameServer::unsetLast_online()
+        {
+            m_Last_onlineIsSet = false;
+        }
+        utility::string_t GameServer::getCountry() const
+        {
+            return m_Country;
+        }
+
+        void GameServer::setCountry(const utility::string_t &value)
+        {
+            m_Country = value;
+            m_CountryIsSet = true;
+        }
+
+        bool GameServer::countryIsSet() const
+        {
+            return m_CountryIsSet;
+        }
+
+        void GameServer::unsetCountry()
+        {
+            m_CountryIsSet = false;
+        }
+        bool GameServer::isSteam() const
+        {
+            return m_Steam;
+        }
+
+        void GameServer::setSteam(bool value)
+        {
+            m_Steam = value;
+            m_SteamIsSet = true;
+        }
+
+        bool GameServer::steamIsSet() const
+        {
+            return m_SteamIsSet;
+        }
+
+        void GameServer::unsetSteam()
+        {
+            m_SteamIsSet = false;
+        }
+        utility::string_t GameServer::getDiscordServerId() const
+        {
+            return m_Discord_server_id;
+        }
+
+        void GameServer::setDiscordServerId(const utility::string_t &value)
+        {
+            m_Discord_server_id = value;
+            m_Discord_server_idIsSet = true;
+        }
+
+        bool GameServer::discordServerIdIsSet() const
+        {
+            return m_Discord_server_idIsSet;
+        }
+
+        void GameServer::unsetDiscord_server_id()
+        {
+            m_Discord_server_idIsSet = false;
+        }
+        utility::string_t GameServer::getYoutubeVideoUrl() const
+        {
+            return m_Youtube_video_url;
+        }
+
+        void GameServer::setYoutubeVideoUrl(const utility::string_t &value)
+        {
+            m_Youtube_video_url = value;
+            m_Youtube_video_urlIsSet = true;
+        }
+
+        bool GameServer::youtubeVideoUrlIsSet() const
+        {
+            return m_Youtube_video_urlIsSet;
+        }
+
+        void GameServer::unsetYoutube_video_url()
+        {
+            m_Youtube_video_urlIsSet = false;
+        }
+        utility::string_t GameServer::getTags() const
+        {
+            return m_Tags;
+        }
+
+        void GameServer::setTags(const utility::string_t &value)
+        {
+            m_Tags = value;
+            m_TagsIsSet = true;
+        }
+
+        bool GameServer::tagsIsSet() const
+        {
+            return m_TagsIsSet;
+        }
+
+        void GameServer::unsetTags()
+        {
+            m_TagsIsSet = false;
+        }
+        int32_t GameServer::getCommentCount() const
+        {
+            return m_Comment_count;
+        }
+
+        void GameServer::setCommentCount(int32_t value)
+        {
+            m_Comment_count = value;
+            m_Comment_countIsSet = true;
+        }
+
+        bool GameServer::commentCountIsSet() const
+        {
+            return m_Comment_countIsSet;
+        }
+
+        void GameServer::unsetComment_count()
+        {
+            m_Comment_countIsSet = false;
+        }
+        utility::datetime GameServer::getCreated() const
+        {
+            return m_Created;
+        }
+
+        void GameServer::setCreated(const utility::datetime &value)
+        {
+            m_Created = value;
+            m_CreatedIsSet = true;
+        }
+
+        bool GameServer::createdIsSet() const
+        {
+            return m_CreatedIsSet;
+        }
+
+        void GameServer::unsetCreated()
+        {
+            m_CreatedIsSet = false;
+        }
+        utility::datetime GameServer::getUpdated() const
+        {
+            return m_Updated;
+        }
+
+        void GameServer::setUpdated(const utility::datetime &value)
+        {
+            m_Updated = value;
+            m_UpdatedIsSet = true;
+        }
+
+        bool GameServer::updatedIsSet() const
+        {
+            return m_UpdatedIsSet;
+        }
+
+        void GameServer::unsetUpdated()
+        {
+            m_UpdatedIsSet = false;
+        }
 
-bool GameServer::fromMultiPart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& prefix)
-{
-    bool ok = true;
-    utility::string_t namePrefix = prefix;
-    if(namePrefix.size() > 0 && namePrefix.substr(namePrefix.size() - 1) != utility::conversions::to_string_t(U(".")))
-    {
-        namePrefix += utility::conversions::to_string_t(U("."));
-    }
-
-    if(multipart->hasContent(utility::conversions::to_string_t(U("id"))))
-    {
-        utility::string_t refVal_setId;
-        ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(U("id"))), refVal_setId );
-        setId(refVal_setId);
-    }
-    if(multipart->hasContent(utility::conversions::to_string_t(U("name"))))
-    {
-        utility::string_t refVal_setName;
-        ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(U("name"))), refVal_setName );
-        setName(refVal_setName);
     }
-    if(multipart->hasContent(utility::conversions::to_string_t(U("description"))))
-    {
-        utility::string_t refVal_setDescription;
-        ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(U("description"))), refVal_setDescription );
-        setDescription(refVal_setDescription);
-    }
-    if(multipart->hasContent(utility::conversions::to_string_t(U("address"))))
-    {
-        utility::string_t refVal_setAddress;
-        ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(U("address"))), refVal_setAddress );
-        setAddress(refVal_setAddress);
-    }
-    if(multipart->hasContent(utility::conversions::to_string_t(U("game_port"))))
-    {
-        int32_t refVal_setGamePort;
-        ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(U("game_port"))), refVal_setGamePort );
-        setGamePort(refVal_setGamePort);
-    }
-    if(multipart->hasContent(utility::conversions::to_string_t(U("query_port"))))
-    {
-        int32_t refVal_setQueryPort;
-        ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(U("query_port"))), refVal_setQueryPort );
-        setQueryPort(refVal_setQueryPort);
-    }
-    if(multipart->hasContent(utility::conversions::to_string_t(U("game_id"))))
-    {
-        utility::string_t refVal_setGameId;
-        ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(U("game_id"))), refVal_setGameId );
-        setGameId(refVal_setGameId);
-    }
-    if(multipart->hasContent(utility::conversions::to_string_t(U("game_icon_url"))))
-    {
-        utility::string_t refVal_setGameIconUrl;
-        ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(U("game_icon_url"))), refVal_setGameIconUrl );
-        setGameIconUrl(refVal_setGameIconUrl);
-    }
-    if(multipart->hasContent(utility::conversions::to_string_t(U("version"))))
-    {
-        utility::string_t refVal_setVersion;
-        ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(U("version"))), refVal_setVersion );
-        setVersion(refVal_setVersion);
-    }
-    if(multipart->hasContent(utility::conversions::to_string_t(U("featured"))))
-    {
-        bool refVal_setFeatured;
-        ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(U("featured"))), refVal_setFeatured );
-        setFeatured(refVal_setFeatured);
-    }
-    if(multipart->hasContent(utility::conversions::to_string_t(U("cluster_id"))))
-    {
-        utility::string_t refVal_setClusterId;
-        ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(U("cluster_id"))), refVal_setClusterId );
-        setClusterId(refVal_setClusterId);
-    }
-    if(multipart->hasContent(utility::conversions::to_string_t(U("website_url"))))
-    {
-        utility::string_t refVal_setWebsiteUrl;
-        ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(U("website_url"))), refVal_setWebsiteUrl );
-        setWebsiteUrl(refVal_setWebsiteUrl);
-    }
-    if(multipart->hasContent(utility::conversions::to_string_t(U("banner_url"))))
-    {
-        utility::string_t refVal_setBannerUrl;
-        ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(U("banner_url"))), refVal_setBannerUrl );
-        setBannerUrl(refVal_setBannerUrl);
-    }
-    if(multipart->hasContent(utility::conversions::to_string_t(U("owner_id"))))
-    {
-        utility::string_t refVal_setOwnerId;
-        ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(U("owner_id"))), refVal_setOwnerId );
-        setOwnerId(refVal_setOwnerId);
-    }
-    if(multipart->hasContent(utility::conversions::to_string_t(U("uptime"))))
-    {
-        double refVal_setUptime;
-        ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(U("uptime"))), refVal_setUptime );
-        setUptime(refVal_setUptime);
-    }
-    if(multipart->hasContent(utility::conversions::to_string_t(U("status"))))
-    {
-        std::shared_ptr<ServerStatus> refVal_setStatus;
-        ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(U("status"))), refVal_setStatus );
-        setStatus(refVal_setStatus);
-    }
-    if(multipart->hasContent(utility::conversions::to_string_t(U("ping"))))
-    {
-        int32_t refVal_setPing;
-        ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(U("ping"))), refVal_setPing );
-        setPing(refVal_setPing);
-    }
-    if(multipart->hasContent(utility::conversions::to_string_t(U("map"))))
-    {
-        utility::string_t refVal_setMap;
-        ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(U("map"))), refVal_setMap );
-        setMap(refVal_setMap);
-    }
-    if(multipart->hasContent(utility::conversions::to_string_t(U("used_slots"))))
-    {
-        int32_t refVal_setUsedSlots;
-        ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(U("used_slots"))), refVal_setUsedSlots );
-        setUsedSlots(refVal_setUsedSlots);
-    }
-    if(multipart->hasContent(utility::conversions::to_string_t(U("max_slots"))))
-    {
-        int32_t refVal_setMaxSlots;
-        ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(U("max_slots"))), refVal_setMaxSlots );
-        setMaxSlots(refVal_setMaxSlots);
-    }
-    if(multipart->hasContent(utility::conversions::to_string_t(U("motd"))))
-    {
-        utility::string_t refVal_setMotd;
-        ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(U("motd"))), refVal_setMotd );
-        setMotd(refVal_setMotd);
-    }
-    if(multipart->hasContent(utility::conversions::to_string_t(U("players"))))
-    {
-        utility::string_t refVal_setPlayers;
-        ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(U("players"))), refVal_setPlayers );
-        setPlayers(refVal_setPlayers);
-    }
-    if(multipart->hasContent(utility::conversions::to_string_t(U("last_online"))))
-    {
-        utility::datetime refVal_setLastOnline;
-        ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(U("last_online"))), refVal_setLastOnline );
-        setLastOnline(refVal_setLastOnline);
-    }
-    if(multipart->hasContent(utility::conversions::to_string_t(U("country"))))
-    {
-        utility::string_t refVal_setCountry;
-        ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(U("country"))), refVal_setCountry );
-        setCountry(refVal_setCountry);
-    }
-    if(multipart->hasContent(utility::conversions::to_string_t(U("steam"))))
-    {
-        bool refVal_setSteam;
-        ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(U("steam"))), refVal_setSteam );
-        setSteam(refVal_setSteam);
-    }
-    if(multipart->hasContent(utility::conversions::to_string_t(U("discord_server_id"))))
-    {
-        utility::string_t refVal_setDiscordServerId;
-        ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(U("discord_server_id"))), refVal_setDiscordServerId );
-        setDiscordServerId(refVal_setDiscordServerId);
-    }
-    if(multipart->hasContent(utility::conversions::to_string_t(U("youtube_video_url"))))
-    {
-        utility::string_t refVal_setYoutubeVideoUrl;
-        ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(U("youtube_video_url"))), refVal_setYoutubeVideoUrl );
-        setYoutubeVideoUrl(refVal_setYoutubeVideoUrl);
-    }
-    if(multipart->hasContent(utility::conversions::to_string_t(U("tags"))))
-    {
-        utility::string_t refVal_setTags;
-        ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(U("tags"))), refVal_setTags );
-        setTags(refVal_setTags);
-    }
-    if(multipart->hasContent(utility::conversions::to_string_t(U("comment_count"))))
-    {
-        int32_t refVal_setCommentCount;
-        ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(U("comment_count"))), refVal_setCommentCount );
-        setCommentCount(refVal_setCommentCount);
-    }
-    if(multipart->hasContent(utility::conversions::to_string_t(U("created"))))
-    {
-        utility::datetime refVal_setCreated;
-        ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(U("created"))), refVal_setCreated );
-        setCreated(refVal_setCreated);
-    }
-    if(multipart->hasContent(utility::conversions::to_string_t(U("updated"))))
-    {
-        utility::datetime refVal_setUpdated;
-        ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(U("updated"))), refVal_setUpdated );
-        setUpdated(refVal_setUpdated);
-    }
-    return ok;
-}
-
-
-utility::string_t GameServer::getId() const
-{
-    return m_Id;
-}
-
-
-void GameServer::setId(const utility::string_t& value)
-{
-    m_Id = value;
-    m_IdIsSet = true;
-}
-
-bool GameServer::idIsSet() const
-{
-    return m_IdIsSet;
-}
-
-void GameServer::unsetId()
-{
-    m_IdIsSet = false;
-}
-utility::string_t GameServer::getName() const
-{
-    return m_Name;
-}
-
-
-void GameServer::setName(const utility::string_t& value)
-{
-    m_Name = value;
-    m_NameIsSet = true;
-}
-
-bool GameServer::nameIsSet() const
-{
-    return m_NameIsSet;
-}
-
-void GameServer::unsetName()
-{
-    m_NameIsSet = false;
-}
-utility::string_t GameServer::getDescription() const
-{
-    return m_Description;
-}
-
-
-void GameServer::setDescription(const utility::string_t& value)
-{
-    m_Description = value;
-    m_DescriptionIsSet = true;
-}
-
-bool GameServer::descriptionIsSet() const
-{
-    return m_DescriptionIsSet;
-}
-
-void GameServer::unsetDescription()
-{
-    m_DescriptionIsSet = false;
-}
-utility::string_t GameServer::getAddress() const
-{
-    return m_Address;
-}
-
-
-void GameServer::setAddress(const utility::string_t& value)
-{
-    m_Address = value;
-    m_AddressIsSet = true;
-}
-
-bool GameServer::addressIsSet() const
-{
-    return m_AddressIsSet;
-}
-
-void GameServer::unsetAddress()
-{
-    m_AddressIsSet = false;
-}
-int32_t GameServer::getGamePort() const
-{
-    return m_Game_port;
-}
-
-void GameServer::setGamePort(int32_t value)
-{
-    m_Game_port = value;
-    m_Game_portIsSet = true;
-}
-
-bool GameServer::gamePortIsSet() const
-{
-    return m_Game_portIsSet;
-}
-
-void GameServer::unsetGame_port()
-{
-    m_Game_portIsSet = false;
-}
-int32_t GameServer::getQueryPort() const
-{
-    return m_Query_port;
-}
-
-void GameServer::setQueryPort(int32_t value)
-{
-    m_Query_port = value;
-    m_Query_portIsSet = true;
-}
-
-bool GameServer::queryPortIsSet() const
-{
-    return m_Query_portIsSet;
-}
-
-void GameServer::unsetQuery_port()
-{
-    m_Query_portIsSet = false;
-}
-utility::string_t GameServer::getGameId() const
-{
-    return m_Game_id;
-}
-
-
-void GameServer::setGameId(const utility::string_t& value)
-{
-    m_Game_id = value;
-    m_Game_idIsSet = true;
-}
-
-bool GameServer::gameIdIsSet() const
-{
-    return m_Game_idIsSet;
-}
-
-void GameServer::unsetGame_id()
-{
-    m_Game_idIsSet = false;
-}
-utility::string_t GameServer::getGameIconUrl() const
-{
-    return m_Game_icon_url;
-}
-
-
-void GameServer::setGameIconUrl(const utility::string_t& value)
-{
-    m_Game_icon_url = value;
-    m_Game_icon_urlIsSet = true;
-}
-
-bool GameServer::gameIconUrlIsSet() const
-{
-    return m_Game_icon_urlIsSet;
-}
-
-void GameServer::unsetGame_icon_url()
-{
-    m_Game_icon_urlIsSet = false;
-}
-utility::string_t GameServer::getVersion() const
-{
-    return m_Version;
-}
-
-
-void GameServer::setVersion(const utility::string_t& value)
-{
-    m_Version = value;
-    m_VersionIsSet = true;
-}
-
-bool GameServer::versionIsSet() const
-{
-    return m_VersionIsSet;
-}
-
-void GameServer::unsetVersion()
-{
-    m_VersionIsSet = false;
-}
-bool GameServer::isFeatured() const
-{
-    return m_Featured;
-}
-
-void GameServer::setFeatured(bool value)
-{
-    m_Featured = value;
-    m_FeaturedIsSet = true;
-}
-
-bool GameServer::featuredIsSet() const
-{
-    return m_FeaturedIsSet;
-}
-
-void GameServer::unsetFeatured()
-{
-    m_FeaturedIsSet = false;
-}
-utility::string_t GameServer::getClusterId() const
-{
-    return m_Cluster_id;
-}
-
-
-void GameServer::setClusterId(const utility::string_t& value)
-{
-    m_Cluster_id = value;
-    m_Cluster_idIsSet = true;
-}
-
-bool GameServer::clusterIdIsSet() const
-{
-    return m_Cluster_idIsSet;
-}
-
-void GameServer::unsetCluster_id()
-{
-    m_Cluster_idIsSet = false;
-}
-utility::string_t GameServer::getWebsiteUrl() const
-{
-    return m_Website_url;
-}
-
-
-void GameServer::setWebsiteUrl(const utility::string_t& value)
-{
-    m_Website_url = value;
-    m_Website_urlIsSet = true;
-}
-
-bool GameServer::websiteUrlIsSet() const
-{
-    return m_Website_urlIsSet;
-}
-
-void GameServer::unsetWebsite_url()
-{
-    m_Website_urlIsSet = false;
-}
-utility::string_t GameServer::getBannerUrl() const
-{
-    return m_Banner_url;
-}
-
-
-void GameServer::setBannerUrl(const utility::string_t& value)
-{
-    m_Banner_url = value;
-    m_Banner_urlIsSet = true;
-}
-
-bool GameServer::bannerUrlIsSet() const
-{
-    return m_Banner_urlIsSet;
-}
-
-void GameServer::unsetBanner_url()
-{
-    m_Banner_urlIsSet = false;
-}
-utility::string_t GameServer::getOwnerId() const
-{
-    return m_Owner_id;
-}
-
-
-void GameServer::setOwnerId(const utility::string_t& value)
-{
-    m_Owner_id = value;
-    m_Owner_idIsSet = true;
-}
-
-bool GameServer::ownerIdIsSet() const
-{
-    return m_Owner_idIsSet;
-}
-
-void GameServer::unsetOwner_id()
-{
-    m_Owner_idIsSet = false;
-}
-double GameServer::getUptime() const
-{
-    return m_Uptime;
-}
-
-void GameServer::setUptime(double value)
-{
-    m_Uptime = value;
-    m_UptimeIsSet = true;
-}
-
-bool GameServer::uptimeIsSet() const
-{
-    return m_UptimeIsSet;
-}
-
-void GameServer::unsetUptime()
-{
-    m_UptimeIsSet = false;
-}
-std::shared_ptr<ServerStatus> GameServer::getStatus() const
-{
-    return m_Status;
-}
-
-
-void GameServer::setStatus(const std::shared_ptr<ServerStatus>& value)
-{
-    m_Status = value;
-    m_StatusIsSet = true;
-}
-
-bool GameServer::statusIsSet() const
-{
-    return m_StatusIsSet;
-}
-
-void GameServer::unsetStatus()
-{
-    m_StatusIsSet = false;
-}
-int32_t GameServer::getPing() const
-{
-    return m_Ping;
-}
-
-void GameServer::setPing(int32_t value)
-{
-    m_Ping = value;
-    m_PingIsSet = true;
-}
-
-bool GameServer::pingIsSet() const
-{
-    return m_PingIsSet;
-}
-
-void GameServer::unsetPing()
-{
-    m_PingIsSet = false;
-}
-utility::string_t GameServer::getMap() const
-{
-    return m_map;
-}
-
-
-void GameServer::setMap(const utility::string_t& value)
-{
-    m_map = value;
-    m_mapIsSet = true;
-}
-
-bool GameServer::mapIsSet() const
-{
-    return m_mapIsSet;
-}
-
-void GameServer::unsetmap()
-{
-    m_mapIsSet = false;
-}
-int32_t GameServer::getUsedSlots() const
-{
-    return m_Used_slots;
-}
-
-void GameServer::setUsedSlots(int32_t value)
-{
-    m_Used_slots = value;
-    m_Used_slotsIsSet = true;
-}
-
-bool GameServer::usedSlotsIsSet() const
-{
-    return m_Used_slotsIsSet;
-}
-
-void GameServer::unsetUsed_slots()
-{
-    m_Used_slotsIsSet = false;
-}
-int32_t GameServer::getMaxSlots() const
-{
-    return m_Max_slots;
-}
-
-void GameServer::setMaxSlots(int32_t value)
-{
-    m_Max_slots = value;
-    m_Max_slotsIsSet = true;
-}
-
-bool GameServer::maxSlotsIsSet() const
-{
-    return m_Max_slotsIsSet;
-}
-
-void GameServer::unsetMax_slots()
-{
-    m_Max_slotsIsSet = false;
-}
-utility::string_t GameServer::getMotd() const
-{
-    return m_Motd;
-}
-
-
-void GameServer::setMotd(const utility::string_t& value)
-{
-    m_Motd = value;
-    m_MotdIsSet = true;
-}
-
-bool GameServer::motdIsSet() const
-{
-    return m_MotdIsSet;
-}
-
-void GameServer::unsetMotd()
-{
-    m_MotdIsSet = false;
-}
-utility::string_t GameServer::getPlayers() const
-{
-    return m_Players;
-}
-
-
-void GameServer::setPlayers(const utility::string_t& value)
-{
-    m_Players = value;
-    m_PlayersIsSet = true;
 }
-
-bool GameServer::playersIsSet() const
-{
-    return m_PlayersIsSet;
-}
-
-void GameServer::unsetPlayers()
-{
-    m_PlayersIsSet = false;
-}
-utility::datetime GameServer::getLastOnline() const
-{
-    return m_Last_online;
-}
-
-
-void GameServer::setLastOnline(const utility::datetime& value)
-{
-    m_Last_online = value;
-    m_Last_onlineIsSet = true;
-}
-
-bool GameServer::lastOnlineIsSet() const
-{
-    return m_Last_onlineIsSet;
-}
-
-void GameServer::unsetLast_online()
-{
-    m_Last_onlineIsSet = false;
-}
-utility::string_t GameServer::getCountry() const
-{
-    return m_Country;
-}
-
-
-void GameServer::setCountry(const utility::string_t& value)
-{
-    m_Country = value;
-    m_CountryIsSet = true;
-}
-
-bool GameServer::countryIsSet() const
-{
-    return m_CountryIsSet;
-}
-
-void GameServer::unsetCountry()
-{
-    m_CountryIsSet = false;
-}
-bool GameServer::isSteam() const
-{
-    return m_Steam;
-}
-
-void GameServer::setSteam(bool value)
-{
-    m_Steam = value;
-    m_SteamIsSet = true;
-}
-
-bool GameServer::steamIsSet() const
-{
-    return m_SteamIsSet;
-}
-
-void GameServer::unsetSteam()
-{
-    m_SteamIsSet = false;
-}
-utility::string_t GameServer::getDiscordServerId() const
-{
-    return m_Discord_server_id;
-}
-
-
-void GameServer::setDiscordServerId(const utility::string_t& value)
-{
-    m_Discord_server_id = value;
-    m_Discord_server_idIsSet = true;
-}
-
-bool GameServer::discordServerIdIsSet() const
-{
-    return m_Discord_server_idIsSet;
-}
-
-void GameServer::unsetDiscord_server_id()
-{
-    m_Discord_server_idIsSet = false;
-}
-utility::string_t GameServer::getYoutubeVideoUrl() const
-{
-    return m_Youtube_video_url;
-}
-
-
-void GameServer::setYoutubeVideoUrl(const utility::string_t& value)
-{
-    m_Youtube_video_url = value;
-    m_Youtube_video_urlIsSet = true;
-}
-
-bool GameServer::youtubeVideoUrlIsSet() const
-{
-    return m_Youtube_video_urlIsSet;
-}
-
-void GameServer::unsetYoutube_video_url()
-{
-    m_Youtube_video_urlIsSet = false;
-}
-utility::string_t GameServer::getTags() const
-{
-    return m_Tags;
-}
-
-
-void GameServer::setTags(const utility::string_t& value)
-{
-    m_Tags = value;
-    m_TagsIsSet = true;
-}
-
-bool GameServer::tagsIsSet() const
-{
-    return m_TagsIsSet;
-}
-
-void GameServer::unsetTags()
-{
-    m_TagsIsSet = false;
-}
-int32_t GameServer::getCommentCount() const
-{
-    return m_Comment_count;
-}
-
-void GameServer::setCommentCount(int32_t value)
-{
-    m_Comment_count = value;
-    m_Comment_countIsSet = true;
-}
-
-bool GameServer::commentCountIsSet() const
-{
-    return m_Comment_countIsSet;
-}
-
-void GameServer::unsetComment_count()
-{
-    m_Comment_countIsSet = false;
-}
-utility::datetime GameServer::getCreated() const
-{
-    return m_Created;
-}
-
-
-void GameServer::setCreated(const utility::datetime& value)
-{
-    m_Created = value;
-    m_CreatedIsSet = true;
-}
-
-bool GameServer::createdIsSet() const
-{
-    return m_CreatedIsSet;
-}
-
-void GameServer::unsetCreated()
-{
-    m_CreatedIsSet = false;
-}
-utility::datetime GameServer::getUpdated() const
-{
-    return m_Updated;
-}
-
-
-void GameServer::setUpdated(const utility::datetime& value)
-{
-    m_Updated = value;
-    m_UpdatedIsSet = true;
-}
-
-bool GameServer::updatedIsSet() const
-{
-    return m_UpdatedIsSet;
-}
-
-void GameServer::unsetUpdated()
-{
-    m_UpdatedIsSet = false;
-}
-
-}
-}
-
-

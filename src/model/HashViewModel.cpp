@@ -10,112 +10,112 @@
  * Do not edit the class manually.
  */
 
-
-
 #include "tribufu++/model/HashViewModel.h"
 
-namespace tribufu {
-namespace models {
-
-HashViewModel::HashViewModel()
+namespace tribufu
 {
-    m_Value = utility::conversions::to_string_t("");
-    m_ValueIsSet = false;
-}
-
-HashViewModel::~HashViewModel()
-{
-}
-
-void HashViewModel::validate()
-{
-    // TODO: implement validation
-}
-
-web::json::value HashViewModel::toJson() const
-{
-    web::json::value val = web::json::value::object();
-    if(m_ValueIsSet)
-    {   
-        
-        val[utility::conversions::to_string_t(U("value"))] = ModelBase::toJson(m_Value);
-    }
-
-    return val;
-}
-
-bool HashViewModel::fromJson(const web::json::value& val)
-{
-    bool ok = true;
-    if(val.has_field(utility::conversions::to_string_t(U("value"))))
+    namespace models
     {
-        const web::json::value& fieldValue = val.at(utility::conversions::to_string_t(U("value")));
-        if(!fieldValue.is_null())
+
+        HashViewModel::HashViewModel()
         {
-            utility::string_t refVal_setValue;
-            ok &= ModelBase::fromJson(fieldValue, refVal_setValue);
-            setValue(refVal_setValue);
-            
+            m_Value = utility::conversions::to_string_t("");
+            m_ValueIsSet = false;
         }
+
+        HashViewModel::~HashViewModel()
+        {
+        }
+
+        void HashViewModel::validate()
+        {
+            // TODO: implement validation
+        }
+
+        web::json::value HashViewModel::toJson() const
+        {
+            web::json::value val = web::json::value::object();
+            if (m_ValueIsSet)
+            {
+
+                val[utility::conversions::to_string_t(U("value"))] = ModelBase::toJson(m_Value);
+            }
+
+            return val;
+        }
+
+        bool HashViewModel::fromJson(const web::json::value &val)
+        {
+            bool ok = true;
+            if (val.has_field(utility::conversions::to_string_t(U("value"))))
+            {
+                const web::json::value &fieldValue = val.at(utility::conversions::to_string_t(U("value")));
+                if (!fieldValue.is_null())
+                {
+                    utility::string_t refVal_setValue;
+                    ok &= ModelBase::fromJson(fieldValue, refVal_setValue);
+                    setValue(refVal_setValue);
+                }
+            }
+            return ok;
+        }
+
+        void HashViewModel::toMultipart(std::shared_ptr<MultipartFormData> multipart,
+                                        const utility::string_t &prefix) const
+        {
+            utility::string_t namePrefix = prefix;
+            if (namePrefix.size() > 0 &&
+                namePrefix.substr(namePrefix.size() - 1) != utility::conversions::to_string_t(U(".")))
+            {
+                namePrefix += utility::conversions::to_string_t(U("."));
+            }
+            if (m_ValueIsSet)
+            {
+                multipart->add(
+                    ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("value")), m_Value));
+            }
+        }
+
+        bool HashViewModel::fromMultiPart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t &prefix)
+        {
+            bool ok = true;
+            utility::string_t namePrefix = prefix;
+            if (namePrefix.size() > 0 &&
+                namePrefix.substr(namePrefix.size() - 1) != utility::conversions::to_string_t(U(".")))
+            {
+                namePrefix += utility::conversions::to_string_t(U("."));
+            }
+
+            if (multipart->hasContent(utility::conversions::to_string_t(U("value"))))
+            {
+                utility::string_t refVal_setValue;
+                ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(U("value"))),
+                                                 refVal_setValue);
+                setValue(refVal_setValue);
+            }
+            return ok;
+        }
+
+        utility::string_t HashViewModel::getValue() const
+        {
+            return m_Value;
+        }
+
+        void HashViewModel::setValue(const utility::string_t &value)
+        {
+            m_Value = value;
+            m_ValueIsSet = true;
+        }
+
+        bool HashViewModel::valueIsSet() const
+        {
+            return m_ValueIsSet;
+        }
+
+        void HashViewModel::unsetValue()
+        {
+            m_ValueIsSet = false;
+        }
+
     }
-    return ok;
 }
-
-void HashViewModel::toMultipart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& prefix) const
-{
-    utility::string_t namePrefix = prefix;
-    if(namePrefix.size() > 0 && namePrefix.substr(namePrefix.size() - 1) != utility::conversions::to_string_t(U(".")))
-    {
-        namePrefix += utility::conversions::to_string_t(U("."));
-    }
-    if(m_ValueIsSet)
-    {
-        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("value")), m_Value));
-    }
-}
-
-bool HashViewModel::fromMultiPart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& prefix)
-{
-    bool ok = true;
-    utility::string_t namePrefix = prefix;
-    if(namePrefix.size() > 0 && namePrefix.substr(namePrefix.size() - 1) != utility::conversions::to_string_t(U(".")))
-    {
-        namePrefix += utility::conversions::to_string_t(U("."));
-    }
-
-    if(multipart->hasContent(utility::conversions::to_string_t(U("value"))))
-    {
-        utility::string_t refVal_setValue;
-        ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(U("value"))), refVal_setValue );
-        setValue(refVal_setValue);
-    }
-    return ok;
-}
-
-
-utility::string_t HashViewModel::getValue() const
-{
-    return m_Value;
-}
-
-
-void HashViewModel::setValue(const utility::string_t& value)
-{
-    m_Value = value;
-    m_ValueIsSet = true;
-}
-
-bool HashViewModel::valueIsSet() const
-{
-    return m_ValueIsSet;
-}
-
-void HashViewModel::unsetValue()
-{
-    m_ValueIsSet = false;
-}
-
-}
-}
-
-

@@ -19,41 +19,44 @@
 #ifndef TRIBUFU_MODELS_Object_H_
 #define TRIBUFU_MODELS_Object_H_
 
-
 #include "tribufu++/ModelBase.h"
 
 #include <cpprest/details/basic_types.h>
 #include <cpprest/json.h>
 
-namespace tribufu {
-namespace models {
-
-class  Object : public ModelBase
+namespace tribufu
 {
-public:
-    Object();
-    virtual ~Object();
+    namespace models
+    {
 
-    /////////////////////////////////////////////
-    /// ModelBase overrides
-    void validate() override;
+        class Object : public ModelBase
+        {
+        public:
+            Object();
+            virtual ~Object();
 
-    web::json::value toJson() const override;
-    bool fromJson(const web::json::value& json) override;
+            /////////////////////////////////////////////
+            /// ModelBase overrides
+            void validate() override;
 
-    void toMultipart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& namePrefix) const override;
-    bool fromMultiPart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& namePrefix) override;
+            web::json::value toJson() const override;
+            bool fromJson(const web::json::value &json) override;
 
-    /////////////////////////////////////////////
-    /// Object manipulation
-    web::json::value getValue(const utility::string_t& key) const;
-    void setValue(const utility::string_t& key, const web::json::value& value);
+            void toMultipart(std::shared_ptr<MultipartFormData> multipart,
+                             const utility::string_t &namePrefix) const override;
+            bool fromMultiPart(std::shared_ptr<MultipartFormData> multipart,
+                               const utility::string_t &namePrefix) override;
 
-private:
-    web::json::value m_object;
-};
+            /////////////////////////////////////////////
+            /// Object manipulation
+            web::json::value getValue(const utility::string_t &key) const;
+            void setValue(const utility::string_t &key, const web::json::value &value);
 
-}
+        private:
+            web::json::value m_object;
+        };
+
+    }
 }
 
 #endif /* TRIBUFU_MODELS_Object_H_ */

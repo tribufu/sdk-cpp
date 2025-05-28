@@ -13,7 +13,7 @@
 /*
  * AuthorizeRequest.h
  *
- * 
+ *
  */
 
 #ifndef TRIBUFU_MODELS_AuthorizeRequest_H_
@@ -23,100 +23,96 @@
 
 #include "tribufu++/ModelBase.h"
 
+#include "tribufu++/model/CodeChallengeMethod.h"
 #include "tribufu++/model/ResponseType.h"
 #include <cpprest/details/basic_types.h>
-#include "tribufu++/model/CodeChallengeMethod.h"
 
-namespace tribufu {
-namespace models {
-
-
-
-class  AuthorizeRequest
-    : public ModelBase
+namespace tribufu
 {
-public:
-    AuthorizeRequest();
-    virtual ~AuthorizeRequest();
+    namespace models
+    {
 
-    /////////////////////////////////////////////
-    /// ModelBase overrides
+        class AuthorizeRequest : public ModelBase
+        {
+        public:
+            AuthorizeRequest();
+            virtual ~AuthorizeRequest();
 
-    void validate() override;
+            /////////////////////////////////////////////
+            /// ModelBase overrides
 
-    web::json::value toJson() const override;
-    bool fromJson(const web::json::value& json) override;
+            void validate() override;
 
-    void toMultipart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& namePrefix) const override;
-    bool fromMultiPart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& namePrefix) override;
+            web::json::value toJson() const override;
+            bool fromJson(const web::json::value &json) override;
 
+            void toMultipart(std::shared_ptr<MultipartFormData> multipart,
+                             const utility::string_t &namePrefix) const override;
+            bool fromMultiPart(std::shared_ptr<MultipartFormData> multipart,
+                               const utility::string_t &namePrefix) override;
 
-    /////////////////////////////////////////////
-    /// AuthorizeRequest members
+            /////////////////////////////////////////////
+            /// AuthorizeRequest members
 
+            std::shared_ptr<ResponseType> getResponseType() const;
+            bool responseTypeIsSet() const;
+            void unsetResponse_type();
+            void setResponseType(const std::shared_ptr<ResponseType> &value);
 
-    std::shared_ptr<ResponseType> getResponseType() const;
-    bool responseTypeIsSet() const;
-    void unsetResponse_type();
-    void setResponseType(const std::shared_ptr<ResponseType>& value);
+            utility::string_t getClientId() const;
+            bool clientIdIsSet() const;
+            void unsetClient_id();
+            void setClientId(const utility::string_t &value);
 
-    utility::string_t getClientId() const;
-    bool clientIdIsSet() const;
-    void unsetClient_id();
-    void setClientId(const utility::string_t& value);
+            utility::string_t getCodeChallenge() const;
+            bool codeChallengeIsSet() const;
+            void unsetCode_challenge();
+            void setCodeChallenge(const utility::string_t &value);
 
-    utility::string_t getCodeChallenge() const;
-    bool codeChallengeIsSet() const;
-    void unsetCode_challenge();
-    void setCodeChallenge(const utility::string_t& value);
+            std::shared_ptr<CodeChallengeMethod> getCodeChallengeMethod() const;
+            bool codeChallengeMethodIsSet() const;
+            void unsetCode_challenge_method();
+            void setCodeChallengeMethod(const std::shared_ptr<CodeChallengeMethod> &value);
 
-    std::shared_ptr<CodeChallengeMethod> getCodeChallengeMethod() const;
-    bool codeChallengeMethodIsSet() const;
-    void unsetCode_challenge_method();
-    void setCodeChallengeMethod(const std::shared_ptr<CodeChallengeMethod>& value);
+            utility::string_t getRedirectUri() const;
+            bool redirectUriIsSet() const;
+            void unsetRedirect_uri();
+            void setRedirectUri(const utility::string_t &value);
 
-    utility::string_t getRedirectUri() const;
-    bool redirectUriIsSet() const;
-    void unsetRedirect_uri();
-    void setRedirectUri(const utility::string_t& value);
+            utility::string_t getScope() const;
+            bool scopeIsSet() const;
+            void unsetScope();
+            void setScope(const utility::string_t &value);
 
-    utility::string_t getScope() const;
-    bool scopeIsSet() const;
-    void unsetScope();
-    void setScope(const utility::string_t& value);
+            utility::string_t getState() const;
+            bool stateIsSet() const;
+            void unsetState();
+            void setState(const utility::string_t &value);
 
-    utility::string_t getState() const;
-    bool stateIsSet() const;
-    void unsetState();
-    void setState(const utility::string_t& value);
+        protected:
+            std::shared_ptr<ResponseType> m_Response_type;
+            bool m_Response_typeIsSet;
 
+            utility::string_t m_Client_id;
+            bool m_Client_idIsSet;
 
-protected:
-    std::shared_ptr<ResponseType> m_Response_type;
-    bool m_Response_typeIsSet;
+            utility::string_t m_Code_challenge;
+            bool m_Code_challengeIsSet;
 
-    utility::string_t m_Client_id;
-    bool m_Client_idIsSet;
+            std::shared_ptr<CodeChallengeMethod> m_Code_challenge_method;
+            bool m_Code_challenge_methodIsSet;
 
-    utility::string_t m_Code_challenge;
-    bool m_Code_challengeIsSet;
+            utility::string_t m_Redirect_uri;
+            bool m_Redirect_uriIsSet;
 
-    std::shared_ptr<CodeChallengeMethod> m_Code_challenge_method;
-    bool m_Code_challenge_methodIsSet;
+            utility::string_t m_Scope;
+            bool m_ScopeIsSet;
 
-    utility::string_t m_Redirect_uri;
-    bool m_Redirect_uriIsSet;
+            utility::string_t m_State;
+            bool m_StateIsSet;
+        };
 
-    utility::string_t m_Scope;
-    bool m_ScopeIsSet;
-
-    utility::string_t m_State;
-    bool m_StateIsSet;
-
-};
-
-
-}
+    }
 }
 
 #endif /* TRIBUFU_MODELS_AuthorizeRequest_H_ */

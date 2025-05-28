@@ -13,7 +13,7 @@
 /*
  * TokenResponse.h
  *
- * 
+ *
  */
 
 #ifndef TRIBUFU_MODELS_TokenResponse_H_
@@ -26,88 +26,84 @@
 #include "tribufu++/model/TokenType.h"
 #include <cpprest/details/basic_types.h>
 
-namespace tribufu {
-namespace models {
-
-
-
-class  TokenResponse
-    : public ModelBase
+namespace tribufu
 {
-public:
-    TokenResponse();
-    virtual ~TokenResponse();
+    namespace models
+    {
 
-    /////////////////////////////////////////////
-    /// ModelBase overrides
+        class TokenResponse : public ModelBase
+        {
+        public:
+            TokenResponse();
+            virtual ~TokenResponse();
 
-    void validate() override;
+            /////////////////////////////////////////////
+            /// ModelBase overrides
 
-    web::json::value toJson() const override;
-    bool fromJson(const web::json::value& json) override;
+            void validate() override;
 
-    void toMultipart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& namePrefix) const override;
-    bool fromMultiPart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& namePrefix) override;
+            web::json::value toJson() const override;
+            bool fromJson(const web::json::value &json) override;
 
+            void toMultipart(std::shared_ptr<MultipartFormData> multipart,
+                             const utility::string_t &namePrefix) const override;
+            bool fromMultiPart(std::shared_ptr<MultipartFormData> multipart,
+                               const utility::string_t &namePrefix) override;
 
-    /////////////////////////////////////////////
-    /// TokenResponse members
+            /////////////////////////////////////////////
+            /// TokenResponse members
 
+            std::shared_ptr<TokenType> getTokenType() const;
+            bool tokenTypeIsSet() const;
+            void unsetToken_type();
+            void setTokenType(const std::shared_ptr<TokenType> &value);
 
-    std::shared_ptr<TokenType> getTokenType() const;
-    bool tokenTypeIsSet() const;
-    void unsetToken_type();
-    void setTokenType(const std::shared_ptr<TokenType>& value);
+            utility::string_t getAccessToken() const;
+            bool accessTokenIsSet() const;
+            void unsetAccess_token();
+            void setAccessToken(const utility::string_t &value);
 
-    utility::string_t getAccessToken() const;
-    bool accessTokenIsSet() const;
-    void unsetAccess_token();
-    void setAccessToken(const utility::string_t& value);
+            utility::string_t getRefreshToken() const;
+            bool refreshTokenIsSet() const;
+            void unsetRefresh_token();
+            void setRefreshToken(const utility::string_t &value);
 
-    utility::string_t getRefreshToken() const;
-    bool refreshTokenIsSet() const;
-    void unsetRefresh_token();
-    void setRefreshToken(const utility::string_t& value);
+            utility::string_t getScope() const;
+            bool scopeIsSet() const;
+            void unsetScope();
+            void setScope(const utility::string_t &value);
 
-    utility::string_t getScope() const;
-    bool scopeIsSet() const;
-    void unsetScope();
-    void setScope(const utility::string_t& value);
+            utility::string_t getState() const;
+            bool stateIsSet() const;
+            void unsetState();
+            void setState(const utility::string_t &value);
 
-    utility::string_t getState() const;
-    bool stateIsSet() const;
-    void unsetState();
-    void setState(const utility::string_t& value);
+            int64_t getExpiresIn() const;
+            bool expiresInIsSet() const;
+            void unsetExpires_in();
+            void setExpiresIn(int64_t value);
 
-    int64_t getExpiresIn() const;
-    bool expiresInIsSet() const;
-    void unsetExpires_in();
-    void setExpiresIn(int64_t value);
+        protected:
+            std::shared_ptr<TokenType> m_Token_type;
+            bool m_Token_typeIsSet;
 
+            utility::string_t m_Access_token;
+            bool m_Access_tokenIsSet;
 
-protected:
-    std::shared_ptr<TokenType> m_Token_type;
-    bool m_Token_typeIsSet;
+            utility::string_t m_Refresh_token;
+            bool m_Refresh_tokenIsSet;
 
-    utility::string_t m_Access_token;
-    bool m_Access_tokenIsSet;
+            utility::string_t m_Scope;
+            bool m_ScopeIsSet;
 
-    utility::string_t m_Refresh_token;
-    bool m_Refresh_tokenIsSet;
+            utility::string_t m_State;
+            bool m_StateIsSet;
 
-    utility::string_t m_Scope;
-    bool m_ScopeIsSet;
+            int64_t m_Expires_in;
+            bool m_Expires_inIsSet;
+        };
 
-    utility::string_t m_State;
-    bool m_StateIsSet;
-
-    int64_t m_Expires_in;
-    bool m_Expires_inIsSet;
-
-};
-
-
-}
+    }
 }
 
 #endif /* TRIBUFU_MODELS_TokenResponse_H_ */

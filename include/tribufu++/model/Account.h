@@ -13,7 +13,7 @@
 /*
  * Account.h
  *
- * 
+ *
  */
 
 #ifndef TRIBUFU_MODELS_Account_H_
@@ -23,108 +23,104 @@
 
 #include "tribufu++/ModelBase.h"
 
-#include <cpprest/details/basic_types.h>
 #include "tribufu++/AnyType.h"
 #include "tribufu++/model/LoginProvider.h"
+#include <cpprest/details/basic_types.h>
 
-namespace tribufu {
-namespace models {
-
-
-
-class  Account
-    : public ModelBase
+namespace tribufu
 {
-public:
-    Account();
-    virtual ~Account();
+    namespace models
+    {
 
-    /////////////////////////////////////////////
-    /// ModelBase overrides
+        class Account : public ModelBase
+        {
+        public:
+            Account();
+            virtual ~Account();
 
-    void validate() override;
+            /////////////////////////////////////////////
+            /// ModelBase overrides
 
-    web::json::value toJson() const override;
-    bool fromJson(const web::json::value& json) override;
+            void validate() override;
 
-    void toMultipart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& namePrefix) const override;
-    bool fromMultiPart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& namePrefix) override;
+            web::json::value toJson() const override;
+            bool fromJson(const web::json::value &json) override;
 
+            void toMultipart(std::shared_ptr<MultipartFormData> multipart,
+                             const utility::string_t &namePrefix) const override;
+            bool fromMultiPart(std::shared_ptr<MultipartFormData> multipart,
+                               const utility::string_t &namePrefix) override;
 
-    /////////////////////////////////////////////
-    /// Account members
+            /////////////////////////////////////////////
+            /// Account members
 
+            utility::string_t getId() const;
+            bool idIsSet() const;
+            void unsetId();
+            void setId(const utility::string_t &value);
 
-    utility::string_t getId() const;
-    bool idIsSet() const;
-    void unsetId();
-    void setId(const utility::string_t& value);
+            utility::string_t getName() const;
+            bool nameIsSet() const;
+            void unsetName();
+            void setName(const utility::string_t &value);
 
-    utility::string_t getName() const;
-    bool nameIsSet() const;
-    void unsetName();
-    void setName(const utility::string_t& value);
+            std::shared_ptr<LoginProvider> getProvider() const;
+            bool providerIsSet() const;
+            void unsetProvider();
+            void setProvider(const std::shared_ptr<LoginProvider> &value);
 
-    std::shared_ptr<LoginProvider> getProvider() const;
-    bool providerIsSet() const;
-    void unsetProvider();
-    void setProvider(const std::shared_ptr<LoginProvider>& value);
+            utility::string_t getUserId() const;
+            bool userIdIsSet() const;
+            void unsetUser_id();
+            void setUserId(const utility::string_t &value);
 
-    utility::string_t getUserId() const;
-    bool userIdIsSet() const;
-    void unsetUser_id();
-    void setUserId(const utility::string_t& value);
+            bool isAuthorized() const;
+            bool authorizedIsSet() const;
+            void unsetAuthorized();
+            void setAuthorized(bool value);
 
-    bool isAuthorized() const;
-    bool authorizedIsSet() const;
-    void unsetAuthorized();
-    void setAuthorized(bool value);
+            std::shared_ptr<AnyType> getFields() const;
+            bool fieldsIsSet() const;
+            void unsetFields();
+            void setFields(const std::shared_ptr<AnyType> &value);
 
-    std::shared_ptr<AnyType> getFields() const;
-    bool fieldsIsSet() const;
-    void unsetFields();
-    void setFields(const std::shared_ptr<AnyType>& value);
+            utility::datetime getCreated() const;
+            bool createdIsSet() const;
+            void unsetCreated();
+            void setCreated(const utility::datetime &value);
 
-    utility::datetime getCreated() const;
-    bool createdIsSet() const;
-    void unsetCreated();
-    void setCreated(const utility::datetime& value);
+            utility::datetime getUpdated() const;
+            bool updatedIsSet() const;
+            void unsetUpdated();
+            void setUpdated(const utility::datetime &value);
 
-    utility::datetime getUpdated() const;
-    bool updatedIsSet() const;
-    void unsetUpdated();
-    void setUpdated(const utility::datetime& value);
+        protected:
+            utility::string_t m_Id;
+            bool m_IdIsSet;
 
+            utility::string_t m_Name;
+            bool m_NameIsSet;
 
-protected:
-    utility::string_t m_Id;
-    bool m_IdIsSet;
+            std::shared_ptr<LoginProvider> m_Provider;
+            bool m_ProviderIsSet;
 
-    utility::string_t m_Name;
-    bool m_NameIsSet;
+            utility::string_t m_User_id;
+            bool m_User_idIsSet;
 
-    std::shared_ptr<LoginProvider> m_Provider;
-    bool m_ProviderIsSet;
+            bool m_Authorized;
+            bool m_AuthorizedIsSet;
 
-    utility::string_t m_User_id;
-    bool m_User_idIsSet;
+            std::shared_ptr<AnyType> m_Fields;
+            bool m_FieldsIsSet;
 
-    bool m_Authorized;
-    bool m_AuthorizedIsSet;
+            utility::datetime m_Created;
+            bool m_CreatedIsSet;
 
-    std::shared_ptr<AnyType> m_Fields;
-    bool m_FieldsIsSet;
+            utility::datetime m_Updated;
+            bool m_UpdatedIsSet;
+        };
 
-    utility::datetime m_Created;
-    bool m_CreatedIsSet;
-
-    utility::datetime m_Updated;
-    bool m_UpdatedIsSet;
-
-};
-
-
-}
+    }
 }
 
 #endif /* TRIBUFU_MODELS_Account_H_ */

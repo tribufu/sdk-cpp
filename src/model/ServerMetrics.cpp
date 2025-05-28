@@ -10,207 +10,212 @@
  * Do not edit the class manually.
  */
 
-
-
 #include "tribufu++/model/ServerMetrics.h"
 
-namespace tribufu {
-namespace models {
-
-ServerMetrics::ServerMetrics()
+namespace tribufu
 {
-    m_Server_count = 0;
-    m_Server_countIsSet = false;
-    m_Package_count = 0;
-    m_Package_countIsSet = false;
-    m_Country_count = 0;
-    m_Country_countIsSet = false;
-}
-
-ServerMetrics::~ServerMetrics()
-{
-}
-
-void ServerMetrics::validate()
-{
-    // TODO: implement validation
-}
-
-web::json::value ServerMetrics::toJson() const
-{
-    web::json::value val = web::json::value::object();
-    if(m_Server_countIsSet)
-    {   
-        
-        val[utility::conversions::to_string_t(U("server_count"))] = ModelBase::toJson(m_Server_count);
-    }
-    if(m_Package_countIsSet)
-    {   
-        
-        val[utility::conversions::to_string_t(U("package_count"))] = ModelBase::toJson(m_Package_count);
-    }
-    if(m_Country_countIsSet)
-    {   
-        
-        val[utility::conversions::to_string_t(U("country_count"))] = ModelBase::toJson(m_Country_count);
-    }
-
-    return val;
-}
-
-bool ServerMetrics::fromJson(const web::json::value& val)
-{
-    bool ok = true;
-    if(val.has_field(utility::conversions::to_string_t(U("server_count"))))
+    namespace models
     {
-        const web::json::value& fieldValue = val.at(utility::conversions::to_string_t(U("server_count")));
-        if(!fieldValue.is_null())
+
+        ServerMetrics::ServerMetrics()
         {
-            int32_t refVal_setServerCount;
-            ok &= ModelBase::fromJson(fieldValue, refVal_setServerCount);
-            setServerCount(refVal_setServerCount);
-            
+            m_Server_count = 0;
+            m_Server_countIsSet = false;
+            m_Package_count = 0;
+            m_Package_countIsSet = false;
+            m_Country_count = 0;
+            m_Country_countIsSet = false;
         }
-    }
-    if(val.has_field(utility::conversions::to_string_t(U("package_count"))))
-    {
-        const web::json::value& fieldValue = val.at(utility::conversions::to_string_t(U("package_count")));
-        if(!fieldValue.is_null())
+
+        ServerMetrics::~ServerMetrics()
         {
-            int32_t refVal_setPackageCount;
-            ok &= ModelBase::fromJson(fieldValue, refVal_setPackageCount);
-            setPackageCount(refVal_setPackageCount);
-            
         }
-    }
-    if(val.has_field(utility::conversions::to_string_t(U("country_count"))))
-    {
-        const web::json::value& fieldValue = val.at(utility::conversions::to_string_t(U("country_count")));
-        if(!fieldValue.is_null())
+
+        void ServerMetrics::validate()
         {
-            int32_t refVal_setCountryCount;
-            ok &= ModelBase::fromJson(fieldValue, refVal_setCountryCount);
-            setCountryCount(refVal_setCountryCount);
-            
+            // TODO: implement validation
         }
+
+        web::json::value ServerMetrics::toJson() const
+        {
+            web::json::value val = web::json::value::object();
+            if (m_Server_countIsSet)
+            {
+
+                val[utility::conversions::to_string_t(U("server_count"))] = ModelBase::toJson(m_Server_count);
+            }
+            if (m_Package_countIsSet)
+            {
+
+                val[utility::conversions::to_string_t(U("package_count"))] = ModelBase::toJson(m_Package_count);
+            }
+            if (m_Country_countIsSet)
+            {
+
+                val[utility::conversions::to_string_t(U("country_count"))] = ModelBase::toJson(m_Country_count);
+            }
+
+            return val;
+        }
+
+        bool ServerMetrics::fromJson(const web::json::value &val)
+        {
+            bool ok = true;
+            if (val.has_field(utility::conversions::to_string_t(U("server_count"))))
+            {
+                const web::json::value &fieldValue = val.at(utility::conversions::to_string_t(U("server_count")));
+                if (!fieldValue.is_null())
+                {
+                    int32_t refVal_setServerCount;
+                    ok &= ModelBase::fromJson(fieldValue, refVal_setServerCount);
+                    setServerCount(refVal_setServerCount);
+                }
+            }
+            if (val.has_field(utility::conversions::to_string_t(U("package_count"))))
+            {
+                const web::json::value &fieldValue = val.at(utility::conversions::to_string_t(U("package_count")));
+                if (!fieldValue.is_null())
+                {
+                    int32_t refVal_setPackageCount;
+                    ok &= ModelBase::fromJson(fieldValue, refVal_setPackageCount);
+                    setPackageCount(refVal_setPackageCount);
+                }
+            }
+            if (val.has_field(utility::conversions::to_string_t(U("country_count"))))
+            {
+                const web::json::value &fieldValue = val.at(utility::conversions::to_string_t(U("country_count")));
+                if (!fieldValue.is_null())
+                {
+                    int32_t refVal_setCountryCount;
+                    ok &= ModelBase::fromJson(fieldValue, refVal_setCountryCount);
+                    setCountryCount(refVal_setCountryCount);
+                }
+            }
+            return ok;
+        }
+
+        void ServerMetrics::toMultipart(std::shared_ptr<MultipartFormData> multipart,
+                                        const utility::string_t &prefix) const
+        {
+            utility::string_t namePrefix = prefix;
+            if (namePrefix.size() > 0 &&
+                namePrefix.substr(namePrefix.size() - 1) != utility::conversions::to_string_t(U(".")))
+            {
+                namePrefix += utility::conversions::to_string_t(U("."));
+            }
+            if (m_Server_countIsSet)
+            {
+                multipart->add(ModelBase::toHttpContent(
+                    namePrefix + utility::conversions::to_string_t(U("server_count")), m_Server_count));
+            }
+            if (m_Package_countIsSet)
+            {
+                multipart->add(ModelBase::toHttpContent(
+                    namePrefix + utility::conversions::to_string_t(U("package_count")), m_Package_count));
+            }
+            if (m_Country_countIsSet)
+            {
+                multipart->add(ModelBase::toHttpContent(
+                    namePrefix + utility::conversions::to_string_t(U("country_count")), m_Country_count));
+            }
+        }
+
+        bool ServerMetrics::fromMultiPart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t &prefix)
+        {
+            bool ok = true;
+            utility::string_t namePrefix = prefix;
+            if (namePrefix.size() > 0 &&
+                namePrefix.substr(namePrefix.size() - 1) != utility::conversions::to_string_t(U(".")))
+            {
+                namePrefix += utility::conversions::to_string_t(U("."));
+            }
+
+            if (multipart->hasContent(utility::conversions::to_string_t(U("server_count"))))
+            {
+                int32_t refVal_setServerCount;
+                ok &= ModelBase::fromHttpContent(
+                    multipart->getContent(utility::conversions::to_string_t(U("server_count"))), refVal_setServerCount);
+                setServerCount(refVal_setServerCount);
+            }
+            if (multipart->hasContent(utility::conversions::to_string_t(U("package_count"))))
+            {
+                int32_t refVal_setPackageCount;
+                ok &= ModelBase::fromHttpContent(
+                    multipart->getContent(utility::conversions::to_string_t(U("package_count"))),
+                    refVal_setPackageCount);
+                setPackageCount(refVal_setPackageCount);
+            }
+            if (multipart->hasContent(utility::conversions::to_string_t(U("country_count"))))
+            {
+                int32_t refVal_setCountryCount;
+                ok &= ModelBase::fromHttpContent(
+                    multipart->getContent(utility::conversions::to_string_t(U("country_count"))),
+                    refVal_setCountryCount);
+                setCountryCount(refVal_setCountryCount);
+            }
+            return ok;
+        }
+
+        int32_t ServerMetrics::getServerCount() const
+        {
+            return m_Server_count;
+        }
+
+        void ServerMetrics::setServerCount(int32_t value)
+        {
+            m_Server_count = value;
+            m_Server_countIsSet = true;
+        }
+
+        bool ServerMetrics::serverCountIsSet() const
+        {
+            return m_Server_countIsSet;
+        }
+
+        void ServerMetrics::unsetServer_count()
+        {
+            m_Server_countIsSet = false;
+        }
+        int32_t ServerMetrics::getPackageCount() const
+        {
+            return m_Package_count;
+        }
+
+        void ServerMetrics::setPackageCount(int32_t value)
+        {
+            m_Package_count = value;
+            m_Package_countIsSet = true;
+        }
+
+        bool ServerMetrics::packageCountIsSet() const
+        {
+            return m_Package_countIsSet;
+        }
+
+        void ServerMetrics::unsetPackage_count()
+        {
+            m_Package_countIsSet = false;
+        }
+        int32_t ServerMetrics::getCountryCount() const
+        {
+            return m_Country_count;
+        }
+
+        void ServerMetrics::setCountryCount(int32_t value)
+        {
+            m_Country_count = value;
+            m_Country_countIsSet = true;
+        }
+
+        bool ServerMetrics::countryCountIsSet() const
+        {
+            return m_Country_countIsSet;
+        }
+
+        void ServerMetrics::unsetCountry_count()
+        {
+            m_Country_countIsSet = false;
+        }
+
     }
-    return ok;
 }
-
-void ServerMetrics::toMultipart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& prefix) const
-{
-    utility::string_t namePrefix = prefix;
-    if(namePrefix.size() > 0 && namePrefix.substr(namePrefix.size() - 1) != utility::conversions::to_string_t(U(".")))
-    {
-        namePrefix += utility::conversions::to_string_t(U("."));
-    }
-    if(m_Server_countIsSet)
-    {
-        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("server_count")), m_Server_count));
-    }
-    if(m_Package_countIsSet)
-    {
-        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("package_count")), m_Package_count));
-    }
-    if(m_Country_countIsSet)
-    {
-        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("country_count")), m_Country_count));
-    }
-}
-
-bool ServerMetrics::fromMultiPart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& prefix)
-{
-    bool ok = true;
-    utility::string_t namePrefix = prefix;
-    if(namePrefix.size() > 0 && namePrefix.substr(namePrefix.size() - 1) != utility::conversions::to_string_t(U(".")))
-    {
-        namePrefix += utility::conversions::to_string_t(U("."));
-    }
-
-    if(multipart->hasContent(utility::conversions::to_string_t(U("server_count"))))
-    {
-        int32_t refVal_setServerCount;
-        ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(U("server_count"))), refVal_setServerCount );
-        setServerCount(refVal_setServerCount);
-    }
-    if(multipart->hasContent(utility::conversions::to_string_t(U("package_count"))))
-    {
-        int32_t refVal_setPackageCount;
-        ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(U("package_count"))), refVal_setPackageCount );
-        setPackageCount(refVal_setPackageCount);
-    }
-    if(multipart->hasContent(utility::conversions::to_string_t(U("country_count"))))
-    {
-        int32_t refVal_setCountryCount;
-        ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(U("country_count"))), refVal_setCountryCount );
-        setCountryCount(refVal_setCountryCount);
-    }
-    return ok;
-}
-
-
-int32_t ServerMetrics::getServerCount() const
-{
-    return m_Server_count;
-}
-
-void ServerMetrics::setServerCount(int32_t value)
-{
-    m_Server_count = value;
-    m_Server_countIsSet = true;
-}
-
-bool ServerMetrics::serverCountIsSet() const
-{
-    return m_Server_countIsSet;
-}
-
-void ServerMetrics::unsetServer_count()
-{
-    m_Server_countIsSet = false;
-}
-int32_t ServerMetrics::getPackageCount() const
-{
-    return m_Package_count;
-}
-
-void ServerMetrics::setPackageCount(int32_t value)
-{
-    m_Package_count = value;
-    m_Package_countIsSet = true;
-}
-
-bool ServerMetrics::packageCountIsSet() const
-{
-    return m_Package_countIsSet;
-}
-
-void ServerMetrics::unsetPackage_count()
-{
-    m_Package_countIsSet = false;
-}
-int32_t ServerMetrics::getCountryCount() const
-{
-    return m_Country_count;
-}
-
-void ServerMetrics::setCountryCount(int32_t value)
-{
-    m_Country_count = value;
-    m_Country_countIsSet = true;
-}
-
-bool ServerMetrics::countryCountIsSet() const
-{
-    return m_Country_countIsSet;
-}
-
-void ServerMetrics::unsetCountry_count()
-{
-    m_Country_countIsSet = false;
-}
-
-}
-}
-
-

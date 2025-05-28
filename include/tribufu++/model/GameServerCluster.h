@@ -13,163 +13,158 @@
 /*
  * GameServerCluster.h
  *
- * 
+ *
  */
 
 #ifndef TRIBUFU_MODELS_GameServerCluster_H_
 #define TRIBUFU_MODELS_GameServerCluster_H_
 
-
 #include "tribufu++/ModelBase.h"
 
 #include <cpprest/details/basic_types.h>
 
-namespace tribufu {
-namespace models {
-
-
-
-class  GameServerCluster
-    : public ModelBase
+namespace tribufu
 {
-public:
-    GameServerCluster();
-    virtual ~GameServerCluster();
+    namespace models
+    {
 
-    /////////////////////////////////////////////
-    /// ModelBase overrides
+        class GameServerCluster : public ModelBase
+        {
+        public:
+            GameServerCluster();
+            virtual ~GameServerCluster();
 
-    void validate() override;
+            /////////////////////////////////////////////
+            /// ModelBase overrides
 
-    web::json::value toJson() const override;
-    bool fromJson(const web::json::value& json) override;
+            void validate() override;
 
-    void toMultipart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& namePrefix) const override;
-    bool fromMultiPart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& namePrefix) override;
+            web::json::value toJson() const override;
+            bool fromJson(const web::json::value &json) override;
 
+            void toMultipart(std::shared_ptr<MultipartFormData> multipart,
+                             const utility::string_t &namePrefix) const override;
+            bool fromMultiPart(std::shared_ptr<MultipartFormData> multipart,
+                               const utility::string_t &namePrefix) override;
 
-    /////////////////////////////////////////////
-    /// GameServerCluster members
+            /////////////////////////////////////////////
+            /// GameServerCluster members
 
+            utility::string_t getId() const;
+            bool idIsSet() const;
+            void unsetId();
+            void setId(const utility::string_t &value);
 
-    utility::string_t getId() const;
-    bool idIsSet() const;
-    void unsetId();
-    void setId(const utility::string_t& value);
+            utility::string_t getName() const;
+            bool nameIsSet() const;
+            void unsetName();
+            void setName(const utility::string_t &value);
 
-    utility::string_t getName() const;
-    bool nameIsSet() const;
-    void unsetName();
-    void setName(const utility::string_t& value);
+            utility::string_t getDescription() const;
+            bool descriptionIsSet() const;
+            void unsetDescription();
+            void setDescription(const utility::string_t &value);
 
-    utility::string_t getDescription() const;
-    bool descriptionIsSet() const;
-    void unsetDescription();
-    void setDescription(const utility::string_t& value);
+            utility::string_t getGameId() const;
+            bool gameIdIsSet() const;
+            void unsetGame_id();
+            void setGameId(const utility::string_t &value);
 
-    utility::string_t getGameId() const;
-    bool gameIdIsSet() const;
-    void unsetGame_id();
-    void setGameId(const utility::string_t& value);
+            utility::string_t getWebsiteUrl() const;
+            bool websiteUrlIsSet() const;
+            void unsetWebsite_url();
+            void setWebsiteUrl(const utility::string_t &value);
 
-    utility::string_t getWebsiteUrl() const;
-    bool websiteUrlIsSet() const;
-    void unsetWebsite_url();
-    void setWebsiteUrl(const utility::string_t& value);
+            utility::string_t getBannerUrl() const;
+            bool bannerUrlIsSet() const;
+            void unsetBanner_url();
+            void setBannerUrl(const utility::string_t &value);
 
-    utility::string_t getBannerUrl() const;
-    bool bannerUrlIsSet() const;
-    void unsetBanner_url();
-    void setBannerUrl(const utility::string_t& value);
+            utility::string_t getOwnerId() const;
+            bool ownerIdIsSet() const;
+            void unsetOwner_id();
+            void setOwnerId(const utility::string_t &value);
 
-    utility::string_t getOwnerId() const;
-    bool ownerIdIsSet() const;
-    void unsetOwner_id();
-    void setOwnerId(const utility::string_t& value);
+            utility::string_t getDiscordServerId() const;
+            bool discordServerIdIsSet() const;
+            void unsetDiscord_server_id();
+            void setDiscordServerId(const utility::string_t &value);
 
-    utility::string_t getDiscordServerId() const;
-    bool discordServerIdIsSet() const;
-    void unsetDiscord_server_id();
-    void setDiscordServerId(const utility::string_t& value);
+            utility::string_t getYoutubeVideoUrl() const;
+            bool youtubeVideoUrlIsSet() const;
+            void unsetYoutube_video_url();
+            void setYoutubeVideoUrl(const utility::string_t &value);
 
-    utility::string_t getYoutubeVideoUrl() const;
-    bool youtubeVideoUrlIsSet() const;
-    void unsetYoutube_video_url();
-    void setYoutubeVideoUrl(const utility::string_t& value);
+            utility::string_t getTags() const;
+            bool tagsIsSet() const;
+            void unsetTags();
+            void setTags(const utility::string_t &value);
 
-    utility::string_t getTags() const;
-    bool tagsIsSet() const;
-    void unsetTags();
-    void setTags(const utility::string_t& value);
+            int32_t getCommentCount() const;
+            bool commentCountIsSet() const;
+            void unsetComment_count();
+            void setCommentCount(int32_t value);
 
-    int32_t getCommentCount() const;
-    bool commentCountIsSet() const;
-    void unsetComment_count();
-    void setCommentCount(int32_t value);
+            int32_t getServerCount() const;
+            bool serverCountIsSet() const;
+            void unsetServer_count();
+            void setServerCount(int32_t value);
 
-    int32_t getServerCount() const;
-    bool serverCountIsSet() const;
-    void unsetServer_count();
-    void setServerCount(int32_t value);
+            utility::datetime getCreated() const;
+            bool createdIsSet() const;
+            void unsetCreated();
+            void setCreated(const utility::datetime &value);
 
-    utility::datetime getCreated() const;
-    bool createdIsSet() const;
-    void unsetCreated();
-    void setCreated(const utility::datetime& value);
+            utility::datetime getUpdated() const;
+            bool updatedIsSet() const;
+            void unsetUpdated();
+            void setUpdated(const utility::datetime &value);
 
-    utility::datetime getUpdated() const;
-    bool updatedIsSet() const;
-    void unsetUpdated();
-    void setUpdated(const utility::datetime& value);
+        protected:
+            utility::string_t m_Id;
+            bool m_IdIsSet;
 
+            utility::string_t m_Name;
+            bool m_NameIsSet;
 
-protected:
-    utility::string_t m_Id;
-    bool m_IdIsSet;
+            utility::string_t m_Description;
+            bool m_DescriptionIsSet;
 
-    utility::string_t m_Name;
-    bool m_NameIsSet;
+            utility::string_t m_Game_id;
+            bool m_Game_idIsSet;
 
-    utility::string_t m_Description;
-    bool m_DescriptionIsSet;
+            utility::string_t m_Website_url;
+            bool m_Website_urlIsSet;
 
-    utility::string_t m_Game_id;
-    bool m_Game_idIsSet;
+            utility::string_t m_Banner_url;
+            bool m_Banner_urlIsSet;
 
-    utility::string_t m_Website_url;
-    bool m_Website_urlIsSet;
+            utility::string_t m_Owner_id;
+            bool m_Owner_idIsSet;
 
-    utility::string_t m_Banner_url;
-    bool m_Banner_urlIsSet;
+            utility::string_t m_Discord_server_id;
+            bool m_Discord_server_idIsSet;
 
-    utility::string_t m_Owner_id;
-    bool m_Owner_idIsSet;
+            utility::string_t m_Youtube_video_url;
+            bool m_Youtube_video_urlIsSet;
 
-    utility::string_t m_Discord_server_id;
-    bool m_Discord_server_idIsSet;
+            utility::string_t m_Tags;
+            bool m_TagsIsSet;
 
-    utility::string_t m_Youtube_video_url;
-    bool m_Youtube_video_urlIsSet;
+            int32_t m_Comment_count;
+            bool m_Comment_countIsSet;
 
-    utility::string_t m_Tags;
-    bool m_TagsIsSet;
+            int32_t m_Server_count;
+            bool m_Server_countIsSet;
 
-    int32_t m_Comment_count;
-    bool m_Comment_countIsSet;
+            utility::datetime m_Created;
+            bool m_CreatedIsSet;
 
-    int32_t m_Server_count;
-    bool m_Server_countIsSet;
+            utility::datetime m_Updated;
+            bool m_UpdatedIsSet;
+        };
 
-    utility::datetime m_Created;
-    bool m_CreatedIsSet;
-
-    utility::datetime m_Updated;
-    bool m_UpdatedIsSet;
-
-};
-
-
-}
+    }
 }
 
 #endif /* TRIBUFU_MODELS_GameServerCluster_H_ */

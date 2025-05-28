@@ -10,938 +10,943 @@
  * Do not edit the class manually.
  */
 
-
-
 #include "tribufu++/model/Profile.h"
 
-namespace tribufu {
-namespace models {
-
-Profile::Profile()
+namespace tribufu
 {
-    m_Id = utility::conversions::to_string_t("");
-    m_IdIsSet = false;
-    m_Uuid = utility::conversions::to_string_t("");
-    m_UuidIsSet = false;
-    m_Name = utility::conversions::to_string_t("");
-    m_NameIsSet = false;
-    m_Display_name = utility::conversions::to_string_t("");
-    m_Display_nameIsSet = false;
-    m_Verified = false;
-    m_VerifiedIsSet = false;
-    m_Level = 0;
-    m_LevelIsSet = false;
-    m_Experience = 0.0;
-    m_ExperienceIsSet = false;
-    m_Public_birthday = false;
-    m_Public_birthdayIsSet = false;
-    m_BirthdayIsSet = false;
-    m_Points = 0.0;
-    m_PointsIsSet = false;
-    m_Location = utility::conversions::to_string_t("");
-    m_LocationIsSet = false;
-    m_Photo_url = utility::conversions::to_string_t("");
-    m_Photo_urlIsSet = false;
-    m_Banner_url = utility::conversions::to_string_t("");
-    m_Banner_urlIsSet = false;
-    m_Last_online = utility::datetime();
-    m_Last_onlineIsSet = false;
-    m_Biography = utility::conversions::to_string_t("");
-    m_BiographyIsSet = false;
-    m_View_count = 0;
-    m_View_countIsSet = false;
-    m_Created = utility::datetime();
-    m_CreatedIsSet = false;
-    m_Updated = utility::datetime();
-    m_UpdatedIsSet = false;
-}
-
-Profile::~Profile()
-{
-}
-
-void Profile::validate()
-{
-    // TODO: implement validation
-}
-
-web::json::value Profile::toJson() const
-{
-    web::json::value val = web::json::value::object();
-    if(m_IdIsSet)
-    {   
-        
-        val[utility::conversions::to_string_t(U("id"))] = ModelBase::toJson(m_Id);
-    }
-    if(m_UuidIsSet)
-    {   
-        
-        val[utility::conversions::to_string_t(U("uuid"))] = ModelBase::toJson(m_Uuid);
-    }
-    if(m_NameIsSet)
-    {   
-        
-        val[utility::conversions::to_string_t(U("name"))] = ModelBase::toJson(m_Name);
-    }
-    if(m_Display_nameIsSet)
-    {   
-        
-        val[utility::conversions::to_string_t(U("display_name"))] = ModelBase::toJson(m_Display_name);
-    }
-    if(m_VerifiedIsSet)
-    {   
-        
-        val[utility::conversions::to_string_t(U("verified"))] = ModelBase::toJson(m_Verified);
-    }
-    if(m_LevelIsSet)
-    {   
-        
-        val[utility::conversions::to_string_t(U("level"))] = ModelBase::toJson(m_Level);
-    }
-    if(m_ExperienceIsSet)
-    {   
-        
-        val[utility::conversions::to_string_t(U("experience"))] = ModelBase::toJson(m_Experience);
-    }
-    if(m_Public_birthdayIsSet)
-    {   
-        
-        val[utility::conversions::to_string_t(U("public_birthday"))] = ModelBase::toJson(m_Public_birthday);
-    }
-    if(m_BirthdayIsSet)
-    {   
-        
-        val[utility::conversions::to_string_t(U("birthday"))] = ModelBase::toJson(m_Birthday);
-    }
-    if(m_PointsIsSet)
-    {   
-        
-        val[utility::conversions::to_string_t(U("points"))] = ModelBase::toJson(m_Points);
-    }
-    if(m_LocationIsSet)
-    {   
-        
-        val[utility::conversions::to_string_t(U("location"))] = ModelBase::toJson(m_Location);
-    }
-    if(m_Photo_urlIsSet)
-    {   
-        
-        val[utility::conversions::to_string_t(U("photo_url"))] = ModelBase::toJson(m_Photo_url);
-    }
-    if(m_Banner_urlIsSet)
-    {   
-        
-        val[utility::conversions::to_string_t(U("banner_url"))] = ModelBase::toJson(m_Banner_url);
-    }
-    if(m_Last_onlineIsSet)
-    {   
-        
-        val[utility::conversions::to_string_t(U("last_online"))] = ModelBase::toJson(m_Last_online);
-    }
-    if(m_BiographyIsSet)
-    {   
-        
-        val[utility::conversions::to_string_t(U("biography"))] = ModelBase::toJson(m_Biography);
-    }
-    if(m_View_countIsSet)
-    {   
-        
-        val[utility::conversions::to_string_t(U("view_count"))] = ModelBase::toJson(m_View_count);
-    }
-    if(m_CreatedIsSet)
-    {   
-        
-        val[utility::conversions::to_string_t(U("created"))] = ModelBase::toJson(m_Created);
-    }
-    if(m_UpdatedIsSet)
-    {   
-        
-        val[utility::conversions::to_string_t(U("updated"))] = ModelBase::toJson(m_Updated);
-    }
-
-    return val;
-}
-
-bool Profile::fromJson(const web::json::value& val)
-{
-    bool ok = true;
-    if(val.has_field(utility::conversions::to_string_t(U("id"))))
+    namespace models
     {
-        const web::json::value& fieldValue = val.at(utility::conversions::to_string_t(U("id")));
-        if(!fieldValue.is_null())
+
+        Profile::Profile()
         {
-            utility::string_t refVal_setId;
-            ok &= ModelBase::fromJson(fieldValue, refVal_setId);
-            setId(refVal_setId);
-            
+            m_Id = utility::conversions::to_string_t("");
+            m_IdIsSet = false;
+            m_Uuid = utility::conversions::to_string_t("");
+            m_UuidIsSet = false;
+            m_Name = utility::conversions::to_string_t("");
+            m_NameIsSet = false;
+            m_Display_name = utility::conversions::to_string_t("");
+            m_Display_nameIsSet = false;
+            m_Verified = false;
+            m_VerifiedIsSet = false;
+            m_Level = 0;
+            m_LevelIsSet = false;
+            m_Experience = 0.0;
+            m_ExperienceIsSet = false;
+            m_Public_birthday = false;
+            m_Public_birthdayIsSet = false;
+            m_BirthdayIsSet = false;
+            m_Points = 0.0;
+            m_PointsIsSet = false;
+            m_Location = utility::conversions::to_string_t("");
+            m_LocationIsSet = false;
+            m_Photo_url = utility::conversions::to_string_t("");
+            m_Photo_urlIsSet = false;
+            m_Banner_url = utility::conversions::to_string_t("");
+            m_Banner_urlIsSet = false;
+            m_Last_online = utility::datetime();
+            m_Last_onlineIsSet = false;
+            m_Biography = utility::conversions::to_string_t("");
+            m_BiographyIsSet = false;
+            m_View_count = 0;
+            m_View_countIsSet = false;
+            m_Created = utility::datetime();
+            m_CreatedIsSet = false;
+            m_Updated = utility::datetime();
+            m_UpdatedIsSet = false;
         }
-    }
-    if(val.has_field(utility::conversions::to_string_t(U("uuid"))))
-    {
-        const web::json::value& fieldValue = val.at(utility::conversions::to_string_t(U("uuid")));
-        if(!fieldValue.is_null())
+
+        Profile::~Profile()
         {
-            utility::string_t refVal_setUuid;
-            ok &= ModelBase::fromJson(fieldValue, refVal_setUuid);
-            setUuid(refVal_setUuid);
-            
         }
-    }
-    if(val.has_field(utility::conversions::to_string_t(U("name"))))
-    {
-        const web::json::value& fieldValue = val.at(utility::conversions::to_string_t(U("name")));
-        if(!fieldValue.is_null())
+
+        void Profile::validate()
         {
-            utility::string_t refVal_setName;
-            ok &= ModelBase::fromJson(fieldValue, refVal_setName);
-            setName(refVal_setName);
-            
+            // TODO: implement validation
         }
-    }
-    if(val.has_field(utility::conversions::to_string_t(U("display_name"))))
-    {
-        const web::json::value& fieldValue = val.at(utility::conversions::to_string_t(U("display_name")));
-        if(!fieldValue.is_null())
+
+        web::json::value Profile::toJson() const
         {
-            utility::string_t refVal_setDisplayName;
-            ok &= ModelBase::fromJson(fieldValue, refVal_setDisplayName);
-            setDisplayName(refVal_setDisplayName);
-            
+            web::json::value val = web::json::value::object();
+            if (m_IdIsSet)
+            {
+
+                val[utility::conversions::to_string_t(U("id"))] = ModelBase::toJson(m_Id);
+            }
+            if (m_UuidIsSet)
+            {
+
+                val[utility::conversions::to_string_t(U("uuid"))] = ModelBase::toJson(m_Uuid);
+            }
+            if (m_NameIsSet)
+            {
+
+                val[utility::conversions::to_string_t(U("name"))] = ModelBase::toJson(m_Name);
+            }
+            if (m_Display_nameIsSet)
+            {
+
+                val[utility::conversions::to_string_t(U("display_name"))] = ModelBase::toJson(m_Display_name);
+            }
+            if (m_VerifiedIsSet)
+            {
+
+                val[utility::conversions::to_string_t(U("verified"))] = ModelBase::toJson(m_Verified);
+            }
+            if (m_LevelIsSet)
+            {
+
+                val[utility::conversions::to_string_t(U("level"))] = ModelBase::toJson(m_Level);
+            }
+            if (m_ExperienceIsSet)
+            {
+
+                val[utility::conversions::to_string_t(U("experience"))] = ModelBase::toJson(m_Experience);
+            }
+            if (m_Public_birthdayIsSet)
+            {
+
+                val[utility::conversions::to_string_t(U("public_birthday"))] = ModelBase::toJson(m_Public_birthday);
+            }
+            if (m_BirthdayIsSet)
+            {
+
+                val[utility::conversions::to_string_t(U("birthday"))] = ModelBase::toJson(m_Birthday);
+            }
+            if (m_PointsIsSet)
+            {
+
+                val[utility::conversions::to_string_t(U("points"))] = ModelBase::toJson(m_Points);
+            }
+            if (m_LocationIsSet)
+            {
+
+                val[utility::conversions::to_string_t(U("location"))] = ModelBase::toJson(m_Location);
+            }
+            if (m_Photo_urlIsSet)
+            {
+
+                val[utility::conversions::to_string_t(U("photo_url"))] = ModelBase::toJson(m_Photo_url);
+            }
+            if (m_Banner_urlIsSet)
+            {
+
+                val[utility::conversions::to_string_t(U("banner_url"))] = ModelBase::toJson(m_Banner_url);
+            }
+            if (m_Last_onlineIsSet)
+            {
+
+                val[utility::conversions::to_string_t(U("last_online"))] = ModelBase::toJson(m_Last_online);
+            }
+            if (m_BiographyIsSet)
+            {
+
+                val[utility::conversions::to_string_t(U("biography"))] = ModelBase::toJson(m_Biography);
+            }
+            if (m_View_countIsSet)
+            {
+
+                val[utility::conversions::to_string_t(U("view_count"))] = ModelBase::toJson(m_View_count);
+            }
+            if (m_CreatedIsSet)
+            {
+
+                val[utility::conversions::to_string_t(U("created"))] = ModelBase::toJson(m_Created);
+            }
+            if (m_UpdatedIsSet)
+            {
+
+                val[utility::conversions::to_string_t(U("updated"))] = ModelBase::toJson(m_Updated);
+            }
+
+            return val;
         }
-    }
-    if(val.has_field(utility::conversions::to_string_t(U("verified"))))
-    {
-        const web::json::value& fieldValue = val.at(utility::conversions::to_string_t(U("verified")));
-        if(!fieldValue.is_null())
+
+        bool Profile::fromJson(const web::json::value &val)
         {
-            bool refVal_setVerified;
-            ok &= ModelBase::fromJson(fieldValue, refVal_setVerified);
-            setVerified(refVal_setVerified);
-            
+            bool ok = true;
+            if (val.has_field(utility::conversions::to_string_t(U("id"))))
+            {
+                const web::json::value &fieldValue = val.at(utility::conversions::to_string_t(U("id")));
+                if (!fieldValue.is_null())
+                {
+                    utility::string_t refVal_setId;
+                    ok &= ModelBase::fromJson(fieldValue, refVal_setId);
+                    setId(refVal_setId);
+                }
+            }
+            if (val.has_field(utility::conversions::to_string_t(U("uuid"))))
+            {
+                const web::json::value &fieldValue = val.at(utility::conversions::to_string_t(U("uuid")));
+                if (!fieldValue.is_null())
+                {
+                    utility::string_t refVal_setUuid;
+                    ok &= ModelBase::fromJson(fieldValue, refVal_setUuid);
+                    setUuid(refVal_setUuid);
+                }
+            }
+            if (val.has_field(utility::conversions::to_string_t(U("name"))))
+            {
+                const web::json::value &fieldValue = val.at(utility::conversions::to_string_t(U("name")));
+                if (!fieldValue.is_null())
+                {
+                    utility::string_t refVal_setName;
+                    ok &= ModelBase::fromJson(fieldValue, refVal_setName);
+                    setName(refVal_setName);
+                }
+            }
+            if (val.has_field(utility::conversions::to_string_t(U("display_name"))))
+            {
+                const web::json::value &fieldValue = val.at(utility::conversions::to_string_t(U("display_name")));
+                if (!fieldValue.is_null())
+                {
+                    utility::string_t refVal_setDisplayName;
+                    ok &= ModelBase::fromJson(fieldValue, refVal_setDisplayName);
+                    setDisplayName(refVal_setDisplayName);
+                }
+            }
+            if (val.has_field(utility::conversions::to_string_t(U("verified"))))
+            {
+                const web::json::value &fieldValue = val.at(utility::conversions::to_string_t(U("verified")));
+                if (!fieldValue.is_null())
+                {
+                    bool refVal_setVerified;
+                    ok &= ModelBase::fromJson(fieldValue, refVal_setVerified);
+                    setVerified(refVal_setVerified);
+                }
+            }
+            if (val.has_field(utility::conversions::to_string_t(U("level"))))
+            {
+                const web::json::value &fieldValue = val.at(utility::conversions::to_string_t(U("level")));
+                if (!fieldValue.is_null())
+                {
+                    int32_t refVal_setLevel;
+                    ok &= ModelBase::fromJson(fieldValue, refVal_setLevel);
+                    setLevel(refVal_setLevel);
+                }
+            }
+            if (val.has_field(utility::conversions::to_string_t(U("experience"))))
+            {
+                const web::json::value &fieldValue = val.at(utility::conversions::to_string_t(U("experience")));
+                if (!fieldValue.is_null())
+                {
+                    double refVal_setExperience;
+                    ok &= ModelBase::fromJson(fieldValue, refVal_setExperience);
+                    setExperience(refVal_setExperience);
+                }
+            }
+            if (val.has_field(utility::conversions::to_string_t(U("public_birthday"))))
+            {
+                const web::json::value &fieldValue = val.at(utility::conversions::to_string_t(U("public_birthday")));
+                if (!fieldValue.is_null())
+                {
+                    bool refVal_setPublicBirthday;
+                    ok &= ModelBase::fromJson(fieldValue, refVal_setPublicBirthday);
+                    setPublicBirthday(refVal_setPublicBirthday);
+                }
+            }
+            if (val.has_field(utility::conversions::to_string_t(U("birthday"))))
+            {
+                const web::json::value &fieldValue = val.at(utility::conversions::to_string_t(U("birthday")));
+                if (!fieldValue.is_null())
+                {
+                    utility::datetime refVal_setBirthday;
+                    ok &= ModelBase::fromJson(fieldValue, refVal_setBirthday);
+                    setBirthday(refVal_setBirthday);
+                }
+            }
+            if (val.has_field(utility::conversions::to_string_t(U("points"))))
+            {
+                const web::json::value &fieldValue = val.at(utility::conversions::to_string_t(U("points")));
+                if (!fieldValue.is_null())
+                {
+                    double refVal_setPoints;
+                    ok &= ModelBase::fromJson(fieldValue, refVal_setPoints);
+                    setPoints(refVal_setPoints);
+                }
+            }
+            if (val.has_field(utility::conversions::to_string_t(U("location"))))
+            {
+                const web::json::value &fieldValue = val.at(utility::conversions::to_string_t(U("location")));
+                if (!fieldValue.is_null())
+                {
+                    utility::string_t refVal_setLocation;
+                    ok &= ModelBase::fromJson(fieldValue, refVal_setLocation);
+                    setLocation(refVal_setLocation);
+                }
+            }
+            if (val.has_field(utility::conversions::to_string_t(U("photo_url"))))
+            {
+                const web::json::value &fieldValue = val.at(utility::conversions::to_string_t(U("photo_url")));
+                if (!fieldValue.is_null())
+                {
+                    utility::string_t refVal_setPhotoUrl;
+                    ok &= ModelBase::fromJson(fieldValue, refVal_setPhotoUrl);
+                    setPhotoUrl(refVal_setPhotoUrl);
+                }
+            }
+            if (val.has_field(utility::conversions::to_string_t(U("banner_url"))))
+            {
+                const web::json::value &fieldValue = val.at(utility::conversions::to_string_t(U("banner_url")));
+                if (!fieldValue.is_null())
+                {
+                    utility::string_t refVal_setBannerUrl;
+                    ok &= ModelBase::fromJson(fieldValue, refVal_setBannerUrl);
+                    setBannerUrl(refVal_setBannerUrl);
+                }
+            }
+            if (val.has_field(utility::conversions::to_string_t(U("last_online"))))
+            {
+                const web::json::value &fieldValue = val.at(utility::conversions::to_string_t(U("last_online")));
+                if (!fieldValue.is_null())
+                {
+                    utility::datetime refVal_setLastOnline;
+                    ok &= ModelBase::fromJson(fieldValue, refVal_setLastOnline);
+                    setLastOnline(refVal_setLastOnline);
+                }
+            }
+            if (val.has_field(utility::conversions::to_string_t(U("biography"))))
+            {
+                const web::json::value &fieldValue = val.at(utility::conversions::to_string_t(U("biography")));
+                if (!fieldValue.is_null())
+                {
+                    utility::string_t refVal_setBiography;
+                    ok &= ModelBase::fromJson(fieldValue, refVal_setBiography);
+                    setBiography(refVal_setBiography);
+                }
+            }
+            if (val.has_field(utility::conversions::to_string_t(U("view_count"))))
+            {
+                const web::json::value &fieldValue = val.at(utility::conversions::to_string_t(U("view_count")));
+                if (!fieldValue.is_null())
+                {
+                    int32_t refVal_setViewCount;
+                    ok &= ModelBase::fromJson(fieldValue, refVal_setViewCount);
+                    setViewCount(refVal_setViewCount);
+                }
+            }
+            if (val.has_field(utility::conversions::to_string_t(U("created"))))
+            {
+                const web::json::value &fieldValue = val.at(utility::conversions::to_string_t(U("created")));
+                if (!fieldValue.is_null())
+                {
+                    utility::datetime refVal_setCreated;
+                    ok &= ModelBase::fromJson(fieldValue, refVal_setCreated);
+                    setCreated(refVal_setCreated);
+                }
+            }
+            if (val.has_field(utility::conversions::to_string_t(U("updated"))))
+            {
+                const web::json::value &fieldValue = val.at(utility::conversions::to_string_t(U("updated")));
+                if (!fieldValue.is_null())
+                {
+                    utility::datetime refVal_setUpdated;
+                    ok &= ModelBase::fromJson(fieldValue, refVal_setUpdated);
+                    setUpdated(refVal_setUpdated);
+                }
+            }
+            return ok;
         }
-    }
-    if(val.has_field(utility::conversions::to_string_t(U("level"))))
-    {
-        const web::json::value& fieldValue = val.at(utility::conversions::to_string_t(U("level")));
-        if(!fieldValue.is_null())
+
+        void Profile::toMultipart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t &prefix) const
         {
-            int32_t refVal_setLevel;
-            ok &= ModelBase::fromJson(fieldValue, refVal_setLevel);
-            setLevel(refVal_setLevel);
-            
+            utility::string_t namePrefix = prefix;
+            if (namePrefix.size() > 0 &&
+                namePrefix.substr(namePrefix.size() - 1) != utility::conversions::to_string_t(U(".")))
+            {
+                namePrefix += utility::conversions::to_string_t(U("."));
+            }
+            if (m_IdIsSet)
+            {
+                multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("id")), m_Id));
+            }
+            if (m_UuidIsSet)
+            {
+                multipart->add(
+                    ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("uuid")), m_Uuid));
+            }
+            if (m_NameIsSet)
+            {
+                multipart->add(
+                    ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("name")), m_Name));
+            }
+            if (m_Display_nameIsSet)
+            {
+                multipart->add(ModelBase::toHttpContent(
+                    namePrefix + utility::conversions::to_string_t(U("display_name")), m_Display_name));
+            }
+            if (m_VerifiedIsSet)
+            {
+                multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("verified")),
+                                                        m_Verified));
+            }
+            if (m_LevelIsSet)
+            {
+                multipart->add(
+                    ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("level")), m_Level));
+            }
+            if (m_ExperienceIsSet)
+            {
+                multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("experience")),
+                                                        m_Experience));
+            }
+            if (m_Public_birthdayIsSet)
+            {
+                multipart->add(ModelBase::toHttpContent(
+                    namePrefix + utility::conversions::to_string_t(U("public_birthday")), m_Public_birthday));
+            }
+            if (m_BirthdayIsSet)
+            {
+                multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("birthday")),
+                                                        m_Birthday));
+            }
+            if (m_PointsIsSet)
+            {
+                multipart->add(
+                    ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("points")), m_Points));
+            }
+            if (m_LocationIsSet)
+            {
+                multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("location")),
+                                                        m_Location));
+            }
+            if (m_Photo_urlIsSet)
+            {
+                multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("photo_url")),
+                                                        m_Photo_url));
+            }
+            if (m_Banner_urlIsSet)
+            {
+                multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("banner_url")),
+                                                        m_Banner_url));
+            }
+            if (m_Last_onlineIsSet)
+            {
+                multipart->add(ModelBase::toHttpContent(
+                    namePrefix + utility::conversions::to_string_t(U("last_online")), m_Last_online));
+            }
+            if (m_BiographyIsSet)
+            {
+                multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("biography")),
+                                                        m_Biography));
+            }
+            if (m_View_countIsSet)
+            {
+                multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("view_count")),
+                                                        m_View_count));
+            }
+            if (m_CreatedIsSet)
+            {
+                multipart->add(
+                    ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("created")), m_Created));
+            }
+            if (m_UpdatedIsSet)
+            {
+                multipart->add(
+                    ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("updated")), m_Updated));
+            }
         }
-    }
-    if(val.has_field(utility::conversions::to_string_t(U("experience"))))
-    {
-        const web::json::value& fieldValue = val.at(utility::conversions::to_string_t(U("experience")));
-        if(!fieldValue.is_null())
+
+        bool Profile::fromMultiPart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t &prefix)
         {
-            double refVal_setExperience;
-            ok &= ModelBase::fromJson(fieldValue, refVal_setExperience);
-            setExperience(refVal_setExperience);
-            
+            bool ok = true;
+            utility::string_t namePrefix = prefix;
+            if (namePrefix.size() > 0 &&
+                namePrefix.substr(namePrefix.size() - 1) != utility::conversions::to_string_t(U(".")))
+            {
+                namePrefix += utility::conversions::to_string_t(U("."));
+            }
+
+            if (multipart->hasContent(utility::conversions::to_string_t(U("id"))))
+            {
+                utility::string_t refVal_setId;
+                ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(U("id"))),
+                                                 refVal_setId);
+                setId(refVal_setId);
+            }
+            if (multipart->hasContent(utility::conversions::to_string_t(U("uuid"))))
+            {
+                utility::string_t refVal_setUuid;
+                ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(U("uuid"))),
+                                                 refVal_setUuid);
+                setUuid(refVal_setUuid);
+            }
+            if (multipart->hasContent(utility::conversions::to_string_t(U("name"))))
+            {
+                utility::string_t refVal_setName;
+                ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(U("name"))),
+                                                 refVal_setName);
+                setName(refVal_setName);
+            }
+            if (multipart->hasContent(utility::conversions::to_string_t(U("display_name"))))
+            {
+                utility::string_t refVal_setDisplayName;
+                ok &= ModelBase::fromHttpContent(
+                    multipart->getContent(utility::conversions::to_string_t(U("display_name"))), refVal_setDisplayName);
+                setDisplayName(refVal_setDisplayName);
+            }
+            if (multipart->hasContent(utility::conversions::to_string_t(U("verified"))))
+            {
+                bool refVal_setVerified;
+                ok &= ModelBase::fromHttpContent(
+                    multipart->getContent(utility::conversions::to_string_t(U("verified"))), refVal_setVerified);
+                setVerified(refVal_setVerified);
+            }
+            if (multipart->hasContent(utility::conversions::to_string_t(U("level"))))
+            {
+                int32_t refVal_setLevel;
+                ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(U("level"))),
+                                                 refVal_setLevel);
+                setLevel(refVal_setLevel);
+            }
+            if (multipart->hasContent(utility::conversions::to_string_t(U("experience"))))
+            {
+                double refVal_setExperience;
+                ok &= ModelBase::fromHttpContent(
+                    multipart->getContent(utility::conversions::to_string_t(U("experience"))), refVal_setExperience);
+                setExperience(refVal_setExperience);
+            }
+            if (multipart->hasContent(utility::conversions::to_string_t(U("public_birthday"))))
+            {
+                bool refVal_setPublicBirthday;
+                ok &= ModelBase::fromHttpContent(
+                    multipart->getContent(utility::conversions::to_string_t(U("public_birthday"))),
+                    refVal_setPublicBirthday);
+                setPublicBirthday(refVal_setPublicBirthday);
+            }
+            if (multipart->hasContent(utility::conversions::to_string_t(U("birthday"))))
+            {
+                utility::datetime refVal_setBirthday;
+                ok &= ModelBase::fromHttpContent(
+                    multipart->getContent(utility::conversions::to_string_t(U("birthday"))), refVal_setBirthday);
+                setBirthday(refVal_setBirthday);
+            }
+            if (multipart->hasContent(utility::conversions::to_string_t(U("points"))))
+            {
+                double refVal_setPoints;
+                ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(U("points"))),
+                                                 refVal_setPoints);
+                setPoints(refVal_setPoints);
+            }
+            if (multipart->hasContent(utility::conversions::to_string_t(U("location"))))
+            {
+                utility::string_t refVal_setLocation;
+                ok &= ModelBase::fromHttpContent(
+                    multipart->getContent(utility::conversions::to_string_t(U("location"))), refVal_setLocation);
+                setLocation(refVal_setLocation);
+            }
+            if (multipart->hasContent(utility::conversions::to_string_t(U("photo_url"))))
+            {
+                utility::string_t refVal_setPhotoUrl;
+                ok &= ModelBase::fromHttpContent(
+                    multipart->getContent(utility::conversions::to_string_t(U("photo_url"))), refVal_setPhotoUrl);
+                setPhotoUrl(refVal_setPhotoUrl);
+            }
+            if (multipart->hasContent(utility::conversions::to_string_t(U("banner_url"))))
+            {
+                utility::string_t refVal_setBannerUrl;
+                ok &= ModelBase::fromHttpContent(
+                    multipart->getContent(utility::conversions::to_string_t(U("banner_url"))), refVal_setBannerUrl);
+                setBannerUrl(refVal_setBannerUrl);
+            }
+            if (multipart->hasContent(utility::conversions::to_string_t(U("last_online"))))
+            {
+                utility::datetime refVal_setLastOnline;
+                ok &= ModelBase::fromHttpContent(
+                    multipart->getContent(utility::conversions::to_string_t(U("last_online"))), refVal_setLastOnline);
+                setLastOnline(refVal_setLastOnline);
+            }
+            if (multipart->hasContent(utility::conversions::to_string_t(U("biography"))))
+            {
+                utility::string_t refVal_setBiography;
+                ok &= ModelBase::fromHttpContent(
+                    multipart->getContent(utility::conversions::to_string_t(U("biography"))), refVal_setBiography);
+                setBiography(refVal_setBiography);
+            }
+            if (multipart->hasContent(utility::conversions::to_string_t(U("view_count"))))
+            {
+                int32_t refVal_setViewCount;
+                ok &= ModelBase::fromHttpContent(
+                    multipart->getContent(utility::conversions::to_string_t(U("view_count"))), refVal_setViewCount);
+                setViewCount(refVal_setViewCount);
+            }
+            if (multipart->hasContent(utility::conversions::to_string_t(U("created"))))
+            {
+                utility::datetime refVal_setCreated;
+                ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(U("created"))),
+                                                 refVal_setCreated);
+                setCreated(refVal_setCreated);
+            }
+            if (multipart->hasContent(utility::conversions::to_string_t(U("updated"))))
+            {
+                utility::datetime refVal_setUpdated;
+                ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(U("updated"))),
+                                                 refVal_setUpdated);
+                setUpdated(refVal_setUpdated);
+            }
+            return ok;
         }
-    }
-    if(val.has_field(utility::conversions::to_string_t(U("public_birthday"))))
-    {
-        const web::json::value& fieldValue = val.at(utility::conversions::to_string_t(U("public_birthday")));
-        if(!fieldValue.is_null())
+
+        utility::string_t Profile::getId() const
         {
-            bool refVal_setPublicBirthday;
-            ok &= ModelBase::fromJson(fieldValue, refVal_setPublicBirthday);
-            setPublicBirthday(refVal_setPublicBirthday);
-            
+            return m_Id;
         }
-    }
-    if(val.has_field(utility::conversions::to_string_t(U("birthday"))))
-    {
-        const web::json::value& fieldValue = val.at(utility::conversions::to_string_t(U("birthday")));
-        if(!fieldValue.is_null())
+
+        void Profile::setId(const utility::string_t &value)
         {
-            utility::datetime refVal_setBirthday;
-            ok &= ModelBase::fromJson(fieldValue, refVal_setBirthday);
-            setBirthday(refVal_setBirthday);
-            
+            m_Id = value;
+            m_IdIsSet = true;
         }
-    }
-    if(val.has_field(utility::conversions::to_string_t(U("points"))))
-    {
-        const web::json::value& fieldValue = val.at(utility::conversions::to_string_t(U("points")));
-        if(!fieldValue.is_null())
+
+        bool Profile::idIsSet() const
         {
-            double refVal_setPoints;
-            ok &= ModelBase::fromJson(fieldValue, refVal_setPoints);
-            setPoints(refVal_setPoints);
-            
+            return m_IdIsSet;
         }
-    }
-    if(val.has_field(utility::conversions::to_string_t(U("location"))))
-    {
-        const web::json::value& fieldValue = val.at(utility::conversions::to_string_t(U("location")));
-        if(!fieldValue.is_null())
+
+        void Profile::unsetId()
         {
-            utility::string_t refVal_setLocation;
-            ok &= ModelBase::fromJson(fieldValue, refVal_setLocation);
-            setLocation(refVal_setLocation);
-            
+            m_IdIsSet = false;
         }
-    }
-    if(val.has_field(utility::conversions::to_string_t(U("photo_url"))))
-    {
-        const web::json::value& fieldValue = val.at(utility::conversions::to_string_t(U("photo_url")));
-        if(!fieldValue.is_null())
+        utility::string_t Profile::getUuid() const
         {
-            utility::string_t refVal_setPhotoUrl;
-            ok &= ModelBase::fromJson(fieldValue, refVal_setPhotoUrl);
-            setPhotoUrl(refVal_setPhotoUrl);
-            
+            return m_Uuid;
         }
-    }
-    if(val.has_field(utility::conversions::to_string_t(U("banner_url"))))
-    {
-        const web::json::value& fieldValue = val.at(utility::conversions::to_string_t(U("banner_url")));
-        if(!fieldValue.is_null())
+
+        void Profile::setUuid(const utility::string_t &value)
         {
-            utility::string_t refVal_setBannerUrl;
-            ok &= ModelBase::fromJson(fieldValue, refVal_setBannerUrl);
-            setBannerUrl(refVal_setBannerUrl);
-            
+            m_Uuid = value;
+            m_UuidIsSet = true;
         }
-    }
-    if(val.has_field(utility::conversions::to_string_t(U("last_online"))))
-    {
-        const web::json::value& fieldValue = val.at(utility::conversions::to_string_t(U("last_online")));
-        if(!fieldValue.is_null())
+
+        bool Profile::uuidIsSet() const
         {
-            utility::datetime refVal_setLastOnline;
-            ok &= ModelBase::fromJson(fieldValue, refVal_setLastOnline);
-            setLastOnline(refVal_setLastOnline);
-            
+            return m_UuidIsSet;
         }
-    }
-    if(val.has_field(utility::conversions::to_string_t(U("biography"))))
-    {
-        const web::json::value& fieldValue = val.at(utility::conversions::to_string_t(U("biography")));
-        if(!fieldValue.is_null())
+
+        void Profile::unsetUuid()
         {
-            utility::string_t refVal_setBiography;
-            ok &= ModelBase::fromJson(fieldValue, refVal_setBiography);
-            setBiography(refVal_setBiography);
-            
+            m_UuidIsSet = false;
         }
-    }
-    if(val.has_field(utility::conversions::to_string_t(U("view_count"))))
-    {
-        const web::json::value& fieldValue = val.at(utility::conversions::to_string_t(U("view_count")));
-        if(!fieldValue.is_null())
+        utility::string_t Profile::getName() const
         {
-            int32_t refVal_setViewCount;
-            ok &= ModelBase::fromJson(fieldValue, refVal_setViewCount);
-            setViewCount(refVal_setViewCount);
-            
+            return m_Name;
         }
-    }
-    if(val.has_field(utility::conversions::to_string_t(U("created"))))
-    {
-        const web::json::value& fieldValue = val.at(utility::conversions::to_string_t(U("created")));
-        if(!fieldValue.is_null())
+
+        void Profile::setName(const utility::string_t &value)
         {
-            utility::datetime refVal_setCreated;
-            ok &= ModelBase::fromJson(fieldValue, refVal_setCreated);
-            setCreated(refVal_setCreated);
-            
+            m_Name = value;
+            m_NameIsSet = true;
         }
-    }
-    if(val.has_field(utility::conversions::to_string_t(U("updated"))))
-    {
-        const web::json::value& fieldValue = val.at(utility::conversions::to_string_t(U("updated")));
-        if(!fieldValue.is_null())
+
+        bool Profile::nameIsSet() const
         {
-            utility::datetime refVal_setUpdated;
-            ok &= ModelBase::fromJson(fieldValue, refVal_setUpdated);
-            setUpdated(refVal_setUpdated);
-            
+            return m_NameIsSet;
         }
+
+        void Profile::unsetName()
+        {
+            m_NameIsSet = false;
+        }
+        utility::string_t Profile::getDisplayName() const
+        {
+            return m_Display_name;
+        }
+
+        void Profile::setDisplayName(const utility::string_t &value)
+        {
+            m_Display_name = value;
+            m_Display_nameIsSet = true;
+        }
+
+        bool Profile::displayNameIsSet() const
+        {
+            return m_Display_nameIsSet;
+        }
+
+        void Profile::unsetDisplay_name()
+        {
+            m_Display_nameIsSet = false;
+        }
+        bool Profile::isVerified() const
+        {
+            return m_Verified;
+        }
+
+        void Profile::setVerified(bool value)
+        {
+            m_Verified = value;
+            m_VerifiedIsSet = true;
+        }
+
+        bool Profile::verifiedIsSet() const
+        {
+            return m_VerifiedIsSet;
+        }
+
+        void Profile::unsetVerified()
+        {
+            m_VerifiedIsSet = false;
+        }
+        int32_t Profile::getLevel() const
+        {
+            return m_Level;
+        }
+
+        void Profile::setLevel(int32_t value)
+        {
+            m_Level = value;
+            m_LevelIsSet = true;
+        }
+
+        bool Profile::levelIsSet() const
+        {
+            return m_LevelIsSet;
+        }
+
+        void Profile::unsetLevel()
+        {
+            m_LevelIsSet = false;
+        }
+        double Profile::getExperience() const
+        {
+            return m_Experience;
+        }
+
+        void Profile::setExperience(double value)
+        {
+            m_Experience = value;
+            m_ExperienceIsSet = true;
+        }
+
+        bool Profile::experienceIsSet() const
+        {
+            return m_ExperienceIsSet;
+        }
+
+        void Profile::unsetExperience()
+        {
+            m_ExperienceIsSet = false;
+        }
+        bool Profile::isPublicBirthday() const
+        {
+            return m_Public_birthday;
+        }
+
+        void Profile::setPublicBirthday(bool value)
+        {
+            m_Public_birthday = value;
+            m_Public_birthdayIsSet = true;
+        }
+
+        bool Profile::publicBirthdayIsSet() const
+        {
+            return m_Public_birthdayIsSet;
+        }
+
+        void Profile::unsetPublic_birthday()
+        {
+            m_Public_birthdayIsSet = false;
+        }
+        utility::datetime Profile::getBirthday() const
+        {
+            return m_Birthday;
+        }
+
+        void Profile::setBirthday(const utility::datetime &value)
+        {
+            m_Birthday = value;
+            m_BirthdayIsSet = true;
+        }
+
+        bool Profile::birthdayIsSet() const
+        {
+            return m_BirthdayIsSet;
+        }
+
+        void Profile::unsetBirthday()
+        {
+            m_BirthdayIsSet = false;
+        }
+        double Profile::getPoints() const
+        {
+            return m_Points;
+        }
+
+        void Profile::setPoints(double value)
+        {
+            m_Points = value;
+            m_PointsIsSet = true;
+        }
+
+        bool Profile::pointsIsSet() const
+        {
+            return m_PointsIsSet;
+        }
+
+        void Profile::unsetPoints()
+        {
+            m_PointsIsSet = false;
+        }
+        utility::string_t Profile::getLocation() const
+        {
+            return m_Location;
+        }
+
+        void Profile::setLocation(const utility::string_t &value)
+        {
+            m_Location = value;
+            m_LocationIsSet = true;
+        }
+
+        bool Profile::locationIsSet() const
+        {
+            return m_LocationIsSet;
+        }
+
+        void Profile::unsetLocation()
+        {
+            m_LocationIsSet = false;
+        }
+        utility::string_t Profile::getPhotoUrl() const
+        {
+            return m_Photo_url;
+        }
+
+        void Profile::setPhotoUrl(const utility::string_t &value)
+        {
+            m_Photo_url = value;
+            m_Photo_urlIsSet = true;
+        }
+
+        bool Profile::photoUrlIsSet() const
+        {
+            return m_Photo_urlIsSet;
+        }
+
+        void Profile::unsetPhoto_url()
+        {
+            m_Photo_urlIsSet = false;
+        }
+        utility::string_t Profile::getBannerUrl() const
+        {
+            return m_Banner_url;
+        }
+
+        void Profile::setBannerUrl(const utility::string_t &value)
+        {
+            m_Banner_url = value;
+            m_Banner_urlIsSet = true;
+        }
+
+        bool Profile::bannerUrlIsSet() const
+        {
+            return m_Banner_urlIsSet;
+        }
+
+        void Profile::unsetBanner_url()
+        {
+            m_Banner_urlIsSet = false;
+        }
+        utility::datetime Profile::getLastOnline() const
+        {
+            return m_Last_online;
+        }
+
+        void Profile::setLastOnline(const utility::datetime &value)
+        {
+            m_Last_online = value;
+            m_Last_onlineIsSet = true;
+        }
+
+        bool Profile::lastOnlineIsSet() const
+        {
+            return m_Last_onlineIsSet;
+        }
+
+        void Profile::unsetLast_online()
+        {
+            m_Last_onlineIsSet = false;
+        }
+        utility::string_t Profile::getBiography() const
+        {
+            return m_Biography;
+        }
+
+        void Profile::setBiography(const utility::string_t &value)
+        {
+            m_Biography = value;
+            m_BiographyIsSet = true;
+        }
+
+        bool Profile::biographyIsSet() const
+        {
+            return m_BiographyIsSet;
+        }
+
+        void Profile::unsetBiography()
+        {
+            m_BiographyIsSet = false;
+        }
+        int32_t Profile::getViewCount() const
+        {
+            return m_View_count;
+        }
+
+        void Profile::setViewCount(int32_t value)
+        {
+            m_View_count = value;
+            m_View_countIsSet = true;
+        }
+
+        bool Profile::viewCountIsSet() const
+        {
+            return m_View_countIsSet;
+        }
+
+        void Profile::unsetView_count()
+        {
+            m_View_countIsSet = false;
+        }
+        utility::datetime Profile::getCreated() const
+        {
+            return m_Created;
+        }
+
+        void Profile::setCreated(const utility::datetime &value)
+        {
+            m_Created = value;
+            m_CreatedIsSet = true;
+        }
+
+        bool Profile::createdIsSet() const
+        {
+            return m_CreatedIsSet;
+        }
+
+        void Profile::unsetCreated()
+        {
+            m_CreatedIsSet = false;
+        }
+        utility::datetime Profile::getUpdated() const
+        {
+            return m_Updated;
+        }
+
+        void Profile::setUpdated(const utility::datetime &value)
+        {
+            m_Updated = value;
+            m_UpdatedIsSet = true;
+        }
+
+        bool Profile::updatedIsSet() const
+        {
+            return m_UpdatedIsSet;
+        }
+
+        void Profile::unsetUpdated()
+        {
+            m_UpdatedIsSet = false;
+        }
+
     }
-    return ok;
 }
-
-void Profile::toMultipart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& prefix) const
-{
-    utility::string_t namePrefix = prefix;
-    if(namePrefix.size() > 0 && namePrefix.substr(namePrefix.size() - 1) != utility::conversions::to_string_t(U(".")))
-    {
-        namePrefix += utility::conversions::to_string_t(U("."));
-    }
-    if(m_IdIsSet)
-    {
-        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("id")), m_Id));
-    }
-    if(m_UuidIsSet)
-    {
-        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("uuid")), m_Uuid));
-    }
-    if(m_NameIsSet)
-    {
-        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("name")), m_Name));
-    }
-    if(m_Display_nameIsSet)
-    {
-        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("display_name")), m_Display_name));
-    }
-    if(m_VerifiedIsSet)
-    {
-        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("verified")), m_Verified));
-    }
-    if(m_LevelIsSet)
-    {
-        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("level")), m_Level));
-    }
-    if(m_ExperienceIsSet)
-    {
-        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("experience")), m_Experience));
-    }
-    if(m_Public_birthdayIsSet)
-    {
-        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("public_birthday")), m_Public_birthday));
-    }
-    if(m_BirthdayIsSet)
-    {
-        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("birthday")), m_Birthday));
-    }
-    if(m_PointsIsSet)
-    {
-        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("points")), m_Points));
-    }
-    if(m_LocationIsSet)
-    {
-        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("location")), m_Location));
-    }
-    if(m_Photo_urlIsSet)
-    {
-        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("photo_url")), m_Photo_url));
-    }
-    if(m_Banner_urlIsSet)
-    {
-        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("banner_url")), m_Banner_url));
-    }
-    if(m_Last_onlineIsSet)
-    {
-        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("last_online")), m_Last_online));
-    }
-    if(m_BiographyIsSet)
-    {
-        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("biography")), m_Biography));
-    }
-    if(m_View_countIsSet)
-    {
-        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("view_count")), m_View_count));
-    }
-    if(m_CreatedIsSet)
-    {
-        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("created")), m_Created));
-    }
-    if(m_UpdatedIsSet)
-    {
-        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("updated")), m_Updated));
-    }
-}
-
-bool Profile::fromMultiPart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& prefix)
-{
-    bool ok = true;
-    utility::string_t namePrefix = prefix;
-    if(namePrefix.size() > 0 && namePrefix.substr(namePrefix.size() - 1) != utility::conversions::to_string_t(U(".")))
-    {
-        namePrefix += utility::conversions::to_string_t(U("."));
-    }
-
-    if(multipart->hasContent(utility::conversions::to_string_t(U("id"))))
-    {
-        utility::string_t refVal_setId;
-        ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(U("id"))), refVal_setId );
-        setId(refVal_setId);
-    }
-    if(multipart->hasContent(utility::conversions::to_string_t(U("uuid"))))
-    {
-        utility::string_t refVal_setUuid;
-        ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(U("uuid"))), refVal_setUuid );
-        setUuid(refVal_setUuid);
-    }
-    if(multipart->hasContent(utility::conversions::to_string_t(U("name"))))
-    {
-        utility::string_t refVal_setName;
-        ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(U("name"))), refVal_setName );
-        setName(refVal_setName);
-    }
-    if(multipart->hasContent(utility::conversions::to_string_t(U("display_name"))))
-    {
-        utility::string_t refVal_setDisplayName;
-        ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(U("display_name"))), refVal_setDisplayName );
-        setDisplayName(refVal_setDisplayName);
-    }
-    if(multipart->hasContent(utility::conversions::to_string_t(U("verified"))))
-    {
-        bool refVal_setVerified;
-        ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(U("verified"))), refVal_setVerified );
-        setVerified(refVal_setVerified);
-    }
-    if(multipart->hasContent(utility::conversions::to_string_t(U("level"))))
-    {
-        int32_t refVal_setLevel;
-        ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(U("level"))), refVal_setLevel );
-        setLevel(refVal_setLevel);
-    }
-    if(multipart->hasContent(utility::conversions::to_string_t(U("experience"))))
-    {
-        double refVal_setExperience;
-        ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(U("experience"))), refVal_setExperience );
-        setExperience(refVal_setExperience);
-    }
-    if(multipart->hasContent(utility::conversions::to_string_t(U("public_birthday"))))
-    {
-        bool refVal_setPublicBirthday;
-        ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(U("public_birthday"))), refVal_setPublicBirthday );
-        setPublicBirthday(refVal_setPublicBirthday);
-    }
-    if(multipart->hasContent(utility::conversions::to_string_t(U("birthday"))))
-    {
-        utility::datetime refVal_setBirthday;
-        ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(U("birthday"))), refVal_setBirthday );
-        setBirthday(refVal_setBirthday);
-    }
-    if(multipart->hasContent(utility::conversions::to_string_t(U("points"))))
-    {
-        double refVal_setPoints;
-        ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(U("points"))), refVal_setPoints );
-        setPoints(refVal_setPoints);
-    }
-    if(multipart->hasContent(utility::conversions::to_string_t(U("location"))))
-    {
-        utility::string_t refVal_setLocation;
-        ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(U("location"))), refVal_setLocation );
-        setLocation(refVal_setLocation);
-    }
-    if(multipart->hasContent(utility::conversions::to_string_t(U("photo_url"))))
-    {
-        utility::string_t refVal_setPhotoUrl;
-        ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(U("photo_url"))), refVal_setPhotoUrl );
-        setPhotoUrl(refVal_setPhotoUrl);
-    }
-    if(multipart->hasContent(utility::conversions::to_string_t(U("banner_url"))))
-    {
-        utility::string_t refVal_setBannerUrl;
-        ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(U("banner_url"))), refVal_setBannerUrl );
-        setBannerUrl(refVal_setBannerUrl);
-    }
-    if(multipart->hasContent(utility::conversions::to_string_t(U("last_online"))))
-    {
-        utility::datetime refVal_setLastOnline;
-        ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(U("last_online"))), refVal_setLastOnline );
-        setLastOnline(refVal_setLastOnline);
-    }
-    if(multipart->hasContent(utility::conversions::to_string_t(U("biography"))))
-    {
-        utility::string_t refVal_setBiography;
-        ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(U("biography"))), refVal_setBiography );
-        setBiography(refVal_setBiography);
-    }
-    if(multipart->hasContent(utility::conversions::to_string_t(U("view_count"))))
-    {
-        int32_t refVal_setViewCount;
-        ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(U("view_count"))), refVal_setViewCount );
-        setViewCount(refVal_setViewCount);
-    }
-    if(multipart->hasContent(utility::conversions::to_string_t(U("created"))))
-    {
-        utility::datetime refVal_setCreated;
-        ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(U("created"))), refVal_setCreated );
-        setCreated(refVal_setCreated);
-    }
-    if(multipart->hasContent(utility::conversions::to_string_t(U("updated"))))
-    {
-        utility::datetime refVal_setUpdated;
-        ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(U("updated"))), refVal_setUpdated );
-        setUpdated(refVal_setUpdated);
-    }
-    return ok;
-}
-
-
-utility::string_t Profile::getId() const
-{
-    return m_Id;
-}
-
-
-void Profile::setId(const utility::string_t& value)
-{
-    m_Id = value;
-    m_IdIsSet = true;
-}
-
-bool Profile::idIsSet() const
-{
-    return m_IdIsSet;
-}
-
-void Profile::unsetId()
-{
-    m_IdIsSet = false;
-}
-utility::string_t Profile::getUuid() const
-{
-    return m_Uuid;
-}
-
-
-void Profile::setUuid(const utility::string_t& value)
-{
-    m_Uuid = value;
-    m_UuidIsSet = true;
-}
-
-bool Profile::uuidIsSet() const
-{
-    return m_UuidIsSet;
-}
-
-void Profile::unsetUuid()
-{
-    m_UuidIsSet = false;
-}
-utility::string_t Profile::getName() const
-{
-    return m_Name;
-}
-
-
-void Profile::setName(const utility::string_t& value)
-{
-    m_Name = value;
-    m_NameIsSet = true;
-}
-
-bool Profile::nameIsSet() const
-{
-    return m_NameIsSet;
-}
-
-void Profile::unsetName()
-{
-    m_NameIsSet = false;
-}
-utility::string_t Profile::getDisplayName() const
-{
-    return m_Display_name;
-}
-
-
-void Profile::setDisplayName(const utility::string_t& value)
-{
-    m_Display_name = value;
-    m_Display_nameIsSet = true;
-}
-
-bool Profile::displayNameIsSet() const
-{
-    return m_Display_nameIsSet;
-}
-
-void Profile::unsetDisplay_name()
-{
-    m_Display_nameIsSet = false;
-}
-bool Profile::isVerified() const
-{
-    return m_Verified;
-}
-
-void Profile::setVerified(bool value)
-{
-    m_Verified = value;
-    m_VerifiedIsSet = true;
-}
-
-bool Profile::verifiedIsSet() const
-{
-    return m_VerifiedIsSet;
-}
-
-void Profile::unsetVerified()
-{
-    m_VerifiedIsSet = false;
-}
-int32_t Profile::getLevel() const
-{
-    return m_Level;
-}
-
-void Profile::setLevel(int32_t value)
-{
-    m_Level = value;
-    m_LevelIsSet = true;
-}
-
-bool Profile::levelIsSet() const
-{
-    return m_LevelIsSet;
-}
-
-void Profile::unsetLevel()
-{
-    m_LevelIsSet = false;
-}
-double Profile::getExperience() const
-{
-    return m_Experience;
-}
-
-void Profile::setExperience(double value)
-{
-    m_Experience = value;
-    m_ExperienceIsSet = true;
-}
-
-bool Profile::experienceIsSet() const
-{
-    return m_ExperienceIsSet;
-}
-
-void Profile::unsetExperience()
-{
-    m_ExperienceIsSet = false;
-}
-bool Profile::isPublicBirthday() const
-{
-    return m_Public_birthday;
-}
-
-void Profile::setPublicBirthday(bool value)
-{
-    m_Public_birthday = value;
-    m_Public_birthdayIsSet = true;
-}
-
-bool Profile::publicBirthdayIsSet() const
-{
-    return m_Public_birthdayIsSet;
-}
-
-void Profile::unsetPublic_birthday()
-{
-    m_Public_birthdayIsSet = false;
-}
-utility::datetime Profile::getBirthday() const
-{
-    return m_Birthday;
-}
-
-
-void Profile::setBirthday(const utility::datetime& value)
-{
-    m_Birthday = value;
-    m_BirthdayIsSet = true;
-}
-
-bool Profile::birthdayIsSet() const
-{
-    return m_BirthdayIsSet;
-}
-
-void Profile::unsetBirthday()
-{
-    m_BirthdayIsSet = false;
-}
-double Profile::getPoints() const
-{
-    return m_Points;
-}
-
-void Profile::setPoints(double value)
-{
-    m_Points = value;
-    m_PointsIsSet = true;
-}
-
-bool Profile::pointsIsSet() const
-{
-    return m_PointsIsSet;
-}
-
-void Profile::unsetPoints()
-{
-    m_PointsIsSet = false;
-}
-utility::string_t Profile::getLocation() const
-{
-    return m_Location;
-}
-
-
-void Profile::setLocation(const utility::string_t& value)
-{
-    m_Location = value;
-    m_LocationIsSet = true;
-}
-
-bool Profile::locationIsSet() const
-{
-    return m_LocationIsSet;
-}
-
-void Profile::unsetLocation()
-{
-    m_LocationIsSet = false;
-}
-utility::string_t Profile::getPhotoUrl() const
-{
-    return m_Photo_url;
-}
-
-
-void Profile::setPhotoUrl(const utility::string_t& value)
-{
-    m_Photo_url = value;
-    m_Photo_urlIsSet = true;
-}
-
-bool Profile::photoUrlIsSet() const
-{
-    return m_Photo_urlIsSet;
-}
-
-void Profile::unsetPhoto_url()
-{
-    m_Photo_urlIsSet = false;
-}
-utility::string_t Profile::getBannerUrl() const
-{
-    return m_Banner_url;
-}
-
-
-void Profile::setBannerUrl(const utility::string_t& value)
-{
-    m_Banner_url = value;
-    m_Banner_urlIsSet = true;
-}
-
-bool Profile::bannerUrlIsSet() const
-{
-    return m_Banner_urlIsSet;
-}
-
-void Profile::unsetBanner_url()
-{
-    m_Banner_urlIsSet = false;
-}
-utility::datetime Profile::getLastOnline() const
-{
-    return m_Last_online;
-}
-
-
-void Profile::setLastOnline(const utility::datetime& value)
-{
-    m_Last_online = value;
-    m_Last_onlineIsSet = true;
-}
-
-bool Profile::lastOnlineIsSet() const
-{
-    return m_Last_onlineIsSet;
-}
-
-void Profile::unsetLast_online()
-{
-    m_Last_onlineIsSet = false;
-}
-utility::string_t Profile::getBiography() const
-{
-    return m_Biography;
-}
-
-
-void Profile::setBiography(const utility::string_t& value)
-{
-    m_Biography = value;
-    m_BiographyIsSet = true;
-}
-
-bool Profile::biographyIsSet() const
-{
-    return m_BiographyIsSet;
-}
-
-void Profile::unsetBiography()
-{
-    m_BiographyIsSet = false;
-}
-int32_t Profile::getViewCount() const
-{
-    return m_View_count;
-}
-
-void Profile::setViewCount(int32_t value)
-{
-    m_View_count = value;
-    m_View_countIsSet = true;
-}
-
-bool Profile::viewCountIsSet() const
-{
-    return m_View_countIsSet;
-}
-
-void Profile::unsetView_count()
-{
-    m_View_countIsSet = false;
-}
-utility::datetime Profile::getCreated() const
-{
-    return m_Created;
-}
-
-
-void Profile::setCreated(const utility::datetime& value)
-{
-    m_Created = value;
-    m_CreatedIsSet = true;
-}
-
-bool Profile::createdIsSet() const
-{
-    return m_CreatedIsSet;
-}
-
-void Profile::unsetCreated()
-{
-    m_CreatedIsSet = false;
-}
-utility::datetime Profile::getUpdated() const
-{
-    return m_Updated;
-}
-
-
-void Profile::setUpdated(const utility::datetime& value)
-{
-    m_Updated = value;
-    m_UpdatedIsSet = true;
-}
-
-bool Profile::updatedIsSet() const
-{
-    return m_UpdatedIsSet;
-}
-
-void Profile::unsetUpdated()
-{
-    m_UpdatedIsSet = false;
-}
-
-}
-}
-
-

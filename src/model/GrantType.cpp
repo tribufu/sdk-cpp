@@ -10,117 +10,115 @@
  * Do not edit the class manually.
  */
 
-
-
 #include "tribufu++/model/GrantType.h"
 
-namespace tribufu {
-namespace models {
-
-namespace
+namespace tribufu
 {
-using EnumUnderlyingType = utility::string_t;
-
-GrantType::eGrantType toEnum(const EnumUnderlyingType& val)
-{
-    if (val == utility::conversions::to_string_t(U("authorization_code")))
-        return GrantType::eGrantType::GrantType_AUTHORIZATION_CODE;
-    if (val == utility::conversions::to_string_t(U("client_credentials")))
-        return GrantType::eGrantType::GrantType_CLIENT_CREDENTIALS;
-    if (val == utility::conversions::to_string_t(U("password")))
-        return GrantType::eGrantType::GrantType_PASSWORD;
-    if (val == utility::conversions::to_string_t(U("refresh_token")))
-        return GrantType::eGrantType::GrantType_REFRESH_TOKEN;
-    return {};
-}
-
-EnumUnderlyingType fromEnum(GrantType::eGrantType e)
-{
-    switch (e)
+    namespace models
     {
-    case GrantType::eGrantType::GrantType_AUTHORIZATION_CODE:
-        return U("authorization_code");
-    case GrantType::eGrantType::GrantType_CLIENT_CREDENTIALS:
-        return U("client_credentials");
-    case GrantType::eGrantType::GrantType_PASSWORD:
-        return U("password");
-    case GrantType::eGrantType::GrantType_REFRESH_TOKEN:
-        return U("refresh_token");
-    default:
-        break;
-    }
-    return {};
-}
-}
 
-GrantType::GrantType()
-{
-}
-
-GrantType::~GrantType()
-{
-}
-
-void GrantType::validate()
-{
-    // TODO: implement validation
-}
-
-web::json::value GrantType::toJson() const
-{
-    auto val = fromEnum(m_value);
-    return web::json::value(val);
-}
-
-bool GrantType::fromJson(const web::json::value& val)
-{
-    m_value = toEnum(val.as_string());
-    return true;
-}
-
-void GrantType::toMultipart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& prefix) const
-{
-    utility::string_t namePrefix = prefix;
-    if (!namePrefix.empty() && namePrefix.back() != U('.'))
-    {
-        namePrefix.push_back(U('.'));
-    }
-
-    auto e = fromEnum(m_value);
-    multipart->add(ModelBase::toHttpContent(namePrefix, e));
-}
-
-bool GrantType::fromMultiPart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& prefix)
-{
-    bool ok = true;
-    utility::string_t namePrefix = prefix;
-    if (!namePrefix.empty() && namePrefix.back() != U('.'))
-    {
-        namePrefix.push_back(U('.'));
-    }
-    {
-        EnumUnderlyingType e;
-        ok = ModelBase::fromHttpContent(multipart->getContent(namePrefix), e);
-        if (ok)
+        namespace
         {
-            auto v = toEnum(e);
-            setValue(v);
+            using EnumUnderlyingType = utility::string_t;
+
+            GrantType::eGrantType toEnum(const EnumUnderlyingType &val)
+            {
+                if (val == utility::conversions::to_string_t(U("authorization_code")))
+                    return GrantType::eGrantType::GrantType_AUTHORIZATION_CODE;
+                if (val == utility::conversions::to_string_t(U("client_credentials")))
+                    return GrantType::eGrantType::GrantType_CLIENT_CREDENTIALS;
+                if (val == utility::conversions::to_string_t(U("password")))
+                    return GrantType::eGrantType::GrantType_PASSWORD;
+                if (val == utility::conversions::to_string_t(U("refresh_token")))
+                    return GrantType::eGrantType::GrantType_REFRESH_TOKEN;
+                return {};
+            }
+
+            EnumUnderlyingType fromEnum(GrantType::eGrantType e)
+            {
+                switch (e)
+                {
+                case GrantType::eGrantType::GrantType_AUTHORIZATION_CODE:
+                    return U("authorization_code");
+                case GrantType::eGrantType::GrantType_CLIENT_CREDENTIALS:
+                    return U("client_credentials");
+                case GrantType::eGrantType::GrantType_PASSWORD:
+                    return U("password");
+                case GrantType::eGrantType::GrantType_REFRESH_TOKEN:
+                    return U("refresh_token");
+                default:
+                    break;
+                }
+                return {};
+            }
         }
+
+        GrantType::GrantType()
+        {
+        }
+
+        GrantType::~GrantType()
+        {
+        }
+
+        void GrantType::validate()
+        {
+            // TODO: implement validation
+        }
+
+        web::json::value GrantType::toJson() const
+        {
+            auto val = fromEnum(m_value);
+            return web::json::value(val);
+        }
+
+        bool GrantType::fromJson(const web::json::value &val)
+        {
+            m_value = toEnum(val.as_string());
+            return true;
+        }
+
+        void GrantType::toMultipart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t &prefix) const
+        {
+            utility::string_t namePrefix = prefix;
+            if (!namePrefix.empty() && namePrefix.back() != U('.'))
+            {
+                namePrefix.push_back(U('.'));
+            }
+
+            auto e = fromEnum(m_value);
+            multipart->add(ModelBase::toHttpContent(namePrefix, e));
+        }
+
+        bool GrantType::fromMultiPart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t &prefix)
+        {
+            bool ok = true;
+            utility::string_t namePrefix = prefix;
+            if (!namePrefix.empty() && namePrefix.back() != U('.'))
+            {
+                namePrefix.push_back(U('.'));
+            }
+            {
+                EnumUnderlyingType e;
+                ok = ModelBase::fromHttpContent(multipart->getContent(namePrefix), e);
+                if (ok)
+                {
+                    auto v = toEnum(e);
+                    setValue(v);
+                }
+            }
+            return ok;
+        }
+
+        GrantType::eGrantType GrantType::getValue() const
+        {
+            return m_value;
+        }
+
+        void GrantType::setValue(GrantType::eGrantType const value)
+        {
+            m_value = value;
+        }
+
     }
-    return ok;
 }
-
-GrantType::eGrantType GrantType::getValue() const
-{
-   return m_value;
-}
-
-void GrantType::setValue(GrantType::eGrantType const value)
-{
-   m_value = value;
-}
-
-}
-}
-
-

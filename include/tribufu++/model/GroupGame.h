@@ -13,112 +13,108 @@
 /*
  * GroupGame.h
  *
- * 
+ *
  */
 
 #ifndef TRIBUFU_MODELS_GroupGame_H_
 #define TRIBUFU_MODELS_GroupGame_H_
 
-
 #include "tribufu++/ModelBase.h"
 
-#include "tribufu++/model/Application.h"
-#include <cpprest/details/basic_types.h>
-#include "tribufu++/model/Group.h"
 #include "tribufu++/AnyType.h"
+#include "tribufu++/model/Application.h"
+#include "tribufu++/model/Group.h"
+#include <cpprest/details/basic_types.h>
 
-namespace tribufu {
-namespace models {
-
-class Group;
-class Application;
-
-
-class  GroupGame
-    : public ModelBase
+namespace tribufu
 {
-public:
-    GroupGame();
-    virtual ~GroupGame();
+    namespace models
+    {
 
-    /////////////////////////////////////////////
-    /// ModelBase overrides
+        class Group;
+        class Application;
 
-    void validate() override;
+        class GroupGame : public ModelBase
+        {
+        public:
+            GroupGame();
+            virtual ~GroupGame();
 
-    web::json::value toJson() const override;
-    bool fromJson(const web::json::value& json) override;
+            /////////////////////////////////////////////
+            /// ModelBase overrides
 
-    void toMultipart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& namePrefix) const override;
-    bool fromMultiPart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& namePrefix) override;
+            void validate() override;
 
+            web::json::value toJson() const override;
+            bool fromJson(const web::json::value &json) override;
 
-    /////////////////////////////////////////////
-    /// GroupGame members
+            void toMultipart(std::shared_ptr<MultipartFormData> multipart,
+                             const utility::string_t &namePrefix) const override;
+            bool fromMultiPart(std::shared_ptr<MultipartFormData> multipart,
+                               const utility::string_t &namePrefix) override;
 
+            /////////////////////////////////////////////
+            /// GroupGame members
 
-    utility::string_t getGroupId() const;
-    bool groupIdIsSet() const;
-    void unsetGroup_id();
-    void setGroupId(const utility::string_t& value);
+            utility::string_t getGroupId() const;
+            bool groupIdIsSet() const;
+            void unsetGroup_id();
+            void setGroupId(const utility::string_t &value);
 
-    std::shared_ptr<Group> getGroup() const;
-    bool groupIsSet() const;
-    void unsetGroup();
-    void setGroup(const std::shared_ptr<Group>& value);
+            std::shared_ptr<Group> getGroup() const;
+            bool groupIsSet() const;
+            void unsetGroup();
+            void setGroup(const std::shared_ptr<Group> &value);
 
-    utility::string_t getApplicationId() const;
-    bool applicationIdIsSet() const;
-    void unsetApplication_id();
-    void setApplicationId(const utility::string_t& value);
+            utility::string_t getApplicationId() const;
+            bool applicationIdIsSet() const;
+            void unsetApplication_id();
+            void setApplicationId(const utility::string_t &value);
 
-    std::shared_ptr<Application> getApplication() const;
-    bool applicationIsSet() const;
-    void unsetApplication();
-    void setApplication(const std::shared_ptr<Application>& value);
+            std::shared_ptr<Application> getApplication() const;
+            bool applicationIsSet() const;
+            void unsetApplication();
+            void setApplication(const std::shared_ptr<Application> &value);
 
-    std::shared_ptr<AnyType> getStats() const;
-    bool statsIsSet() const;
-    void unsetStats();
-    void setStats(const std::shared_ptr<AnyType>& value);
+            std::shared_ptr<AnyType> getStats() const;
+            bool statsIsSet() const;
+            void unsetStats();
+            void setStats(const std::shared_ptr<AnyType> &value);
 
-    utility::datetime getAcquired() const;
-    bool acquiredIsSet() const;
-    void unsetAcquired();
-    void setAcquired(const utility::datetime& value);
+            utility::datetime getAcquired() const;
+            bool acquiredIsSet() const;
+            void unsetAcquired();
+            void setAcquired(const utility::datetime &value);
 
-    utility::datetime getLastUsed() const;
-    bool lastUsedIsSet() const;
-    void unsetLast_used();
-    void setLastUsed(const utility::datetime& value);
+            utility::datetime getLastUsed() const;
+            bool lastUsedIsSet() const;
+            void unsetLast_used();
+            void setLastUsed(const utility::datetime &value);
 
+        protected:
+            utility::string_t m_Group_id;
+            bool m_Group_idIsSet;
 
-protected:
-    utility::string_t m_Group_id;
-    bool m_Group_idIsSet;
+            std::shared_ptr<Group> m_Group;
+            bool m_GroupIsSet;
 
-    std::shared_ptr<Group> m_Group;
-    bool m_GroupIsSet;
+            utility::string_t m_Application_id;
+            bool m_Application_idIsSet;
 
-    utility::string_t m_Application_id;
-    bool m_Application_idIsSet;
+            std::shared_ptr<Application> m_Application;
+            bool m_ApplicationIsSet;
 
-    std::shared_ptr<Application> m_Application;
-    bool m_ApplicationIsSet;
+            std::shared_ptr<AnyType> m_Stats;
+            bool m_StatsIsSet;
 
-    std::shared_ptr<AnyType> m_Stats;
-    bool m_StatsIsSet;
+            utility::datetime m_Acquired;
+            bool m_AcquiredIsSet;
 
-    utility::datetime m_Acquired;
-    bool m_AcquiredIsSet;
+            utility::datetime m_Last_used;
+            bool m_Last_usedIsSet;
+        };
 
-    utility::datetime m_Last_used;
-    bool m_Last_usedIsSet;
-
-};
-
-
-}
+    }
 }
 
 #endif /* TRIBUFU_MODELS_GroupGame_H_ */

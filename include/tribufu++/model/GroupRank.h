@@ -13,53 +13,53 @@
 /*
  * GroupRank.h
  *
- * 
+ *
  */
 
 #ifndef TRIBUFU_MODELS_GroupRank_H_
 #define TRIBUFU_MODELS_GroupRank_H_
 
-
 #include "tribufu++/ModelBase.h"
 
-
-namespace tribufu {
-namespace models {
-
-
-class  GroupRank
-    : public ModelBase
+namespace tribufu
 {
-public:
-    GroupRank();
-    virtual ~GroupRank();
-
-    /////////////////////////////////////////////
-    /// ModelBase overrides
-
-    void validate() override;
-
-    web::json::value toJson() const override;
-    bool fromJson(const web::json::value& json) override;
-
-    void toMultipart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& namePrefix) const override;
-    bool fromMultiPart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& namePrefix) override;
-
-    enum class eGroupRank
+    namespace models
     {
-        GroupRank_MEMBER,
-        GroupRank_LEADER,
-        GroupRank_OWNER,
-    };
 
-    eGroupRank getValue() const;
-    void setValue(eGroupRank const value);
+        class GroupRank : public ModelBase
+        {
+        public:
+            GroupRank();
+            virtual ~GroupRank();
 
-    protected:
-        eGroupRank m_value;
-};
+            /////////////////////////////////////////////
+            /// ModelBase overrides
 
-}
+            void validate() override;
+
+            web::json::value toJson() const override;
+            bool fromJson(const web::json::value &json) override;
+
+            void toMultipart(std::shared_ptr<MultipartFormData> multipart,
+                             const utility::string_t &namePrefix) const override;
+            bool fromMultiPart(std::shared_ptr<MultipartFormData> multipart,
+                               const utility::string_t &namePrefix) override;
+
+            enum class eGroupRank
+            {
+                GroupRank_MEMBER,
+                GroupRank_LEADER,
+                GroupRank_OWNER,
+            };
+
+            eGroupRank getValue() const;
+            void setValue(eGroupRank const value);
+
+        protected:
+            eGroupRank m_value;
+        };
+
+    }
 }
 
 #endif /* TRIBUFU_MODELS_GroupRank_H_ */

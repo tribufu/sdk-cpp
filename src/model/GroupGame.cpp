@@ -10,403 +10,403 @@
  * Do not edit the class manually.
  */
 
-
-
 #include "tribufu++/model/GroupGame.h"
 
-namespace tribufu {
-namespace models {
-
-GroupGame::GroupGame()
+namespace tribufu
 {
-    m_Group_id = utility::conversions::to_string_t("");
-    m_Group_idIsSet = false;
-    m_GroupIsSet = false;
-    m_Application_id = utility::conversions::to_string_t("");
-    m_Application_idIsSet = false;
-    m_ApplicationIsSet = false;
-    m_StatsIsSet = false;
-    m_Acquired = utility::datetime();
-    m_AcquiredIsSet = false;
-    m_Last_used = utility::datetime();
-    m_Last_usedIsSet = false;
-}
-
-GroupGame::~GroupGame()
-{
-}
-
-void GroupGame::validate()
-{
-    // TODO: implement validation
-}
-
-web::json::value GroupGame::toJson() const
-{
-    web::json::value val = web::json::value::object();
-    if(m_Group_idIsSet)
-    {   
-        
-        val[utility::conversions::to_string_t(U("group_id"))] = ModelBase::toJson(m_Group_id);
-    }
-    if(m_GroupIsSet)
-    {   
-        
-        val[utility::conversions::to_string_t(U("group"))] = ModelBase::toJson(m_Group);
-    }
-    if(m_Application_idIsSet)
-    {   
-        
-        val[utility::conversions::to_string_t(U("application_id"))] = ModelBase::toJson(m_Application_id);
-    }
-    if(m_ApplicationIsSet)
-    {   
-        
-        val[utility::conversions::to_string_t(U("application"))] = ModelBase::toJson(m_Application);
-    }
-    if(m_StatsIsSet)
-    {   
-        
-        val[utility::conversions::to_string_t(U("stats"))] = ModelBase::toJson(m_Stats);
-    }
-    if(m_AcquiredIsSet)
-    {   
-        
-        val[utility::conversions::to_string_t(U("acquired"))] = ModelBase::toJson(m_Acquired);
-    }
-    if(m_Last_usedIsSet)
-    {   
-        
-        val[utility::conversions::to_string_t(U("last_used"))] = ModelBase::toJson(m_Last_used);
-    }
-
-    return val;
-}
-
-bool GroupGame::fromJson(const web::json::value& val)
-{
-    bool ok = true;
-    if(val.has_field(utility::conversions::to_string_t(U("group_id"))))
+    namespace models
     {
-        const web::json::value& fieldValue = val.at(utility::conversions::to_string_t(U("group_id")));
-        if(!fieldValue.is_null())
+
+        GroupGame::GroupGame()
         {
-            utility::string_t refVal_setGroupId;
-            ok &= ModelBase::fromJson(fieldValue, refVal_setGroupId);
-            setGroupId(refVal_setGroupId);
-            
+            m_Group_id = utility::conversions::to_string_t("");
+            m_Group_idIsSet = false;
+            m_GroupIsSet = false;
+            m_Application_id = utility::conversions::to_string_t("");
+            m_Application_idIsSet = false;
+            m_ApplicationIsSet = false;
+            m_StatsIsSet = false;
+            m_Acquired = utility::datetime();
+            m_AcquiredIsSet = false;
+            m_Last_used = utility::datetime();
+            m_Last_usedIsSet = false;
         }
-    }
-    if(val.has_field(utility::conversions::to_string_t(U("group"))))
-    {
-        const web::json::value& fieldValue = val.at(utility::conversions::to_string_t(U("group")));
-        if(!fieldValue.is_null())
+
+        GroupGame::~GroupGame()
         {
-            std::shared_ptr<Group> refVal_setGroup;
-            ok &= ModelBase::fromJson(fieldValue, refVal_setGroup);
-            setGroup(refVal_setGroup);
-            
         }
-    }
-    if(val.has_field(utility::conversions::to_string_t(U("application_id"))))
-    {
-        const web::json::value& fieldValue = val.at(utility::conversions::to_string_t(U("application_id")));
-        if(!fieldValue.is_null())
+
+        void GroupGame::validate()
         {
-            utility::string_t refVal_setApplicationId;
-            ok &= ModelBase::fromJson(fieldValue, refVal_setApplicationId);
-            setApplicationId(refVal_setApplicationId);
-            
+            // TODO: implement validation
         }
-    }
-    if(val.has_field(utility::conversions::to_string_t(U("application"))))
-    {
-        const web::json::value& fieldValue = val.at(utility::conversions::to_string_t(U("application")));
-        if(!fieldValue.is_null())
+
+        web::json::value GroupGame::toJson() const
         {
-            std::shared_ptr<Application> refVal_setApplication;
-            ok &= ModelBase::fromJson(fieldValue, refVal_setApplication);
-            setApplication(refVal_setApplication);
-            
+            web::json::value val = web::json::value::object();
+            if (m_Group_idIsSet)
+            {
+
+                val[utility::conversions::to_string_t(U("group_id"))] = ModelBase::toJson(m_Group_id);
+            }
+            if (m_GroupIsSet)
+            {
+
+                val[utility::conversions::to_string_t(U("group"))] = ModelBase::toJson(m_Group);
+            }
+            if (m_Application_idIsSet)
+            {
+
+                val[utility::conversions::to_string_t(U("application_id"))] = ModelBase::toJson(m_Application_id);
+            }
+            if (m_ApplicationIsSet)
+            {
+
+                val[utility::conversions::to_string_t(U("application"))] = ModelBase::toJson(m_Application);
+            }
+            if (m_StatsIsSet)
+            {
+
+                val[utility::conversions::to_string_t(U("stats"))] = ModelBase::toJson(m_Stats);
+            }
+            if (m_AcquiredIsSet)
+            {
+
+                val[utility::conversions::to_string_t(U("acquired"))] = ModelBase::toJson(m_Acquired);
+            }
+            if (m_Last_usedIsSet)
+            {
+
+                val[utility::conversions::to_string_t(U("last_used"))] = ModelBase::toJson(m_Last_used);
+            }
+
+            return val;
         }
-    }
-    if(val.has_field(utility::conversions::to_string_t(U("stats"))))
-    {
-        const web::json::value& fieldValue = val.at(utility::conversions::to_string_t(U("stats")));
-        if(!fieldValue.is_null())
+
+        bool GroupGame::fromJson(const web::json::value &val)
         {
-            std::shared_ptr<AnyType> refVal_setStats;
-            ok &= ModelBase::fromJson(fieldValue, refVal_setStats);
-            setStats(refVal_setStats);
-            
+            bool ok = true;
+            if (val.has_field(utility::conversions::to_string_t(U("group_id"))))
+            {
+                const web::json::value &fieldValue = val.at(utility::conversions::to_string_t(U("group_id")));
+                if (!fieldValue.is_null())
+                {
+                    utility::string_t refVal_setGroupId;
+                    ok &= ModelBase::fromJson(fieldValue, refVal_setGroupId);
+                    setGroupId(refVal_setGroupId);
+                }
+            }
+            if (val.has_field(utility::conversions::to_string_t(U("group"))))
+            {
+                const web::json::value &fieldValue = val.at(utility::conversions::to_string_t(U("group")));
+                if (!fieldValue.is_null())
+                {
+                    std::shared_ptr<Group> refVal_setGroup;
+                    ok &= ModelBase::fromJson(fieldValue, refVal_setGroup);
+                    setGroup(refVal_setGroup);
+                }
+            }
+            if (val.has_field(utility::conversions::to_string_t(U("application_id"))))
+            {
+                const web::json::value &fieldValue = val.at(utility::conversions::to_string_t(U("application_id")));
+                if (!fieldValue.is_null())
+                {
+                    utility::string_t refVal_setApplicationId;
+                    ok &= ModelBase::fromJson(fieldValue, refVal_setApplicationId);
+                    setApplicationId(refVal_setApplicationId);
+                }
+            }
+            if (val.has_field(utility::conversions::to_string_t(U("application"))))
+            {
+                const web::json::value &fieldValue = val.at(utility::conversions::to_string_t(U("application")));
+                if (!fieldValue.is_null())
+                {
+                    std::shared_ptr<Application> refVal_setApplication;
+                    ok &= ModelBase::fromJson(fieldValue, refVal_setApplication);
+                    setApplication(refVal_setApplication);
+                }
+            }
+            if (val.has_field(utility::conversions::to_string_t(U("stats"))))
+            {
+                const web::json::value &fieldValue = val.at(utility::conversions::to_string_t(U("stats")));
+                if (!fieldValue.is_null())
+                {
+                    std::shared_ptr<AnyType> refVal_setStats;
+                    ok &= ModelBase::fromJson(fieldValue, refVal_setStats);
+                    setStats(refVal_setStats);
+                }
+            }
+            if (val.has_field(utility::conversions::to_string_t(U("acquired"))))
+            {
+                const web::json::value &fieldValue = val.at(utility::conversions::to_string_t(U("acquired")));
+                if (!fieldValue.is_null())
+                {
+                    utility::datetime refVal_setAcquired;
+                    ok &= ModelBase::fromJson(fieldValue, refVal_setAcquired);
+                    setAcquired(refVal_setAcquired);
+                }
+            }
+            if (val.has_field(utility::conversions::to_string_t(U("last_used"))))
+            {
+                const web::json::value &fieldValue = val.at(utility::conversions::to_string_t(U("last_used")));
+                if (!fieldValue.is_null())
+                {
+                    utility::datetime refVal_setLastUsed;
+                    ok &= ModelBase::fromJson(fieldValue, refVal_setLastUsed);
+                    setLastUsed(refVal_setLastUsed);
+                }
+            }
+            return ok;
         }
-    }
-    if(val.has_field(utility::conversions::to_string_t(U("acquired"))))
-    {
-        const web::json::value& fieldValue = val.at(utility::conversions::to_string_t(U("acquired")));
-        if(!fieldValue.is_null())
+
+        void GroupGame::toMultipart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t &prefix) const
         {
-            utility::datetime refVal_setAcquired;
-            ok &= ModelBase::fromJson(fieldValue, refVal_setAcquired);
-            setAcquired(refVal_setAcquired);
-            
+            utility::string_t namePrefix = prefix;
+            if (namePrefix.size() > 0 &&
+                namePrefix.substr(namePrefix.size() - 1) != utility::conversions::to_string_t(U(".")))
+            {
+                namePrefix += utility::conversions::to_string_t(U("."));
+            }
+            if (m_Group_idIsSet)
+            {
+                multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("group_id")),
+                                                        m_Group_id));
+            }
+            if (m_GroupIsSet)
+            {
+                multipart->add(
+                    ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("group")), m_Group));
+            }
+            if (m_Application_idIsSet)
+            {
+                multipart->add(ModelBase::toHttpContent(
+                    namePrefix + utility::conversions::to_string_t(U("application_id")), m_Application_id));
+            }
+            if (m_ApplicationIsSet)
+            {
+                multipart->add(ModelBase::toHttpContent(
+                    namePrefix + utility::conversions::to_string_t(U("application")), m_Application));
+            }
+            if (m_StatsIsSet)
+            {
+                multipart->add(
+                    ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("stats")), m_Stats));
+            }
+            if (m_AcquiredIsSet)
+            {
+                multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("acquired")),
+                                                        m_Acquired));
+            }
+            if (m_Last_usedIsSet)
+            {
+                multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("last_used")),
+                                                        m_Last_used));
+            }
         }
-    }
-    if(val.has_field(utility::conversions::to_string_t(U("last_used"))))
-    {
-        const web::json::value& fieldValue = val.at(utility::conversions::to_string_t(U("last_used")));
-        if(!fieldValue.is_null())
+
+        bool GroupGame::fromMultiPart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t &prefix)
         {
-            utility::datetime refVal_setLastUsed;
-            ok &= ModelBase::fromJson(fieldValue, refVal_setLastUsed);
-            setLastUsed(refVal_setLastUsed);
-            
+            bool ok = true;
+            utility::string_t namePrefix = prefix;
+            if (namePrefix.size() > 0 &&
+                namePrefix.substr(namePrefix.size() - 1) != utility::conversions::to_string_t(U(".")))
+            {
+                namePrefix += utility::conversions::to_string_t(U("."));
+            }
+
+            if (multipart->hasContent(utility::conversions::to_string_t(U("group_id"))))
+            {
+                utility::string_t refVal_setGroupId;
+                ok &= ModelBase::fromHttpContent(
+                    multipart->getContent(utility::conversions::to_string_t(U("group_id"))), refVal_setGroupId);
+                setGroupId(refVal_setGroupId);
+            }
+            if (multipart->hasContent(utility::conversions::to_string_t(U("group"))))
+            {
+                std::shared_ptr<Group> refVal_setGroup;
+                ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(U("group"))),
+                                                 refVal_setGroup);
+                setGroup(refVal_setGroup);
+            }
+            if (multipart->hasContent(utility::conversions::to_string_t(U("application_id"))))
+            {
+                utility::string_t refVal_setApplicationId;
+                ok &= ModelBase::fromHttpContent(
+                    multipart->getContent(utility::conversions::to_string_t(U("application_id"))),
+                    refVal_setApplicationId);
+                setApplicationId(refVal_setApplicationId);
+            }
+            if (multipart->hasContent(utility::conversions::to_string_t(U("application"))))
+            {
+                std::shared_ptr<Application> refVal_setApplication;
+                ok &= ModelBase::fromHttpContent(
+                    multipart->getContent(utility::conversions::to_string_t(U("application"))), refVal_setApplication);
+                setApplication(refVal_setApplication);
+            }
+            if (multipart->hasContent(utility::conversions::to_string_t(U("stats"))))
+            {
+                std::shared_ptr<AnyType> refVal_setStats;
+                ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(U("stats"))),
+                                                 refVal_setStats);
+                setStats(refVal_setStats);
+            }
+            if (multipart->hasContent(utility::conversions::to_string_t(U("acquired"))))
+            {
+                utility::datetime refVal_setAcquired;
+                ok &= ModelBase::fromHttpContent(
+                    multipart->getContent(utility::conversions::to_string_t(U("acquired"))), refVal_setAcquired);
+                setAcquired(refVal_setAcquired);
+            }
+            if (multipart->hasContent(utility::conversions::to_string_t(U("last_used"))))
+            {
+                utility::datetime refVal_setLastUsed;
+                ok &= ModelBase::fromHttpContent(
+                    multipart->getContent(utility::conversions::to_string_t(U("last_used"))), refVal_setLastUsed);
+                setLastUsed(refVal_setLastUsed);
+            }
+            return ok;
         }
+
+        utility::string_t GroupGame::getGroupId() const
+        {
+            return m_Group_id;
+        }
+
+        void GroupGame::setGroupId(const utility::string_t &value)
+        {
+            m_Group_id = value;
+            m_Group_idIsSet = true;
+        }
+
+        bool GroupGame::groupIdIsSet() const
+        {
+            return m_Group_idIsSet;
+        }
+
+        void GroupGame::unsetGroup_id()
+        {
+            m_Group_idIsSet = false;
+        }
+        std::shared_ptr<Group> GroupGame::getGroup() const
+        {
+            return m_Group;
+        }
+
+        void GroupGame::setGroup(const std::shared_ptr<Group> &value)
+        {
+            m_Group = value;
+            m_GroupIsSet = true;
+        }
+
+        bool GroupGame::groupIsSet() const
+        {
+            return m_GroupIsSet;
+        }
+
+        void GroupGame::unsetGroup()
+        {
+            m_GroupIsSet = false;
+        }
+        utility::string_t GroupGame::getApplicationId() const
+        {
+            return m_Application_id;
+        }
+
+        void GroupGame::setApplicationId(const utility::string_t &value)
+        {
+            m_Application_id = value;
+            m_Application_idIsSet = true;
+        }
+
+        bool GroupGame::applicationIdIsSet() const
+        {
+            return m_Application_idIsSet;
+        }
+
+        void GroupGame::unsetApplication_id()
+        {
+            m_Application_idIsSet = false;
+        }
+        std::shared_ptr<Application> GroupGame::getApplication() const
+        {
+            return m_Application;
+        }
+
+        void GroupGame::setApplication(const std::shared_ptr<Application> &value)
+        {
+            m_Application = value;
+            m_ApplicationIsSet = true;
+        }
+
+        bool GroupGame::applicationIsSet() const
+        {
+            return m_ApplicationIsSet;
+        }
+
+        void GroupGame::unsetApplication()
+        {
+            m_ApplicationIsSet = false;
+        }
+        std::shared_ptr<AnyType> GroupGame::getStats() const
+        {
+            return m_Stats;
+        }
+
+        void GroupGame::setStats(const std::shared_ptr<AnyType> &value)
+        {
+            m_Stats = value;
+            m_StatsIsSet = true;
+        }
+
+        bool GroupGame::statsIsSet() const
+        {
+            return m_StatsIsSet;
+        }
+
+        void GroupGame::unsetStats()
+        {
+            m_StatsIsSet = false;
+        }
+        utility::datetime GroupGame::getAcquired() const
+        {
+            return m_Acquired;
+        }
+
+        void GroupGame::setAcquired(const utility::datetime &value)
+        {
+            m_Acquired = value;
+            m_AcquiredIsSet = true;
+        }
+
+        bool GroupGame::acquiredIsSet() const
+        {
+            return m_AcquiredIsSet;
+        }
+
+        void GroupGame::unsetAcquired()
+        {
+            m_AcquiredIsSet = false;
+        }
+        utility::datetime GroupGame::getLastUsed() const
+        {
+            return m_Last_used;
+        }
+
+        void GroupGame::setLastUsed(const utility::datetime &value)
+        {
+            m_Last_used = value;
+            m_Last_usedIsSet = true;
+        }
+
+        bool GroupGame::lastUsedIsSet() const
+        {
+            return m_Last_usedIsSet;
+        }
+
+        void GroupGame::unsetLast_used()
+        {
+            m_Last_usedIsSet = false;
+        }
+
     }
-    return ok;
 }
-
-void GroupGame::toMultipart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& prefix) const
-{
-    utility::string_t namePrefix = prefix;
-    if(namePrefix.size() > 0 && namePrefix.substr(namePrefix.size() - 1) != utility::conversions::to_string_t(U(".")))
-    {
-        namePrefix += utility::conversions::to_string_t(U("."));
-    }
-    if(m_Group_idIsSet)
-    {
-        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("group_id")), m_Group_id));
-    }
-    if(m_GroupIsSet)
-    {
-        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("group")), m_Group));
-    }
-    if(m_Application_idIsSet)
-    {
-        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("application_id")), m_Application_id));
-    }
-    if(m_ApplicationIsSet)
-    {
-        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("application")), m_Application));
-    }
-    if(m_StatsIsSet)
-    {
-        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("stats")), m_Stats));
-    }
-    if(m_AcquiredIsSet)
-    {
-        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("acquired")), m_Acquired));
-    }
-    if(m_Last_usedIsSet)
-    {
-        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("last_used")), m_Last_used));
-    }
-}
-
-bool GroupGame::fromMultiPart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& prefix)
-{
-    bool ok = true;
-    utility::string_t namePrefix = prefix;
-    if(namePrefix.size() > 0 && namePrefix.substr(namePrefix.size() - 1) != utility::conversions::to_string_t(U(".")))
-    {
-        namePrefix += utility::conversions::to_string_t(U("."));
-    }
-
-    if(multipart->hasContent(utility::conversions::to_string_t(U("group_id"))))
-    {
-        utility::string_t refVal_setGroupId;
-        ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(U("group_id"))), refVal_setGroupId );
-        setGroupId(refVal_setGroupId);
-    }
-    if(multipart->hasContent(utility::conversions::to_string_t(U("group"))))
-    {
-        std::shared_ptr<Group> refVal_setGroup;
-        ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(U("group"))), refVal_setGroup );
-        setGroup(refVal_setGroup);
-    }
-    if(multipart->hasContent(utility::conversions::to_string_t(U("application_id"))))
-    {
-        utility::string_t refVal_setApplicationId;
-        ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(U("application_id"))), refVal_setApplicationId );
-        setApplicationId(refVal_setApplicationId);
-    }
-    if(multipart->hasContent(utility::conversions::to_string_t(U("application"))))
-    {
-        std::shared_ptr<Application> refVal_setApplication;
-        ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(U("application"))), refVal_setApplication );
-        setApplication(refVal_setApplication);
-    }
-    if(multipart->hasContent(utility::conversions::to_string_t(U("stats"))))
-    {
-        std::shared_ptr<AnyType> refVal_setStats;
-        ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(U("stats"))), refVal_setStats );
-        setStats(refVal_setStats);
-    }
-    if(multipart->hasContent(utility::conversions::to_string_t(U("acquired"))))
-    {
-        utility::datetime refVal_setAcquired;
-        ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(U("acquired"))), refVal_setAcquired );
-        setAcquired(refVal_setAcquired);
-    }
-    if(multipart->hasContent(utility::conversions::to_string_t(U("last_used"))))
-    {
-        utility::datetime refVal_setLastUsed;
-        ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(U("last_used"))), refVal_setLastUsed );
-        setLastUsed(refVal_setLastUsed);
-    }
-    return ok;
-}
-
-
-utility::string_t GroupGame::getGroupId() const
-{
-    return m_Group_id;
-}
-
-
-void GroupGame::setGroupId(const utility::string_t& value)
-{
-    m_Group_id = value;
-    m_Group_idIsSet = true;
-}
-
-bool GroupGame::groupIdIsSet() const
-{
-    return m_Group_idIsSet;
-}
-
-void GroupGame::unsetGroup_id()
-{
-    m_Group_idIsSet = false;
-}
-std::shared_ptr<Group> GroupGame::getGroup() const
-{
-    return m_Group;
-}
-
-
-void GroupGame::setGroup(const std::shared_ptr<Group>& value)
-{
-    m_Group = value;
-    m_GroupIsSet = true;
-}
-
-bool GroupGame::groupIsSet() const
-{
-    return m_GroupIsSet;
-}
-
-void GroupGame::unsetGroup()
-{
-    m_GroupIsSet = false;
-}
-utility::string_t GroupGame::getApplicationId() const
-{
-    return m_Application_id;
-}
-
-
-void GroupGame::setApplicationId(const utility::string_t& value)
-{
-    m_Application_id = value;
-    m_Application_idIsSet = true;
-}
-
-bool GroupGame::applicationIdIsSet() const
-{
-    return m_Application_idIsSet;
-}
-
-void GroupGame::unsetApplication_id()
-{
-    m_Application_idIsSet = false;
-}
-std::shared_ptr<Application> GroupGame::getApplication() const
-{
-    return m_Application;
-}
-
-
-void GroupGame::setApplication(const std::shared_ptr<Application>& value)
-{
-    m_Application = value;
-    m_ApplicationIsSet = true;
-}
-
-bool GroupGame::applicationIsSet() const
-{
-    return m_ApplicationIsSet;
-}
-
-void GroupGame::unsetApplication()
-{
-    m_ApplicationIsSet = false;
-}
-std::shared_ptr<AnyType> GroupGame::getStats() const
-{
-    return m_Stats;
-}
-
-
-void GroupGame::setStats(const std::shared_ptr<AnyType>& value)
-{
-    m_Stats = value;
-    m_StatsIsSet = true;
-}
-
-bool GroupGame::statsIsSet() const
-{
-    return m_StatsIsSet;
-}
-
-void GroupGame::unsetStats()
-{
-    m_StatsIsSet = false;
-}
-utility::datetime GroupGame::getAcquired() const
-{
-    return m_Acquired;
-}
-
-
-void GroupGame::setAcquired(const utility::datetime& value)
-{
-    m_Acquired = value;
-    m_AcquiredIsSet = true;
-}
-
-bool GroupGame::acquiredIsSet() const
-{
-    return m_AcquiredIsSet;
-}
-
-void GroupGame::unsetAcquired()
-{
-    m_AcquiredIsSet = false;
-}
-utility::datetime GroupGame::getLastUsed() const
-{
-    return m_Last_used;
-}
-
-
-void GroupGame::setLastUsed(const utility::datetime& value)
-{
-    m_Last_used = value;
-    m_Last_usedIsSet = true;
-}
-
-bool GroupGame::lastUsedIsSet() const
-{
-    return m_Last_usedIsSet;
-}
-
-void GroupGame::unsetLast_used()
-{
-    m_Last_usedIsSet = false;
-}
-
-}
-}
-
-

@@ -12,38 +12,53 @@
 
 #include "tribufu++/AnyType.h"
 
-namespace tribufu {
-namespace models {
+namespace tribufu
+{
+    namespace models
+    {
 
-AnyType::AnyType() { m_value = web::json::value::null(); }
+        AnyType::AnyType()
+        {
+            m_value = web::json::value::null();
+        }
 
-AnyType::~AnyType() {}
+        AnyType::~AnyType()
+        {
+        }
 
-void AnyType::validate() {}
+        void AnyType::validate()
+        {
+        }
 
-web::json::value AnyType::toJson() const { return m_value; }
+        web::json::value AnyType::toJson() const
+        {
+            return m_value;
+        }
 
-bool AnyType::fromJson(const web::json::value &val) {
-  m_value = val;
-  m_IsSet = true;
-  return isSet();
-}
+        bool AnyType::fromJson(const web::json::value &val)
+        {
+            m_value = val;
+            m_IsSet = true;
+            return isSet();
+        }
 
-void AnyType::toMultipart(std::shared_ptr<MultipartFormData> multipart,
-                          const utility::string_t &prefix) const {
-  if (m_value.is_object()) {
-    return Object::toMultipart(multipart, prefix);
-  }
-  throw std::runtime_error("AnyType::toMultipart: unsupported type");
-}
+        void AnyType::toMultipart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t &prefix) const
+        {
+            if (m_value.is_object())
+            {
+                return Object::toMultipart(multipart, prefix);
+            }
+            throw std::runtime_error("AnyType::toMultipart: unsupported type");
+        }
 
-bool AnyType::fromMultiPart(std::shared_ptr<MultipartFormData> multipart,
-                            const utility::string_t &prefix) {
-  if (m_value.is_object()) {
-    return Object::fromMultiPart(multipart, prefix);
-  }
-  return false;
-}
+        bool AnyType::fromMultiPart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t &prefix)
+        {
+            if (m_value.is_object())
+            {
+                return Object::fromMultiPart(multipart, prefix);
+            }
+            return false;
+        }
 
-}
+    }
 }

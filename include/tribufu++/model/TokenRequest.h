@@ -13,7 +13,7 @@
 /*
  * TokenRequest.h
  *
- * 
+ *
  */
 
 #ifndef TRIBUFU_MODELS_TokenRequest_H_
@@ -23,107 +23,103 @@
 
 #include "tribufu++/ModelBase.h"
 
-#include <cpprest/details/basic_types.h>
 #include "tribufu++/model/GrantType.h"
+#include <cpprest/details/basic_types.h>
 
-namespace tribufu {
-namespace models {
-
-
-
-class  TokenRequest
-    : public ModelBase
+namespace tribufu
 {
-public:
-    TokenRequest();
-    virtual ~TokenRequest();
+    namespace models
+    {
 
-    /////////////////////////////////////////////
-    /// ModelBase overrides
+        class TokenRequest : public ModelBase
+        {
+        public:
+            TokenRequest();
+            virtual ~TokenRequest();
 
-    void validate() override;
+            /////////////////////////////////////////////
+            /// ModelBase overrides
 
-    web::json::value toJson() const override;
-    bool fromJson(const web::json::value& json) override;
+            void validate() override;
 
-    void toMultipart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& namePrefix) const override;
-    bool fromMultiPart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& namePrefix) override;
+            web::json::value toJson() const override;
+            bool fromJson(const web::json::value &json) override;
 
+            void toMultipart(std::shared_ptr<MultipartFormData> multipart,
+                             const utility::string_t &namePrefix) const override;
+            bool fromMultiPart(std::shared_ptr<MultipartFormData> multipart,
+                               const utility::string_t &namePrefix) override;
 
-    /////////////////////////////////////////////
-    /// TokenRequest members
+            /////////////////////////////////////////////
+            /// TokenRequest members
 
+            std::shared_ptr<GrantType> getGrantType() const;
+            bool grantTypeIsSet() const;
+            void unsetGrant_type();
+            void setGrantType(const std::shared_ptr<GrantType> &value);
 
-    std::shared_ptr<GrantType> getGrantType() const;
-    bool grantTypeIsSet() const;
-    void unsetGrant_type();
-    void setGrantType(const std::shared_ptr<GrantType>& value);
+            utility::string_t getCode() const;
+            bool codeIsSet() const;
+            void unsetCode();
+            void setCode(const utility::string_t &value);
 
-    utility::string_t getCode() const;
-    bool codeIsSet() const;
-    void unsetCode();
-    void setCode(const utility::string_t& value);
+            utility::string_t getUsername() const;
+            bool usernameIsSet() const;
+            void unsetUsername();
+            void setUsername(const utility::string_t &value);
 
-    utility::string_t getUsername() const;
-    bool usernameIsSet() const;
-    void unsetUsername();
-    void setUsername(const utility::string_t& value);
+            utility::string_t getPassword() const;
+            bool passwordIsSet() const;
+            void unsetPassword();
+            void setPassword(const utility::string_t &value);
 
-    utility::string_t getPassword() const;
-    bool passwordIsSet() const;
-    void unsetPassword();
-    void setPassword(const utility::string_t& value);
+            utility::string_t getRefreshToken() const;
+            bool refreshTokenIsSet() const;
+            void unsetRefresh_token();
+            void setRefreshToken(const utility::string_t &value);
 
-    utility::string_t getRefreshToken() const;
-    bool refreshTokenIsSet() const;
-    void unsetRefresh_token();
-    void setRefreshToken(const utility::string_t& value);
+            utility::string_t getClientId() const;
+            bool clientIdIsSet() const;
+            void unsetClient_id();
+            void setClientId(const utility::string_t &value);
 
-    utility::string_t getClientId() const;
-    bool clientIdIsSet() const;
-    void unsetClient_id();
-    void setClientId(const utility::string_t& value);
+            utility::string_t getRedirectUri() const;
+            bool redirectUriIsSet() const;
+            void unsetRedirect_uri();
+            void setRedirectUri(const utility::string_t &value);
 
-    utility::string_t getRedirectUri() const;
-    bool redirectUriIsSet() const;
-    void unsetRedirect_uri();
-    void setRedirectUri(const utility::string_t& value);
+            utility::string_t getCodeVerifier() const;
+            bool codeVerifierIsSet() const;
+            void unsetCode_verifier();
+            void setCodeVerifier(const utility::string_t &value);
 
-    utility::string_t getCodeVerifier() const;
-    bool codeVerifierIsSet() const;
-    void unsetCode_verifier();
-    void setCodeVerifier(const utility::string_t& value);
+        protected:
+            std::shared_ptr<GrantType> m_Grant_type;
+            bool m_Grant_typeIsSet;
 
+            utility::string_t m_Code;
+            bool m_CodeIsSet;
 
-protected:
-    std::shared_ptr<GrantType> m_Grant_type;
-    bool m_Grant_typeIsSet;
+            utility::string_t m_Username;
+            bool m_UsernameIsSet;
 
-    utility::string_t m_Code;
-    bool m_CodeIsSet;
+            utility::string_t m_Password;
+            bool m_PasswordIsSet;
 
-    utility::string_t m_Username;
-    bool m_UsernameIsSet;
+            utility::string_t m_Refresh_token;
+            bool m_Refresh_tokenIsSet;
 
-    utility::string_t m_Password;
-    bool m_PasswordIsSet;
+            utility::string_t m_Client_id;
+            bool m_Client_idIsSet;
 
-    utility::string_t m_Refresh_token;
-    bool m_Refresh_tokenIsSet;
+            utility::string_t m_Redirect_uri;
+            bool m_Redirect_uriIsSet;
 
-    utility::string_t m_Client_id;
-    bool m_Client_idIsSet;
+            utility::string_t m_Code_verifier;
+            bool m_Code_verifierIsSet;
+        };
 
-    utility::string_t m_Redirect_uri;
-    bool m_Redirect_uriIsSet;
-
-    utility::string_t m_Code_verifier;
-    bool m_Code_verifierIsSet;
-
-};
-
-
-}
+    }
 }
 
 #endif /* TRIBUFU_MODELS_TokenRequest_H_ */

@@ -13,51 +13,51 @@
 /*
  * TokenType.h
  *
- * 
+ *
  */
 
 #ifndef TRIBUFU_MODELS_TokenType_H_
 #define TRIBUFU_MODELS_TokenType_H_
 
-
 #include "tribufu++/ModelBase.h"
 
-
-namespace tribufu {
-namespace models {
-
-
-class  TokenType
-    : public ModelBase
+namespace tribufu
 {
-public:
-    TokenType();
-    virtual ~TokenType();
-
-    /////////////////////////////////////////////
-    /// ModelBase overrides
-
-    void validate() override;
-
-    web::json::value toJson() const override;
-    bool fromJson(const web::json::value& json) override;
-
-    void toMultipart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& namePrefix) const override;
-    bool fromMultiPart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& namePrefix) override;
-
-    enum class eTokenType
+    namespace models
     {
-        TokenType_BEARER,
-    };
 
-    eTokenType getValue() const;
-    void setValue(eTokenType const value);
+        class TokenType : public ModelBase
+        {
+        public:
+            TokenType();
+            virtual ~TokenType();
 
-    protected:
-        eTokenType m_value;
-};
+            /////////////////////////////////////////////
+            /// ModelBase overrides
 
-}
+            void validate() override;
+
+            web::json::value toJson() const override;
+            bool fromJson(const web::json::value &json) override;
+
+            void toMultipart(std::shared_ptr<MultipartFormData> multipart,
+                             const utility::string_t &namePrefix) const override;
+            bool fromMultiPart(std::shared_ptr<MultipartFormData> multipart,
+                               const utility::string_t &namePrefix) override;
+
+            enum class eTokenType
+            {
+                TokenType_BEARER,
+            };
+
+            eTokenType getValue() const;
+            void setValue(eTokenType const value);
+
+        protected:
+            eTokenType m_value;
+        };
+
+    }
 }
 
 #endif /* TRIBUFU_MODELS_TokenType_H_ */

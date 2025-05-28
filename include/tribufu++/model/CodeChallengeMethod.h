@@ -13,52 +13,52 @@
 /*
  * CodeChallengeMethod.h
  *
- * 
+ *
  */
 
 #ifndef TRIBUFU_MODELS_CodeChallengeMethod_H_
 #define TRIBUFU_MODELS_CodeChallengeMethod_H_
 
-
 #include "tribufu++/ModelBase.h"
 
-
-namespace tribufu {
-namespace models {
-
-
-class  CodeChallengeMethod
-    : public ModelBase
+namespace tribufu
 {
-public:
-    CodeChallengeMethod();
-    virtual ~CodeChallengeMethod();
-
-    /////////////////////////////////////////////
-    /// ModelBase overrides
-
-    void validate() override;
-
-    web::json::value toJson() const override;
-    bool fromJson(const web::json::value& json) override;
-
-    void toMultipart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& namePrefix) const override;
-    bool fromMultiPart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& namePrefix) override;
-
-    enum class eCodeChallengeMethod
+    namespace models
     {
-        CodeChallengeMethod_PLAIN,
-        CodeChallengeMethod_S256,
-    };
 
-    eCodeChallengeMethod getValue() const;
-    void setValue(eCodeChallengeMethod const value);
+        class CodeChallengeMethod : public ModelBase
+        {
+        public:
+            CodeChallengeMethod();
+            virtual ~CodeChallengeMethod();
 
-    protected:
-        eCodeChallengeMethod m_value;
-};
+            /////////////////////////////////////////////
+            /// ModelBase overrides
 
-}
+            void validate() override;
+
+            web::json::value toJson() const override;
+            bool fromJson(const web::json::value &json) override;
+
+            void toMultipart(std::shared_ptr<MultipartFormData> multipart,
+                             const utility::string_t &namePrefix) const override;
+            bool fromMultiPart(std::shared_ptr<MultipartFormData> multipart,
+                               const utility::string_t &namePrefix) override;
+
+            enum class eCodeChallengeMethod
+            {
+                CodeChallengeMethod_PLAIN,
+                CodeChallengeMethod_S256,
+            };
+
+            eCodeChallengeMethod getValue() const;
+            void setValue(eCodeChallengeMethod const value);
+
+        protected:
+            eCodeChallengeMethod m_value;
+        };
+
+    }
 }
 
 #endif /* TRIBUFU_MODELS_CodeChallengeMethod_H_ */

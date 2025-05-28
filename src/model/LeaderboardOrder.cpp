@@ -10,109 +10,109 @@
  * Do not edit the class manually.
  */
 
-
-
 #include "tribufu++/model/LeaderboardOrder.h"
 
-namespace tribufu {
-namespace models {
-
-namespace
+namespace tribufu
 {
-using EnumUnderlyingType = utility::string_t;
-
-LeaderboardOrder::eLeaderboardOrder toEnum(const EnumUnderlyingType& val)
-{
-    if (val == utility::conversions::to_string_t(U("level")))
-        return LeaderboardOrder::eLeaderboardOrder::LeaderboardOrder_LEVEL;
-    if (val == utility::conversions::to_string_t(U("points")))
-        return LeaderboardOrder::eLeaderboardOrder::LeaderboardOrder_POINTS;
-    return {};
-}
-
-EnumUnderlyingType fromEnum(LeaderboardOrder::eLeaderboardOrder e)
-{
-    switch (e)
+    namespace models
     {
-    case LeaderboardOrder::eLeaderboardOrder::LeaderboardOrder_LEVEL:
-        return U("level");
-    case LeaderboardOrder::eLeaderboardOrder::LeaderboardOrder_POINTS:
-        return U("points");
-    default:
-        break;
-    }
-    return {};
-}
-}
 
-LeaderboardOrder::LeaderboardOrder()
-{
-}
-
-LeaderboardOrder::~LeaderboardOrder()
-{
-}
-
-void LeaderboardOrder::validate()
-{
-    // TODO: implement validation
-}
-
-web::json::value LeaderboardOrder::toJson() const
-{
-    auto val = fromEnum(m_value);
-    return web::json::value(val);
-}
-
-bool LeaderboardOrder::fromJson(const web::json::value& val)
-{
-    m_value = toEnum(val.as_string());
-    return true;
-}
-
-void LeaderboardOrder::toMultipart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& prefix) const
-{
-    utility::string_t namePrefix = prefix;
-    if (!namePrefix.empty() && namePrefix.back() != U('.'))
-    {
-        namePrefix.push_back(U('.'));
-    }
-
-    auto e = fromEnum(m_value);
-    multipart->add(ModelBase::toHttpContent(namePrefix, e));
-}
-
-bool LeaderboardOrder::fromMultiPart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& prefix)
-{
-    bool ok = true;
-    utility::string_t namePrefix = prefix;
-    if (!namePrefix.empty() && namePrefix.back() != U('.'))
-    {
-        namePrefix.push_back(U('.'));
-    }
-    {
-        EnumUnderlyingType e;
-        ok = ModelBase::fromHttpContent(multipart->getContent(namePrefix), e);
-        if (ok)
+        namespace
         {
-            auto v = toEnum(e);
-            setValue(v);
+            using EnumUnderlyingType = utility::string_t;
+
+            LeaderboardOrder::eLeaderboardOrder toEnum(const EnumUnderlyingType &val)
+            {
+                if (val == utility::conversions::to_string_t(U("level")))
+                    return LeaderboardOrder::eLeaderboardOrder::LeaderboardOrder_LEVEL;
+                if (val == utility::conversions::to_string_t(U("points")))
+                    return LeaderboardOrder::eLeaderboardOrder::LeaderboardOrder_POINTS;
+                return {};
+            }
+
+            EnumUnderlyingType fromEnum(LeaderboardOrder::eLeaderboardOrder e)
+            {
+                switch (e)
+                {
+                case LeaderboardOrder::eLeaderboardOrder::LeaderboardOrder_LEVEL:
+                    return U("level");
+                case LeaderboardOrder::eLeaderboardOrder::LeaderboardOrder_POINTS:
+                    return U("points");
+                default:
+                    break;
+                }
+                return {};
+            }
         }
+
+        LeaderboardOrder::LeaderboardOrder()
+        {
+        }
+
+        LeaderboardOrder::~LeaderboardOrder()
+        {
+        }
+
+        void LeaderboardOrder::validate()
+        {
+            // TODO: implement validation
+        }
+
+        web::json::value LeaderboardOrder::toJson() const
+        {
+            auto val = fromEnum(m_value);
+            return web::json::value(val);
+        }
+
+        bool LeaderboardOrder::fromJson(const web::json::value &val)
+        {
+            m_value = toEnum(val.as_string());
+            return true;
+        }
+
+        void LeaderboardOrder::toMultipart(std::shared_ptr<MultipartFormData> multipart,
+                                           const utility::string_t &prefix) const
+        {
+            utility::string_t namePrefix = prefix;
+            if (!namePrefix.empty() && namePrefix.back() != U('.'))
+            {
+                namePrefix.push_back(U('.'));
+            }
+
+            auto e = fromEnum(m_value);
+            multipart->add(ModelBase::toHttpContent(namePrefix, e));
+        }
+
+        bool LeaderboardOrder::fromMultiPart(std::shared_ptr<MultipartFormData> multipart,
+                                             const utility::string_t &prefix)
+        {
+            bool ok = true;
+            utility::string_t namePrefix = prefix;
+            if (!namePrefix.empty() && namePrefix.back() != U('.'))
+            {
+                namePrefix.push_back(U('.'));
+            }
+            {
+                EnumUnderlyingType e;
+                ok = ModelBase::fromHttpContent(multipart->getContent(namePrefix), e);
+                if (ok)
+                {
+                    auto v = toEnum(e);
+                    setValue(v);
+                }
+            }
+            return ok;
+        }
+
+        LeaderboardOrder::eLeaderboardOrder LeaderboardOrder::getValue() const
+        {
+            return m_value;
+        }
+
+        void LeaderboardOrder::setValue(LeaderboardOrder::eLeaderboardOrder const value)
+        {
+            m_value = value;
+        }
+
     }
-    return ok;
 }
-
-LeaderboardOrder::eLeaderboardOrder LeaderboardOrder::getValue() const
-{
-   return m_value;
-}
-
-void LeaderboardOrder::setValue(LeaderboardOrder::eLeaderboardOrder const value)
-{
-   m_value = value;
-}
-
-}
-}
-
-

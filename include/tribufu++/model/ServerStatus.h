@@ -13,53 +13,53 @@
 /*
  * ServerStatus.h
  *
- * 
+ *
  */
 
 #ifndef TRIBUFU_MODELS_ServerStatus_H_
 #define TRIBUFU_MODELS_ServerStatus_H_
 
-
 #include "tribufu++/ModelBase.h"
 
-
-namespace tribufu {
-namespace models {
-
-
-class  ServerStatus
-    : public ModelBase
+namespace tribufu
 {
-public:
-    ServerStatus();
-    virtual ~ServerStatus();
-
-    /////////////////////////////////////////////
-    /// ModelBase overrides
-
-    void validate() override;
-
-    web::json::value toJson() const override;
-    bool fromJson(const web::json::value& json) override;
-
-    void toMultipart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& namePrefix) const override;
-    bool fromMultiPart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& namePrefix) override;
-
-    enum class eServerStatus
+    namespace models
     {
-        ServerStatus_UNKNOWN,
-        ServerStatus_OFFLINE,
-        ServerStatus_ONLINE,
-    };
 
-    eServerStatus getValue() const;
-    void setValue(eServerStatus const value);
+        class ServerStatus : public ModelBase
+        {
+        public:
+            ServerStatus();
+            virtual ~ServerStatus();
 
-    protected:
-        eServerStatus m_value;
-};
+            /////////////////////////////////////////////
+            /// ModelBase overrides
 
-}
+            void validate() override;
+
+            web::json::value toJson() const override;
+            bool fromJson(const web::json::value &json) override;
+
+            void toMultipart(std::shared_ptr<MultipartFormData> multipart,
+                             const utility::string_t &namePrefix) const override;
+            bool fromMultiPart(std::shared_ptr<MultipartFormData> multipart,
+                               const utility::string_t &namePrefix) override;
+
+            enum class eServerStatus
+            {
+                ServerStatus_UNKNOWN,
+                ServerStatus_OFFLINE,
+                ServerStatus_ONLINE,
+            };
+
+            eServerStatus getValue() const;
+            void setValue(eServerStatus const value);
+
+        protected:
+            eServerStatus m_value;
+        };
+
+    }
 }
 
 #endif /* TRIBUFU_MODELS_ServerStatus_H_ */

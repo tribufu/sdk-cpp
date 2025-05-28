@@ -19,21 +19,24 @@
 #ifndef TRIBUFU_MODELS_IHttpBody_H_
 #define TRIBUFU_MODELS_IHttpBody_H_
 
-
 #include <iostream>
 
-namespace tribufu {
-namespace models {
-
-class  IHttpBody
+namespace tribufu
 {
-public:
-    virtual ~IHttpBody() { }
+    namespace models
+    {
 
-    virtual void writeTo( std::ostream& stream ) = 0;
-};
+        class IHttpBody
+        {
+        public:
+            virtual ~IHttpBody()
+            {
+            }
 
-}
+            virtual void writeTo(std::ostream &stream) = 0;
+        };
+
+    }
 }
 
 #endif /* TRIBUFU_MODELS_IHttpBody_H_ */

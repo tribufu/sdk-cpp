@@ -10,598 +10,608 @@
  * Do not edit the class manually.
  */
 
-
-
 #include "tribufu++/model/ProfileGame.h"
 
-namespace tribufu {
-namespace models {
-
-ProfileGame::ProfileGame()
+namespace tribufu
 {
-    m_Id = utility::conversions::to_string_t("");
-    m_IdIsSet = false;
-    m_Name = utility::conversions::to_string_t("");
-    m_NameIsSet = false;
-    m_Capsule_image_url = utility::conversions::to_string_t("");
-    m_Capsule_image_urlIsSet = false;
-    m_Library_image_url = utility::conversions::to_string_t("");
-    m_Library_image_urlIsSet = false;
-    m_Slug = utility::conversions::to_string_t("");
-    m_SlugIsSet = false;
-    m_Time_used = 0.0;
-    m_Time_usedIsSet = false;
-    m_Unlocked_achievements = 0;
-    m_Unlocked_achievementsIsSet = false;
-    m_Total_achievements = 0;
-    m_Total_achievementsIsSet = false;
-    m_StatsIsSet = false;
-    m_Acquired = utility::datetime();
-    m_AcquiredIsSet = false;
-    m_Last_used = utility::datetime();
-    m_Last_usedIsSet = false;
-}
-
-ProfileGame::~ProfileGame()
-{
-}
-
-void ProfileGame::validate()
-{
-    // TODO: implement validation
-}
-
-web::json::value ProfileGame::toJson() const
-{
-    web::json::value val = web::json::value::object();
-    if(m_IdIsSet)
-    {   
-        
-        val[utility::conversions::to_string_t(U("id"))] = ModelBase::toJson(m_Id);
-    }
-    if(m_NameIsSet)
-    {   
-        
-        val[utility::conversions::to_string_t(U("name"))] = ModelBase::toJson(m_Name);
-    }
-    if(m_Capsule_image_urlIsSet)
-    {   
-        
-        val[utility::conversions::to_string_t(U("capsule_image_url"))] = ModelBase::toJson(m_Capsule_image_url);
-    }
-    if(m_Library_image_urlIsSet)
-    {   
-        
-        val[utility::conversions::to_string_t(U("library_image_url"))] = ModelBase::toJson(m_Library_image_url);
-    }
-    if(m_SlugIsSet)
-    {   
-        
-        val[utility::conversions::to_string_t(U("slug"))] = ModelBase::toJson(m_Slug);
-    }
-    if(m_Time_usedIsSet)
-    {   
-        
-        val[utility::conversions::to_string_t(U("time_used"))] = ModelBase::toJson(m_Time_used);
-    }
-    if(m_Unlocked_achievementsIsSet)
-    {   
-        
-        val[utility::conversions::to_string_t(U("unlocked_achievements"))] = ModelBase::toJson(m_Unlocked_achievements);
-    }
-    if(m_Total_achievementsIsSet)
-    {   
-        
-        val[utility::conversions::to_string_t(U("total_achievements"))] = ModelBase::toJson(m_Total_achievements);
-    }
-    if(m_StatsIsSet)
-    {   
-        
-        val[utility::conversions::to_string_t(U("stats"))] = ModelBase::toJson(m_Stats);
-    }
-    if(m_AcquiredIsSet)
-    {   
-        
-        val[utility::conversions::to_string_t(U("acquired"))] = ModelBase::toJson(m_Acquired);
-    }
-    if(m_Last_usedIsSet)
-    {   
-        
-        val[utility::conversions::to_string_t(U("last_used"))] = ModelBase::toJson(m_Last_used);
-    }
-
-    return val;
-}
-
-bool ProfileGame::fromJson(const web::json::value& val)
-{
-    bool ok = true;
-    if(val.has_field(utility::conversions::to_string_t(U("id"))))
+    namespace models
     {
-        const web::json::value& fieldValue = val.at(utility::conversions::to_string_t(U("id")));
-        if(!fieldValue.is_null())
+
+        ProfileGame::ProfileGame()
         {
-            utility::string_t refVal_setId;
-            ok &= ModelBase::fromJson(fieldValue, refVal_setId);
-            setId(refVal_setId);
-            
+            m_Id = utility::conversions::to_string_t("");
+            m_IdIsSet = false;
+            m_Name = utility::conversions::to_string_t("");
+            m_NameIsSet = false;
+            m_Capsule_image_url = utility::conversions::to_string_t("");
+            m_Capsule_image_urlIsSet = false;
+            m_Library_image_url = utility::conversions::to_string_t("");
+            m_Library_image_urlIsSet = false;
+            m_Slug = utility::conversions::to_string_t("");
+            m_SlugIsSet = false;
+            m_Time_used = 0.0;
+            m_Time_usedIsSet = false;
+            m_Unlocked_achievements = 0;
+            m_Unlocked_achievementsIsSet = false;
+            m_Total_achievements = 0;
+            m_Total_achievementsIsSet = false;
+            m_StatsIsSet = false;
+            m_Acquired = utility::datetime();
+            m_AcquiredIsSet = false;
+            m_Last_used = utility::datetime();
+            m_Last_usedIsSet = false;
         }
-    }
-    if(val.has_field(utility::conversions::to_string_t(U("name"))))
-    {
-        const web::json::value& fieldValue = val.at(utility::conversions::to_string_t(U("name")));
-        if(!fieldValue.is_null())
+
+        ProfileGame::~ProfileGame()
         {
-            utility::string_t refVal_setName;
-            ok &= ModelBase::fromJson(fieldValue, refVal_setName);
-            setName(refVal_setName);
-            
         }
-    }
-    if(val.has_field(utility::conversions::to_string_t(U("capsule_image_url"))))
-    {
-        const web::json::value& fieldValue = val.at(utility::conversions::to_string_t(U("capsule_image_url")));
-        if(!fieldValue.is_null())
+
+        void ProfileGame::validate()
         {
-            utility::string_t refVal_setCapsuleImageUrl;
-            ok &= ModelBase::fromJson(fieldValue, refVal_setCapsuleImageUrl);
-            setCapsuleImageUrl(refVal_setCapsuleImageUrl);
-            
+            // TODO: implement validation
         }
-    }
-    if(val.has_field(utility::conversions::to_string_t(U("library_image_url"))))
-    {
-        const web::json::value& fieldValue = val.at(utility::conversions::to_string_t(U("library_image_url")));
-        if(!fieldValue.is_null())
+
+        web::json::value ProfileGame::toJson() const
         {
-            utility::string_t refVal_setLibraryImageUrl;
-            ok &= ModelBase::fromJson(fieldValue, refVal_setLibraryImageUrl);
-            setLibraryImageUrl(refVal_setLibraryImageUrl);
-            
+            web::json::value val = web::json::value::object();
+            if (m_IdIsSet)
+            {
+
+                val[utility::conversions::to_string_t(U("id"))] = ModelBase::toJson(m_Id);
+            }
+            if (m_NameIsSet)
+            {
+
+                val[utility::conversions::to_string_t(U("name"))] = ModelBase::toJson(m_Name);
+            }
+            if (m_Capsule_image_urlIsSet)
+            {
+
+                val[utility::conversions::to_string_t(U("capsule_image_url"))] = ModelBase::toJson(m_Capsule_image_url);
+            }
+            if (m_Library_image_urlIsSet)
+            {
+
+                val[utility::conversions::to_string_t(U("library_image_url"))] = ModelBase::toJson(m_Library_image_url);
+            }
+            if (m_SlugIsSet)
+            {
+
+                val[utility::conversions::to_string_t(U("slug"))] = ModelBase::toJson(m_Slug);
+            }
+            if (m_Time_usedIsSet)
+            {
+
+                val[utility::conversions::to_string_t(U("time_used"))] = ModelBase::toJson(m_Time_used);
+            }
+            if (m_Unlocked_achievementsIsSet)
+            {
+
+                val[utility::conversions::to_string_t(U("unlocked_achievements"))] =
+                    ModelBase::toJson(m_Unlocked_achievements);
+            }
+            if (m_Total_achievementsIsSet)
+            {
+
+                val[utility::conversions::to_string_t(U("total_achievements"))] =
+                    ModelBase::toJson(m_Total_achievements);
+            }
+            if (m_StatsIsSet)
+            {
+
+                val[utility::conversions::to_string_t(U("stats"))] = ModelBase::toJson(m_Stats);
+            }
+            if (m_AcquiredIsSet)
+            {
+
+                val[utility::conversions::to_string_t(U("acquired"))] = ModelBase::toJson(m_Acquired);
+            }
+            if (m_Last_usedIsSet)
+            {
+
+                val[utility::conversions::to_string_t(U("last_used"))] = ModelBase::toJson(m_Last_used);
+            }
+
+            return val;
         }
-    }
-    if(val.has_field(utility::conversions::to_string_t(U("slug"))))
-    {
-        const web::json::value& fieldValue = val.at(utility::conversions::to_string_t(U("slug")));
-        if(!fieldValue.is_null())
+
+        bool ProfileGame::fromJson(const web::json::value &val)
         {
-            utility::string_t refVal_setSlug;
-            ok &= ModelBase::fromJson(fieldValue, refVal_setSlug);
-            setSlug(refVal_setSlug);
-            
+            bool ok = true;
+            if (val.has_field(utility::conversions::to_string_t(U("id"))))
+            {
+                const web::json::value &fieldValue = val.at(utility::conversions::to_string_t(U("id")));
+                if (!fieldValue.is_null())
+                {
+                    utility::string_t refVal_setId;
+                    ok &= ModelBase::fromJson(fieldValue, refVal_setId);
+                    setId(refVal_setId);
+                }
+            }
+            if (val.has_field(utility::conversions::to_string_t(U("name"))))
+            {
+                const web::json::value &fieldValue = val.at(utility::conversions::to_string_t(U("name")));
+                if (!fieldValue.is_null())
+                {
+                    utility::string_t refVal_setName;
+                    ok &= ModelBase::fromJson(fieldValue, refVal_setName);
+                    setName(refVal_setName);
+                }
+            }
+            if (val.has_field(utility::conversions::to_string_t(U("capsule_image_url"))))
+            {
+                const web::json::value &fieldValue = val.at(utility::conversions::to_string_t(U("capsule_image_url")));
+                if (!fieldValue.is_null())
+                {
+                    utility::string_t refVal_setCapsuleImageUrl;
+                    ok &= ModelBase::fromJson(fieldValue, refVal_setCapsuleImageUrl);
+                    setCapsuleImageUrl(refVal_setCapsuleImageUrl);
+                }
+            }
+            if (val.has_field(utility::conversions::to_string_t(U("library_image_url"))))
+            {
+                const web::json::value &fieldValue = val.at(utility::conversions::to_string_t(U("library_image_url")));
+                if (!fieldValue.is_null())
+                {
+                    utility::string_t refVal_setLibraryImageUrl;
+                    ok &= ModelBase::fromJson(fieldValue, refVal_setLibraryImageUrl);
+                    setLibraryImageUrl(refVal_setLibraryImageUrl);
+                }
+            }
+            if (val.has_field(utility::conversions::to_string_t(U("slug"))))
+            {
+                const web::json::value &fieldValue = val.at(utility::conversions::to_string_t(U("slug")));
+                if (!fieldValue.is_null())
+                {
+                    utility::string_t refVal_setSlug;
+                    ok &= ModelBase::fromJson(fieldValue, refVal_setSlug);
+                    setSlug(refVal_setSlug);
+                }
+            }
+            if (val.has_field(utility::conversions::to_string_t(U("time_used"))))
+            {
+                const web::json::value &fieldValue = val.at(utility::conversions::to_string_t(U("time_used")));
+                if (!fieldValue.is_null())
+                {
+                    double refVal_setTimeUsed;
+                    ok &= ModelBase::fromJson(fieldValue, refVal_setTimeUsed);
+                    setTimeUsed(refVal_setTimeUsed);
+                }
+            }
+            if (val.has_field(utility::conversions::to_string_t(U("unlocked_achievements"))))
+            {
+                const web::json::value &fieldValue =
+                    val.at(utility::conversions::to_string_t(U("unlocked_achievements")));
+                if (!fieldValue.is_null())
+                {
+                    int32_t refVal_setUnlockedAchievements;
+                    ok &= ModelBase::fromJson(fieldValue, refVal_setUnlockedAchievements);
+                    setUnlockedAchievements(refVal_setUnlockedAchievements);
+                }
+            }
+            if (val.has_field(utility::conversions::to_string_t(U("total_achievements"))))
+            {
+                const web::json::value &fieldValue = val.at(utility::conversions::to_string_t(U("total_achievements")));
+                if (!fieldValue.is_null())
+                {
+                    int32_t refVal_setTotalAchievements;
+                    ok &= ModelBase::fromJson(fieldValue, refVal_setTotalAchievements);
+                    setTotalAchievements(refVal_setTotalAchievements);
+                }
+            }
+            if (val.has_field(utility::conversions::to_string_t(U("stats"))))
+            {
+                const web::json::value &fieldValue = val.at(utility::conversions::to_string_t(U("stats")));
+                if (!fieldValue.is_null())
+                {
+                    std::shared_ptr<AnyType> refVal_setStats;
+                    ok &= ModelBase::fromJson(fieldValue, refVal_setStats);
+                    setStats(refVal_setStats);
+                }
+            }
+            if (val.has_field(utility::conversions::to_string_t(U("acquired"))))
+            {
+                const web::json::value &fieldValue = val.at(utility::conversions::to_string_t(U("acquired")));
+                if (!fieldValue.is_null())
+                {
+                    utility::datetime refVal_setAcquired;
+                    ok &= ModelBase::fromJson(fieldValue, refVal_setAcquired);
+                    setAcquired(refVal_setAcquired);
+                }
+            }
+            if (val.has_field(utility::conversions::to_string_t(U("last_used"))))
+            {
+                const web::json::value &fieldValue = val.at(utility::conversions::to_string_t(U("last_used")));
+                if (!fieldValue.is_null())
+                {
+                    utility::datetime refVal_setLastUsed;
+                    ok &= ModelBase::fromJson(fieldValue, refVal_setLastUsed);
+                    setLastUsed(refVal_setLastUsed);
+                }
+            }
+            return ok;
         }
-    }
-    if(val.has_field(utility::conversions::to_string_t(U("time_used"))))
-    {
-        const web::json::value& fieldValue = val.at(utility::conversions::to_string_t(U("time_used")));
-        if(!fieldValue.is_null())
+
+        void ProfileGame::toMultipart(std::shared_ptr<MultipartFormData> multipart,
+                                      const utility::string_t &prefix) const
         {
-            double refVal_setTimeUsed;
-            ok &= ModelBase::fromJson(fieldValue, refVal_setTimeUsed);
-            setTimeUsed(refVal_setTimeUsed);
-            
+            utility::string_t namePrefix = prefix;
+            if (namePrefix.size() > 0 &&
+                namePrefix.substr(namePrefix.size() - 1) != utility::conversions::to_string_t(U(".")))
+            {
+                namePrefix += utility::conversions::to_string_t(U("."));
+            }
+            if (m_IdIsSet)
+            {
+                multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("id")), m_Id));
+            }
+            if (m_NameIsSet)
+            {
+                multipart->add(
+                    ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("name")), m_Name));
+            }
+            if (m_Capsule_image_urlIsSet)
+            {
+                multipart->add(ModelBase::toHttpContent(
+                    namePrefix + utility::conversions::to_string_t(U("capsule_image_url")), m_Capsule_image_url));
+            }
+            if (m_Library_image_urlIsSet)
+            {
+                multipart->add(ModelBase::toHttpContent(
+                    namePrefix + utility::conversions::to_string_t(U("library_image_url")), m_Library_image_url));
+            }
+            if (m_SlugIsSet)
+            {
+                multipart->add(
+                    ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("slug")), m_Slug));
+            }
+            if (m_Time_usedIsSet)
+            {
+                multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("time_used")),
+                                                        m_Time_used));
+            }
+            if (m_Unlocked_achievementsIsSet)
+            {
+                multipart->add(
+                    ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("unlocked_achievements")),
+                                             m_Unlocked_achievements));
+            }
+            if (m_Total_achievementsIsSet)
+            {
+                multipart->add(ModelBase::toHttpContent(
+                    namePrefix + utility::conversions::to_string_t(U("total_achievements")), m_Total_achievements));
+            }
+            if (m_StatsIsSet)
+            {
+                multipart->add(
+                    ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("stats")), m_Stats));
+            }
+            if (m_AcquiredIsSet)
+            {
+                multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("acquired")),
+                                                        m_Acquired));
+            }
+            if (m_Last_usedIsSet)
+            {
+                multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("last_used")),
+                                                        m_Last_used));
+            }
         }
-    }
-    if(val.has_field(utility::conversions::to_string_t(U("unlocked_achievements"))))
-    {
-        const web::json::value& fieldValue = val.at(utility::conversions::to_string_t(U("unlocked_achievements")));
-        if(!fieldValue.is_null())
+
+        bool ProfileGame::fromMultiPart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t &prefix)
         {
-            int32_t refVal_setUnlockedAchievements;
-            ok &= ModelBase::fromJson(fieldValue, refVal_setUnlockedAchievements);
-            setUnlockedAchievements(refVal_setUnlockedAchievements);
-            
+            bool ok = true;
+            utility::string_t namePrefix = prefix;
+            if (namePrefix.size() > 0 &&
+                namePrefix.substr(namePrefix.size() - 1) != utility::conversions::to_string_t(U(".")))
+            {
+                namePrefix += utility::conversions::to_string_t(U("."));
+            }
+
+            if (multipart->hasContent(utility::conversions::to_string_t(U("id"))))
+            {
+                utility::string_t refVal_setId;
+                ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(U("id"))),
+                                                 refVal_setId);
+                setId(refVal_setId);
+            }
+            if (multipart->hasContent(utility::conversions::to_string_t(U("name"))))
+            {
+                utility::string_t refVal_setName;
+                ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(U("name"))),
+                                                 refVal_setName);
+                setName(refVal_setName);
+            }
+            if (multipart->hasContent(utility::conversions::to_string_t(U("capsule_image_url"))))
+            {
+                utility::string_t refVal_setCapsuleImageUrl;
+                ok &= ModelBase::fromHttpContent(
+                    multipart->getContent(utility::conversions::to_string_t(U("capsule_image_url"))),
+                    refVal_setCapsuleImageUrl);
+                setCapsuleImageUrl(refVal_setCapsuleImageUrl);
+            }
+            if (multipart->hasContent(utility::conversions::to_string_t(U("library_image_url"))))
+            {
+                utility::string_t refVal_setLibraryImageUrl;
+                ok &= ModelBase::fromHttpContent(
+                    multipart->getContent(utility::conversions::to_string_t(U("library_image_url"))),
+                    refVal_setLibraryImageUrl);
+                setLibraryImageUrl(refVal_setLibraryImageUrl);
+            }
+            if (multipart->hasContent(utility::conversions::to_string_t(U("slug"))))
+            {
+                utility::string_t refVal_setSlug;
+                ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(U("slug"))),
+                                                 refVal_setSlug);
+                setSlug(refVal_setSlug);
+            }
+            if (multipart->hasContent(utility::conversions::to_string_t(U("time_used"))))
+            {
+                double refVal_setTimeUsed;
+                ok &= ModelBase::fromHttpContent(
+                    multipart->getContent(utility::conversions::to_string_t(U("time_used"))), refVal_setTimeUsed);
+                setTimeUsed(refVal_setTimeUsed);
+            }
+            if (multipart->hasContent(utility::conversions::to_string_t(U("unlocked_achievements"))))
+            {
+                int32_t refVal_setUnlockedAchievements;
+                ok &= ModelBase::fromHttpContent(
+                    multipart->getContent(utility::conversions::to_string_t(U("unlocked_achievements"))),
+                    refVal_setUnlockedAchievements);
+                setUnlockedAchievements(refVal_setUnlockedAchievements);
+            }
+            if (multipart->hasContent(utility::conversions::to_string_t(U("total_achievements"))))
+            {
+                int32_t refVal_setTotalAchievements;
+                ok &= ModelBase::fromHttpContent(
+                    multipart->getContent(utility::conversions::to_string_t(U("total_achievements"))),
+                    refVal_setTotalAchievements);
+                setTotalAchievements(refVal_setTotalAchievements);
+            }
+            if (multipart->hasContent(utility::conversions::to_string_t(U("stats"))))
+            {
+                std::shared_ptr<AnyType> refVal_setStats;
+                ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(U("stats"))),
+                                                 refVal_setStats);
+                setStats(refVal_setStats);
+            }
+            if (multipart->hasContent(utility::conversions::to_string_t(U("acquired"))))
+            {
+                utility::datetime refVal_setAcquired;
+                ok &= ModelBase::fromHttpContent(
+                    multipart->getContent(utility::conversions::to_string_t(U("acquired"))), refVal_setAcquired);
+                setAcquired(refVal_setAcquired);
+            }
+            if (multipart->hasContent(utility::conversions::to_string_t(U("last_used"))))
+            {
+                utility::datetime refVal_setLastUsed;
+                ok &= ModelBase::fromHttpContent(
+                    multipart->getContent(utility::conversions::to_string_t(U("last_used"))), refVal_setLastUsed);
+                setLastUsed(refVal_setLastUsed);
+            }
+            return ok;
         }
-    }
-    if(val.has_field(utility::conversions::to_string_t(U("total_achievements"))))
-    {
-        const web::json::value& fieldValue = val.at(utility::conversions::to_string_t(U("total_achievements")));
-        if(!fieldValue.is_null())
+
+        utility::string_t ProfileGame::getId() const
         {
-            int32_t refVal_setTotalAchievements;
-            ok &= ModelBase::fromJson(fieldValue, refVal_setTotalAchievements);
-            setTotalAchievements(refVal_setTotalAchievements);
-            
+            return m_Id;
         }
-    }
-    if(val.has_field(utility::conversions::to_string_t(U("stats"))))
-    {
-        const web::json::value& fieldValue = val.at(utility::conversions::to_string_t(U("stats")));
-        if(!fieldValue.is_null())
+
+        void ProfileGame::setId(const utility::string_t &value)
         {
-            std::shared_ptr<AnyType> refVal_setStats;
-            ok &= ModelBase::fromJson(fieldValue, refVal_setStats);
-            setStats(refVal_setStats);
-            
+            m_Id = value;
+            m_IdIsSet = true;
         }
-    }
-    if(val.has_field(utility::conversions::to_string_t(U("acquired"))))
-    {
-        const web::json::value& fieldValue = val.at(utility::conversions::to_string_t(U("acquired")));
-        if(!fieldValue.is_null())
+
+        bool ProfileGame::idIsSet() const
         {
-            utility::datetime refVal_setAcquired;
-            ok &= ModelBase::fromJson(fieldValue, refVal_setAcquired);
-            setAcquired(refVal_setAcquired);
-            
+            return m_IdIsSet;
         }
-    }
-    if(val.has_field(utility::conversions::to_string_t(U("last_used"))))
-    {
-        const web::json::value& fieldValue = val.at(utility::conversions::to_string_t(U("last_used")));
-        if(!fieldValue.is_null())
+
+        void ProfileGame::unsetId()
         {
-            utility::datetime refVal_setLastUsed;
-            ok &= ModelBase::fromJson(fieldValue, refVal_setLastUsed);
-            setLastUsed(refVal_setLastUsed);
-            
+            m_IdIsSet = false;
         }
+        utility::string_t ProfileGame::getName() const
+        {
+            return m_Name;
+        }
+
+        void ProfileGame::setName(const utility::string_t &value)
+        {
+            m_Name = value;
+            m_NameIsSet = true;
+        }
+
+        bool ProfileGame::nameIsSet() const
+        {
+            return m_NameIsSet;
+        }
+
+        void ProfileGame::unsetName()
+        {
+            m_NameIsSet = false;
+        }
+        utility::string_t ProfileGame::getCapsuleImageUrl() const
+        {
+            return m_Capsule_image_url;
+        }
+
+        void ProfileGame::setCapsuleImageUrl(const utility::string_t &value)
+        {
+            m_Capsule_image_url = value;
+            m_Capsule_image_urlIsSet = true;
+        }
+
+        bool ProfileGame::capsuleImageUrlIsSet() const
+        {
+            return m_Capsule_image_urlIsSet;
+        }
+
+        void ProfileGame::unsetCapsule_image_url()
+        {
+            m_Capsule_image_urlIsSet = false;
+        }
+        utility::string_t ProfileGame::getLibraryImageUrl() const
+        {
+            return m_Library_image_url;
+        }
+
+        void ProfileGame::setLibraryImageUrl(const utility::string_t &value)
+        {
+            m_Library_image_url = value;
+            m_Library_image_urlIsSet = true;
+        }
+
+        bool ProfileGame::libraryImageUrlIsSet() const
+        {
+            return m_Library_image_urlIsSet;
+        }
+
+        void ProfileGame::unsetLibrary_image_url()
+        {
+            m_Library_image_urlIsSet = false;
+        }
+        utility::string_t ProfileGame::getSlug() const
+        {
+            return m_Slug;
+        }
+
+        void ProfileGame::setSlug(const utility::string_t &value)
+        {
+            m_Slug = value;
+            m_SlugIsSet = true;
+        }
+
+        bool ProfileGame::slugIsSet() const
+        {
+            return m_SlugIsSet;
+        }
+
+        void ProfileGame::unsetSlug()
+        {
+            m_SlugIsSet = false;
+        }
+        double ProfileGame::getTimeUsed() const
+        {
+            return m_Time_used;
+        }
+
+        void ProfileGame::setTimeUsed(double value)
+        {
+            m_Time_used = value;
+            m_Time_usedIsSet = true;
+        }
+
+        bool ProfileGame::timeUsedIsSet() const
+        {
+            return m_Time_usedIsSet;
+        }
+
+        void ProfileGame::unsetTime_used()
+        {
+            m_Time_usedIsSet = false;
+        }
+        int32_t ProfileGame::getUnlockedAchievements() const
+        {
+            return m_Unlocked_achievements;
+        }
+
+        void ProfileGame::setUnlockedAchievements(int32_t value)
+        {
+            m_Unlocked_achievements = value;
+            m_Unlocked_achievementsIsSet = true;
+        }
+
+        bool ProfileGame::unlockedAchievementsIsSet() const
+        {
+            return m_Unlocked_achievementsIsSet;
+        }
+
+        void ProfileGame::unsetUnlocked_achievements()
+        {
+            m_Unlocked_achievementsIsSet = false;
+        }
+        int32_t ProfileGame::getTotalAchievements() const
+        {
+            return m_Total_achievements;
+        }
+
+        void ProfileGame::setTotalAchievements(int32_t value)
+        {
+            m_Total_achievements = value;
+            m_Total_achievementsIsSet = true;
+        }
+
+        bool ProfileGame::totalAchievementsIsSet() const
+        {
+            return m_Total_achievementsIsSet;
+        }
+
+        void ProfileGame::unsetTotal_achievements()
+        {
+            m_Total_achievementsIsSet = false;
+        }
+        std::shared_ptr<AnyType> ProfileGame::getStats() const
+        {
+            return m_Stats;
+        }
+
+        void ProfileGame::setStats(const std::shared_ptr<AnyType> &value)
+        {
+            m_Stats = value;
+            m_StatsIsSet = true;
+        }
+
+        bool ProfileGame::statsIsSet() const
+        {
+            return m_StatsIsSet;
+        }
+
+        void ProfileGame::unsetStats()
+        {
+            m_StatsIsSet = false;
+        }
+        utility::datetime ProfileGame::getAcquired() const
+        {
+            return m_Acquired;
+        }
+
+        void ProfileGame::setAcquired(const utility::datetime &value)
+        {
+            m_Acquired = value;
+            m_AcquiredIsSet = true;
+        }
+
+        bool ProfileGame::acquiredIsSet() const
+        {
+            return m_AcquiredIsSet;
+        }
+
+        void ProfileGame::unsetAcquired()
+        {
+            m_AcquiredIsSet = false;
+        }
+        utility::datetime ProfileGame::getLastUsed() const
+        {
+            return m_Last_used;
+        }
+
+        void ProfileGame::setLastUsed(const utility::datetime &value)
+        {
+            m_Last_used = value;
+            m_Last_usedIsSet = true;
+        }
+
+        bool ProfileGame::lastUsedIsSet() const
+        {
+            return m_Last_usedIsSet;
+        }
+
+        void ProfileGame::unsetLast_used()
+        {
+            m_Last_usedIsSet = false;
+        }
+
     }
-    return ok;
 }
-
-void ProfileGame::toMultipart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& prefix) const
-{
-    utility::string_t namePrefix = prefix;
-    if(namePrefix.size() > 0 && namePrefix.substr(namePrefix.size() - 1) != utility::conversions::to_string_t(U(".")))
-    {
-        namePrefix += utility::conversions::to_string_t(U("."));
-    }
-    if(m_IdIsSet)
-    {
-        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("id")), m_Id));
-    }
-    if(m_NameIsSet)
-    {
-        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("name")), m_Name));
-    }
-    if(m_Capsule_image_urlIsSet)
-    {
-        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("capsule_image_url")), m_Capsule_image_url));
-    }
-    if(m_Library_image_urlIsSet)
-    {
-        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("library_image_url")), m_Library_image_url));
-    }
-    if(m_SlugIsSet)
-    {
-        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("slug")), m_Slug));
-    }
-    if(m_Time_usedIsSet)
-    {
-        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("time_used")), m_Time_used));
-    }
-    if(m_Unlocked_achievementsIsSet)
-    {
-        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("unlocked_achievements")), m_Unlocked_achievements));
-    }
-    if(m_Total_achievementsIsSet)
-    {
-        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("total_achievements")), m_Total_achievements));
-    }
-    if(m_StatsIsSet)
-    {
-        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("stats")), m_Stats));
-    }
-    if(m_AcquiredIsSet)
-    {
-        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("acquired")), m_Acquired));
-    }
-    if(m_Last_usedIsSet)
-    {
-        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("last_used")), m_Last_used));
-    }
-}
-
-bool ProfileGame::fromMultiPart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& prefix)
-{
-    bool ok = true;
-    utility::string_t namePrefix = prefix;
-    if(namePrefix.size() > 0 && namePrefix.substr(namePrefix.size() - 1) != utility::conversions::to_string_t(U(".")))
-    {
-        namePrefix += utility::conversions::to_string_t(U("."));
-    }
-
-    if(multipart->hasContent(utility::conversions::to_string_t(U("id"))))
-    {
-        utility::string_t refVal_setId;
-        ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(U("id"))), refVal_setId );
-        setId(refVal_setId);
-    }
-    if(multipart->hasContent(utility::conversions::to_string_t(U("name"))))
-    {
-        utility::string_t refVal_setName;
-        ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(U("name"))), refVal_setName );
-        setName(refVal_setName);
-    }
-    if(multipart->hasContent(utility::conversions::to_string_t(U("capsule_image_url"))))
-    {
-        utility::string_t refVal_setCapsuleImageUrl;
-        ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(U("capsule_image_url"))), refVal_setCapsuleImageUrl );
-        setCapsuleImageUrl(refVal_setCapsuleImageUrl);
-    }
-    if(multipart->hasContent(utility::conversions::to_string_t(U("library_image_url"))))
-    {
-        utility::string_t refVal_setLibraryImageUrl;
-        ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(U("library_image_url"))), refVal_setLibraryImageUrl );
-        setLibraryImageUrl(refVal_setLibraryImageUrl);
-    }
-    if(multipart->hasContent(utility::conversions::to_string_t(U("slug"))))
-    {
-        utility::string_t refVal_setSlug;
-        ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(U("slug"))), refVal_setSlug );
-        setSlug(refVal_setSlug);
-    }
-    if(multipart->hasContent(utility::conversions::to_string_t(U("time_used"))))
-    {
-        double refVal_setTimeUsed;
-        ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(U("time_used"))), refVal_setTimeUsed );
-        setTimeUsed(refVal_setTimeUsed);
-    }
-    if(multipart->hasContent(utility::conversions::to_string_t(U("unlocked_achievements"))))
-    {
-        int32_t refVal_setUnlockedAchievements;
-        ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(U("unlocked_achievements"))), refVal_setUnlockedAchievements );
-        setUnlockedAchievements(refVal_setUnlockedAchievements);
-    }
-    if(multipart->hasContent(utility::conversions::to_string_t(U("total_achievements"))))
-    {
-        int32_t refVal_setTotalAchievements;
-        ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(U("total_achievements"))), refVal_setTotalAchievements );
-        setTotalAchievements(refVal_setTotalAchievements);
-    }
-    if(multipart->hasContent(utility::conversions::to_string_t(U("stats"))))
-    {
-        std::shared_ptr<AnyType> refVal_setStats;
-        ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(U("stats"))), refVal_setStats );
-        setStats(refVal_setStats);
-    }
-    if(multipart->hasContent(utility::conversions::to_string_t(U("acquired"))))
-    {
-        utility::datetime refVal_setAcquired;
-        ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(U("acquired"))), refVal_setAcquired );
-        setAcquired(refVal_setAcquired);
-    }
-    if(multipart->hasContent(utility::conversions::to_string_t(U("last_used"))))
-    {
-        utility::datetime refVal_setLastUsed;
-        ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(U("last_used"))), refVal_setLastUsed );
-        setLastUsed(refVal_setLastUsed);
-    }
-    return ok;
-}
-
-
-utility::string_t ProfileGame::getId() const
-{
-    return m_Id;
-}
-
-
-void ProfileGame::setId(const utility::string_t& value)
-{
-    m_Id = value;
-    m_IdIsSet = true;
-}
-
-bool ProfileGame::idIsSet() const
-{
-    return m_IdIsSet;
-}
-
-void ProfileGame::unsetId()
-{
-    m_IdIsSet = false;
-}
-utility::string_t ProfileGame::getName() const
-{
-    return m_Name;
-}
-
-
-void ProfileGame::setName(const utility::string_t& value)
-{
-    m_Name = value;
-    m_NameIsSet = true;
-}
-
-bool ProfileGame::nameIsSet() const
-{
-    return m_NameIsSet;
-}
-
-void ProfileGame::unsetName()
-{
-    m_NameIsSet = false;
-}
-utility::string_t ProfileGame::getCapsuleImageUrl() const
-{
-    return m_Capsule_image_url;
-}
-
-
-void ProfileGame::setCapsuleImageUrl(const utility::string_t& value)
-{
-    m_Capsule_image_url = value;
-    m_Capsule_image_urlIsSet = true;
-}
-
-bool ProfileGame::capsuleImageUrlIsSet() const
-{
-    return m_Capsule_image_urlIsSet;
-}
-
-void ProfileGame::unsetCapsule_image_url()
-{
-    m_Capsule_image_urlIsSet = false;
-}
-utility::string_t ProfileGame::getLibraryImageUrl() const
-{
-    return m_Library_image_url;
-}
-
-
-void ProfileGame::setLibraryImageUrl(const utility::string_t& value)
-{
-    m_Library_image_url = value;
-    m_Library_image_urlIsSet = true;
-}
-
-bool ProfileGame::libraryImageUrlIsSet() const
-{
-    return m_Library_image_urlIsSet;
-}
-
-void ProfileGame::unsetLibrary_image_url()
-{
-    m_Library_image_urlIsSet = false;
-}
-utility::string_t ProfileGame::getSlug() const
-{
-    return m_Slug;
-}
-
-
-void ProfileGame::setSlug(const utility::string_t& value)
-{
-    m_Slug = value;
-    m_SlugIsSet = true;
-}
-
-bool ProfileGame::slugIsSet() const
-{
-    return m_SlugIsSet;
-}
-
-void ProfileGame::unsetSlug()
-{
-    m_SlugIsSet = false;
-}
-double ProfileGame::getTimeUsed() const
-{
-    return m_Time_used;
-}
-
-void ProfileGame::setTimeUsed(double value)
-{
-    m_Time_used = value;
-    m_Time_usedIsSet = true;
-}
-
-bool ProfileGame::timeUsedIsSet() const
-{
-    return m_Time_usedIsSet;
-}
-
-void ProfileGame::unsetTime_used()
-{
-    m_Time_usedIsSet = false;
-}
-int32_t ProfileGame::getUnlockedAchievements() const
-{
-    return m_Unlocked_achievements;
-}
-
-void ProfileGame::setUnlockedAchievements(int32_t value)
-{
-    m_Unlocked_achievements = value;
-    m_Unlocked_achievementsIsSet = true;
-}
-
-bool ProfileGame::unlockedAchievementsIsSet() const
-{
-    return m_Unlocked_achievementsIsSet;
-}
-
-void ProfileGame::unsetUnlocked_achievements()
-{
-    m_Unlocked_achievementsIsSet = false;
-}
-int32_t ProfileGame::getTotalAchievements() const
-{
-    return m_Total_achievements;
-}
-
-void ProfileGame::setTotalAchievements(int32_t value)
-{
-    m_Total_achievements = value;
-    m_Total_achievementsIsSet = true;
-}
-
-bool ProfileGame::totalAchievementsIsSet() const
-{
-    return m_Total_achievementsIsSet;
-}
-
-void ProfileGame::unsetTotal_achievements()
-{
-    m_Total_achievementsIsSet = false;
-}
-std::shared_ptr<AnyType> ProfileGame::getStats() const
-{
-    return m_Stats;
-}
-
-
-void ProfileGame::setStats(const std::shared_ptr<AnyType>& value)
-{
-    m_Stats = value;
-    m_StatsIsSet = true;
-}
-
-bool ProfileGame::statsIsSet() const
-{
-    return m_StatsIsSet;
-}
-
-void ProfileGame::unsetStats()
-{
-    m_StatsIsSet = false;
-}
-utility::datetime ProfileGame::getAcquired() const
-{
-    return m_Acquired;
-}
-
-
-void ProfileGame::setAcquired(const utility::datetime& value)
-{
-    m_Acquired = value;
-    m_AcquiredIsSet = true;
-}
-
-bool ProfileGame::acquiredIsSet() const
-{
-    return m_AcquiredIsSet;
-}
-
-void ProfileGame::unsetAcquired()
-{
-    m_AcquiredIsSet = false;
-}
-utility::datetime ProfileGame::getLastUsed() const
-{
-    return m_Last_used;
-}
-
-
-void ProfileGame::setLastUsed(const utility::datetime& value)
-{
-    m_Last_used = value;
-    m_Last_usedIsSet = true;
-}
-
-bool ProfileGame::lastUsedIsSet() const
-{
-    return m_Last_usedIsSet;
-}
-
-void ProfileGame::unsetLast_used()
-{
-    m_Last_usedIsSet = false;
-}
-
-}
-}
-
-

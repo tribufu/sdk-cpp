@@ -13,74 +13,68 @@
 /*
  * ServerMetrics.h
  *
- * 
+ *
  */
 
 #ifndef TRIBUFU_MODELS_ServerMetrics_H_
 #define TRIBUFU_MODELS_ServerMetrics_H_
 
-
 #include "tribufu++/ModelBase.h"
 
-
-namespace tribufu {
-namespace models {
-
-
-
-class  ServerMetrics
-    : public ModelBase
+namespace tribufu
 {
-public:
-    ServerMetrics();
-    virtual ~ServerMetrics();
+    namespace models
+    {
 
-    /////////////////////////////////////////////
-    /// ModelBase overrides
+        class ServerMetrics : public ModelBase
+        {
+        public:
+            ServerMetrics();
+            virtual ~ServerMetrics();
 
-    void validate() override;
+            /////////////////////////////////////////////
+            /// ModelBase overrides
 
-    web::json::value toJson() const override;
-    bool fromJson(const web::json::value& json) override;
+            void validate() override;
 
-    void toMultipart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& namePrefix) const override;
-    bool fromMultiPart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& namePrefix) override;
+            web::json::value toJson() const override;
+            bool fromJson(const web::json::value &json) override;
 
+            void toMultipart(std::shared_ptr<MultipartFormData> multipart,
+                             const utility::string_t &namePrefix) const override;
+            bool fromMultiPart(std::shared_ptr<MultipartFormData> multipart,
+                               const utility::string_t &namePrefix) override;
 
-    /////////////////////////////////////////////
-    /// ServerMetrics members
+            /////////////////////////////////////////////
+            /// ServerMetrics members
 
+            int32_t getServerCount() const;
+            bool serverCountIsSet() const;
+            void unsetServer_count();
+            void setServerCount(int32_t value);
 
-    int32_t getServerCount() const;
-    bool serverCountIsSet() const;
-    void unsetServer_count();
-    void setServerCount(int32_t value);
+            int32_t getPackageCount() const;
+            bool packageCountIsSet() const;
+            void unsetPackage_count();
+            void setPackageCount(int32_t value);
 
-    int32_t getPackageCount() const;
-    bool packageCountIsSet() const;
-    void unsetPackage_count();
-    void setPackageCount(int32_t value);
+            int32_t getCountryCount() const;
+            bool countryCountIsSet() const;
+            void unsetCountry_count();
+            void setCountryCount(int32_t value);
 
-    int32_t getCountryCount() const;
-    bool countryCountIsSet() const;
-    void unsetCountry_count();
-    void setCountryCount(int32_t value);
+        protected:
+            int32_t m_Server_count;
+            bool m_Server_countIsSet;
 
+            int32_t m_Package_count;
+            bool m_Package_countIsSet;
 
-protected:
-    int32_t m_Server_count;
-    bool m_Server_countIsSet;
+            int32_t m_Country_count;
+            bool m_Country_countIsSet;
+        };
 
-    int32_t m_Package_count;
-    bool m_Package_countIsSet;
-
-    int32_t m_Country_count;
-    bool m_Country_countIsSet;
-
-};
-
-
-}
+    }
 }
 
 #endif /* TRIBUFU_MODELS_ServerMetrics_H_ */

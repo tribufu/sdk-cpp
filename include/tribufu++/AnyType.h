@@ -19,37 +19,39 @@
 #ifndef TRIBUFU_MODELS_AnyType_H_
 #define TRIBUFU_MODELS_AnyType_H_
 
-
 #include "tribufu++/Object.h"
 
 #include <cpprest/details/basic_types.h>
 #include <cpprest/json.h>
 
-namespace tribufu {
-namespace models {
+namespace tribufu
+{
+    namespace models
+    {
 
-class  AnyType : public Object {
-public:
-  AnyType();
-  virtual ~AnyType();
+        class AnyType : public Object
+        {
+        public:
+            AnyType();
+            virtual ~AnyType();
 
-  /////////////////////////////////////////////
-  /// ModelBase overrides
-  void validate() override;
+            /////////////////////////////////////////////
+            /// ModelBase overrides
+            void validate() override;
 
-  web::json::value toJson() const override;
-  bool fromJson(const web::json::value &json) override;
+            web::json::value toJson() const override;
+            bool fromJson(const web::json::value &json) override;
 
-  void toMultipart(std::shared_ptr<MultipartFormData> multipart,
-                   const utility::string_t &namePrefix) const override;
-  bool fromMultiPart(std::shared_ptr<MultipartFormData> multipart,
-                     const utility::string_t &namePrefix) override;
+            void toMultipart(std::shared_ptr<MultipartFormData> multipart,
+                             const utility::string_t &namePrefix) const override;
+            bool fromMultiPart(std::shared_ptr<MultipartFormData> multipart,
+                               const utility::string_t &namePrefix) override;
 
-private:
-  web::json::value m_value;
-};
+        private:
+            web::json::value m_value;
+        };
 
-}
+    }
 }
 
 #endif /* TRIBUFU_MODELS_AnyType_H_ */

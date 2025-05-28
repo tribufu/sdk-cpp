@@ -10,117 +10,116 @@
  * Do not edit the class manually.
  */
 
-
-
 #include "tribufu++/model/SearchType.h"
 
-namespace tribufu {
-namespace models {
-
-namespace
+namespace tribufu
 {
-using EnumUnderlyingType = utility::string_t;
-
-SearchType::eSearchType toEnum(const EnumUnderlyingType& val)
-{
-    if (val == utility::conversions::to_string_t(U("user")))
-        return SearchType::eSearchType::SearchType_USER;
-    if (val == utility::conversions::to_string_t(U("group")))
-        return SearchType::eSearchType::SearchType_GROUP;
-    if (val == utility::conversions::to_string_t(U("server")))
-        return SearchType::eSearchType::SearchType_SERVER;
-    if (val == utility::conversions::to_string_t(U("cluster")))
-        return SearchType::eSearchType::SearchType_CLUSTER;
-    return {};
-}
-
-EnumUnderlyingType fromEnum(SearchType::eSearchType e)
-{
-    switch (e)
+    namespace models
     {
-    case SearchType::eSearchType::SearchType_USER:
-        return U("user");
-    case SearchType::eSearchType::SearchType_GROUP:
-        return U("group");
-    case SearchType::eSearchType::SearchType_SERVER:
-        return U("server");
-    case SearchType::eSearchType::SearchType_CLUSTER:
-        return U("cluster");
-    default:
-        break;
-    }
-    return {};
-}
-}
 
-SearchType::SearchType()
-{
-}
-
-SearchType::~SearchType()
-{
-}
-
-void SearchType::validate()
-{
-    // TODO: implement validation
-}
-
-web::json::value SearchType::toJson() const
-{
-    auto val = fromEnum(m_value);
-    return web::json::value(val);
-}
-
-bool SearchType::fromJson(const web::json::value& val)
-{
-    m_value = toEnum(val.as_string());
-    return true;
-}
-
-void SearchType::toMultipart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& prefix) const
-{
-    utility::string_t namePrefix = prefix;
-    if (!namePrefix.empty() && namePrefix.back() != U('.'))
-    {
-        namePrefix.push_back(U('.'));
-    }
-
-    auto e = fromEnum(m_value);
-    multipart->add(ModelBase::toHttpContent(namePrefix, e));
-}
-
-bool SearchType::fromMultiPart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& prefix)
-{
-    bool ok = true;
-    utility::string_t namePrefix = prefix;
-    if (!namePrefix.empty() && namePrefix.back() != U('.'))
-    {
-        namePrefix.push_back(U('.'));
-    }
-    {
-        EnumUnderlyingType e;
-        ok = ModelBase::fromHttpContent(multipart->getContent(namePrefix), e);
-        if (ok)
+        namespace
         {
-            auto v = toEnum(e);
-            setValue(v);
+            using EnumUnderlyingType = utility::string_t;
+
+            SearchType::eSearchType toEnum(const EnumUnderlyingType &val)
+            {
+                if (val == utility::conversions::to_string_t(U("user")))
+                    return SearchType::eSearchType::SearchType_USER;
+                if (val == utility::conversions::to_string_t(U("group")))
+                    return SearchType::eSearchType::SearchType_GROUP;
+                if (val == utility::conversions::to_string_t(U("server")))
+                    return SearchType::eSearchType::SearchType_SERVER;
+                if (val == utility::conversions::to_string_t(U("cluster")))
+                    return SearchType::eSearchType::SearchType_CLUSTER;
+                return {};
+            }
+
+            EnumUnderlyingType fromEnum(SearchType::eSearchType e)
+            {
+                switch (e)
+                {
+                case SearchType::eSearchType::SearchType_USER:
+                    return U("user");
+                case SearchType::eSearchType::SearchType_GROUP:
+                    return U("group");
+                case SearchType::eSearchType::SearchType_SERVER:
+                    return U("server");
+                case SearchType::eSearchType::SearchType_CLUSTER:
+                    return U("cluster");
+                default:
+                    break;
+                }
+                return {};
+            }
         }
+
+        SearchType::SearchType()
+        {
+        }
+
+        SearchType::~SearchType()
+        {
+        }
+
+        void SearchType::validate()
+        {
+            // TODO: implement validation
+        }
+
+        web::json::value SearchType::toJson() const
+        {
+            auto val = fromEnum(m_value);
+            return web::json::value(val);
+        }
+
+        bool SearchType::fromJson(const web::json::value &val)
+        {
+            m_value = toEnum(val.as_string());
+            return true;
+        }
+
+        void SearchType::toMultipart(std::shared_ptr<MultipartFormData> multipart,
+                                     const utility::string_t &prefix) const
+        {
+            utility::string_t namePrefix = prefix;
+            if (!namePrefix.empty() && namePrefix.back() != U('.'))
+            {
+                namePrefix.push_back(U('.'));
+            }
+
+            auto e = fromEnum(m_value);
+            multipart->add(ModelBase::toHttpContent(namePrefix, e));
+        }
+
+        bool SearchType::fromMultiPart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t &prefix)
+        {
+            bool ok = true;
+            utility::string_t namePrefix = prefix;
+            if (!namePrefix.empty() && namePrefix.back() != U('.'))
+            {
+                namePrefix.push_back(U('.'));
+            }
+            {
+                EnumUnderlyingType e;
+                ok = ModelBase::fromHttpContent(multipart->getContent(namePrefix), e);
+                if (ok)
+                {
+                    auto v = toEnum(e);
+                    setValue(v);
+                }
+            }
+            return ok;
+        }
+
+        SearchType::eSearchType SearchType::getValue() const
+        {
+            return m_value;
+        }
+
+        void SearchType::setValue(SearchType::eSearchType const value)
+        {
+            m_value = value;
+        }
+
     }
-    return ok;
 }
-
-SearchType::eSearchType SearchType::getValue() const
-{
-   return m_value;
-}
-
-void SearchType::setValue(SearchType::eSearchType const value)
-{
-   m_value = value;
-}
-
-}
-}
-
-

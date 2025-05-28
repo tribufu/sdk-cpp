@@ -10,1036 +10,1046 @@
  * Do not edit the class manually.
  */
 
-
-
 #include "tribufu++/model/Application.h"
 
-namespace tribufu {
-namespace models {
-
-Application::Application()
+namespace tribufu
 {
-    m_Id = utility::conversions::to_string_t("");
-    m_IdIsSet = false;
-    m_Name = utility::conversions::to_string_t("");
-    m_NameIsSet = false;
-    m_Description = utility::conversions::to_string_t("");
-    m_DescriptionIsSet = false;
-    m_TypeIsSet = false;
-    m_Organization_id = utility::conversions::to_string_t("");
-    m_Organization_idIsSet = false;
-    m_Icon_url = utility::conversions::to_string_t("");
-    m_Icon_urlIsSet = false;
-    m_Banner_url = utility::conversions::to_string_t("");
-    m_Banner_urlIsSet = false;
-    m_Capsule_image_url = utility::conversions::to_string_t("");
-    m_Capsule_image_urlIsSet = false;
-    m_Library_image_url = utility::conversions::to_string_t("");
-    m_Library_image_urlIsSet = false;
-    m_Parent_id = utility::conversions::to_string_t("");
-    m_Parent_idIsSet = false;
-    m_Slug = utility::conversions::to_string_t("");
-    m_SlugIsSet = false;
-    m_Visibility = 0;
-    m_VisibilityIsSet = false;
-    m_Password = utility::conversions::to_string_t("");
-    m_PasswordIsSet = false;
-    m_Primary = 0;
-    m_PrimaryIsSet = false;
-    m_User_count = 0;
-    m_User_countIsSet = false;
-    m_Achievement_count = 0;
-    m_Achievement_countIsSet = false;
-    m_Badge_count = 0;
-    m_Badge_countIsSet = false;
-    m_Download_count = 0;
-    m_Download_countIsSet = false;
-    m_Created = utility::datetime();
-    m_CreatedIsSet = false;
-    m_Updated = utility::datetime();
-    m_UpdatedIsSet = false;
-}
-
-Application::~Application()
-{
-}
-
-void Application::validate()
-{
-    // TODO: implement validation
-}
-
-web::json::value Application::toJson() const
-{
-    web::json::value val = web::json::value::object();
-    if(m_IdIsSet)
-    {   
-        
-        val[utility::conversions::to_string_t(U("id"))] = ModelBase::toJson(m_Id);
-    }
-    if(m_NameIsSet)
-    {   
-        
-        val[utility::conversions::to_string_t(U("name"))] = ModelBase::toJson(m_Name);
-    }
-    if(m_DescriptionIsSet)
-    {   
-        
-        val[utility::conversions::to_string_t(U("description"))] = ModelBase::toJson(m_Description);
-    }
-    if(m_TypeIsSet)
-    {   
-        
-        val[utility::conversions::to_string_t(U("type"))] = ModelBase::toJson(m_Type);
-    }
-    if(m_Organization_idIsSet)
-    {   
-        
-        val[utility::conversions::to_string_t(U("organization_id"))] = ModelBase::toJson(m_Organization_id);
-    }
-    if(m_Icon_urlIsSet)
-    {   
-        
-        val[utility::conversions::to_string_t(U("icon_url"))] = ModelBase::toJson(m_Icon_url);
-    }
-    if(m_Banner_urlIsSet)
-    {   
-        
-        val[utility::conversions::to_string_t(U("banner_url"))] = ModelBase::toJson(m_Banner_url);
-    }
-    if(m_Capsule_image_urlIsSet)
-    {   
-        
-        val[utility::conversions::to_string_t(U("capsule_image_url"))] = ModelBase::toJson(m_Capsule_image_url);
-    }
-    if(m_Library_image_urlIsSet)
-    {   
-        
-        val[utility::conversions::to_string_t(U("library_image_url"))] = ModelBase::toJson(m_Library_image_url);
-    }
-    if(m_Parent_idIsSet)
-    {   
-        
-        val[utility::conversions::to_string_t(U("parent_id"))] = ModelBase::toJson(m_Parent_id);
-    }
-    if(m_SlugIsSet)
-    {   
-        
-        val[utility::conversions::to_string_t(U("slug"))] = ModelBase::toJson(m_Slug);
-    }
-    if(m_VisibilityIsSet)
-    {   
-        
-        val[utility::conversions::to_string_t(U("visibility"))] = ModelBase::toJson(m_Visibility);
-    }
-    if(m_PasswordIsSet)
-    {   
-        
-        val[utility::conversions::to_string_t(U("password"))] = ModelBase::toJson(m_Password);
-    }
-    if(m_PrimaryIsSet)
-    {   
-        
-        val[utility::conversions::to_string_t(U("primary"))] = ModelBase::toJson(m_Primary);
-    }
-    if(m_User_countIsSet)
-    {   
-        
-        val[utility::conversions::to_string_t(U("user_count"))] = ModelBase::toJson(m_User_count);
-    }
-    if(m_Achievement_countIsSet)
-    {   
-        
-        val[utility::conversions::to_string_t(U("achievement_count"))] = ModelBase::toJson(m_Achievement_count);
-    }
-    if(m_Badge_countIsSet)
-    {   
-        
-        val[utility::conversions::to_string_t(U("badge_count"))] = ModelBase::toJson(m_Badge_count);
-    }
-    if(m_Download_countIsSet)
-    {   
-        
-        val[utility::conversions::to_string_t(U("download_count"))] = ModelBase::toJson(m_Download_count);
-    }
-    if(m_CreatedIsSet)
-    {   
-        
-        val[utility::conversions::to_string_t(U("created"))] = ModelBase::toJson(m_Created);
-    }
-    if(m_UpdatedIsSet)
-    {   
-        
-        val[utility::conversions::to_string_t(U("updated"))] = ModelBase::toJson(m_Updated);
-    }
-
-    return val;
-}
-
-bool Application::fromJson(const web::json::value& val)
-{
-    bool ok = true;
-    if(val.has_field(utility::conversions::to_string_t(U("id"))))
+    namespace models
     {
-        const web::json::value& fieldValue = val.at(utility::conversions::to_string_t(U("id")));
-        if(!fieldValue.is_null())
+
+        Application::Application()
         {
-            utility::string_t refVal_setId;
-            ok &= ModelBase::fromJson(fieldValue, refVal_setId);
-            setId(refVal_setId);
-            
+            m_Id = utility::conversions::to_string_t("");
+            m_IdIsSet = false;
+            m_Name = utility::conversions::to_string_t("");
+            m_NameIsSet = false;
+            m_Description = utility::conversions::to_string_t("");
+            m_DescriptionIsSet = false;
+            m_TypeIsSet = false;
+            m_Organization_id = utility::conversions::to_string_t("");
+            m_Organization_idIsSet = false;
+            m_Icon_url = utility::conversions::to_string_t("");
+            m_Icon_urlIsSet = false;
+            m_Banner_url = utility::conversions::to_string_t("");
+            m_Banner_urlIsSet = false;
+            m_Capsule_image_url = utility::conversions::to_string_t("");
+            m_Capsule_image_urlIsSet = false;
+            m_Library_image_url = utility::conversions::to_string_t("");
+            m_Library_image_urlIsSet = false;
+            m_Parent_id = utility::conversions::to_string_t("");
+            m_Parent_idIsSet = false;
+            m_Slug = utility::conversions::to_string_t("");
+            m_SlugIsSet = false;
+            m_Visibility = 0;
+            m_VisibilityIsSet = false;
+            m_Password = utility::conversions::to_string_t("");
+            m_PasswordIsSet = false;
+            m_Primary = 0;
+            m_PrimaryIsSet = false;
+            m_User_count = 0;
+            m_User_countIsSet = false;
+            m_Achievement_count = 0;
+            m_Achievement_countIsSet = false;
+            m_Badge_count = 0;
+            m_Badge_countIsSet = false;
+            m_Download_count = 0;
+            m_Download_countIsSet = false;
+            m_Created = utility::datetime();
+            m_CreatedIsSet = false;
+            m_Updated = utility::datetime();
+            m_UpdatedIsSet = false;
         }
-    }
-    if(val.has_field(utility::conversions::to_string_t(U("name"))))
-    {
-        const web::json::value& fieldValue = val.at(utility::conversions::to_string_t(U("name")));
-        if(!fieldValue.is_null())
+
+        Application::~Application()
         {
-            utility::string_t refVal_setName;
-            ok &= ModelBase::fromJson(fieldValue, refVal_setName);
-            setName(refVal_setName);
-            
         }
-    }
-    if(val.has_field(utility::conversions::to_string_t(U("description"))))
-    {
-        const web::json::value& fieldValue = val.at(utility::conversions::to_string_t(U("description")));
-        if(!fieldValue.is_null())
+
+        void Application::validate()
         {
-            utility::string_t refVal_setDescription;
-            ok &= ModelBase::fromJson(fieldValue, refVal_setDescription);
-            setDescription(refVal_setDescription);
-            
+            // TODO: implement validation
         }
-    }
-    if(val.has_field(utility::conversions::to_string_t(U("type"))))
-    {
-        const web::json::value& fieldValue = val.at(utility::conversions::to_string_t(U("type")));
-        if(!fieldValue.is_null())
+
+        web::json::value Application::toJson() const
         {
-            std::shared_ptr<ApplicationType> refVal_setType;
-            ok &= ModelBase::fromJson(fieldValue, refVal_setType);
-            setType(refVal_setType);
-            
+            web::json::value val = web::json::value::object();
+            if (m_IdIsSet)
+            {
+
+                val[utility::conversions::to_string_t(U("id"))] = ModelBase::toJson(m_Id);
+            }
+            if (m_NameIsSet)
+            {
+
+                val[utility::conversions::to_string_t(U("name"))] = ModelBase::toJson(m_Name);
+            }
+            if (m_DescriptionIsSet)
+            {
+
+                val[utility::conversions::to_string_t(U("description"))] = ModelBase::toJson(m_Description);
+            }
+            if (m_TypeIsSet)
+            {
+
+                val[utility::conversions::to_string_t(U("type"))] = ModelBase::toJson(m_Type);
+            }
+            if (m_Organization_idIsSet)
+            {
+
+                val[utility::conversions::to_string_t(U("organization_id"))] = ModelBase::toJson(m_Organization_id);
+            }
+            if (m_Icon_urlIsSet)
+            {
+
+                val[utility::conversions::to_string_t(U("icon_url"))] = ModelBase::toJson(m_Icon_url);
+            }
+            if (m_Banner_urlIsSet)
+            {
+
+                val[utility::conversions::to_string_t(U("banner_url"))] = ModelBase::toJson(m_Banner_url);
+            }
+            if (m_Capsule_image_urlIsSet)
+            {
+
+                val[utility::conversions::to_string_t(U("capsule_image_url"))] = ModelBase::toJson(m_Capsule_image_url);
+            }
+            if (m_Library_image_urlIsSet)
+            {
+
+                val[utility::conversions::to_string_t(U("library_image_url"))] = ModelBase::toJson(m_Library_image_url);
+            }
+            if (m_Parent_idIsSet)
+            {
+
+                val[utility::conversions::to_string_t(U("parent_id"))] = ModelBase::toJson(m_Parent_id);
+            }
+            if (m_SlugIsSet)
+            {
+
+                val[utility::conversions::to_string_t(U("slug"))] = ModelBase::toJson(m_Slug);
+            }
+            if (m_VisibilityIsSet)
+            {
+
+                val[utility::conversions::to_string_t(U("visibility"))] = ModelBase::toJson(m_Visibility);
+            }
+            if (m_PasswordIsSet)
+            {
+
+                val[utility::conversions::to_string_t(U("password"))] = ModelBase::toJson(m_Password);
+            }
+            if (m_PrimaryIsSet)
+            {
+
+                val[utility::conversions::to_string_t(U("primary"))] = ModelBase::toJson(m_Primary);
+            }
+            if (m_User_countIsSet)
+            {
+
+                val[utility::conversions::to_string_t(U("user_count"))] = ModelBase::toJson(m_User_count);
+            }
+            if (m_Achievement_countIsSet)
+            {
+
+                val[utility::conversions::to_string_t(U("achievement_count"))] = ModelBase::toJson(m_Achievement_count);
+            }
+            if (m_Badge_countIsSet)
+            {
+
+                val[utility::conversions::to_string_t(U("badge_count"))] = ModelBase::toJson(m_Badge_count);
+            }
+            if (m_Download_countIsSet)
+            {
+
+                val[utility::conversions::to_string_t(U("download_count"))] = ModelBase::toJson(m_Download_count);
+            }
+            if (m_CreatedIsSet)
+            {
+
+                val[utility::conversions::to_string_t(U("created"))] = ModelBase::toJson(m_Created);
+            }
+            if (m_UpdatedIsSet)
+            {
+
+                val[utility::conversions::to_string_t(U("updated"))] = ModelBase::toJson(m_Updated);
+            }
+
+            return val;
         }
-    }
-    if(val.has_field(utility::conversions::to_string_t(U("organization_id"))))
-    {
-        const web::json::value& fieldValue = val.at(utility::conversions::to_string_t(U("organization_id")));
-        if(!fieldValue.is_null())
+
+        bool Application::fromJson(const web::json::value &val)
         {
-            utility::string_t refVal_setOrganizationId;
-            ok &= ModelBase::fromJson(fieldValue, refVal_setOrganizationId);
-            setOrganizationId(refVal_setOrganizationId);
-            
+            bool ok = true;
+            if (val.has_field(utility::conversions::to_string_t(U("id"))))
+            {
+                const web::json::value &fieldValue = val.at(utility::conversions::to_string_t(U("id")));
+                if (!fieldValue.is_null())
+                {
+                    utility::string_t refVal_setId;
+                    ok &= ModelBase::fromJson(fieldValue, refVal_setId);
+                    setId(refVal_setId);
+                }
+            }
+            if (val.has_field(utility::conversions::to_string_t(U("name"))))
+            {
+                const web::json::value &fieldValue = val.at(utility::conversions::to_string_t(U("name")));
+                if (!fieldValue.is_null())
+                {
+                    utility::string_t refVal_setName;
+                    ok &= ModelBase::fromJson(fieldValue, refVal_setName);
+                    setName(refVal_setName);
+                }
+            }
+            if (val.has_field(utility::conversions::to_string_t(U("description"))))
+            {
+                const web::json::value &fieldValue = val.at(utility::conversions::to_string_t(U("description")));
+                if (!fieldValue.is_null())
+                {
+                    utility::string_t refVal_setDescription;
+                    ok &= ModelBase::fromJson(fieldValue, refVal_setDescription);
+                    setDescription(refVal_setDescription);
+                }
+            }
+            if (val.has_field(utility::conversions::to_string_t(U("type"))))
+            {
+                const web::json::value &fieldValue = val.at(utility::conversions::to_string_t(U("type")));
+                if (!fieldValue.is_null())
+                {
+                    std::shared_ptr<ApplicationType> refVal_setType;
+                    ok &= ModelBase::fromJson(fieldValue, refVal_setType);
+                    setType(refVal_setType);
+                }
+            }
+            if (val.has_field(utility::conversions::to_string_t(U("organization_id"))))
+            {
+                const web::json::value &fieldValue = val.at(utility::conversions::to_string_t(U("organization_id")));
+                if (!fieldValue.is_null())
+                {
+                    utility::string_t refVal_setOrganizationId;
+                    ok &= ModelBase::fromJson(fieldValue, refVal_setOrganizationId);
+                    setOrganizationId(refVal_setOrganizationId);
+                }
+            }
+            if (val.has_field(utility::conversions::to_string_t(U("icon_url"))))
+            {
+                const web::json::value &fieldValue = val.at(utility::conversions::to_string_t(U("icon_url")));
+                if (!fieldValue.is_null())
+                {
+                    utility::string_t refVal_setIconUrl;
+                    ok &= ModelBase::fromJson(fieldValue, refVal_setIconUrl);
+                    setIconUrl(refVal_setIconUrl);
+                }
+            }
+            if (val.has_field(utility::conversions::to_string_t(U("banner_url"))))
+            {
+                const web::json::value &fieldValue = val.at(utility::conversions::to_string_t(U("banner_url")));
+                if (!fieldValue.is_null())
+                {
+                    utility::string_t refVal_setBannerUrl;
+                    ok &= ModelBase::fromJson(fieldValue, refVal_setBannerUrl);
+                    setBannerUrl(refVal_setBannerUrl);
+                }
+            }
+            if (val.has_field(utility::conversions::to_string_t(U("capsule_image_url"))))
+            {
+                const web::json::value &fieldValue = val.at(utility::conversions::to_string_t(U("capsule_image_url")));
+                if (!fieldValue.is_null())
+                {
+                    utility::string_t refVal_setCapsuleImageUrl;
+                    ok &= ModelBase::fromJson(fieldValue, refVal_setCapsuleImageUrl);
+                    setCapsuleImageUrl(refVal_setCapsuleImageUrl);
+                }
+            }
+            if (val.has_field(utility::conversions::to_string_t(U("library_image_url"))))
+            {
+                const web::json::value &fieldValue = val.at(utility::conversions::to_string_t(U("library_image_url")));
+                if (!fieldValue.is_null())
+                {
+                    utility::string_t refVal_setLibraryImageUrl;
+                    ok &= ModelBase::fromJson(fieldValue, refVal_setLibraryImageUrl);
+                    setLibraryImageUrl(refVal_setLibraryImageUrl);
+                }
+            }
+            if (val.has_field(utility::conversions::to_string_t(U("parent_id"))))
+            {
+                const web::json::value &fieldValue = val.at(utility::conversions::to_string_t(U("parent_id")));
+                if (!fieldValue.is_null())
+                {
+                    utility::string_t refVal_setParentId;
+                    ok &= ModelBase::fromJson(fieldValue, refVal_setParentId);
+                    setParentId(refVal_setParentId);
+                }
+            }
+            if (val.has_field(utility::conversions::to_string_t(U("slug"))))
+            {
+                const web::json::value &fieldValue = val.at(utility::conversions::to_string_t(U("slug")));
+                if (!fieldValue.is_null())
+                {
+                    utility::string_t refVal_setSlug;
+                    ok &= ModelBase::fromJson(fieldValue, refVal_setSlug);
+                    setSlug(refVal_setSlug);
+                }
+            }
+            if (val.has_field(utility::conversions::to_string_t(U("visibility"))))
+            {
+                const web::json::value &fieldValue = val.at(utility::conversions::to_string_t(U("visibility")));
+                if (!fieldValue.is_null())
+                {
+                    int32_t refVal_setVisibility;
+                    ok &= ModelBase::fromJson(fieldValue, refVal_setVisibility);
+                    setVisibility(refVal_setVisibility);
+                }
+            }
+            if (val.has_field(utility::conversions::to_string_t(U("password"))))
+            {
+                const web::json::value &fieldValue = val.at(utility::conversions::to_string_t(U("password")));
+                if (!fieldValue.is_null())
+                {
+                    utility::string_t refVal_setPassword;
+                    ok &= ModelBase::fromJson(fieldValue, refVal_setPassword);
+                    setPassword(refVal_setPassword);
+                }
+            }
+            if (val.has_field(utility::conversions::to_string_t(U("primary"))))
+            {
+                const web::json::value &fieldValue = val.at(utility::conversions::to_string_t(U("primary")));
+                if (!fieldValue.is_null())
+                {
+                    int32_t refVal_setPrimary;
+                    ok &= ModelBase::fromJson(fieldValue, refVal_setPrimary);
+                    setPrimary(refVal_setPrimary);
+                }
+            }
+            if (val.has_field(utility::conversions::to_string_t(U("user_count"))))
+            {
+                const web::json::value &fieldValue = val.at(utility::conversions::to_string_t(U("user_count")));
+                if (!fieldValue.is_null())
+                {
+                    int32_t refVal_setUserCount;
+                    ok &= ModelBase::fromJson(fieldValue, refVal_setUserCount);
+                    setUserCount(refVal_setUserCount);
+                }
+            }
+            if (val.has_field(utility::conversions::to_string_t(U("achievement_count"))))
+            {
+                const web::json::value &fieldValue = val.at(utility::conversions::to_string_t(U("achievement_count")));
+                if (!fieldValue.is_null())
+                {
+                    int32_t refVal_setAchievementCount;
+                    ok &= ModelBase::fromJson(fieldValue, refVal_setAchievementCount);
+                    setAchievementCount(refVal_setAchievementCount);
+                }
+            }
+            if (val.has_field(utility::conversions::to_string_t(U("badge_count"))))
+            {
+                const web::json::value &fieldValue = val.at(utility::conversions::to_string_t(U("badge_count")));
+                if (!fieldValue.is_null())
+                {
+                    int32_t refVal_setBadgeCount;
+                    ok &= ModelBase::fromJson(fieldValue, refVal_setBadgeCount);
+                    setBadgeCount(refVal_setBadgeCount);
+                }
+            }
+            if (val.has_field(utility::conversions::to_string_t(U("download_count"))))
+            {
+                const web::json::value &fieldValue = val.at(utility::conversions::to_string_t(U("download_count")));
+                if (!fieldValue.is_null())
+                {
+                    int32_t refVal_setDownloadCount;
+                    ok &= ModelBase::fromJson(fieldValue, refVal_setDownloadCount);
+                    setDownloadCount(refVal_setDownloadCount);
+                }
+            }
+            if (val.has_field(utility::conversions::to_string_t(U("created"))))
+            {
+                const web::json::value &fieldValue = val.at(utility::conversions::to_string_t(U("created")));
+                if (!fieldValue.is_null())
+                {
+                    utility::datetime refVal_setCreated;
+                    ok &= ModelBase::fromJson(fieldValue, refVal_setCreated);
+                    setCreated(refVal_setCreated);
+                }
+            }
+            if (val.has_field(utility::conversions::to_string_t(U("updated"))))
+            {
+                const web::json::value &fieldValue = val.at(utility::conversions::to_string_t(U("updated")));
+                if (!fieldValue.is_null())
+                {
+                    utility::datetime refVal_setUpdated;
+                    ok &= ModelBase::fromJson(fieldValue, refVal_setUpdated);
+                    setUpdated(refVal_setUpdated);
+                }
+            }
+            return ok;
         }
-    }
-    if(val.has_field(utility::conversions::to_string_t(U("icon_url"))))
-    {
-        const web::json::value& fieldValue = val.at(utility::conversions::to_string_t(U("icon_url")));
-        if(!fieldValue.is_null())
+
+        void Application::toMultipart(std::shared_ptr<MultipartFormData> multipart,
+                                      const utility::string_t &prefix) const
         {
-            utility::string_t refVal_setIconUrl;
-            ok &= ModelBase::fromJson(fieldValue, refVal_setIconUrl);
-            setIconUrl(refVal_setIconUrl);
-            
+            utility::string_t namePrefix = prefix;
+            if (namePrefix.size() > 0 &&
+                namePrefix.substr(namePrefix.size() - 1) != utility::conversions::to_string_t(U(".")))
+            {
+                namePrefix += utility::conversions::to_string_t(U("."));
+            }
+            if (m_IdIsSet)
+            {
+                multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("id")), m_Id));
+            }
+            if (m_NameIsSet)
+            {
+                multipart->add(
+                    ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("name")), m_Name));
+            }
+            if (m_DescriptionIsSet)
+            {
+                multipart->add(ModelBase::toHttpContent(
+                    namePrefix + utility::conversions::to_string_t(U("description")), m_Description));
+            }
+            if (m_TypeIsSet)
+            {
+                multipart->add(
+                    ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("type")), m_Type));
+            }
+            if (m_Organization_idIsSet)
+            {
+                multipart->add(ModelBase::toHttpContent(
+                    namePrefix + utility::conversions::to_string_t(U("organization_id")), m_Organization_id));
+            }
+            if (m_Icon_urlIsSet)
+            {
+                multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("icon_url")),
+                                                        m_Icon_url));
+            }
+            if (m_Banner_urlIsSet)
+            {
+                multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("banner_url")),
+                                                        m_Banner_url));
+            }
+            if (m_Capsule_image_urlIsSet)
+            {
+                multipart->add(ModelBase::toHttpContent(
+                    namePrefix + utility::conversions::to_string_t(U("capsule_image_url")), m_Capsule_image_url));
+            }
+            if (m_Library_image_urlIsSet)
+            {
+                multipart->add(ModelBase::toHttpContent(
+                    namePrefix + utility::conversions::to_string_t(U("library_image_url")), m_Library_image_url));
+            }
+            if (m_Parent_idIsSet)
+            {
+                multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("parent_id")),
+                                                        m_Parent_id));
+            }
+            if (m_SlugIsSet)
+            {
+                multipart->add(
+                    ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("slug")), m_Slug));
+            }
+            if (m_VisibilityIsSet)
+            {
+                multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("visibility")),
+                                                        m_Visibility));
+            }
+            if (m_PasswordIsSet)
+            {
+                multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("password")),
+                                                        m_Password));
+            }
+            if (m_PrimaryIsSet)
+            {
+                multipart->add(
+                    ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("primary")), m_Primary));
+            }
+            if (m_User_countIsSet)
+            {
+                multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("user_count")),
+                                                        m_User_count));
+            }
+            if (m_Achievement_countIsSet)
+            {
+                multipart->add(ModelBase::toHttpContent(
+                    namePrefix + utility::conversions::to_string_t(U("achievement_count")), m_Achievement_count));
+            }
+            if (m_Badge_countIsSet)
+            {
+                multipart->add(ModelBase::toHttpContent(
+                    namePrefix + utility::conversions::to_string_t(U("badge_count")), m_Badge_count));
+            }
+            if (m_Download_countIsSet)
+            {
+                multipart->add(ModelBase::toHttpContent(
+                    namePrefix + utility::conversions::to_string_t(U("download_count")), m_Download_count));
+            }
+            if (m_CreatedIsSet)
+            {
+                multipart->add(
+                    ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("created")), m_Created));
+            }
+            if (m_UpdatedIsSet)
+            {
+                multipart->add(
+                    ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("updated")), m_Updated));
+            }
         }
-    }
-    if(val.has_field(utility::conversions::to_string_t(U("banner_url"))))
-    {
-        const web::json::value& fieldValue = val.at(utility::conversions::to_string_t(U("banner_url")));
-        if(!fieldValue.is_null())
+
+        bool Application::fromMultiPart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t &prefix)
         {
-            utility::string_t refVal_setBannerUrl;
-            ok &= ModelBase::fromJson(fieldValue, refVal_setBannerUrl);
-            setBannerUrl(refVal_setBannerUrl);
-            
+            bool ok = true;
+            utility::string_t namePrefix = prefix;
+            if (namePrefix.size() > 0 &&
+                namePrefix.substr(namePrefix.size() - 1) != utility::conversions::to_string_t(U(".")))
+            {
+                namePrefix += utility::conversions::to_string_t(U("."));
+            }
+
+            if (multipart->hasContent(utility::conversions::to_string_t(U("id"))))
+            {
+                utility::string_t refVal_setId;
+                ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(U("id"))),
+                                                 refVal_setId);
+                setId(refVal_setId);
+            }
+            if (multipart->hasContent(utility::conversions::to_string_t(U("name"))))
+            {
+                utility::string_t refVal_setName;
+                ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(U("name"))),
+                                                 refVal_setName);
+                setName(refVal_setName);
+            }
+            if (multipart->hasContent(utility::conversions::to_string_t(U("description"))))
+            {
+                utility::string_t refVal_setDescription;
+                ok &= ModelBase::fromHttpContent(
+                    multipart->getContent(utility::conversions::to_string_t(U("description"))), refVal_setDescription);
+                setDescription(refVal_setDescription);
+            }
+            if (multipart->hasContent(utility::conversions::to_string_t(U("type"))))
+            {
+                std::shared_ptr<ApplicationType> refVal_setType;
+                ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(U("type"))),
+                                                 refVal_setType);
+                setType(refVal_setType);
+            }
+            if (multipart->hasContent(utility::conversions::to_string_t(U("organization_id"))))
+            {
+                utility::string_t refVal_setOrganizationId;
+                ok &= ModelBase::fromHttpContent(
+                    multipart->getContent(utility::conversions::to_string_t(U("organization_id"))),
+                    refVal_setOrganizationId);
+                setOrganizationId(refVal_setOrganizationId);
+            }
+            if (multipart->hasContent(utility::conversions::to_string_t(U("icon_url"))))
+            {
+                utility::string_t refVal_setIconUrl;
+                ok &= ModelBase::fromHttpContent(
+                    multipart->getContent(utility::conversions::to_string_t(U("icon_url"))), refVal_setIconUrl);
+                setIconUrl(refVal_setIconUrl);
+            }
+            if (multipart->hasContent(utility::conversions::to_string_t(U("banner_url"))))
+            {
+                utility::string_t refVal_setBannerUrl;
+                ok &= ModelBase::fromHttpContent(
+                    multipart->getContent(utility::conversions::to_string_t(U("banner_url"))), refVal_setBannerUrl);
+                setBannerUrl(refVal_setBannerUrl);
+            }
+            if (multipart->hasContent(utility::conversions::to_string_t(U("capsule_image_url"))))
+            {
+                utility::string_t refVal_setCapsuleImageUrl;
+                ok &= ModelBase::fromHttpContent(
+                    multipart->getContent(utility::conversions::to_string_t(U("capsule_image_url"))),
+                    refVal_setCapsuleImageUrl);
+                setCapsuleImageUrl(refVal_setCapsuleImageUrl);
+            }
+            if (multipart->hasContent(utility::conversions::to_string_t(U("library_image_url"))))
+            {
+                utility::string_t refVal_setLibraryImageUrl;
+                ok &= ModelBase::fromHttpContent(
+                    multipart->getContent(utility::conversions::to_string_t(U("library_image_url"))),
+                    refVal_setLibraryImageUrl);
+                setLibraryImageUrl(refVal_setLibraryImageUrl);
+            }
+            if (multipart->hasContent(utility::conversions::to_string_t(U("parent_id"))))
+            {
+                utility::string_t refVal_setParentId;
+                ok &= ModelBase::fromHttpContent(
+                    multipart->getContent(utility::conversions::to_string_t(U("parent_id"))), refVal_setParentId);
+                setParentId(refVal_setParentId);
+            }
+            if (multipart->hasContent(utility::conversions::to_string_t(U("slug"))))
+            {
+                utility::string_t refVal_setSlug;
+                ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(U("slug"))),
+                                                 refVal_setSlug);
+                setSlug(refVal_setSlug);
+            }
+            if (multipart->hasContent(utility::conversions::to_string_t(U("visibility"))))
+            {
+                int32_t refVal_setVisibility;
+                ok &= ModelBase::fromHttpContent(
+                    multipart->getContent(utility::conversions::to_string_t(U("visibility"))), refVal_setVisibility);
+                setVisibility(refVal_setVisibility);
+            }
+            if (multipart->hasContent(utility::conversions::to_string_t(U("password"))))
+            {
+                utility::string_t refVal_setPassword;
+                ok &= ModelBase::fromHttpContent(
+                    multipart->getContent(utility::conversions::to_string_t(U("password"))), refVal_setPassword);
+                setPassword(refVal_setPassword);
+            }
+            if (multipart->hasContent(utility::conversions::to_string_t(U("primary"))))
+            {
+                int32_t refVal_setPrimary;
+                ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(U("primary"))),
+                                                 refVal_setPrimary);
+                setPrimary(refVal_setPrimary);
+            }
+            if (multipart->hasContent(utility::conversions::to_string_t(U("user_count"))))
+            {
+                int32_t refVal_setUserCount;
+                ok &= ModelBase::fromHttpContent(
+                    multipart->getContent(utility::conversions::to_string_t(U("user_count"))), refVal_setUserCount);
+                setUserCount(refVal_setUserCount);
+            }
+            if (multipart->hasContent(utility::conversions::to_string_t(U("achievement_count"))))
+            {
+                int32_t refVal_setAchievementCount;
+                ok &= ModelBase::fromHttpContent(
+                    multipart->getContent(utility::conversions::to_string_t(U("achievement_count"))),
+                    refVal_setAchievementCount);
+                setAchievementCount(refVal_setAchievementCount);
+            }
+            if (multipart->hasContent(utility::conversions::to_string_t(U("badge_count"))))
+            {
+                int32_t refVal_setBadgeCount;
+                ok &= ModelBase::fromHttpContent(
+                    multipart->getContent(utility::conversions::to_string_t(U("badge_count"))), refVal_setBadgeCount);
+                setBadgeCount(refVal_setBadgeCount);
+            }
+            if (multipart->hasContent(utility::conversions::to_string_t(U("download_count"))))
+            {
+                int32_t refVal_setDownloadCount;
+                ok &= ModelBase::fromHttpContent(
+                    multipart->getContent(utility::conversions::to_string_t(U("download_count"))),
+                    refVal_setDownloadCount);
+                setDownloadCount(refVal_setDownloadCount);
+            }
+            if (multipart->hasContent(utility::conversions::to_string_t(U("created"))))
+            {
+                utility::datetime refVal_setCreated;
+                ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(U("created"))),
+                                                 refVal_setCreated);
+                setCreated(refVal_setCreated);
+            }
+            if (multipart->hasContent(utility::conversions::to_string_t(U("updated"))))
+            {
+                utility::datetime refVal_setUpdated;
+                ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(U("updated"))),
+                                                 refVal_setUpdated);
+                setUpdated(refVal_setUpdated);
+            }
+            return ok;
         }
-    }
-    if(val.has_field(utility::conversions::to_string_t(U("capsule_image_url"))))
-    {
-        const web::json::value& fieldValue = val.at(utility::conversions::to_string_t(U("capsule_image_url")));
-        if(!fieldValue.is_null())
+
+        utility::string_t Application::getId() const
         {
-            utility::string_t refVal_setCapsuleImageUrl;
-            ok &= ModelBase::fromJson(fieldValue, refVal_setCapsuleImageUrl);
-            setCapsuleImageUrl(refVal_setCapsuleImageUrl);
-            
+            return m_Id;
         }
-    }
-    if(val.has_field(utility::conversions::to_string_t(U("library_image_url"))))
-    {
-        const web::json::value& fieldValue = val.at(utility::conversions::to_string_t(U("library_image_url")));
-        if(!fieldValue.is_null())
+
+        void Application::setId(const utility::string_t &value)
         {
-            utility::string_t refVal_setLibraryImageUrl;
-            ok &= ModelBase::fromJson(fieldValue, refVal_setLibraryImageUrl);
-            setLibraryImageUrl(refVal_setLibraryImageUrl);
-            
+            m_Id = value;
+            m_IdIsSet = true;
         }
-    }
-    if(val.has_field(utility::conversions::to_string_t(U("parent_id"))))
-    {
-        const web::json::value& fieldValue = val.at(utility::conversions::to_string_t(U("parent_id")));
-        if(!fieldValue.is_null())
+
+        bool Application::idIsSet() const
         {
-            utility::string_t refVal_setParentId;
-            ok &= ModelBase::fromJson(fieldValue, refVal_setParentId);
-            setParentId(refVal_setParentId);
-            
+            return m_IdIsSet;
         }
-    }
-    if(val.has_field(utility::conversions::to_string_t(U("slug"))))
-    {
-        const web::json::value& fieldValue = val.at(utility::conversions::to_string_t(U("slug")));
-        if(!fieldValue.is_null())
+
+        void Application::unsetId()
         {
-            utility::string_t refVal_setSlug;
-            ok &= ModelBase::fromJson(fieldValue, refVal_setSlug);
-            setSlug(refVal_setSlug);
-            
+            m_IdIsSet = false;
         }
-    }
-    if(val.has_field(utility::conversions::to_string_t(U("visibility"))))
-    {
-        const web::json::value& fieldValue = val.at(utility::conversions::to_string_t(U("visibility")));
-        if(!fieldValue.is_null())
+        utility::string_t Application::getName() const
         {
-            int32_t refVal_setVisibility;
-            ok &= ModelBase::fromJson(fieldValue, refVal_setVisibility);
-            setVisibility(refVal_setVisibility);
-            
+            return m_Name;
         }
-    }
-    if(val.has_field(utility::conversions::to_string_t(U("password"))))
-    {
-        const web::json::value& fieldValue = val.at(utility::conversions::to_string_t(U("password")));
-        if(!fieldValue.is_null())
+
+        void Application::setName(const utility::string_t &value)
         {
-            utility::string_t refVal_setPassword;
-            ok &= ModelBase::fromJson(fieldValue, refVal_setPassword);
-            setPassword(refVal_setPassword);
-            
+            m_Name = value;
+            m_NameIsSet = true;
         }
-    }
-    if(val.has_field(utility::conversions::to_string_t(U("primary"))))
-    {
-        const web::json::value& fieldValue = val.at(utility::conversions::to_string_t(U("primary")));
-        if(!fieldValue.is_null())
+
+        bool Application::nameIsSet() const
         {
-            int32_t refVal_setPrimary;
-            ok &= ModelBase::fromJson(fieldValue, refVal_setPrimary);
-            setPrimary(refVal_setPrimary);
-            
+            return m_NameIsSet;
         }
-    }
-    if(val.has_field(utility::conversions::to_string_t(U("user_count"))))
-    {
-        const web::json::value& fieldValue = val.at(utility::conversions::to_string_t(U("user_count")));
-        if(!fieldValue.is_null())
+
+        void Application::unsetName()
         {
-            int32_t refVal_setUserCount;
-            ok &= ModelBase::fromJson(fieldValue, refVal_setUserCount);
-            setUserCount(refVal_setUserCount);
-            
+            m_NameIsSet = false;
         }
-    }
-    if(val.has_field(utility::conversions::to_string_t(U("achievement_count"))))
-    {
-        const web::json::value& fieldValue = val.at(utility::conversions::to_string_t(U("achievement_count")));
-        if(!fieldValue.is_null())
+        utility::string_t Application::getDescription() const
         {
-            int32_t refVal_setAchievementCount;
-            ok &= ModelBase::fromJson(fieldValue, refVal_setAchievementCount);
-            setAchievementCount(refVal_setAchievementCount);
-            
+            return m_Description;
         }
-    }
-    if(val.has_field(utility::conversions::to_string_t(U("badge_count"))))
-    {
-        const web::json::value& fieldValue = val.at(utility::conversions::to_string_t(U("badge_count")));
-        if(!fieldValue.is_null())
+
+        void Application::setDescription(const utility::string_t &value)
         {
-            int32_t refVal_setBadgeCount;
-            ok &= ModelBase::fromJson(fieldValue, refVal_setBadgeCount);
-            setBadgeCount(refVal_setBadgeCount);
-            
+            m_Description = value;
+            m_DescriptionIsSet = true;
         }
-    }
-    if(val.has_field(utility::conversions::to_string_t(U("download_count"))))
-    {
-        const web::json::value& fieldValue = val.at(utility::conversions::to_string_t(U("download_count")));
-        if(!fieldValue.is_null())
+
+        bool Application::descriptionIsSet() const
         {
-            int32_t refVal_setDownloadCount;
-            ok &= ModelBase::fromJson(fieldValue, refVal_setDownloadCount);
-            setDownloadCount(refVal_setDownloadCount);
-            
+            return m_DescriptionIsSet;
         }
-    }
-    if(val.has_field(utility::conversions::to_string_t(U("created"))))
-    {
-        const web::json::value& fieldValue = val.at(utility::conversions::to_string_t(U("created")));
-        if(!fieldValue.is_null())
+
+        void Application::unsetDescription()
         {
-            utility::datetime refVal_setCreated;
-            ok &= ModelBase::fromJson(fieldValue, refVal_setCreated);
-            setCreated(refVal_setCreated);
-            
+            m_DescriptionIsSet = false;
         }
-    }
-    if(val.has_field(utility::conversions::to_string_t(U("updated"))))
-    {
-        const web::json::value& fieldValue = val.at(utility::conversions::to_string_t(U("updated")));
-        if(!fieldValue.is_null())
+        std::shared_ptr<ApplicationType> Application::getType() const
         {
-            utility::datetime refVal_setUpdated;
-            ok &= ModelBase::fromJson(fieldValue, refVal_setUpdated);
-            setUpdated(refVal_setUpdated);
-            
+            return m_Type;
         }
+
+        void Application::setType(const std::shared_ptr<ApplicationType> &value)
+        {
+            m_Type = value;
+            m_TypeIsSet = true;
+        }
+
+        bool Application::typeIsSet() const
+        {
+            return m_TypeIsSet;
+        }
+
+        void Application::unsetType()
+        {
+            m_TypeIsSet = false;
+        }
+        utility::string_t Application::getOrganizationId() const
+        {
+            return m_Organization_id;
+        }
+
+        void Application::setOrganizationId(const utility::string_t &value)
+        {
+            m_Organization_id = value;
+            m_Organization_idIsSet = true;
+        }
+
+        bool Application::organizationIdIsSet() const
+        {
+            return m_Organization_idIsSet;
+        }
+
+        void Application::unsetOrganization_id()
+        {
+            m_Organization_idIsSet = false;
+        }
+        utility::string_t Application::getIconUrl() const
+        {
+            return m_Icon_url;
+        }
+
+        void Application::setIconUrl(const utility::string_t &value)
+        {
+            m_Icon_url = value;
+            m_Icon_urlIsSet = true;
+        }
+
+        bool Application::iconUrlIsSet() const
+        {
+            return m_Icon_urlIsSet;
+        }
+
+        void Application::unsetIcon_url()
+        {
+            m_Icon_urlIsSet = false;
+        }
+        utility::string_t Application::getBannerUrl() const
+        {
+            return m_Banner_url;
+        }
+
+        void Application::setBannerUrl(const utility::string_t &value)
+        {
+            m_Banner_url = value;
+            m_Banner_urlIsSet = true;
+        }
+
+        bool Application::bannerUrlIsSet() const
+        {
+            return m_Banner_urlIsSet;
+        }
+
+        void Application::unsetBanner_url()
+        {
+            m_Banner_urlIsSet = false;
+        }
+        utility::string_t Application::getCapsuleImageUrl() const
+        {
+            return m_Capsule_image_url;
+        }
+
+        void Application::setCapsuleImageUrl(const utility::string_t &value)
+        {
+            m_Capsule_image_url = value;
+            m_Capsule_image_urlIsSet = true;
+        }
+
+        bool Application::capsuleImageUrlIsSet() const
+        {
+            return m_Capsule_image_urlIsSet;
+        }
+
+        void Application::unsetCapsule_image_url()
+        {
+            m_Capsule_image_urlIsSet = false;
+        }
+        utility::string_t Application::getLibraryImageUrl() const
+        {
+            return m_Library_image_url;
+        }
+
+        void Application::setLibraryImageUrl(const utility::string_t &value)
+        {
+            m_Library_image_url = value;
+            m_Library_image_urlIsSet = true;
+        }
+
+        bool Application::libraryImageUrlIsSet() const
+        {
+            return m_Library_image_urlIsSet;
+        }
+
+        void Application::unsetLibrary_image_url()
+        {
+            m_Library_image_urlIsSet = false;
+        }
+        utility::string_t Application::getParentId() const
+        {
+            return m_Parent_id;
+        }
+
+        void Application::setParentId(const utility::string_t &value)
+        {
+            m_Parent_id = value;
+            m_Parent_idIsSet = true;
+        }
+
+        bool Application::parentIdIsSet() const
+        {
+            return m_Parent_idIsSet;
+        }
+
+        void Application::unsetParent_id()
+        {
+            m_Parent_idIsSet = false;
+        }
+        utility::string_t Application::getSlug() const
+        {
+            return m_Slug;
+        }
+
+        void Application::setSlug(const utility::string_t &value)
+        {
+            m_Slug = value;
+            m_SlugIsSet = true;
+        }
+
+        bool Application::slugIsSet() const
+        {
+            return m_SlugIsSet;
+        }
+
+        void Application::unsetSlug()
+        {
+            m_SlugIsSet = false;
+        }
+        int32_t Application::getVisibility() const
+        {
+            return m_Visibility;
+        }
+
+        void Application::setVisibility(int32_t value)
+        {
+            m_Visibility = value;
+            m_VisibilityIsSet = true;
+        }
+
+        bool Application::visibilityIsSet() const
+        {
+            return m_VisibilityIsSet;
+        }
+
+        void Application::unsetVisibility()
+        {
+            m_VisibilityIsSet = false;
+        }
+        utility::string_t Application::getPassword() const
+        {
+            return m_Password;
+        }
+
+        void Application::setPassword(const utility::string_t &value)
+        {
+            m_Password = value;
+            m_PasswordIsSet = true;
+        }
+
+        bool Application::passwordIsSet() const
+        {
+            return m_PasswordIsSet;
+        }
+
+        void Application::unsetPassword()
+        {
+            m_PasswordIsSet = false;
+        }
+        int32_t Application::getPrimary() const
+        {
+            return m_Primary;
+        }
+
+        void Application::setPrimary(int32_t value)
+        {
+            m_Primary = value;
+            m_PrimaryIsSet = true;
+        }
+
+        bool Application::primaryIsSet() const
+        {
+            return m_PrimaryIsSet;
+        }
+
+        void Application::unsetPrimary()
+        {
+            m_PrimaryIsSet = false;
+        }
+        int32_t Application::getUserCount() const
+        {
+            return m_User_count;
+        }
+
+        void Application::setUserCount(int32_t value)
+        {
+            m_User_count = value;
+            m_User_countIsSet = true;
+        }
+
+        bool Application::userCountIsSet() const
+        {
+            return m_User_countIsSet;
+        }
+
+        void Application::unsetUser_count()
+        {
+            m_User_countIsSet = false;
+        }
+        int32_t Application::getAchievementCount() const
+        {
+            return m_Achievement_count;
+        }
+
+        void Application::setAchievementCount(int32_t value)
+        {
+            m_Achievement_count = value;
+            m_Achievement_countIsSet = true;
+        }
+
+        bool Application::achievementCountIsSet() const
+        {
+            return m_Achievement_countIsSet;
+        }
+
+        void Application::unsetAchievement_count()
+        {
+            m_Achievement_countIsSet = false;
+        }
+        int32_t Application::getBadgeCount() const
+        {
+            return m_Badge_count;
+        }
+
+        void Application::setBadgeCount(int32_t value)
+        {
+            m_Badge_count = value;
+            m_Badge_countIsSet = true;
+        }
+
+        bool Application::badgeCountIsSet() const
+        {
+            return m_Badge_countIsSet;
+        }
+
+        void Application::unsetBadge_count()
+        {
+            m_Badge_countIsSet = false;
+        }
+        int32_t Application::getDownloadCount() const
+        {
+            return m_Download_count;
+        }
+
+        void Application::setDownloadCount(int32_t value)
+        {
+            m_Download_count = value;
+            m_Download_countIsSet = true;
+        }
+
+        bool Application::downloadCountIsSet() const
+        {
+            return m_Download_countIsSet;
+        }
+
+        void Application::unsetDownload_count()
+        {
+            m_Download_countIsSet = false;
+        }
+        utility::datetime Application::getCreated() const
+        {
+            return m_Created;
+        }
+
+        void Application::setCreated(const utility::datetime &value)
+        {
+            m_Created = value;
+            m_CreatedIsSet = true;
+        }
+
+        bool Application::createdIsSet() const
+        {
+            return m_CreatedIsSet;
+        }
+
+        void Application::unsetCreated()
+        {
+            m_CreatedIsSet = false;
+        }
+        utility::datetime Application::getUpdated() const
+        {
+            return m_Updated;
+        }
+
+        void Application::setUpdated(const utility::datetime &value)
+        {
+            m_Updated = value;
+            m_UpdatedIsSet = true;
+        }
+
+        bool Application::updatedIsSet() const
+        {
+            return m_UpdatedIsSet;
+        }
+
+        void Application::unsetUpdated()
+        {
+            m_UpdatedIsSet = false;
+        }
+
     }
-    return ok;
 }
-
-void Application::toMultipart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& prefix) const
-{
-    utility::string_t namePrefix = prefix;
-    if(namePrefix.size() > 0 && namePrefix.substr(namePrefix.size() - 1) != utility::conversions::to_string_t(U(".")))
-    {
-        namePrefix += utility::conversions::to_string_t(U("."));
-    }
-    if(m_IdIsSet)
-    {
-        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("id")), m_Id));
-    }
-    if(m_NameIsSet)
-    {
-        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("name")), m_Name));
-    }
-    if(m_DescriptionIsSet)
-    {
-        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("description")), m_Description));
-    }
-    if(m_TypeIsSet)
-    {
-        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("type")), m_Type));
-    }
-    if(m_Organization_idIsSet)
-    {
-        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("organization_id")), m_Organization_id));
-    }
-    if(m_Icon_urlIsSet)
-    {
-        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("icon_url")), m_Icon_url));
-    }
-    if(m_Banner_urlIsSet)
-    {
-        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("banner_url")), m_Banner_url));
-    }
-    if(m_Capsule_image_urlIsSet)
-    {
-        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("capsule_image_url")), m_Capsule_image_url));
-    }
-    if(m_Library_image_urlIsSet)
-    {
-        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("library_image_url")), m_Library_image_url));
-    }
-    if(m_Parent_idIsSet)
-    {
-        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("parent_id")), m_Parent_id));
-    }
-    if(m_SlugIsSet)
-    {
-        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("slug")), m_Slug));
-    }
-    if(m_VisibilityIsSet)
-    {
-        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("visibility")), m_Visibility));
-    }
-    if(m_PasswordIsSet)
-    {
-        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("password")), m_Password));
-    }
-    if(m_PrimaryIsSet)
-    {
-        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("primary")), m_Primary));
-    }
-    if(m_User_countIsSet)
-    {
-        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("user_count")), m_User_count));
-    }
-    if(m_Achievement_countIsSet)
-    {
-        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("achievement_count")), m_Achievement_count));
-    }
-    if(m_Badge_countIsSet)
-    {
-        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("badge_count")), m_Badge_count));
-    }
-    if(m_Download_countIsSet)
-    {
-        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("download_count")), m_Download_count));
-    }
-    if(m_CreatedIsSet)
-    {
-        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("created")), m_Created));
-    }
-    if(m_UpdatedIsSet)
-    {
-        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("updated")), m_Updated));
-    }
-}
-
-bool Application::fromMultiPart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& prefix)
-{
-    bool ok = true;
-    utility::string_t namePrefix = prefix;
-    if(namePrefix.size() > 0 && namePrefix.substr(namePrefix.size() - 1) != utility::conversions::to_string_t(U(".")))
-    {
-        namePrefix += utility::conversions::to_string_t(U("."));
-    }
-
-    if(multipart->hasContent(utility::conversions::to_string_t(U("id"))))
-    {
-        utility::string_t refVal_setId;
-        ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(U("id"))), refVal_setId );
-        setId(refVal_setId);
-    }
-    if(multipart->hasContent(utility::conversions::to_string_t(U("name"))))
-    {
-        utility::string_t refVal_setName;
-        ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(U("name"))), refVal_setName );
-        setName(refVal_setName);
-    }
-    if(multipart->hasContent(utility::conversions::to_string_t(U("description"))))
-    {
-        utility::string_t refVal_setDescription;
-        ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(U("description"))), refVal_setDescription );
-        setDescription(refVal_setDescription);
-    }
-    if(multipart->hasContent(utility::conversions::to_string_t(U("type"))))
-    {
-        std::shared_ptr<ApplicationType> refVal_setType;
-        ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(U("type"))), refVal_setType );
-        setType(refVal_setType);
-    }
-    if(multipart->hasContent(utility::conversions::to_string_t(U("organization_id"))))
-    {
-        utility::string_t refVal_setOrganizationId;
-        ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(U("organization_id"))), refVal_setOrganizationId );
-        setOrganizationId(refVal_setOrganizationId);
-    }
-    if(multipart->hasContent(utility::conversions::to_string_t(U("icon_url"))))
-    {
-        utility::string_t refVal_setIconUrl;
-        ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(U("icon_url"))), refVal_setIconUrl );
-        setIconUrl(refVal_setIconUrl);
-    }
-    if(multipart->hasContent(utility::conversions::to_string_t(U("banner_url"))))
-    {
-        utility::string_t refVal_setBannerUrl;
-        ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(U("banner_url"))), refVal_setBannerUrl );
-        setBannerUrl(refVal_setBannerUrl);
-    }
-    if(multipart->hasContent(utility::conversions::to_string_t(U("capsule_image_url"))))
-    {
-        utility::string_t refVal_setCapsuleImageUrl;
-        ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(U("capsule_image_url"))), refVal_setCapsuleImageUrl );
-        setCapsuleImageUrl(refVal_setCapsuleImageUrl);
-    }
-    if(multipart->hasContent(utility::conversions::to_string_t(U("library_image_url"))))
-    {
-        utility::string_t refVal_setLibraryImageUrl;
-        ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(U("library_image_url"))), refVal_setLibraryImageUrl );
-        setLibraryImageUrl(refVal_setLibraryImageUrl);
-    }
-    if(multipart->hasContent(utility::conversions::to_string_t(U("parent_id"))))
-    {
-        utility::string_t refVal_setParentId;
-        ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(U("parent_id"))), refVal_setParentId );
-        setParentId(refVal_setParentId);
-    }
-    if(multipart->hasContent(utility::conversions::to_string_t(U("slug"))))
-    {
-        utility::string_t refVal_setSlug;
-        ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(U("slug"))), refVal_setSlug );
-        setSlug(refVal_setSlug);
-    }
-    if(multipart->hasContent(utility::conversions::to_string_t(U("visibility"))))
-    {
-        int32_t refVal_setVisibility;
-        ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(U("visibility"))), refVal_setVisibility );
-        setVisibility(refVal_setVisibility);
-    }
-    if(multipart->hasContent(utility::conversions::to_string_t(U("password"))))
-    {
-        utility::string_t refVal_setPassword;
-        ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(U("password"))), refVal_setPassword );
-        setPassword(refVal_setPassword);
-    }
-    if(multipart->hasContent(utility::conversions::to_string_t(U("primary"))))
-    {
-        int32_t refVal_setPrimary;
-        ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(U("primary"))), refVal_setPrimary );
-        setPrimary(refVal_setPrimary);
-    }
-    if(multipart->hasContent(utility::conversions::to_string_t(U("user_count"))))
-    {
-        int32_t refVal_setUserCount;
-        ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(U("user_count"))), refVal_setUserCount );
-        setUserCount(refVal_setUserCount);
-    }
-    if(multipart->hasContent(utility::conversions::to_string_t(U("achievement_count"))))
-    {
-        int32_t refVal_setAchievementCount;
-        ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(U("achievement_count"))), refVal_setAchievementCount );
-        setAchievementCount(refVal_setAchievementCount);
-    }
-    if(multipart->hasContent(utility::conversions::to_string_t(U("badge_count"))))
-    {
-        int32_t refVal_setBadgeCount;
-        ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(U("badge_count"))), refVal_setBadgeCount );
-        setBadgeCount(refVal_setBadgeCount);
-    }
-    if(multipart->hasContent(utility::conversions::to_string_t(U("download_count"))))
-    {
-        int32_t refVal_setDownloadCount;
-        ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(U("download_count"))), refVal_setDownloadCount );
-        setDownloadCount(refVal_setDownloadCount);
-    }
-    if(multipart->hasContent(utility::conversions::to_string_t(U("created"))))
-    {
-        utility::datetime refVal_setCreated;
-        ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(U("created"))), refVal_setCreated );
-        setCreated(refVal_setCreated);
-    }
-    if(multipart->hasContent(utility::conversions::to_string_t(U("updated"))))
-    {
-        utility::datetime refVal_setUpdated;
-        ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(U("updated"))), refVal_setUpdated );
-        setUpdated(refVal_setUpdated);
-    }
-    return ok;
-}
-
-
-utility::string_t Application::getId() const
-{
-    return m_Id;
-}
-
-
-void Application::setId(const utility::string_t& value)
-{
-    m_Id = value;
-    m_IdIsSet = true;
-}
-
-bool Application::idIsSet() const
-{
-    return m_IdIsSet;
-}
-
-void Application::unsetId()
-{
-    m_IdIsSet = false;
-}
-utility::string_t Application::getName() const
-{
-    return m_Name;
-}
-
-
-void Application::setName(const utility::string_t& value)
-{
-    m_Name = value;
-    m_NameIsSet = true;
-}
-
-bool Application::nameIsSet() const
-{
-    return m_NameIsSet;
-}
-
-void Application::unsetName()
-{
-    m_NameIsSet = false;
-}
-utility::string_t Application::getDescription() const
-{
-    return m_Description;
-}
-
-
-void Application::setDescription(const utility::string_t& value)
-{
-    m_Description = value;
-    m_DescriptionIsSet = true;
-}
-
-bool Application::descriptionIsSet() const
-{
-    return m_DescriptionIsSet;
-}
-
-void Application::unsetDescription()
-{
-    m_DescriptionIsSet = false;
-}
-std::shared_ptr<ApplicationType> Application::getType() const
-{
-    return m_Type;
-}
-
-
-void Application::setType(const std::shared_ptr<ApplicationType>& value)
-{
-    m_Type = value;
-    m_TypeIsSet = true;
-}
-
-bool Application::typeIsSet() const
-{
-    return m_TypeIsSet;
-}
-
-void Application::unsetType()
-{
-    m_TypeIsSet = false;
-}
-utility::string_t Application::getOrganizationId() const
-{
-    return m_Organization_id;
-}
-
-
-void Application::setOrganizationId(const utility::string_t& value)
-{
-    m_Organization_id = value;
-    m_Organization_idIsSet = true;
-}
-
-bool Application::organizationIdIsSet() const
-{
-    return m_Organization_idIsSet;
-}
-
-void Application::unsetOrganization_id()
-{
-    m_Organization_idIsSet = false;
-}
-utility::string_t Application::getIconUrl() const
-{
-    return m_Icon_url;
-}
-
-
-void Application::setIconUrl(const utility::string_t& value)
-{
-    m_Icon_url = value;
-    m_Icon_urlIsSet = true;
-}
-
-bool Application::iconUrlIsSet() const
-{
-    return m_Icon_urlIsSet;
-}
-
-void Application::unsetIcon_url()
-{
-    m_Icon_urlIsSet = false;
-}
-utility::string_t Application::getBannerUrl() const
-{
-    return m_Banner_url;
-}
-
-
-void Application::setBannerUrl(const utility::string_t& value)
-{
-    m_Banner_url = value;
-    m_Banner_urlIsSet = true;
-}
-
-bool Application::bannerUrlIsSet() const
-{
-    return m_Banner_urlIsSet;
-}
-
-void Application::unsetBanner_url()
-{
-    m_Banner_urlIsSet = false;
-}
-utility::string_t Application::getCapsuleImageUrl() const
-{
-    return m_Capsule_image_url;
-}
-
-
-void Application::setCapsuleImageUrl(const utility::string_t& value)
-{
-    m_Capsule_image_url = value;
-    m_Capsule_image_urlIsSet = true;
-}
-
-bool Application::capsuleImageUrlIsSet() const
-{
-    return m_Capsule_image_urlIsSet;
-}
-
-void Application::unsetCapsule_image_url()
-{
-    m_Capsule_image_urlIsSet = false;
-}
-utility::string_t Application::getLibraryImageUrl() const
-{
-    return m_Library_image_url;
-}
-
-
-void Application::setLibraryImageUrl(const utility::string_t& value)
-{
-    m_Library_image_url = value;
-    m_Library_image_urlIsSet = true;
-}
-
-bool Application::libraryImageUrlIsSet() const
-{
-    return m_Library_image_urlIsSet;
-}
-
-void Application::unsetLibrary_image_url()
-{
-    m_Library_image_urlIsSet = false;
-}
-utility::string_t Application::getParentId() const
-{
-    return m_Parent_id;
-}
-
-
-void Application::setParentId(const utility::string_t& value)
-{
-    m_Parent_id = value;
-    m_Parent_idIsSet = true;
-}
-
-bool Application::parentIdIsSet() const
-{
-    return m_Parent_idIsSet;
-}
-
-void Application::unsetParent_id()
-{
-    m_Parent_idIsSet = false;
-}
-utility::string_t Application::getSlug() const
-{
-    return m_Slug;
-}
-
-
-void Application::setSlug(const utility::string_t& value)
-{
-    m_Slug = value;
-    m_SlugIsSet = true;
-}
-
-bool Application::slugIsSet() const
-{
-    return m_SlugIsSet;
-}
-
-void Application::unsetSlug()
-{
-    m_SlugIsSet = false;
-}
-int32_t Application::getVisibility() const
-{
-    return m_Visibility;
-}
-
-void Application::setVisibility(int32_t value)
-{
-    m_Visibility = value;
-    m_VisibilityIsSet = true;
-}
-
-bool Application::visibilityIsSet() const
-{
-    return m_VisibilityIsSet;
-}
-
-void Application::unsetVisibility()
-{
-    m_VisibilityIsSet = false;
-}
-utility::string_t Application::getPassword() const
-{
-    return m_Password;
-}
-
-
-void Application::setPassword(const utility::string_t& value)
-{
-    m_Password = value;
-    m_PasswordIsSet = true;
-}
-
-bool Application::passwordIsSet() const
-{
-    return m_PasswordIsSet;
-}
-
-void Application::unsetPassword()
-{
-    m_PasswordIsSet = false;
-}
-int32_t Application::getPrimary() const
-{
-    return m_Primary;
-}
-
-void Application::setPrimary(int32_t value)
-{
-    m_Primary = value;
-    m_PrimaryIsSet = true;
-}
-
-bool Application::primaryIsSet() const
-{
-    return m_PrimaryIsSet;
-}
-
-void Application::unsetPrimary()
-{
-    m_PrimaryIsSet = false;
-}
-int32_t Application::getUserCount() const
-{
-    return m_User_count;
-}
-
-void Application::setUserCount(int32_t value)
-{
-    m_User_count = value;
-    m_User_countIsSet = true;
-}
-
-bool Application::userCountIsSet() const
-{
-    return m_User_countIsSet;
-}
-
-void Application::unsetUser_count()
-{
-    m_User_countIsSet = false;
-}
-int32_t Application::getAchievementCount() const
-{
-    return m_Achievement_count;
-}
-
-void Application::setAchievementCount(int32_t value)
-{
-    m_Achievement_count = value;
-    m_Achievement_countIsSet = true;
-}
-
-bool Application::achievementCountIsSet() const
-{
-    return m_Achievement_countIsSet;
-}
-
-void Application::unsetAchievement_count()
-{
-    m_Achievement_countIsSet = false;
-}
-int32_t Application::getBadgeCount() const
-{
-    return m_Badge_count;
-}
-
-void Application::setBadgeCount(int32_t value)
-{
-    m_Badge_count = value;
-    m_Badge_countIsSet = true;
-}
-
-bool Application::badgeCountIsSet() const
-{
-    return m_Badge_countIsSet;
-}
-
-void Application::unsetBadge_count()
-{
-    m_Badge_countIsSet = false;
-}
-int32_t Application::getDownloadCount() const
-{
-    return m_Download_count;
-}
-
-void Application::setDownloadCount(int32_t value)
-{
-    m_Download_count = value;
-    m_Download_countIsSet = true;
-}
-
-bool Application::downloadCountIsSet() const
-{
-    return m_Download_countIsSet;
-}
-
-void Application::unsetDownload_count()
-{
-    m_Download_countIsSet = false;
-}
-utility::datetime Application::getCreated() const
-{
-    return m_Created;
-}
-
-
-void Application::setCreated(const utility::datetime& value)
-{
-    m_Created = value;
-    m_CreatedIsSet = true;
-}
-
-bool Application::createdIsSet() const
-{
-    return m_CreatedIsSet;
-}
-
-void Application::unsetCreated()
-{
-    m_CreatedIsSet = false;
-}
-utility::datetime Application::getUpdated() const
-{
-    return m_Updated;
-}
-
-
-void Application::setUpdated(const utility::datetime& value)
-{
-    m_Updated = value;
-    m_UpdatedIsSet = true;
-}
-
-bool Application::updatedIsSet() const
-{
-    return m_UpdatedIsSet;
-}
-
-void Application::unsetUpdated()
-{
-    m_UpdatedIsSet = false;
-}
-
-}
-}
-
-

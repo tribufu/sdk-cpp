@@ -13,179 +13,174 @@
 /*
  * Group.h
  *
- * 
+ *
  */
 
 #ifndef TRIBUFU_MODELS_Group_H_
 #define TRIBUFU_MODELS_Group_H_
 
-
 #include "tribufu++/ModelBase.h"
 
 #include <cpprest/details/basic_types.h>
 
-namespace tribufu {
-namespace models {
-
-
-
-class  Group
-    : public ModelBase
+namespace tribufu
 {
-public:
-    Group();
-    virtual ~Group();
+    namespace models
+    {
 
-    /////////////////////////////////////////////
-    /// ModelBase overrides
+        class Group : public ModelBase
+        {
+        public:
+            Group();
+            virtual ~Group();
 
-    void validate() override;
+            /////////////////////////////////////////////
+            /// ModelBase overrides
 
-    web::json::value toJson() const override;
-    bool fromJson(const web::json::value& json) override;
+            void validate() override;
 
-    void toMultipart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& namePrefix) const override;
-    bool fromMultiPart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& namePrefix) override;
+            web::json::value toJson() const override;
+            bool fromJson(const web::json::value &json) override;
 
+            void toMultipart(std::shared_ptr<MultipartFormData> multipart,
+                             const utility::string_t &namePrefix) const override;
+            bool fromMultiPart(std::shared_ptr<MultipartFormData> multipart,
+                               const utility::string_t &namePrefix) override;
 
-    /////////////////////////////////////////////
-    /// Group members
+            /////////////////////////////////////////////
+            /// Group members
 
+            utility::string_t getId() const;
+            bool idIsSet() const;
+            void unsetId();
+            void setId(const utility::string_t &value);
 
-    utility::string_t getId() const;
-    bool idIsSet() const;
-    void unsetId();
-    void setId(const utility::string_t& value);
+            utility::string_t getUuid() const;
+            bool uuidIsSet() const;
+            void unsetUuid();
+            void setUuid(const utility::string_t &value);
 
-    utility::string_t getUuid() const;
-    bool uuidIsSet() const;
-    void unsetUuid();
-    void setUuid(const utility::string_t& value);
+            utility::string_t getName() const;
+            bool nameIsSet() const;
+            void unsetName();
+            void setName(const utility::string_t &value);
 
-    utility::string_t getName() const;
-    bool nameIsSet() const;
-    void unsetName();
-    void setName(const utility::string_t& value);
+            utility::string_t getTag() const;
+            bool tagIsSet() const;
+            void unsetTag();
+            void setTag(const utility::string_t &value);
 
-    utility::string_t getTag() const;
-    bool tagIsSet() const;
-    void unsetTag();
-    void setTag(const utility::string_t& value);
+            utility::string_t getDescription() const;
+            bool descriptionIsSet() const;
+            void unsetDescription();
+            void setDescription(const utility::string_t &value);
 
-    utility::string_t getDescription() const;
-    bool descriptionIsSet() const;
-    void unsetDescription();
-    void setDescription(const utility::string_t& value);
+            int32_t getType() const;
+            bool typeIsSet() const;
+            void unsetType();
+            void setType(int32_t value);
 
-    int32_t getType() const;
-    bool typeIsSet() const;
-    void unsetType();
-    void setType(int32_t value);
+            int32_t getPrivacy() const;
+            bool privacyIsSet() const;
+            void unsetPrivacy();
+            void setPrivacy(int32_t value);
 
-    int32_t getPrivacy() const;
-    bool privacyIsSet() const;
-    void unsetPrivacy();
-    void setPrivacy(int32_t value);
+            utility::string_t getOwnerId() const;
+            bool ownerIdIsSet() const;
+            void unsetOwner_id();
+            void setOwnerId(const utility::string_t &value);
 
-    utility::string_t getOwnerId() const;
-    bool ownerIdIsSet() const;
-    void unsetOwner_id();
-    void setOwnerId(const utility::string_t& value);
+            bool isVerified() const;
+            bool verifiedIsSet() const;
+            void unsetVerified();
+            void setVerified(bool value);
 
-    bool isVerified() const;
-    bool verifiedIsSet() const;
-    void unsetVerified();
-    void setVerified(bool value);
+            utility::string_t getPhotoUrl() const;
+            bool photoUrlIsSet() const;
+            void unsetPhoto_url();
+            void setPhotoUrl(const utility::string_t &value);
 
-    utility::string_t getPhotoUrl() const;
-    bool photoUrlIsSet() const;
-    void unsetPhoto_url();
-    void setPhotoUrl(const utility::string_t& value);
+            utility::string_t getBannerUrl() const;
+            bool bannerUrlIsSet() const;
+            void unsetBanner_url();
+            void setBannerUrl(const utility::string_t &value);
 
-    utility::string_t getBannerUrl() const;
-    bool bannerUrlIsSet() const;
-    void unsetBanner_url();
-    void setBannerUrl(const utility::string_t& value);
+            int32_t getMemberCount() const;
+            bool memberCountIsSet() const;
+            void unsetMember_count();
+            void setMemberCount(int32_t value);
 
-    int32_t getMemberCount() const;
-    bool memberCountIsSet() const;
-    void unsetMember_count();
-    void setMemberCount(int32_t value);
+            int32_t getFollowerCount() const;
+            bool followerCountIsSet() const;
+            void unsetFollower_count();
+            void setFollowerCount(int32_t value);
 
-    int32_t getFollowerCount() const;
-    bool followerCountIsSet() const;
-    void unsetFollower_count();
-    void setFollowerCount(int32_t value);
+            int32_t getViewCount() const;
+            bool viewCountIsSet() const;
+            void unsetView_count();
+            void setViewCount(int32_t value);
 
-    int32_t getViewCount() const;
-    bool viewCountIsSet() const;
-    void unsetView_count();
-    void setViewCount(int32_t value);
+            utility::datetime getCreated() const;
+            bool createdIsSet() const;
+            void unsetCreated();
+            void setCreated(const utility::datetime &value);
 
-    utility::datetime getCreated() const;
-    bool createdIsSet() const;
-    void unsetCreated();
-    void setCreated(const utility::datetime& value);
+            utility::datetime getUpdated() const;
+            bool updatedIsSet() const;
+            void unsetUpdated();
+            void setUpdated(const utility::datetime &value);
 
-    utility::datetime getUpdated() const;
-    bool updatedIsSet() const;
-    void unsetUpdated();
-    void setUpdated(const utility::datetime& value);
+        protected:
+            utility::string_t m_Id;
+            bool m_IdIsSet;
 
+            utility::string_t m_Uuid;
+            bool m_UuidIsSet;
 
-protected:
-    utility::string_t m_Id;
-    bool m_IdIsSet;
+            utility::string_t m_Name;
+            bool m_NameIsSet;
 
-    utility::string_t m_Uuid;
-    bool m_UuidIsSet;
+            utility::string_t m_Tag;
+            bool m_TagIsSet;
 
-    utility::string_t m_Name;
-    bool m_NameIsSet;
+            utility::string_t m_Description;
+            bool m_DescriptionIsSet;
 
-    utility::string_t m_Tag;
-    bool m_TagIsSet;
+            int32_t m_Type;
+            bool m_TypeIsSet;
 
-    utility::string_t m_Description;
-    bool m_DescriptionIsSet;
+            int32_t m_Privacy;
+            bool m_PrivacyIsSet;
 
-    int32_t m_Type;
-    bool m_TypeIsSet;
+            utility::string_t m_Owner_id;
+            bool m_Owner_idIsSet;
 
-    int32_t m_Privacy;
-    bool m_PrivacyIsSet;
+            bool m_Verified;
+            bool m_VerifiedIsSet;
 
-    utility::string_t m_Owner_id;
-    bool m_Owner_idIsSet;
+            utility::string_t m_Photo_url;
+            bool m_Photo_urlIsSet;
 
-    bool m_Verified;
-    bool m_VerifiedIsSet;
+            utility::string_t m_Banner_url;
+            bool m_Banner_urlIsSet;
 
-    utility::string_t m_Photo_url;
-    bool m_Photo_urlIsSet;
+            int32_t m_Member_count;
+            bool m_Member_countIsSet;
 
-    utility::string_t m_Banner_url;
-    bool m_Banner_urlIsSet;
+            int32_t m_Follower_count;
+            bool m_Follower_countIsSet;
 
-    int32_t m_Member_count;
-    bool m_Member_countIsSet;
+            int32_t m_View_count;
+            bool m_View_countIsSet;
 
-    int32_t m_Follower_count;
-    bool m_Follower_countIsSet;
+            utility::datetime m_Created;
+            bool m_CreatedIsSet;
 
-    int32_t m_View_count;
-    bool m_View_countIsSet;
+            utility::datetime m_Updated;
+            bool m_UpdatedIsSet;
+        };
 
-    utility::datetime m_Created;
-    bool m_CreatedIsSet;
-
-    utility::datetime m_Updated;
-    bool m_UpdatedIsSet;
-
-};
-
-
-}
+    }
 }
 
 #endif /* TRIBUFU_MODELS_Group_H_ */

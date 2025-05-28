@@ -10,109 +10,108 @@
  * Do not edit the class manually.
  */
 
-
-
 #include "tribufu++/model/ResponseType.h"
 
-namespace tribufu {
-namespace models {
-
-namespace
+namespace tribufu
 {
-using EnumUnderlyingType = utility::string_t;
-
-ResponseType::eResponseType toEnum(const EnumUnderlyingType& val)
-{
-    if (val == utility::conversions::to_string_t(U("code")))
-        return ResponseType::eResponseType::ResponseType_CODE;
-    if (val == utility::conversions::to_string_t(U("token")))
-        return ResponseType::eResponseType::ResponseType_TOKEN;
-    return {};
-}
-
-EnumUnderlyingType fromEnum(ResponseType::eResponseType e)
-{
-    switch (e)
+    namespace models
     {
-    case ResponseType::eResponseType::ResponseType_CODE:
-        return U("code");
-    case ResponseType::eResponseType::ResponseType_TOKEN:
-        return U("token");
-    default:
-        break;
-    }
-    return {};
-}
-}
 
-ResponseType::ResponseType()
-{
-}
-
-ResponseType::~ResponseType()
-{
-}
-
-void ResponseType::validate()
-{
-    // TODO: implement validation
-}
-
-web::json::value ResponseType::toJson() const
-{
-    auto val = fromEnum(m_value);
-    return web::json::value(val);
-}
-
-bool ResponseType::fromJson(const web::json::value& val)
-{
-    m_value = toEnum(val.as_string());
-    return true;
-}
-
-void ResponseType::toMultipart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& prefix) const
-{
-    utility::string_t namePrefix = prefix;
-    if (!namePrefix.empty() && namePrefix.back() != U('.'))
-    {
-        namePrefix.push_back(U('.'));
-    }
-
-    auto e = fromEnum(m_value);
-    multipart->add(ModelBase::toHttpContent(namePrefix, e));
-}
-
-bool ResponseType::fromMultiPart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& prefix)
-{
-    bool ok = true;
-    utility::string_t namePrefix = prefix;
-    if (!namePrefix.empty() && namePrefix.back() != U('.'))
-    {
-        namePrefix.push_back(U('.'));
-    }
-    {
-        EnumUnderlyingType e;
-        ok = ModelBase::fromHttpContent(multipart->getContent(namePrefix), e);
-        if (ok)
+        namespace
         {
-            auto v = toEnum(e);
-            setValue(v);
+            using EnumUnderlyingType = utility::string_t;
+
+            ResponseType::eResponseType toEnum(const EnumUnderlyingType &val)
+            {
+                if (val == utility::conversions::to_string_t(U("code")))
+                    return ResponseType::eResponseType::ResponseType_CODE;
+                if (val == utility::conversions::to_string_t(U("token")))
+                    return ResponseType::eResponseType::ResponseType_TOKEN;
+                return {};
+            }
+
+            EnumUnderlyingType fromEnum(ResponseType::eResponseType e)
+            {
+                switch (e)
+                {
+                case ResponseType::eResponseType::ResponseType_CODE:
+                    return U("code");
+                case ResponseType::eResponseType::ResponseType_TOKEN:
+                    return U("token");
+                default:
+                    break;
+                }
+                return {};
+            }
         }
+
+        ResponseType::ResponseType()
+        {
+        }
+
+        ResponseType::~ResponseType()
+        {
+        }
+
+        void ResponseType::validate()
+        {
+            // TODO: implement validation
+        }
+
+        web::json::value ResponseType::toJson() const
+        {
+            auto val = fromEnum(m_value);
+            return web::json::value(val);
+        }
+
+        bool ResponseType::fromJson(const web::json::value &val)
+        {
+            m_value = toEnum(val.as_string());
+            return true;
+        }
+
+        void ResponseType::toMultipart(std::shared_ptr<MultipartFormData> multipart,
+                                       const utility::string_t &prefix) const
+        {
+            utility::string_t namePrefix = prefix;
+            if (!namePrefix.empty() && namePrefix.back() != U('.'))
+            {
+                namePrefix.push_back(U('.'));
+            }
+
+            auto e = fromEnum(m_value);
+            multipart->add(ModelBase::toHttpContent(namePrefix, e));
+        }
+
+        bool ResponseType::fromMultiPart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t &prefix)
+        {
+            bool ok = true;
+            utility::string_t namePrefix = prefix;
+            if (!namePrefix.empty() && namePrefix.back() != U('.'))
+            {
+                namePrefix.push_back(U('.'));
+            }
+            {
+                EnumUnderlyingType e;
+                ok = ModelBase::fromHttpContent(multipart->getContent(namePrefix), e);
+                if (ok)
+                {
+                    auto v = toEnum(e);
+                    setValue(v);
+                }
+            }
+            return ok;
+        }
+
+        ResponseType::eResponseType ResponseType::getValue() const
+        {
+            return m_value;
+        }
+
+        void ResponseType::setValue(ResponseType::eResponseType const value)
+        {
+            m_value = value;
+        }
+
     }
-    return ok;
 }
-
-ResponseType::eResponseType ResponseType::getValue() const
-{
-   return m_value;
-}
-
-void ResponseType::setValue(ResponseType::eResponseType const value)
-{
-   m_value = value;
-}
-
-}
-}
-
-

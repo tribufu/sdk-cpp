@@ -10,105 +10,103 @@
  * Do not edit the class manually.
  */
 
-
-
 #include "tribufu++/model/TokenType.h"
 
-namespace tribufu {
-namespace models {
-
-namespace
+namespace tribufu
 {
-using EnumUnderlyingType = utility::string_t;
-
-TokenType::eTokenType toEnum(const EnumUnderlyingType& val)
-{
-    if (val == utility::conversions::to_string_t(U("bearer")))
-        return TokenType::eTokenType::TokenType_BEARER;
-    return {};
-}
-
-EnumUnderlyingType fromEnum(TokenType::eTokenType e)
-{
-    switch (e)
+    namespace models
     {
-    case TokenType::eTokenType::TokenType_BEARER:
-        return U("bearer");
-    default:
-        break;
-    }
-    return {};
-}
-}
 
-TokenType::TokenType()
-{
-}
-
-TokenType::~TokenType()
-{
-}
-
-void TokenType::validate()
-{
-    // TODO: implement validation
-}
-
-web::json::value TokenType::toJson() const
-{
-    auto val = fromEnum(m_value);
-    return web::json::value(val);
-}
-
-bool TokenType::fromJson(const web::json::value& val)
-{
-    m_value = toEnum(val.as_string());
-    return true;
-}
-
-void TokenType::toMultipart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& prefix) const
-{
-    utility::string_t namePrefix = prefix;
-    if (!namePrefix.empty() && namePrefix.back() != U('.'))
-    {
-        namePrefix.push_back(U('.'));
-    }
-
-    auto e = fromEnum(m_value);
-    multipart->add(ModelBase::toHttpContent(namePrefix, e));
-}
-
-bool TokenType::fromMultiPart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& prefix)
-{
-    bool ok = true;
-    utility::string_t namePrefix = prefix;
-    if (!namePrefix.empty() && namePrefix.back() != U('.'))
-    {
-        namePrefix.push_back(U('.'));
-    }
-    {
-        EnumUnderlyingType e;
-        ok = ModelBase::fromHttpContent(multipart->getContent(namePrefix), e);
-        if (ok)
+        namespace
         {
-            auto v = toEnum(e);
-            setValue(v);
+            using EnumUnderlyingType = utility::string_t;
+
+            TokenType::eTokenType toEnum(const EnumUnderlyingType &val)
+            {
+                if (val == utility::conversions::to_string_t(U("bearer")))
+                    return TokenType::eTokenType::TokenType_BEARER;
+                return {};
+            }
+
+            EnumUnderlyingType fromEnum(TokenType::eTokenType e)
+            {
+                switch (e)
+                {
+                case TokenType::eTokenType::TokenType_BEARER:
+                    return U("bearer");
+                default:
+                    break;
+                }
+                return {};
+            }
         }
+
+        TokenType::TokenType()
+        {
+        }
+
+        TokenType::~TokenType()
+        {
+        }
+
+        void TokenType::validate()
+        {
+            // TODO: implement validation
+        }
+
+        web::json::value TokenType::toJson() const
+        {
+            auto val = fromEnum(m_value);
+            return web::json::value(val);
+        }
+
+        bool TokenType::fromJson(const web::json::value &val)
+        {
+            m_value = toEnum(val.as_string());
+            return true;
+        }
+
+        void TokenType::toMultipart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t &prefix) const
+        {
+            utility::string_t namePrefix = prefix;
+            if (!namePrefix.empty() && namePrefix.back() != U('.'))
+            {
+                namePrefix.push_back(U('.'));
+            }
+
+            auto e = fromEnum(m_value);
+            multipart->add(ModelBase::toHttpContent(namePrefix, e));
+        }
+
+        bool TokenType::fromMultiPart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t &prefix)
+        {
+            bool ok = true;
+            utility::string_t namePrefix = prefix;
+            if (!namePrefix.empty() && namePrefix.back() != U('.'))
+            {
+                namePrefix.push_back(U('.'));
+            }
+            {
+                EnumUnderlyingType e;
+                ok = ModelBase::fromHttpContent(multipart->getContent(namePrefix), e);
+                if (ok)
+                {
+                    auto v = toEnum(e);
+                    setValue(v);
+                }
+            }
+            return ok;
+        }
+
+        TokenType::eTokenType TokenType::getValue() const
+        {
+            return m_value;
+        }
+
+        void TokenType::setValue(TokenType::eTokenType const value)
+        {
+            m_value = value;
+        }
+
     }
-    return ok;
 }
-
-TokenType::eTokenType TokenType::getValue() const
-{
-   return m_value;
-}
-
-void TokenType::setValue(TokenType::eTokenType const value)
-{
-   m_value = value;
-}
-
-}
-}
-
-

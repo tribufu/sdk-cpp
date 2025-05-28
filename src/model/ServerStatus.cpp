@@ -10,113 +10,112 @@
  * Do not edit the class manually.
  */
 
-
-
 #include "tribufu++/model/ServerStatus.h"
 
-namespace tribufu {
-namespace models {
-
-namespace
+namespace tribufu
 {
-using EnumUnderlyingType = utility::string_t;
-
-ServerStatus::eServerStatus toEnum(const EnumUnderlyingType& val)
-{
-    if (val == utility::conversions::to_string_t(U("unknown")))
-        return ServerStatus::eServerStatus::ServerStatus_UNKNOWN;
-    if (val == utility::conversions::to_string_t(U("offline")))
-        return ServerStatus::eServerStatus::ServerStatus_OFFLINE;
-    if (val == utility::conversions::to_string_t(U("online")))
-        return ServerStatus::eServerStatus::ServerStatus_ONLINE;
-    return {};
-}
-
-EnumUnderlyingType fromEnum(ServerStatus::eServerStatus e)
-{
-    switch (e)
+    namespace models
     {
-    case ServerStatus::eServerStatus::ServerStatus_UNKNOWN:
-        return U("unknown");
-    case ServerStatus::eServerStatus::ServerStatus_OFFLINE:
-        return U("offline");
-    case ServerStatus::eServerStatus::ServerStatus_ONLINE:
-        return U("online");
-    default:
-        break;
-    }
-    return {};
-}
-}
 
-ServerStatus::ServerStatus()
-{
-}
-
-ServerStatus::~ServerStatus()
-{
-}
-
-void ServerStatus::validate()
-{
-    // TODO: implement validation
-}
-
-web::json::value ServerStatus::toJson() const
-{
-    auto val = fromEnum(m_value);
-    return web::json::value(val);
-}
-
-bool ServerStatus::fromJson(const web::json::value& val)
-{
-    m_value = toEnum(val.as_string());
-    return true;
-}
-
-void ServerStatus::toMultipart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& prefix) const
-{
-    utility::string_t namePrefix = prefix;
-    if (!namePrefix.empty() && namePrefix.back() != U('.'))
-    {
-        namePrefix.push_back(U('.'));
-    }
-
-    auto e = fromEnum(m_value);
-    multipart->add(ModelBase::toHttpContent(namePrefix, e));
-}
-
-bool ServerStatus::fromMultiPart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& prefix)
-{
-    bool ok = true;
-    utility::string_t namePrefix = prefix;
-    if (!namePrefix.empty() && namePrefix.back() != U('.'))
-    {
-        namePrefix.push_back(U('.'));
-    }
-    {
-        EnumUnderlyingType e;
-        ok = ModelBase::fromHttpContent(multipart->getContent(namePrefix), e);
-        if (ok)
+        namespace
         {
-            auto v = toEnum(e);
-            setValue(v);
+            using EnumUnderlyingType = utility::string_t;
+
+            ServerStatus::eServerStatus toEnum(const EnumUnderlyingType &val)
+            {
+                if (val == utility::conversions::to_string_t(U("unknown")))
+                    return ServerStatus::eServerStatus::ServerStatus_UNKNOWN;
+                if (val == utility::conversions::to_string_t(U("offline")))
+                    return ServerStatus::eServerStatus::ServerStatus_OFFLINE;
+                if (val == utility::conversions::to_string_t(U("online")))
+                    return ServerStatus::eServerStatus::ServerStatus_ONLINE;
+                return {};
+            }
+
+            EnumUnderlyingType fromEnum(ServerStatus::eServerStatus e)
+            {
+                switch (e)
+                {
+                case ServerStatus::eServerStatus::ServerStatus_UNKNOWN:
+                    return U("unknown");
+                case ServerStatus::eServerStatus::ServerStatus_OFFLINE:
+                    return U("offline");
+                case ServerStatus::eServerStatus::ServerStatus_ONLINE:
+                    return U("online");
+                default:
+                    break;
+                }
+                return {};
+            }
         }
+
+        ServerStatus::ServerStatus()
+        {
+        }
+
+        ServerStatus::~ServerStatus()
+        {
+        }
+
+        void ServerStatus::validate()
+        {
+            // TODO: implement validation
+        }
+
+        web::json::value ServerStatus::toJson() const
+        {
+            auto val = fromEnum(m_value);
+            return web::json::value(val);
+        }
+
+        bool ServerStatus::fromJson(const web::json::value &val)
+        {
+            m_value = toEnum(val.as_string());
+            return true;
+        }
+
+        void ServerStatus::toMultipart(std::shared_ptr<MultipartFormData> multipart,
+                                       const utility::string_t &prefix) const
+        {
+            utility::string_t namePrefix = prefix;
+            if (!namePrefix.empty() && namePrefix.back() != U('.'))
+            {
+                namePrefix.push_back(U('.'));
+            }
+
+            auto e = fromEnum(m_value);
+            multipart->add(ModelBase::toHttpContent(namePrefix, e));
+        }
+
+        bool ServerStatus::fromMultiPart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t &prefix)
+        {
+            bool ok = true;
+            utility::string_t namePrefix = prefix;
+            if (!namePrefix.empty() && namePrefix.back() != U('.'))
+            {
+                namePrefix.push_back(U('.'));
+            }
+            {
+                EnumUnderlyingType e;
+                ok = ModelBase::fromHttpContent(multipart->getContent(namePrefix), e);
+                if (ok)
+                {
+                    auto v = toEnum(e);
+                    setValue(v);
+                }
+            }
+            return ok;
+        }
+
+        ServerStatus::eServerStatus ServerStatus::getValue() const
+        {
+            return m_value;
+        }
+
+        void ServerStatus::setValue(ServerStatus::eServerStatus const value)
+        {
+            m_value = value;
+        }
+
     }
-    return ok;
 }
-
-ServerStatus::eServerStatus ServerStatus::getValue() const
-{
-   return m_value;
-}
-
-void ServerStatus::setValue(ServerStatus::eServerStatus const value)
-{
-   m_value = value;
-}
-
-}
-}
-
-

@@ -10,355 +10,357 @@
  * Do not edit the class manually.
  */
 
-
-
 #include "tribufu++/model/TokenResponse.h"
 
-namespace tribufu {
-namespace models {
-
-TokenResponse::TokenResponse()
+namespace tribufu
 {
-    m_Token_typeIsSet = false;
-    m_Access_token = utility::conversions::to_string_t("");
-    m_Access_tokenIsSet = false;
-    m_Refresh_token = utility::conversions::to_string_t("");
-    m_Refresh_tokenIsSet = false;
-    m_Scope = utility::conversions::to_string_t("");
-    m_ScopeIsSet = false;
-    m_State = utility::conversions::to_string_t("");
-    m_StateIsSet = false;
-    m_Expires_in = 0L;
-    m_Expires_inIsSet = false;
-}
-
-TokenResponse::~TokenResponse()
-{
-}
-
-void TokenResponse::validate()
-{
-    // TODO: implement validation
-}
-
-web::json::value TokenResponse::toJson() const
-{
-    web::json::value val = web::json::value::object();
-    if(m_Token_typeIsSet)
-    {   
-        
-        val[utility::conversions::to_string_t(U("token_type"))] = ModelBase::toJson(m_Token_type);
-    }
-    if(m_Access_tokenIsSet)
-    {   
-        
-        val[utility::conversions::to_string_t(U("access_token"))] = ModelBase::toJson(m_Access_token);
-    }
-    if(m_Refresh_tokenIsSet)
-    {   
-        
-        val[utility::conversions::to_string_t(U("refresh_token"))] = ModelBase::toJson(m_Refresh_token);
-    }
-    if(m_ScopeIsSet)
-    {   
-        
-        val[utility::conversions::to_string_t(U("scope"))] = ModelBase::toJson(m_Scope);
-    }
-    if(m_StateIsSet)
-    {   
-        
-        val[utility::conversions::to_string_t(U("state"))] = ModelBase::toJson(m_State);
-    }
-    if(m_Expires_inIsSet)
-    {   
-        
-        val[utility::conversions::to_string_t(U("expires_in"))] = ModelBase::toJson(m_Expires_in);
-    }
-
-    return val;
-}
-
-bool TokenResponse::fromJson(const web::json::value& val)
-{
-    bool ok = true;
-    if(val.has_field(utility::conversions::to_string_t(U("token_type"))))
+    namespace models
     {
-        const web::json::value& fieldValue = val.at(utility::conversions::to_string_t(U("token_type")));
-        if(!fieldValue.is_null())
+
+        TokenResponse::TokenResponse()
         {
-            std::shared_ptr<TokenType> refVal_setTokenType;
-            ok &= ModelBase::fromJson(fieldValue, refVal_setTokenType);
-            setTokenType(refVal_setTokenType);
-            
+            m_Token_typeIsSet = false;
+            m_Access_token = utility::conversions::to_string_t("");
+            m_Access_tokenIsSet = false;
+            m_Refresh_token = utility::conversions::to_string_t("");
+            m_Refresh_tokenIsSet = false;
+            m_Scope = utility::conversions::to_string_t("");
+            m_ScopeIsSet = false;
+            m_State = utility::conversions::to_string_t("");
+            m_StateIsSet = false;
+            m_Expires_in = 0L;
+            m_Expires_inIsSet = false;
         }
-    }
-    if(val.has_field(utility::conversions::to_string_t(U("access_token"))))
-    {
-        const web::json::value& fieldValue = val.at(utility::conversions::to_string_t(U("access_token")));
-        if(!fieldValue.is_null())
+
+        TokenResponse::~TokenResponse()
         {
-            utility::string_t refVal_setAccessToken;
-            ok &= ModelBase::fromJson(fieldValue, refVal_setAccessToken);
-            setAccessToken(refVal_setAccessToken);
-            
         }
-    }
-    if(val.has_field(utility::conversions::to_string_t(U("refresh_token"))))
-    {
-        const web::json::value& fieldValue = val.at(utility::conversions::to_string_t(U("refresh_token")));
-        if(!fieldValue.is_null())
+
+        void TokenResponse::validate()
         {
-            utility::string_t refVal_setRefreshToken;
-            ok &= ModelBase::fromJson(fieldValue, refVal_setRefreshToken);
-            setRefreshToken(refVal_setRefreshToken);
-            
+            // TODO: implement validation
         }
-    }
-    if(val.has_field(utility::conversions::to_string_t(U("scope"))))
-    {
-        const web::json::value& fieldValue = val.at(utility::conversions::to_string_t(U("scope")));
-        if(!fieldValue.is_null())
+
+        web::json::value TokenResponse::toJson() const
         {
-            utility::string_t refVal_setScope;
-            ok &= ModelBase::fromJson(fieldValue, refVal_setScope);
-            setScope(refVal_setScope);
-            
+            web::json::value val = web::json::value::object();
+            if (m_Token_typeIsSet)
+            {
+
+                val[utility::conversions::to_string_t(U("token_type"))] = ModelBase::toJson(m_Token_type);
+            }
+            if (m_Access_tokenIsSet)
+            {
+
+                val[utility::conversions::to_string_t(U("access_token"))] = ModelBase::toJson(m_Access_token);
+            }
+            if (m_Refresh_tokenIsSet)
+            {
+
+                val[utility::conversions::to_string_t(U("refresh_token"))] = ModelBase::toJson(m_Refresh_token);
+            }
+            if (m_ScopeIsSet)
+            {
+
+                val[utility::conversions::to_string_t(U("scope"))] = ModelBase::toJson(m_Scope);
+            }
+            if (m_StateIsSet)
+            {
+
+                val[utility::conversions::to_string_t(U("state"))] = ModelBase::toJson(m_State);
+            }
+            if (m_Expires_inIsSet)
+            {
+
+                val[utility::conversions::to_string_t(U("expires_in"))] = ModelBase::toJson(m_Expires_in);
+            }
+
+            return val;
         }
-    }
-    if(val.has_field(utility::conversions::to_string_t(U("state"))))
-    {
-        const web::json::value& fieldValue = val.at(utility::conversions::to_string_t(U("state")));
-        if(!fieldValue.is_null())
+
+        bool TokenResponse::fromJson(const web::json::value &val)
         {
-            utility::string_t refVal_setState;
-            ok &= ModelBase::fromJson(fieldValue, refVal_setState);
-            setState(refVal_setState);
-            
+            bool ok = true;
+            if (val.has_field(utility::conversions::to_string_t(U("token_type"))))
+            {
+                const web::json::value &fieldValue = val.at(utility::conversions::to_string_t(U("token_type")));
+                if (!fieldValue.is_null())
+                {
+                    std::shared_ptr<TokenType> refVal_setTokenType;
+                    ok &= ModelBase::fromJson(fieldValue, refVal_setTokenType);
+                    setTokenType(refVal_setTokenType);
+                }
+            }
+            if (val.has_field(utility::conversions::to_string_t(U("access_token"))))
+            {
+                const web::json::value &fieldValue = val.at(utility::conversions::to_string_t(U("access_token")));
+                if (!fieldValue.is_null())
+                {
+                    utility::string_t refVal_setAccessToken;
+                    ok &= ModelBase::fromJson(fieldValue, refVal_setAccessToken);
+                    setAccessToken(refVal_setAccessToken);
+                }
+            }
+            if (val.has_field(utility::conversions::to_string_t(U("refresh_token"))))
+            {
+                const web::json::value &fieldValue = val.at(utility::conversions::to_string_t(U("refresh_token")));
+                if (!fieldValue.is_null())
+                {
+                    utility::string_t refVal_setRefreshToken;
+                    ok &= ModelBase::fromJson(fieldValue, refVal_setRefreshToken);
+                    setRefreshToken(refVal_setRefreshToken);
+                }
+            }
+            if (val.has_field(utility::conversions::to_string_t(U("scope"))))
+            {
+                const web::json::value &fieldValue = val.at(utility::conversions::to_string_t(U("scope")));
+                if (!fieldValue.is_null())
+                {
+                    utility::string_t refVal_setScope;
+                    ok &= ModelBase::fromJson(fieldValue, refVal_setScope);
+                    setScope(refVal_setScope);
+                }
+            }
+            if (val.has_field(utility::conversions::to_string_t(U("state"))))
+            {
+                const web::json::value &fieldValue = val.at(utility::conversions::to_string_t(U("state")));
+                if (!fieldValue.is_null())
+                {
+                    utility::string_t refVal_setState;
+                    ok &= ModelBase::fromJson(fieldValue, refVal_setState);
+                    setState(refVal_setState);
+                }
+            }
+            if (val.has_field(utility::conversions::to_string_t(U("expires_in"))))
+            {
+                const web::json::value &fieldValue = val.at(utility::conversions::to_string_t(U("expires_in")));
+                if (!fieldValue.is_null())
+                {
+                    int64_t refVal_setExpiresIn;
+                    ok &= ModelBase::fromJson(fieldValue, refVal_setExpiresIn);
+                    setExpiresIn(refVal_setExpiresIn);
+                }
+            }
+            return ok;
         }
-    }
-    if(val.has_field(utility::conversions::to_string_t(U("expires_in"))))
-    {
-        const web::json::value& fieldValue = val.at(utility::conversions::to_string_t(U("expires_in")));
-        if(!fieldValue.is_null())
+
+        void TokenResponse::toMultipart(std::shared_ptr<MultipartFormData> multipart,
+                                        const utility::string_t &prefix) const
         {
-            int64_t refVal_setExpiresIn;
-            ok &= ModelBase::fromJson(fieldValue, refVal_setExpiresIn);
-            setExpiresIn(refVal_setExpiresIn);
-            
+            utility::string_t namePrefix = prefix;
+            if (namePrefix.size() > 0 &&
+                namePrefix.substr(namePrefix.size() - 1) != utility::conversions::to_string_t(U(".")))
+            {
+                namePrefix += utility::conversions::to_string_t(U("."));
+            }
+            if (m_Token_typeIsSet)
+            {
+                multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("token_type")),
+                                                        m_Token_type));
+            }
+            if (m_Access_tokenIsSet)
+            {
+                multipart->add(ModelBase::toHttpContent(
+                    namePrefix + utility::conversions::to_string_t(U("access_token")), m_Access_token));
+            }
+            if (m_Refresh_tokenIsSet)
+            {
+                multipart->add(ModelBase::toHttpContent(
+                    namePrefix + utility::conversions::to_string_t(U("refresh_token")), m_Refresh_token));
+            }
+            if (m_ScopeIsSet)
+            {
+                multipart->add(
+                    ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("scope")), m_Scope));
+            }
+            if (m_StateIsSet)
+            {
+                multipart->add(
+                    ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("state")), m_State));
+            }
+            if (m_Expires_inIsSet)
+            {
+                multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("expires_in")),
+                                                        m_Expires_in));
+            }
         }
+
+        bool TokenResponse::fromMultiPart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t &prefix)
+        {
+            bool ok = true;
+            utility::string_t namePrefix = prefix;
+            if (namePrefix.size() > 0 &&
+                namePrefix.substr(namePrefix.size() - 1) != utility::conversions::to_string_t(U(".")))
+            {
+                namePrefix += utility::conversions::to_string_t(U("."));
+            }
+
+            if (multipart->hasContent(utility::conversions::to_string_t(U("token_type"))))
+            {
+                std::shared_ptr<TokenType> refVal_setTokenType;
+                ok &= ModelBase::fromHttpContent(
+                    multipart->getContent(utility::conversions::to_string_t(U("token_type"))), refVal_setTokenType);
+                setTokenType(refVal_setTokenType);
+            }
+            if (multipart->hasContent(utility::conversions::to_string_t(U("access_token"))))
+            {
+                utility::string_t refVal_setAccessToken;
+                ok &= ModelBase::fromHttpContent(
+                    multipart->getContent(utility::conversions::to_string_t(U("access_token"))), refVal_setAccessToken);
+                setAccessToken(refVal_setAccessToken);
+            }
+            if (multipart->hasContent(utility::conversions::to_string_t(U("refresh_token"))))
+            {
+                utility::string_t refVal_setRefreshToken;
+                ok &= ModelBase::fromHttpContent(
+                    multipart->getContent(utility::conversions::to_string_t(U("refresh_token"))),
+                    refVal_setRefreshToken);
+                setRefreshToken(refVal_setRefreshToken);
+            }
+            if (multipart->hasContent(utility::conversions::to_string_t(U("scope"))))
+            {
+                utility::string_t refVal_setScope;
+                ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(U("scope"))),
+                                                 refVal_setScope);
+                setScope(refVal_setScope);
+            }
+            if (multipart->hasContent(utility::conversions::to_string_t(U("state"))))
+            {
+                utility::string_t refVal_setState;
+                ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(U("state"))),
+                                                 refVal_setState);
+                setState(refVal_setState);
+            }
+            if (multipart->hasContent(utility::conversions::to_string_t(U("expires_in"))))
+            {
+                int64_t refVal_setExpiresIn;
+                ok &= ModelBase::fromHttpContent(
+                    multipart->getContent(utility::conversions::to_string_t(U("expires_in"))), refVal_setExpiresIn);
+                setExpiresIn(refVal_setExpiresIn);
+            }
+            return ok;
+        }
+
+        std::shared_ptr<TokenType> TokenResponse::getTokenType() const
+        {
+            return m_Token_type;
+        }
+
+        void TokenResponse::setTokenType(const std::shared_ptr<TokenType> &value)
+        {
+            m_Token_type = value;
+            m_Token_typeIsSet = true;
+        }
+
+        bool TokenResponse::tokenTypeIsSet() const
+        {
+            return m_Token_typeIsSet;
+        }
+
+        void TokenResponse::unsetToken_type()
+        {
+            m_Token_typeIsSet = false;
+        }
+        utility::string_t TokenResponse::getAccessToken() const
+        {
+            return m_Access_token;
+        }
+
+        void TokenResponse::setAccessToken(const utility::string_t &value)
+        {
+            m_Access_token = value;
+            m_Access_tokenIsSet = true;
+        }
+
+        bool TokenResponse::accessTokenIsSet() const
+        {
+            return m_Access_tokenIsSet;
+        }
+
+        void TokenResponse::unsetAccess_token()
+        {
+            m_Access_tokenIsSet = false;
+        }
+        utility::string_t TokenResponse::getRefreshToken() const
+        {
+            return m_Refresh_token;
+        }
+
+        void TokenResponse::setRefreshToken(const utility::string_t &value)
+        {
+            m_Refresh_token = value;
+            m_Refresh_tokenIsSet = true;
+        }
+
+        bool TokenResponse::refreshTokenIsSet() const
+        {
+            return m_Refresh_tokenIsSet;
+        }
+
+        void TokenResponse::unsetRefresh_token()
+        {
+            m_Refresh_tokenIsSet = false;
+        }
+        utility::string_t TokenResponse::getScope() const
+        {
+            return m_Scope;
+        }
+
+        void TokenResponse::setScope(const utility::string_t &value)
+        {
+            m_Scope = value;
+            m_ScopeIsSet = true;
+        }
+
+        bool TokenResponse::scopeIsSet() const
+        {
+            return m_ScopeIsSet;
+        }
+
+        void TokenResponse::unsetScope()
+        {
+            m_ScopeIsSet = false;
+        }
+        utility::string_t TokenResponse::getState() const
+        {
+            return m_State;
+        }
+
+        void TokenResponse::setState(const utility::string_t &value)
+        {
+            m_State = value;
+            m_StateIsSet = true;
+        }
+
+        bool TokenResponse::stateIsSet() const
+        {
+            return m_StateIsSet;
+        }
+
+        void TokenResponse::unsetState()
+        {
+            m_StateIsSet = false;
+        }
+        int64_t TokenResponse::getExpiresIn() const
+        {
+            return m_Expires_in;
+        }
+
+        void TokenResponse::setExpiresIn(int64_t value)
+        {
+            m_Expires_in = value;
+            m_Expires_inIsSet = true;
+        }
+
+        bool TokenResponse::expiresInIsSet() const
+        {
+            return m_Expires_inIsSet;
+        }
+
+        void TokenResponse::unsetExpires_in()
+        {
+            m_Expires_inIsSet = false;
+        }
+
     }
-    return ok;
 }
-
-void TokenResponse::toMultipart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& prefix) const
-{
-    utility::string_t namePrefix = prefix;
-    if(namePrefix.size() > 0 && namePrefix.substr(namePrefix.size() - 1) != utility::conversions::to_string_t(U(".")))
-    {
-        namePrefix += utility::conversions::to_string_t(U("."));
-    }
-    if(m_Token_typeIsSet)
-    {
-        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("token_type")), m_Token_type));
-    }
-    if(m_Access_tokenIsSet)
-    {
-        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("access_token")), m_Access_token));
-    }
-    if(m_Refresh_tokenIsSet)
-    {
-        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("refresh_token")), m_Refresh_token));
-    }
-    if(m_ScopeIsSet)
-    {
-        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("scope")), m_Scope));
-    }
-    if(m_StateIsSet)
-    {
-        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("state")), m_State));
-    }
-    if(m_Expires_inIsSet)
-    {
-        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("expires_in")), m_Expires_in));
-    }
-}
-
-bool TokenResponse::fromMultiPart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& prefix)
-{
-    bool ok = true;
-    utility::string_t namePrefix = prefix;
-    if(namePrefix.size() > 0 && namePrefix.substr(namePrefix.size() - 1) != utility::conversions::to_string_t(U(".")))
-    {
-        namePrefix += utility::conversions::to_string_t(U("."));
-    }
-
-    if(multipart->hasContent(utility::conversions::to_string_t(U("token_type"))))
-    {
-        std::shared_ptr<TokenType> refVal_setTokenType;
-        ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(U("token_type"))), refVal_setTokenType );
-        setTokenType(refVal_setTokenType);
-    }
-    if(multipart->hasContent(utility::conversions::to_string_t(U("access_token"))))
-    {
-        utility::string_t refVal_setAccessToken;
-        ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(U("access_token"))), refVal_setAccessToken );
-        setAccessToken(refVal_setAccessToken);
-    }
-    if(multipart->hasContent(utility::conversions::to_string_t(U("refresh_token"))))
-    {
-        utility::string_t refVal_setRefreshToken;
-        ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(U("refresh_token"))), refVal_setRefreshToken );
-        setRefreshToken(refVal_setRefreshToken);
-    }
-    if(multipart->hasContent(utility::conversions::to_string_t(U("scope"))))
-    {
-        utility::string_t refVal_setScope;
-        ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(U("scope"))), refVal_setScope );
-        setScope(refVal_setScope);
-    }
-    if(multipart->hasContent(utility::conversions::to_string_t(U("state"))))
-    {
-        utility::string_t refVal_setState;
-        ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(U("state"))), refVal_setState );
-        setState(refVal_setState);
-    }
-    if(multipart->hasContent(utility::conversions::to_string_t(U("expires_in"))))
-    {
-        int64_t refVal_setExpiresIn;
-        ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(U("expires_in"))), refVal_setExpiresIn );
-        setExpiresIn(refVal_setExpiresIn);
-    }
-    return ok;
-}
-
-
-std::shared_ptr<TokenType> TokenResponse::getTokenType() const
-{
-    return m_Token_type;
-}
-
-
-void TokenResponse::setTokenType(const std::shared_ptr<TokenType>& value)
-{
-    m_Token_type = value;
-    m_Token_typeIsSet = true;
-}
-
-bool TokenResponse::tokenTypeIsSet() const
-{
-    return m_Token_typeIsSet;
-}
-
-void TokenResponse::unsetToken_type()
-{
-    m_Token_typeIsSet = false;
-}
-utility::string_t TokenResponse::getAccessToken() const
-{
-    return m_Access_token;
-}
-
-
-void TokenResponse::setAccessToken(const utility::string_t& value)
-{
-    m_Access_token = value;
-    m_Access_tokenIsSet = true;
-}
-
-bool TokenResponse::accessTokenIsSet() const
-{
-    return m_Access_tokenIsSet;
-}
-
-void TokenResponse::unsetAccess_token()
-{
-    m_Access_tokenIsSet = false;
-}
-utility::string_t TokenResponse::getRefreshToken() const
-{
-    return m_Refresh_token;
-}
-
-
-void TokenResponse::setRefreshToken(const utility::string_t& value)
-{
-    m_Refresh_token = value;
-    m_Refresh_tokenIsSet = true;
-}
-
-bool TokenResponse::refreshTokenIsSet() const
-{
-    return m_Refresh_tokenIsSet;
-}
-
-void TokenResponse::unsetRefresh_token()
-{
-    m_Refresh_tokenIsSet = false;
-}
-utility::string_t TokenResponse::getScope() const
-{
-    return m_Scope;
-}
-
-
-void TokenResponse::setScope(const utility::string_t& value)
-{
-    m_Scope = value;
-    m_ScopeIsSet = true;
-}
-
-bool TokenResponse::scopeIsSet() const
-{
-    return m_ScopeIsSet;
-}
-
-void TokenResponse::unsetScope()
-{
-    m_ScopeIsSet = false;
-}
-utility::string_t TokenResponse::getState() const
-{
-    return m_State;
-}
-
-
-void TokenResponse::setState(const utility::string_t& value)
-{
-    m_State = value;
-    m_StateIsSet = true;
-}
-
-bool TokenResponse::stateIsSet() const
-{
-    return m_StateIsSet;
-}
-
-void TokenResponse::unsetState()
-{
-    m_StateIsSet = false;
-}
-int64_t TokenResponse::getExpiresIn() const
-{
-    return m_Expires_in;
-}
-
-void TokenResponse::setExpiresIn(int64_t value)
-{
-    m_Expires_in = value;
-    m_Expires_inIsSet = true;
-}
-
-bool TokenResponse::expiresInIsSet() const
-{
-    return m_Expires_inIsSet;
-}
-
-void TokenResponse::unsetExpires_in()
-{
-    m_Expires_inIsSet = false;
-}
-
-}
-}
-
-

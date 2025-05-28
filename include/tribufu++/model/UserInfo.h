@@ -13,7 +13,7 @@
 /*
  * UserInfo.h
  *
- * 
+ *
  */
 
 #ifndef TRIBUFU_MODELS_UserInfo_H_
@@ -26,240 +26,236 @@
 #include "tribufu++/model/UserType.h"
 #include <cpprest/details/basic_types.h>
 
-namespace tribufu {
-namespace models {
-
-
-
-class  UserInfo
-    : public ModelBase
+namespace tribufu
 {
-public:
-    UserInfo();
-    virtual ~UserInfo();
+    namespace models
+    {
 
-    /////////////////////////////////////////////
-    /// ModelBase overrides
+        class UserInfo : public ModelBase
+        {
+        public:
+            UserInfo();
+            virtual ~UserInfo();
 
-    void validate() override;
+            /////////////////////////////////////////////
+            /// ModelBase overrides
 
-    web::json::value toJson() const override;
-    bool fromJson(const web::json::value& json) override;
+            void validate() override;
 
-    void toMultipart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& namePrefix) const override;
-    bool fromMultiPart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& namePrefix) override;
+            web::json::value toJson() const override;
+            bool fromJson(const web::json::value &json) override;
 
+            void toMultipart(std::shared_ptr<MultipartFormData> multipart,
+                             const utility::string_t &namePrefix) const override;
+            bool fromMultiPart(std::shared_ptr<MultipartFormData> multipart,
+                               const utility::string_t &namePrefix) override;
 
-    /////////////////////////////////////////////
-    /// UserInfo members
+            /////////////////////////////////////////////
+            /// UserInfo members
 
+            utility::string_t getId() const;
+            bool idIsSet() const;
+            void unsetId();
+            void setId(const utility::string_t &value);
 
-    utility::string_t getId() const;
-    bool idIsSet() const;
-    void unsetId();
-    void setId(const utility::string_t& value);
+            utility::string_t getUuid() const;
+            bool uuidIsSet() const;
+            void unsetUuid();
+            void setUuid(const utility::string_t &value);
 
-    utility::string_t getUuid() const;
-    bool uuidIsSet() const;
-    void unsetUuid();
-    void setUuid(const utility::string_t& value);
+            utility::string_t getName() const;
+            bool nameIsSet() const;
+            void unsetName();
+            void setName(const utility::string_t &value);
 
-    utility::string_t getName() const;
-    bool nameIsSet() const;
-    void unsetName();
-    void setName(const utility::string_t& value);
+            utility::string_t getDisplayName() const;
+            bool displayNameIsSet() const;
+            void unsetDisplay_name();
+            void setDisplayName(const utility::string_t &value);
 
-    utility::string_t getDisplayName() const;
-    bool displayNameIsSet() const;
-    void unsetDisplay_name();
-    void setDisplayName(const utility::string_t& value);
+            utility::string_t getEmail() const;
+            bool emailIsSet() const;
+            void unsetEmail();
+            void setEmail(const utility::string_t &value);
 
-    utility::string_t getEmail() const;
-    bool emailIsSet() const;
-    void unsetEmail();
-    void setEmail(const utility::string_t& value);
+            std::shared_ptr<UserType> getType() const;
+            bool typeIsSet() const;
+            void unsetType();
+            void setType(const std::shared_ptr<UserType> &value);
 
-    std::shared_ptr<UserType> getType() const;
-    bool typeIsSet() const;
-    void unsetType();
-    void setType(const std::shared_ptr<UserType>& value);
+            utility::string_t getFlags() const;
+            bool flagsIsSet() const;
+            void unsetFlags();
+            void setFlags(const utility::string_t &value);
 
-    utility::string_t getFlags() const;
-    bool flagsIsSet() const;
-    void unsetFlags();
-    void setFlags(const utility::string_t& value);
+            utility::string_t getPermissions() const;
+            bool permissionsIsSet() const;
+            void unsetPermissions();
+            void setPermissions(const utility::string_t &value);
 
-    utility::string_t getPermissions() const;
-    bool permissionsIsSet() const;
-    void unsetPermissions();
-    void setPermissions(const utility::string_t& value);
+            bool isVerified() const;
+            bool verifiedIsSet() const;
+            void unsetVerified();
+            void setVerified(bool value);
 
-    bool isVerified() const;
-    bool verifiedIsSet() const;
-    void unsetVerified();
-    void setVerified(bool value);
+            int32_t getLevel() const;
+            bool levelIsSet() const;
+            void unsetLevel();
+            void setLevel(int32_t value);
 
-    int32_t getLevel() const;
-    bool levelIsSet() const;
-    void unsetLevel();
-    void setLevel(int32_t value);
+            double getExperience() const;
+            bool experienceIsSet() const;
+            void unsetExperience();
+            void setExperience(double value);
 
-    double getExperience() const;
-    bool experienceIsSet() const;
-    void unsetExperience();
-    void setExperience(double value);
+            bool isPublicBirthday() const;
+            bool publicBirthdayIsSet() const;
+            void unsetPublic_birthday();
+            void setPublicBirthday(bool value);
 
-    bool isPublicBirthday() const;
-    bool publicBirthdayIsSet() const;
-    void unsetPublic_birthday();
-    void setPublicBirthday(bool value);
+            utility::datetime getBirthday() const;
+            bool birthdayIsSet() const;
+            void unsetBirthday();
+            void setBirthday(const utility::datetime &value);
 
-    utility::datetime getBirthday() const;
-    bool birthdayIsSet() const;
-    void unsetBirthday();
-    void setBirthday(const utility::datetime& value);
+            double getPoints() const;
+            bool pointsIsSet() const;
+            void unsetPoints();
+            void setPoints(double value);
 
-    double getPoints() const;
-    bool pointsIsSet() const;
-    void unsetPoints();
-    void setPoints(double value);
+            utility::string_t getLocation() const;
+            bool locationIsSet() const;
+            void unsetLocation();
+            void setLocation(const utility::string_t &value);
 
-    utility::string_t getLocation() const;
-    bool locationIsSet() const;
-    void unsetLocation();
-    void setLocation(const utility::string_t& value);
+            utility::string_t getLanguage() const;
+            bool languageIsSet() const;
+            void unsetLanguage();
+            void setLanguage(const utility::string_t &value);
 
-    utility::string_t getLanguage() const;
-    bool languageIsSet() const;
-    void unsetLanguage();
-    void setLanguage(const utility::string_t& value);
+            utility::string_t getTimezone() const;
+            bool timezoneIsSet() const;
+            void unsetTimezone();
+            void setTimezone(const utility::string_t &value);
 
-    utility::string_t getTimezone() const;
-    bool timezoneIsSet() const;
-    void unsetTimezone();
-    void setTimezone(const utility::string_t& value);
+            utility::string_t getCurrency() const;
+            bool currencyIsSet() const;
+            void unsetCurrency();
+            void setCurrency(const utility::string_t &value);
 
-    utility::string_t getCurrency() const;
-    bool currencyIsSet() const;
-    void unsetCurrency();
-    void setCurrency(const utility::string_t& value);
+            utility::string_t getPhotoUrl() const;
+            bool photoUrlIsSet() const;
+            void unsetPhoto_url();
+            void setPhotoUrl(const utility::string_t &value);
 
-    utility::string_t getPhotoUrl() const;
-    bool photoUrlIsSet() const;
-    void unsetPhoto_url();
-    void setPhotoUrl(const utility::string_t& value);
+            utility::string_t getBannerUrl() const;
+            bool bannerUrlIsSet() const;
+            void unsetBanner_url();
+            void setBannerUrl(const utility::string_t &value);
 
-    utility::string_t getBannerUrl() const;
-    bool bannerUrlIsSet() const;
-    void unsetBanner_url();
-    void setBannerUrl(const utility::string_t& value);
+            utility::datetime getLastOnline() const;
+            bool lastOnlineIsSet() const;
+            void unsetLast_online();
+            void setLastOnline(const utility::datetime &value);
 
-    utility::datetime getLastOnline() const;
-    bool lastOnlineIsSet() const;
-    void unsetLast_online();
-    void setLastOnline(const utility::datetime& value);
+            utility::string_t getBiography() const;
+            bool biographyIsSet() const;
+            void unsetBiography();
+            void setBiography(const utility::string_t &value);
 
-    utility::string_t getBiography() const;
-    bool biographyIsSet() const;
-    void unsetBiography();
-    void setBiography(const utility::string_t& value);
+            int32_t getViewCount() const;
+            bool viewCountIsSet() const;
+            void unsetView_count();
+            void setViewCount(int32_t value);
 
-    int32_t getViewCount() const;
-    bool viewCountIsSet() const;
-    void unsetView_count();
-    void setViewCount(int32_t value);
+            utility::datetime getCreated() const;
+            bool createdIsSet() const;
+            void unsetCreated();
+            void setCreated(const utility::datetime &value);
 
-    utility::datetime getCreated() const;
-    bool createdIsSet() const;
-    void unsetCreated();
-    void setCreated(const utility::datetime& value);
+            utility::datetime getUpdated() const;
+            bool updatedIsSet() const;
+            void unsetUpdated();
+            void setUpdated(const utility::datetime &value);
 
-    utility::datetime getUpdated() const;
-    bool updatedIsSet() const;
-    void unsetUpdated();
-    void setUpdated(const utility::datetime& value);
+        protected:
+            utility::string_t m_Id;
+            bool m_IdIsSet;
 
+            utility::string_t m_Uuid;
+            bool m_UuidIsSet;
 
-protected:
-    utility::string_t m_Id;
-    bool m_IdIsSet;
+            utility::string_t m_Name;
+            bool m_NameIsSet;
 
-    utility::string_t m_Uuid;
-    bool m_UuidIsSet;
+            utility::string_t m_Display_name;
+            bool m_Display_nameIsSet;
 
-    utility::string_t m_Name;
-    bool m_NameIsSet;
+            utility::string_t m_Email;
+            bool m_EmailIsSet;
 
-    utility::string_t m_Display_name;
-    bool m_Display_nameIsSet;
+            std::shared_ptr<UserType> m_Type;
+            bool m_TypeIsSet;
 
-    utility::string_t m_Email;
-    bool m_EmailIsSet;
+            utility::string_t m_Flags;
+            bool m_FlagsIsSet;
 
-    std::shared_ptr<UserType> m_Type;
-    bool m_TypeIsSet;
+            utility::string_t m_Permissions;
+            bool m_PermissionsIsSet;
 
-    utility::string_t m_Flags;
-    bool m_FlagsIsSet;
+            bool m_Verified;
+            bool m_VerifiedIsSet;
 
-    utility::string_t m_Permissions;
-    bool m_PermissionsIsSet;
+            int32_t m_Level;
+            bool m_LevelIsSet;
 
-    bool m_Verified;
-    bool m_VerifiedIsSet;
+            double m_Experience;
+            bool m_ExperienceIsSet;
 
-    int32_t m_Level;
-    bool m_LevelIsSet;
+            bool m_Public_birthday;
+            bool m_Public_birthdayIsSet;
 
-    double m_Experience;
-    bool m_ExperienceIsSet;
+            utility::datetime m_Birthday;
+            bool m_BirthdayIsSet;
 
-    bool m_Public_birthday;
-    bool m_Public_birthdayIsSet;
+            double m_Points;
+            bool m_PointsIsSet;
 
-    utility::datetime m_Birthday;
-    bool m_BirthdayIsSet;
+            utility::string_t m_Location;
+            bool m_LocationIsSet;
 
-    double m_Points;
-    bool m_PointsIsSet;
+            utility::string_t m_Language;
+            bool m_LanguageIsSet;
 
-    utility::string_t m_Location;
-    bool m_LocationIsSet;
+            utility::string_t m_Timezone;
+            bool m_TimezoneIsSet;
 
-    utility::string_t m_Language;
-    bool m_LanguageIsSet;
+            utility::string_t m_Currency;
+            bool m_CurrencyIsSet;
 
-    utility::string_t m_Timezone;
-    bool m_TimezoneIsSet;
+            utility::string_t m_Photo_url;
+            bool m_Photo_urlIsSet;
 
-    utility::string_t m_Currency;
-    bool m_CurrencyIsSet;
+            utility::string_t m_Banner_url;
+            bool m_Banner_urlIsSet;
 
-    utility::string_t m_Photo_url;
-    bool m_Photo_urlIsSet;
+            utility::datetime m_Last_online;
+            bool m_Last_onlineIsSet;
 
-    utility::string_t m_Banner_url;
-    bool m_Banner_urlIsSet;
+            utility::string_t m_Biography;
+            bool m_BiographyIsSet;
 
-    utility::datetime m_Last_online;
-    bool m_Last_onlineIsSet;
+            int32_t m_View_count;
+            bool m_View_countIsSet;
 
-    utility::string_t m_Biography;
-    bool m_BiographyIsSet;
+            utility::datetime m_Created;
+            bool m_CreatedIsSet;
 
-    int32_t m_View_count;
-    bool m_View_countIsSet;
+            utility::datetime m_Updated;
+            bool m_UpdatedIsSet;
+        };
 
-    utility::datetime m_Created;
-    bool m_CreatedIsSet;
-
-    utility::datetime m_Updated;
-    bool m_UpdatedIsSet;
-
-};
-
-
-}
+    }
 }
 
 #endif /* TRIBUFU_MODELS_UserInfo_H_ */

@@ -13,57 +13,57 @@
 /*
  * LoginProvider.h
  *
- * 
+ *
  */
 
 #ifndef TRIBUFU_MODELS_LoginProvider_H_
 #define TRIBUFU_MODELS_LoginProvider_H_
 
-
 #include "tribufu++/ModelBase.h"
 
-
-namespace tribufu {
-namespace models {
-
-
-class  LoginProvider
-    : public ModelBase
+namespace tribufu
 {
-public:
-    LoginProvider();
-    virtual ~LoginProvider();
-
-    /////////////////////////////////////////////
-    /// ModelBase overrides
-
-    void validate() override;
-
-    web::json::value toJson() const override;
-    bool fromJson(const web::json::value& json) override;
-
-    void toMultipart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& namePrefix) const override;
-    bool fromMultiPart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& namePrefix) override;
-
-    enum class eLoginProvider
+    namespace models
     {
-        LoginProvider_STEAM,
-        LoginProvider_EPIC,
-        LoginProvider_DISCORD,
-        LoginProvider_MICROSOFT,
-        LoginProvider_PLAYSTATION,
-        LoginProvider_GOOGLE,
-        LoginProvider_APPLE,
-    };
 
-    eLoginProvider getValue() const;
-    void setValue(eLoginProvider const value);
+        class LoginProvider : public ModelBase
+        {
+        public:
+            LoginProvider();
+            virtual ~LoginProvider();
 
-    protected:
-        eLoginProvider m_value;
-};
+            /////////////////////////////////////////////
+            /// ModelBase overrides
 
-}
+            void validate() override;
+
+            web::json::value toJson() const override;
+            bool fromJson(const web::json::value &json) override;
+
+            void toMultipart(std::shared_ptr<MultipartFormData> multipart,
+                             const utility::string_t &namePrefix) const override;
+            bool fromMultiPart(std::shared_ptr<MultipartFormData> multipart,
+                               const utility::string_t &namePrefix) override;
+
+            enum class eLoginProvider
+            {
+                LoginProvider_STEAM,
+                LoginProvider_EPIC,
+                LoginProvider_DISCORD,
+                LoginProvider_MICROSOFT,
+                LoginProvider_PLAYSTATION,
+                LoginProvider_GOOGLE,
+                LoginProvider_APPLE,
+            };
+
+            eLoginProvider getValue() const;
+            void setValue(eLoginProvider const value);
+
+        protected:
+            eLoginProvider m_value;
+        };
+
+    }
 }
 
 #endif /* TRIBUFU_MODELS_LoginProvider_H_ */

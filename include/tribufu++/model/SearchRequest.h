@@ -13,7 +13,7 @@
 /*
  * SearchRequest.h
  *
- * 
+ *
  */
 
 #ifndef TRIBUFU_MODELS_SearchRequest_H_
@@ -26,72 +26,68 @@
 #include "tribufu++/model/SearchType.h"
 #include <cpprest/details/basic_types.h>
 
-namespace tribufu {
-namespace models {
-
-
-
-class  SearchRequest
-    : public ModelBase
+namespace tribufu
 {
-public:
-    SearchRequest();
-    virtual ~SearchRequest();
+    namespace models
+    {
 
-    /////////////////////////////////////////////
-    /// ModelBase overrides
+        class SearchRequest : public ModelBase
+        {
+        public:
+            SearchRequest();
+            virtual ~SearchRequest();
 
-    void validate() override;
+            /////////////////////////////////////////////
+            /// ModelBase overrides
 
-    web::json::value toJson() const override;
-    bool fromJson(const web::json::value& json) override;
+            void validate() override;
 
-    void toMultipart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& namePrefix) const override;
-    bool fromMultiPart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& namePrefix) override;
+            web::json::value toJson() const override;
+            bool fromJson(const web::json::value &json) override;
 
+            void toMultipart(std::shared_ptr<MultipartFormData> multipart,
+                             const utility::string_t &namePrefix) const override;
+            bool fromMultiPart(std::shared_ptr<MultipartFormData> multipart,
+                               const utility::string_t &namePrefix) override;
 
-    /////////////////////////////////////////////
-    /// SearchRequest members
+            /////////////////////////////////////////////
+            /// SearchRequest members
 
+            std::shared_ptr<SearchType> getType() const;
+            bool typeIsSet() const;
+            void unsetType();
+            void setType(const std::shared_ptr<SearchType> &value);
 
-    std::shared_ptr<SearchType> getType() const;
-    bool typeIsSet() const;
-    void unsetType();
-    void setType(const std::shared_ptr<SearchType>& value);
+            utility::string_t getQuery() const;
+            bool queryIsSet() const;
+            void unsetQuery();
+            void setQuery(const utility::string_t &value);
 
-    utility::string_t getQuery() const;
-    bool queryIsSet() const;
-    void unsetQuery();
-    void setQuery(const utility::string_t& value);
+            int32_t getPage() const;
+            bool pageIsSet() const;
+            void unsetPage();
+            void setPage(int32_t value);
 
-    int32_t getPage() const;
-    bool pageIsSet() const;
-    void unsetPage();
-    void setPage(int32_t value);
+            utility::string_t getGameId() const;
+            bool gameIdIsSet() const;
+            void unsetGame_id();
+            void setGameId(const utility::string_t &value);
 
-    utility::string_t getGameId() const;
-    bool gameIdIsSet() const;
-    void unsetGame_id();
-    void setGameId(const utility::string_t& value);
+        protected:
+            std::shared_ptr<SearchType> m_Type;
+            bool m_TypeIsSet;
 
+            utility::string_t m_Query;
+            bool m_QueryIsSet;
 
-protected:
-    std::shared_ptr<SearchType> m_Type;
-    bool m_TypeIsSet;
+            int32_t m_Page;
+            bool m_PageIsSet;
 
-    utility::string_t m_Query;
-    bool m_QueryIsSet;
+            utility::string_t m_Game_id;
+            bool m_Game_idIsSet;
+        };
 
-    int32_t m_Page;
-    bool m_PageIsSet;
-
-    utility::string_t m_Game_id;
-    bool m_Game_idIsSet;
-
-};
-
-
-}
+    }
 }
 
 #endif /* TRIBUFU_MODELS_SearchRequest_H_ */

@@ -10,841 +10,846 @@
  * Do not edit the class manually.
  */
 
-
-
 #include "tribufu++/model/Group.h"
 
-namespace tribufu {
-namespace models {
-
-Group::Group()
+namespace tribufu
 {
-    m_Id = utility::conversions::to_string_t("");
-    m_IdIsSet = false;
-    m_Uuid = utility::conversions::to_string_t("");
-    m_UuidIsSet = false;
-    m_Name = utility::conversions::to_string_t("");
-    m_NameIsSet = false;
-    m_Tag = utility::conversions::to_string_t("");
-    m_TagIsSet = false;
-    m_Description = utility::conversions::to_string_t("");
-    m_DescriptionIsSet = false;
-    m_Type = 0;
-    m_TypeIsSet = false;
-    m_Privacy = 0;
-    m_PrivacyIsSet = false;
-    m_Owner_id = utility::conversions::to_string_t("");
-    m_Owner_idIsSet = false;
-    m_Verified = false;
-    m_VerifiedIsSet = false;
-    m_Photo_url = utility::conversions::to_string_t("");
-    m_Photo_urlIsSet = false;
-    m_Banner_url = utility::conversions::to_string_t("");
-    m_Banner_urlIsSet = false;
-    m_Member_count = 0;
-    m_Member_countIsSet = false;
-    m_Follower_count = 0;
-    m_Follower_countIsSet = false;
-    m_View_count = 0;
-    m_View_countIsSet = false;
-    m_Created = utility::datetime();
-    m_CreatedIsSet = false;
-    m_Updated = utility::datetime();
-    m_UpdatedIsSet = false;
-}
-
-Group::~Group()
-{
-}
-
-void Group::validate()
-{
-    // TODO: implement validation
-}
-
-web::json::value Group::toJson() const
-{
-    web::json::value val = web::json::value::object();
-    if(m_IdIsSet)
-    {   
-        
-        val[utility::conversions::to_string_t(U("id"))] = ModelBase::toJson(m_Id);
-    }
-    if(m_UuidIsSet)
-    {   
-        
-        val[utility::conversions::to_string_t(U("uuid"))] = ModelBase::toJson(m_Uuid);
-    }
-    if(m_NameIsSet)
-    {   
-        
-        val[utility::conversions::to_string_t(U("name"))] = ModelBase::toJson(m_Name);
-    }
-    if(m_TagIsSet)
-    {   
-        
-        val[utility::conversions::to_string_t(U("tag"))] = ModelBase::toJson(m_Tag);
-    }
-    if(m_DescriptionIsSet)
-    {   
-        
-        val[utility::conversions::to_string_t(U("description"))] = ModelBase::toJson(m_Description);
-    }
-    if(m_TypeIsSet)
-    {   
-        
-        val[utility::conversions::to_string_t(U("type"))] = ModelBase::toJson(m_Type);
-    }
-    if(m_PrivacyIsSet)
-    {   
-        
-        val[utility::conversions::to_string_t(U("privacy"))] = ModelBase::toJson(m_Privacy);
-    }
-    if(m_Owner_idIsSet)
-    {   
-        
-        val[utility::conversions::to_string_t(U("owner_id"))] = ModelBase::toJson(m_Owner_id);
-    }
-    if(m_VerifiedIsSet)
-    {   
-        
-        val[utility::conversions::to_string_t(U("verified"))] = ModelBase::toJson(m_Verified);
-    }
-    if(m_Photo_urlIsSet)
-    {   
-        
-        val[utility::conversions::to_string_t(U("photo_url"))] = ModelBase::toJson(m_Photo_url);
-    }
-    if(m_Banner_urlIsSet)
-    {   
-        
-        val[utility::conversions::to_string_t(U("banner_url"))] = ModelBase::toJson(m_Banner_url);
-    }
-    if(m_Member_countIsSet)
-    {   
-        
-        val[utility::conversions::to_string_t(U("member_count"))] = ModelBase::toJson(m_Member_count);
-    }
-    if(m_Follower_countIsSet)
-    {   
-        
-        val[utility::conversions::to_string_t(U("follower_count"))] = ModelBase::toJson(m_Follower_count);
-    }
-    if(m_View_countIsSet)
-    {   
-        
-        val[utility::conversions::to_string_t(U("view_count"))] = ModelBase::toJson(m_View_count);
-    }
-    if(m_CreatedIsSet)
-    {   
-        
-        val[utility::conversions::to_string_t(U("created"))] = ModelBase::toJson(m_Created);
-    }
-    if(m_UpdatedIsSet)
-    {   
-        
-        val[utility::conversions::to_string_t(U("updated"))] = ModelBase::toJson(m_Updated);
-    }
-
-    return val;
-}
-
-bool Group::fromJson(const web::json::value& val)
-{
-    bool ok = true;
-    if(val.has_field(utility::conversions::to_string_t(U("id"))))
+    namespace models
     {
-        const web::json::value& fieldValue = val.at(utility::conversions::to_string_t(U("id")));
-        if(!fieldValue.is_null())
+
+        Group::Group()
         {
-            utility::string_t refVal_setId;
-            ok &= ModelBase::fromJson(fieldValue, refVal_setId);
-            setId(refVal_setId);
-            
+            m_Id = utility::conversions::to_string_t("");
+            m_IdIsSet = false;
+            m_Uuid = utility::conversions::to_string_t("");
+            m_UuidIsSet = false;
+            m_Name = utility::conversions::to_string_t("");
+            m_NameIsSet = false;
+            m_Tag = utility::conversions::to_string_t("");
+            m_TagIsSet = false;
+            m_Description = utility::conversions::to_string_t("");
+            m_DescriptionIsSet = false;
+            m_Type = 0;
+            m_TypeIsSet = false;
+            m_Privacy = 0;
+            m_PrivacyIsSet = false;
+            m_Owner_id = utility::conversions::to_string_t("");
+            m_Owner_idIsSet = false;
+            m_Verified = false;
+            m_VerifiedIsSet = false;
+            m_Photo_url = utility::conversions::to_string_t("");
+            m_Photo_urlIsSet = false;
+            m_Banner_url = utility::conversions::to_string_t("");
+            m_Banner_urlIsSet = false;
+            m_Member_count = 0;
+            m_Member_countIsSet = false;
+            m_Follower_count = 0;
+            m_Follower_countIsSet = false;
+            m_View_count = 0;
+            m_View_countIsSet = false;
+            m_Created = utility::datetime();
+            m_CreatedIsSet = false;
+            m_Updated = utility::datetime();
+            m_UpdatedIsSet = false;
         }
-    }
-    if(val.has_field(utility::conversions::to_string_t(U("uuid"))))
-    {
-        const web::json::value& fieldValue = val.at(utility::conversions::to_string_t(U("uuid")));
-        if(!fieldValue.is_null())
+
+        Group::~Group()
         {
-            utility::string_t refVal_setUuid;
-            ok &= ModelBase::fromJson(fieldValue, refVal_setUuid);
-            setUuid(refVal_setUuid);
-            
         }
-    }
-    if(val.has_field(utility::conversions::to_string_t(U("name"))))
-    {
-        const web::json::value& fieldValue = val.at(utility::conversions::to_string_t(U("name")));
-        if(!fieldValue.is_null())
+
+        void Group::validate()
         {
-            utility::string_t refVal_setName;
-            ok &= ModelBase::fromJson(fieldValue, refVal_setName);
-            setName(refVal_setName);
-            
+            // TODO: implement validation
         }
-    }
-    if(val.has_field(utility::conversions::to_string_t(U("tag"))))
-    {
-        const web::json::value& fieldValue = val.at(utility::conversions::to_string_t(U("tag")));
-        if(!fieldValue.is_null())
+
+        web::json::value Group::toJson() const
         {
-            utility::string_t refVal_setTag;
-            ok &= ModelBase::fromJson(fieldValue, refVal_setTag);
-            setTag(refVal_setTag);
-            
+            web::json::value val = web::json::value::object();
+            if (m_IdIsSet)
+            {
+
+                val[utility::conversions::to_string_t(U("id"))] = ModelBase::toJson(m_Id);
+            }
+            if (m_UuidIsSet)
+            {
+
+                val[utility::conversions::to_string_t(U("uuid"))] = ModelBase::toJson(m_Uuid);
+            }
+            if (m_NameIsSet)
+            {
+
+                val[utility::conversions::to_string_t(U("name"))] = ModelBase::toJson(m_Name);
+            }
+            if (m_TagIsSet)
+            {
+
+                val[utility::conversions::to_string_t(U("tag"))] = ModelBase::toJson(m_Tag);
+            }
+            if (m_DescriptionIsSet)
+            {
+
+                val[utility::conversions::to_string_t(U("description"))] = ModelBase::toJson(m_Description);
+            }
+            if (m_TypeIsSet)
+            {
+
+                val[utility::conversions::to_string_t(U("type"))] = ModelBase::toJson(m_Type);
+            }
+            if (m_PrivacyIsSet)
+            {
+
+                val[utility::conversions::to_string_t(U("privacy"))] = ModelBase::toJson(m_Privacy);
+            }
+            if (m_Owner_idIsSet)
+            {
+
+                val[utility::conversions::to_string_t(U("owner_id"))] = ModelBase::toJson(m_Owner_id);
+            }
+            if (m_VerifiedIsSet)
+            {
+
+                val[utility::conversions::to_string_t(U("verified"))] = ModelBase::toJson(m_Verified);
+            }
+            if (m_Photo_urlIsSet)
+            {
+
+                val[utility::conversions::to_string_t(U("photo_url"))] = ModelBase::toJson(m_Photo_url);
+            }
+            if (m_Banner_urlIsSet)
+            {
+
+                val[utility::conversions::to_string_t(U("banner_url"))] = ModelBase::toJson(m_Banner_url);
+            }
+            if (m_Member_countIsSet)
+            {
+
+                val[utility::conversions::to_string_t(U("member_count"))] = ModelBase::toJson(m_Member_count);
+            }
+            if (m_Follower_countIsSet)
+            {
+
+                val[utility::conversions::to_string_t(U("follower_count"))] = ModelBase::toJson(m_Follower_count);
+            }
+            if (m_View_countIsSet)
+            {
+
+                val[utility::conversions::to_string_t(U("view_count"))] = ModelBase::toJson(m_View_count);
+            }
+            if (m_CreatedIsSet)
+            {
+
+                val[utility::conversions::to_string_t(U("created"))] = ModelBase::toJson(m_Created);
+            }
+            if (m_UpdatedIsSet)
+            {
+
+                val[utility::conversions::to_string_t(U("updated"))] = ModelBase::toJson(m_Updated);
+            }
+
+            return val;
         }
-    }
-    if(val.has_field(utility::conversions::to_string_t(U("description"))))
-    {
-        const web::json::value& fieldValue = val.at(utility::conversions::to_string_t(U("description")));
-        if(!fieldValue.is_null())
+
+        bool Group::fromJson(const web::json::value &val)
         {
-            utility::string_t refVal_setDescription;
-            ok &= ModelBase::fromJson(fieldValue, refVal_setDescription);
-            setDescription(refVal_setDescription);
-            
+            bool ok = true;
+            if (val.has_field(utility::conversions::to_string_t(U("id"))))
+            {
+                const web::json::value &fieldValue = val.at(utility::conversions::to_string_t(U("id")));
+                if (!fieldValue.is_null())
+                {
+                    utility::string_t refVal_setId;
+                    ok &= ModelBase::fromJson(fieldValue, refVal_setId);
+                    setId(refVal_setId);
+                }
+            }
+            if (val.has_field(utility::conversions::to_string_t(U("uuid"))))
+            {
+                const web::json::value &fieldValue = val.at(utility::conversions::to_string_t(U("uuid")));
+                if (!fieldValue.is_null())
+                {
+                    utility::string_t refVal_setUuid;
+                    ok &= ModelBase::fromJson(fieldValue, refVal_setUuid);
+                    setUuid(refVal_setUuid);
+                }
+            }
+            if (val.has_field(utility::conversions::to_string_t(U("name"))))
+            {
+                const web::json::value &fieldValue = val.at(utility::conversions::to_string_t(U("name")));
+                if (!fieldValue.is_null())
+                {
+                    utility::string_t refVal_setName;
+                    ok &= ModelBase::fromJson(fieldValue, refVal_setName);
+                    setName(refVal_setName);
+                }
+            }
+            if (val.has_field(utility::conversions::to_string_t(U("tag"))))
+            {
+                const web::json::value &fieldValue = val.at(utility::conversions::to_string_t(U("tag")));
+                if (!fieldValue.is_null())
+                {
+                    utility::string_t refVal_setTag;
+                    ok &= ModelBase::fromJson(fieldValue, refVal_setTag);
+                    setTag(refVal_setTag);
+                }
+            }
+            if (val.has_field(utility::conversions::to_string_t(U("description"))))
+            {
+                const web::json::value &fieldValue = val.at(utility::conversions::to_string_t(U("description")));
+                if (!fieldValue.is_null())
+                {
+                    utility::string_t refVal_setDescription;
+                    ok &= ModelBase::fromJson(fieldValue, refVal_setDescription);
+                    setDescription(refVal_setDescription);
+                }
+            }
+            if (val.has_field(utility::conversions::to_string_t(U("type"))))
+            {
+                const web::json::value &fieldValue = val.at(utility::conversions::to_string_t(U("type")));
+                if (!fieldValue.is_null())
+                {
+                    int32_t refVal_setType;
+                    ok &= ModelBase::fromJson(fieldValue, refVal_setType);
+                    setType(refVal_setType);
+                }
+            }
+            if (val.has_field(utility::conversions::to_string_t(U("privacy"))))
+            {
+                const web::json::value &fieldValue = val.at(utility::conversions::to_string_t(U("privacy")));
+                if (!fieldValue.is_null())
+                {
+                    int32_t refVal_setPrivacy;
+                    ok &= ModelBase::fromJson(fieldValue, refVal_setPrivacy);
+                    setPrivacy(refVal_setPrivacy);
+                }
+            }
+            if (val.has_field(utility::conversions::to_string_t(U("owner_id"))))
+            {
+                const web::json::value &fieldValue = val.at(utility::conversions::to_string_t(U("owner_id")));
+                if (!fieldValue.is_null())
+                {
+                    utility::string_t refVal_setOwnerId;
+                    ok &= ModelBase::fromJson(fieldValue, refVal_setOwnerId);
+                    setOwnerId(refVal_setOwnerId);
+                }
+            }
+            if (val.has_field(utility::conversions::to_string_t(U("verified"))))
+            {
+                const web::json::value &fieldValue = val.at(utility::conversions::to_string_t(U("verified")));
+                if (!fieldValue.is_null())
+                {
+                    bool refVal_setVerified;
+                    ok &= ModelBase::fromJson(fieldValue, refVal_setVerified);
+                    setVerified(refVal_setVerified);
+                }
+            }
+            if (val.has_field(utility::conversions::to_string_t(U("photo_url"))))
+            {
+                const web::json::value &fieldValue = val.at(utility::conversions::to_string_t(U("photo_url")));
+                if (!fieldValue.is_null())
+                {
+                    utility::string_t refVal_setPhotoUrl;
+                    ok &= ModelBase::fromJson(fieldValue, refVal_setPhotoUrl);
+                    setPhotoUrl(refVal_setPhotoUrl);
+                }
+            }
+            if (val.has_field(utility::conversions::to_string_t(U("banner_url"))))
+            {
+                const web::json::value &fieldValue = val.at(utility::conversions::to_string_t(U("banner_url")));
+                if (!fieldValue.is_null())
+                {
+                    utility::string_t refVal_setBannerUrl;
+                    ok &= ModelBase::fromJson(fieldValue, refVal_setBannerUrl);
+                    setBannerUrl(refVal_setBannerUrl);
+                }
+            }
+            if (val.has_field(utility::conversions::to_string_t(U("member_count"))))
+            {
+                const web::json::value &fieldValue = val.at(utility::conversions::to_string_t(U("member_count")));
+                if (!fieldValue.is_null())
+                {
+                    int32_t refVal_setMemberCount;
+                    ok &= ModelBase::fromJson(fieldValue, refVal_setMemberCount);
+                    setMemberCount(refVal_setMemberCount);
+                }
+            }
+            if (val.has_field(utility::conversions::to_string_t(U("follower_count"))))
+            {
+                const web::json::value &fieldValue = val.at(utility::conversions::to_string_t(U("follower_count")));
+                if (!fieldValue.is_null())
+                {
+                    int32_t refVal_setFollowerCount;
+                    ok &= ModelBase::fromJson(fieldValue, refVal_setFollowerCount);
+                    setFollowerCount(refVal_setFollowerCount);
+                }
+            }
+            if (val.has_field(utility::conversions::to_string_t(U("view_count"))))
+            {
+                const web::json::value &fieldValue = val.at(utility::conversions::to_string_t(U("view_count")));
+                if (!fieldValue.is_null())
+                {
+                    int32_t refVal_setViewCount;
+                    ok &= ModelBase::fromJson(fieldValue, refVal_setViewCount);
+                    setViewCount(refVal_setViewCount);
+                }
+            }
+            if (val.has_field(utility::conversions::to_string_t(U("created"))))
+            {
+                const web::json::value &fieldValue = val.at(utility::conversions::to_string_t(U("created")));
+                if (!fieldValue.is_null())
+                {
+                    utility::datetime refVal_setCreated;
+                    ok &= ModelBase::fromJson(fieldValue, refVal_setCreated);
+                    setCreated(refVal_setCreated);
+                }
+            }
+            if (val.has_field(utility::conversions::to_string_t(U("updated"))))
+            {
+                const web::json::value &fieldValue = val.at(utility::conversions::to_string_t(U("updated")));
+                if (!fieldValue.is_null())
+                {
+                    utility::datetime refVal_setUpdated;
+                    ok &= ModelBase::fromJson(fieldValue, refVal_setUpdated);
+                    setUpdated(refVal_setUpdated);
+                }
+            }
+            return ok;
         }
-    }
-    if(val.has_field(utility::conversions::to_string_t(U("type"))))
-    {
-        const web::json::value& fieldValue = val.at(utility::conversions::to_string_t(U("type")));
-        if(!fieldValue.is_null())
+
+        void Group::toMultipart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t &prefix) const
         {
-            int32_t refVal_setType;
-            ok &= ModelBase::fromJson(fieldValue, refVal_setType);
-            setType(refVal_setType);
-            
+            utility::string_t namePrefix = prefix;
+            if (namePrefix.size() > 0 &&
+                namePrefix.substr(namePrefix.size() - 1) != utility::conversions::to_string_t(U(".")))
+            {
+                namePrefix += utility::conversions::to_string_t(U("."));
+            }
+            if (m_IdIsSet)
+            {
+                multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("id")), m_Id));
+            }
+            if (m_UuidIsSet)
+            {
+                multipart->add(
+                    ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("uuid")), m_Uuid));
+            }
+            if (m_NameIsSet)
+            {
+                multipart->add(
+                    ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("name")), m_Name));
+            }
+            if (m_TagIsSet)
+            {
+                multipart->add(
+                    ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("tag")), m_Tag));
+            }
+            if (m_DescriptionIsSet)
+            {
+                multipart->add(ModelBase::toHttpContent(
+                    namePrefix + utility::conversions::to_string_t(U("description")), m_Description));
+            }
+            if (m_TypeIsSet)
+            {
+                multipart->add(
+                    ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("type")), m_Type));
+            }
+            if (m_PrivacyIsSet)
+            {
+                multipart->add(
+                    ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("privacy")), m_Privacy));
+            }
+            if (m_Owner_idIsSet)
+            {
+                multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("owner_id")),
+                                                        m_Owner_id));
+            }
+            if (m_VerifiedIsSet)
+            {
+                multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("verified")),
+                                                        m_Verified));
+            }
+            if (m_Photo_urlIsSet)
+            {
+                multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("photo_url")),
+                                                        m_Photo_url));
+            }
+            if (m_Banner_urlIsSet)
+            {
+                multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("banner_url")),
+                                                        m_Banner_url));
+            }
+            if (m_Member_countIsSet)
+            {
+                multipart->add(ModelBase::toHttpContent(
+                    namePrefix + utility::conversions::to_string_t(U("member_count")), m_Member_count));
+            }
+            if (m_Follower_countIsSet)
+            {
+                multipart->add(ModelBase::toHttpContent(
+                    namePrefix + utility::conversions::to_string_t(U("follower_count")), m_Follower_count));
+            }
+            if (m_View_countIsSet)
+            {
+                multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("view_count")),
+                                                        m_View_count));
+            }
+            if (m_CreatedIsSet)
+            {
+                multipart->add(
+                    ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("created")), m_Created));
+            }
+            if (m_UpdatedIsSet)
+            {
+                multipart->add(
+                    ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("updated")), m_Updated));
+            }
         }
-    }
-    if(val.has_field(utility::conversions::to_string_t(U("privacy"))))
-    {
-        const web::json::value& fieldValue = val.at(utility::conversions::to_string_t(U("privacy")));
-        if(!fieldValue.is_null())
+
+        bool Group::fromMultiPart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t &prefix)
         {
-            int32_t refVal_setPrivacy;
-            ok &= ModelBase::fromJson(fieldValue, refVal_setPrivacy);
-            setPrivacy(refVal_setPrivacy);
-            
+            bool ok = true;
+            utility::string_t namePrefix = prefix;
+            if (namePrefix.size() > 0 &&
+                namePrefix.substr(namePrefix.size() - 1) != utility::conversions::to_string_t(U(".")))
+            {
+                namePrefix += utility::conversions::to_string_t(U("."));
+            }
+
+            if (multipart->hasContent(utility::conversions::to_string_t(U("id"))))
+            {
+                utility::string_t refVal_setId;
+                ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(U("id"))),
+                                                 refVal_setId);
+                setId(refVal_setId);
+            }
+            if (multipart->hasContent(utility::conversions::to_string_t(U("uuid"))))
+            {
+                utility::string_t refVal_setUuid;
+                ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(U("uuid"))),
+                                                 refVal_setUuid);
+                setUuid(refVal_setUuid);
+            }
+            if (multipart->hasContent(utility::conversions::to_string_t(U("name"))))
+            {
+                utility::string_t refVal_setName;
+                ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(U("name"))),
+                                                 refVal_setName);
+                setName(refVal_setName);
+            }
+            if (multipart->hasContent(utility::conversions::to_string_t(U("tag"))))
+            {
+                utility::string_t refVal_setTag;
+                ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(U("tag"))),
+                                                 refVal_setTag);
+                setTag(refVal_setTag);
+            }
+            if (multipart->hasContent(utility::conversions::to_string_t(U("description"))))
+            {
+                utility::string_t refVal_setDescription;
+                ok &= ModelBase::fromHttpContent(
+                    multipart->getContent(utility::conversions::to_string_t(U("description"))), refVal_setDescription);
+                setDescription(refVal_setDescription);
+            }
+            if (multipart->hasContent(utility::conversions::to_string_t(U("type"))))
+            {
+                int32_t refVal_setType;
+                ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(U("type"))),
+                                                 refVal_setType);
+                setType(refVal_setType);
+            }
+            if (multipart->hasContent(utility::conversions::to_string_t(U("privacy"))))
+            {
+                int32_t refVal_setPrivacy;
+                ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(U("privacy"))),
+                                                 refVal_setPrivacy);
+                setPrivacy(refVal_setPrivacy);
+            }
+            if (multipart->hasContent(utility::conversions::to_string_t(U("owner_id"))))
+            {
+                utility::string_t refVal_setOwnerId;
+                ok &= ModelBase::fromHttpContent(
+                    multipart->getContent(utility::conversions::to_string_t(U("owner_id"))), refVal_setOwnerId);
+                setOwnerId(refVal_setOwnerId);
+            }
+            if (multipart->hasContent(utility::conversions::to_string_t(U("verified"))))
+            {
+                bool refVal_setVerified;
+                ok &= ModelBase::fromHttpContent(
+                    multipart->getContent(utility::conversions::to_string_t(U("verified"))), refVal_setVerified);
+                setVerified(refVal_setVerified);
+            }
+            if (multipart->hasContent(utility::conversions::to_string_t(U("photo_url"))))
+            {
+                utility::string_t refVal_setPhotoUrl;
+                ok &= ModelBase::fromHttpContent(
+                    multipart->getContent(utility::conversions::to_string_t(U("photo_url"))), refVal_setPhotoUrl);
+                setPhotoUrl(refVal_setPhotoUrl);
+            }
+            if (multipart->hasContent(utility::conversions::to_string_t(U("banner_url"))))
+            {
+                utility::string_t refVal_setBannerUrl;
+                ok &= ModelBase::fromHttpContent(
+                    multipart->getContent(utility::conversions::to_string_t(U("banner_url"))), refVal_setBannerUrl);
+                setBannerUrl(refVal_setBannerUrl);
+            }
+            if (multipart->hasContent(utility::conversions::to_string_t(U("member_count"))))
+            {
+                int32_t refVal_setMemberCount;
+                ok &= ModelBase::fromHttpContent(
+                    multipart->getContent(utility::conversions::to_string_t(U("member_count"))), refVal_setMemberCount);
+                setMemberCount(refVal_setMemberCount);
+            }
+            if (multipart->hasContent(utility::conversions::to_string_t(U("follower_count"))))
+            {
+                int32_t refVal_setFollowerCount;
+                ok &= ModelBase::fromHttpContent(
+                    multipart->getContent(utility::conversions::to_string_t(U("follower_count"))),
+                    refVal_setFollowerCount);
+                setFollowerCount(refVal_setFollowerCount);
+            }
+            if (multipart->hasContent(utility::conversions::to_string_t(U("view_count"))))
+            {
+                int32_t refVal_setViewCount;
+                ok &= ModelBase::fromHttpContent(
+                    multipart->getContent(utility::conversions::to_string_t(U("view_count"))), refVal_setViewCount);
+                setViewCount(refVal_setViewCount);
+            }
+            if (multipart->hasContent(utility::conversions::to_string_t(U("created"))))
+            {
+                utility::datetime refVal_setCreated;
+                ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(U("created"))),
+                                                 refVal_setCreated);
+                setCreated(refVal_setCreated);
+            }
+            if (multipart->hasContent(utility::conversions::to_string_t(U("updated"))))
+            {
+                utility::datetime refVal_setUpdated;
+                ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(U("updated"))),
+                                                 refVal_setUpdated);
+                setUpdated(refVal_setUpdated);
+            }
+            return ok;
         }
-    }
-    if(val.has_field(utility::conversions::to_string_t(U("owner_id"))))
-    {
-        const web::json::value& fieldValue = val.at(utility::conversions::to_string_t(U("owner_id")));
-        if(!fieldValue.is_null())
+
+        utility::string_t Group::getId() const
         {
-            utility::string_t refVal_setOwnerId;
-            ok &= ModelBase::fromJson(fieldValue, refVal_setOwnerId);
-            setOwnerId(refVal_setOwnerId);
-            
+            return m_Id;
         }
-    }
-    if(val.has_field(utility::conversions::to_string_t(U("verified"))))
-    {
-        const web::json::value& fieldValue = val.at(utility::conversions::to_string_t(U("verified")));
-        if(!fieldValue.is_null())
+
+        void Group::setId(const utility::string_t &value)
         {
-            bool refVal_setVerified;
-            ok &= ModelBase::fromJson(fieldValue, refVal_setVerified);
-            setVerified(refVal_setVerified);
-            
+            m_Id = value;
+            m_IdIsSet = true;
         }
-    }
-    if(val.has_field(utility::conversions::to_string_t(U("photo_url"))))
-    {
-        const web::json::value& fieldValue = val.at(utility::conversions::to_string_t(U("photo_url")));
-        if(!fieldValue.is_null())
+
+        bool Group::idIsSet() const
         {
-            utility::string_t refVal_setPhotoUrl;
-            ok &= ModelBase::fromJson(fieldValue, refVal_setPhotoUrl);
-            setPhotoUrl(refVal_setPhotoUrl);
-            
+            return m_IdIsSet;
         }
-    }
-    if(val.has_field(utility::conversions::to_string_t(U("banner_url"))))
-    {
-        const web::json::value& fieldValue = val.at(utility::conversions::to_string_t(U("banner_url")));
-        if(!fieldValue.is_null())
+
+        void Group::unsetId()
         {
-            utility::string_t refVal_setBannerUrl;
-            ok &= ModelBase::fromJson(fieldValue, refVal_setBannerUrl);
-            setBannerUrl(refVal_setBannerUrl);
-            
+            m_IdIsSet = false;
         }
-    }
-    if(val.has_field(utility::conversions::to_string_t(U("member_count"))))
-    {
-        const web::json::value& fieldValue = val.at(utility::conversions::to_string_t(U("member_count")));
-        if(!fieldValue.is_null())
+        utility::string_t Group::getUuid() const
         {
-            int32_t refVal_setMemberCount;
-            ok &= ModelBase::fromJson(fieldValue, refVal_setMemberCount);
-            setMemberCount(refVal_setMemberCount);
-            
+            return m_Uuid;
         }
-    }
-    if(val.has_field(utility::conversions::to_string_t(U("follower_count"))))
-    {
-        const web::json::value& fieldValue = val.at(utility::conversions::to_string_t(U("follower_count")));
-        if(!fieldValue.is_null())
+
+        void Group::setUuid(const utility::string_t &value)
         {
-            int32_t refVal_setFollowerCount;
-            ok &= ModelBase::fromJson(fieldValue, refVal_setFollowerCount);
-            setFollowerCount(refVal_setFollowerCount);
-            
+            m_Uuid = value;
+            m_UuidIsSet = true;
         }
-    }
-    if(val.has_field(utility::conversions::to_string_t(U("view_count"))))
-    {
-        const web::json::value& fieldValue = val.at(utility::conversions::to_string_t(U("view_count")));
-        if(!fieldValue.is_null())
+
+        bool Group::uuidIsSet() const
         {
-            int32_t refVal_setViewCount;
-            ok &= ModelBase::fromJson(fieldValue, refVal_setViewCount);
-            setViewCount(refVal_setViewCount);
-            
+            return m_UuidIsSet;
         }
-    }
-    if(val.has_field(utility::conversions::to_string_t(U("created"))))
-    {
-        const web::json::value& fieldValue = val.at(utility::conversions::to_string_t(U("created")));
-        if(!fieldValue.is_null())
+
+        void Group::unsetUuid()
         {
-            utility::datetime refVal_setCreated;
-            ok &= ModelBase::fromJson(fieldValue, refVal_setCreated);
-            setCreated(refVal_setCreated);
-            
+            m_UuidIsSet = false;
         }
-    }
-    if(val.has_field(utility::conversions::to_string_t(U("updated"))))
-    {
-        const web::json::value& fieldValue = val.at(utility::conversions::to_string_t(U("updated")));
-        if(!fieldValue.is_null())
+        utility::string_t Group::getName() const
         {
-            utility::datetime refVal_setUpdated;
-            ok &= ModelBase::fromJson(fieldValue, refVal_setUpdated);
-            setUpdated(refVal_setUpdated);
-            
+            return m_Name;
         }
+
+        void Group::setName(const utility::string_t &value)
+        {
+            m_Name = value;
+            m_NameIsSet = true;
+        }
+
+        bool Group::nameIsSet() const
+        {
+            return m_NameIsSet;
+        }
+
+        void Group::unsetName()
+        {
+            m_NameIsSet = false;
+        }
+        utility::string_t Group::getTag() const
+        {
+            return m_Tag;
+        }
+
+        void Group::setTag(const utility::string_t &value)
+        {
+            m_Tag = value;
+            m_TagIsSet = true;
+        }
+
+        bool Group::tagIsSet() const
+        {
+            return m_TagIsSet;
+        }
+
+        void Group::unsetTag()
+        {
+            m_TagIsSet = false;
+        }
+        utility::string_t Group::getDescription() const
+        {
+            return m_Description;
+        }
+
+        void Group::setDescription(const utility::string_t &value)
+        {
+            m_Description = value;
+            m_DescriptionIsSet = true;
+        }
+
+        bool Group::descriptionIsSet() const
+        {
+            return m_DescriptionIsSet;
+        }
+
+        void Group::unsetDescription()
+        {
+            m_DescriptionIsSet = false;
+        }
+        int32_t Group::getType() const
+        {
+            return m_Type;
+        }
+
+        void Group::setType(int32_t value)
+        {
+            m_Type = value;
+            m_TypeIsSet = true;
+        }
+
+        bool Group::typeIsSet() const
+        {
+            return m_TypeIsSet;
+        }
+
+        void Group::unsetType()
+        {
+            m_TypeIsSet = false;
+        }
+        int32_t Group::getPrivacy() const
+        {
+            return m_Privacy;
+        }
+
+        void Group::setPrivacy(int32_t value)
+        {
+            m_Privacy = value;
+            m_PrivacyIsSet = true;
+        }
+
+        bool Group::privacyIsSet() const
+        {
+            return m_PrivacyIsSet;
+        }
+
+        void Group::unsetPrivacy()
+        {
+            m_PrivacyIsSet = false;
+        }
+        utility::string_t Group::getOwnerId() const
+        {
+            return m_Owner_id;
+        }
+
+        void Group::setOwnerId(const utility::string_t &value)
+        {
+            m_Owner_id = value;
+            m_Owner_idIsSet = true;
+        }
+
+        bool Group::ownerIdIsSet() const
+        {
+            return m_Owner_idIsSet;
+        }
+
+        void Group::unsetOwner_id()
+        {
+            m_Owner_idIsSet = false;
+        }
+        bool Group::isVerified() const
+        {
+            return m_Verified;
+        }
+
+        void Group::setVerified(bool value)
+        {
+            m_Verified = value;
+            m_VerifiedIsSet = true;
+        }
+
+        bool Group::verifiedIsSet() const
+        {
+            return m_VerifiedIsSet;
+        }
+
+        void Group::unsetVerified()
+        {
+            m_VerifiedIsSet = false;
+        }
+        utility::string_t Group::getPhotoUrl() const
+        {
+            return m_Photo_url;
+        }
+
+        void Group::setPhotoUrl(const utility::string_t &value)
+        {
+            m_Photo_url = value;
+            m_Photo_urlIsSet = true;
+        }
+
+        bool Group::photoUrlIsSet() const
+        {
+            return m_Photo_urlIsSet;
+        }
+
+        void Group::unsetPhoto_url()
+        {
+            m_Photo_urlIsSet = false;
+        }
+        utility::string_t Group::getBannerUrl() const
+        {
+            return m_Banner_url;
+        }
+
+        void Group::setBannerUrl(const utility::string_t &value)
+        {
+            m_Banner_url = value;
+            m_Banner_urlIsSet = true;
+        }
+
+        bool Group::bannerUrlIsSet() const
+        {
+            return m_Banner_urlIsSet;
+        }
+
+        void Group::unsetBanner_url()
+        {
+            m_Banner_urlIsSet = false;
+        }
+        int32_t Group::getMemberCount() const
+        {
+            return m_Member_count;
+        }
+
+        void Group::setMemberCount(int32_t value)
+        {
+            m_Member_count = value;
+            m_Member_countIsSet = true;
+        }
+
+        bool Group::memberCountIsSet() const
+        {
+            return m_Member_countIsSet;
+        }
+
+        void Group::unsetMember_count()
+        {
+            m_Member_countIsSet = false;
+        }
+        int32_t Group::getFollowerCount() const
+        {
+            return m_Follower_count;
+        }
+
+        void Group::setFollowerCount(int32_t value)
+        {
+            m_Follower_count = value;
+            m_Follower_countIsSet = true;
+        }
+
+        bool Group::followerCountIsSet() const
+        {
+            return m_Follower_countIsSet;
+        }
+
+        void Group::unsetFollower_count()
+        {
+            m_Follower_countIsSet = false;
+        }
+        int32_t Group::getViewCount() const
+        {
+            return m_View_count;
+        }
+
+        void Group::setViewCount(int32_t value)
+        {
+            m_View_count = value;
+            m_View_countIsSet = true;
+        }
+
+        bool Group::viewCountIsSet() const
+        {
+            return m_View_countIsSet;
+        }
+
+        void Group::unsetView_count()
+        {
+            m_View_countIsSet = false;
+        }
+        utility::datetime Group::getCreated() const
+        {
+            return m_Created;
+        }
+
+        void Group::setCreated(const utility::datetime &value)
+        {
+            m_Created = value;
+            m_CreatedIsSet = true;
+        }
+
+        bool Group::createdIsSet() const
+        {
+            return m_CreatedIsSet;
+        }
+
+        void Group::unsetCreated()
+        {
+            m_CreatedIsSet = false;
+        }
+        utility::datetime Group::getUpdated() const
+        {
+            return m_Updated;
+        }
+
+        void Group::setUpdated(const utility::datetime &value)
+        {
+            m_Updated = value;
+            m_UpdatedIsSet = true;
+        }
+
+        bool Group::updatedIsSet() const
+        {
+            return m_UpdatedIsSet;
+        }
+
+        void Group::unsetUpdated()
+        {
+            m_UpdatedIsSet = false;
+        }
+
     }
-    return ok;
 }
-
-void Group::toMultipart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& prefix) const
-{
-    utility::string_t namePrefix = prefix;
-    if(namePrefix.size() > 0 && namePrefix.substr(namePrefix.size() - 1) != utility::conversions::to_string_t(U(".")))
-    {
-        namePrefix += utility::conversions::to_string_t(U("."));
-    }
-    if(m_IdIsSet)
-    {
-        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("id")), m_Id));
-    }
-    if(m_UuidIsSet)
-    {
-        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("uuid")), m_Uuid));
-    }
-    if(m_NameIsSet)
-    {
-        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("name")), m_Name));
-    }
-    if(m_TagIsSet)
-    {
-        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("tag")), m_Tag));
-    }
-    if(m_DescriptionIsSet)
-    {
-        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("description")), m_Description));
-    }
-    if(m_TypeIsSet)
-    {
-        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("type")), m_Type));
-    }
-    if(m_PrivacyIsSet)
-    {
-        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("privacy")), m_Privacy));
-    }
-    if(m_Owner_idIsSet)
-    {
-        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("owner_id")), m_Owner_id));
-    }
-    if(m_VerifiedIsSet)
-    {
-        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("verified")), m_Verified));
-    }
-    if(m_Photo_urlIsSet)
-    {
-        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("photo_url")), m_Photo_url));
-    }
-    if(m_Banner_urlIsSet)
-    {
-        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("banner_url")), m_Banner_url));
-    }
-    if(m_Member_countIsSet)
-    {
-        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("member_count")), m_Member_count));
-    }
-    if(m_Follower_countIsSet)
-    {
-        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("follower_count")), m_Follower_count));
-    }
-    if(m_View_countIsSet)
-    {
-        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("view_count")), m_View_count));
-    }
-    if(m_CreatedIsSet)
-    {
-        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("created")), m_Created));
-    }
-    if(m_UpdatedIsSet)
-    {
-        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("updated")), m_Updated));
-    }
-}
-
-bool Group::fromMultiPart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& prefix)
-{
-    bool ok = true;
-    utility::string_t namePrefix = prefix;
-    if(namePrefix.size() > 0 && namePrefix.substr(namePrefix.size() - 1) != utility::conversions::to_string_t(U(".")))
-    {
-        namePrefix += utility::conversions::to_string_t(U("."));
-    }
-
-    if(multipart->hasContent(utility::conversions::to_string_t(U("id"))))
-    {
-        utility::string_t refVal_setId;
-        ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(U("id"))), refVal_setId );
-        setId(refVal_setId);
-    }
-    if(multipart->hasContent(utility::conversions::to_string_t(U("uuid"))))
-    {
-        utility::string_t refVal_setUuid;
-        ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(U("uuid"))), refVal_setUuid );
-        setUuid(refVal_setUuid);
-    }
-    if(multipart->hasContent(utility::conversions::to_string_t(U("name"))))
-    {
-        utility::string_t refVal_setName;
-        ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(U("name"))), refVal_setName );
-        setName(refVal_setName);
-    }
-    if(multipart->hasContent(utility::conversions::to_string_t(U("tag"))))
-    {
-        utility::string_t refVal_setTag;
-        ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(U("tag"))), refVal_setTag );
-        setTag(refVal_setTag);
-    }
-    if(multipart->hasContent(utility::conversions::to_string_t(U("description"))))
-    {
-        utility::string_t refVal_setDescription;
-        ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(U("description"))), refVal_setDescription );
-        setDescription(refVal_setDescription);
-    }
-    if(multipart->hasContent(utility::conversions::to_string_t(U("type"))))
-    {
-        int32_t refVal_setType;
-        ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(U("type"))), refVal_setType );
-        setType(refVal_setType);
-    }
-    if(multipart->hasContent(utility::conversions::to_string_t(U("privacy"))))
-    {
-        int32_t refVal_setPrivacy;
-        ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(U("privacy"))), refVal_setPrivacy );
-        setPrivacy(refVal_setPrivacy);
-    }
-    if(multipart->hasContent(utility::conversions::to_string_t(U("owner_id"))))
-    {
-        utility::string_t refVal_setOwnerId;
-        ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(U("owner_id"))), refVal_setOwnerId );
-        setOwnerId(refVal_setOwnerId);
-    }
-    if(multipart->hasContent(utility::conversions::to_string_t(U("verified"))))
-    {
-        bool refVal_setVerified;
-        ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(U("verified"))), refVal_setVerified );
-        setVerified(refVal_setVerified);
-    }
-    if(multipart->hasContent(utility::conversions::to_string_t(U("photo_url"))))
-    {
-        utility::string_t refVal_setPhotoUrl;
-        ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(U("photo_url"))), refVal_setPhotoUrl );
-        setPhotoUrl(refVal_setPhotoUrl);
-    }
-    if(multipart->hasContent(utility::conversions::to_string_t(U("banner_url"))))
-    {
-        utility::string_t refVal_setBannerUrl;
-        ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(U("banner_url"))), refVal_setBannerUrl );
-        setBannerUrl(refVal_setBannerUrl);
-    }
-    if(multipart->hasContent(utility::conversions::to_string_t(U("member_count"))))
-    {
-        int32_t refVal_setMemberCount;
-        ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(U("member_count"))), refVal_setMemberCount );
-        setMemberCount(refVal_setMemberCount);
-    }
-    if(multipart->hasContent(utility::conversions::to_string_t(U("follower_count"))))
-    {
-        int32_t refVal_setFollowerCount;
-        ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(U("follower_count"))), refVal_setFollowerCount );
-        setFollowerCount(refVal_setFollowerCount);
-    }
-    if(multipart->hasContent(utility::conversions::to_string_t(U("view_count"))))
-    {
-        int32_t refVal_setViewCount;
-        ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(U("view_count"))), refVal_setViewCount );
-        setViewCount(refVal_setViewCount);
-    }
-    if(multipart->hasContent(utility::conversions::to_string_t(U("created"))))
-    {
-        utility::datetime refVal_setCreated;
-        ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(U("created"))), refVal_setCreated );
-        setCreated(refVal_setCreated);
-    }
-    if(multipart->hasContent(utility::conversions::to_string_t(U("updated"))))
-    {
-        utility::datetime refVal_setUpdated;
-        ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(U("updated"))), refVal_setUpdated );
-        setUpdated(refVal_setUpdated);
-    }
-    return ok;
-}
-
-
-utility::string_t Group::getId() const
-{
-    return m_Id;
-}
-
-
-void Group::setId(const utility::string_t& value)
-{
-    m_Id = value;
-    m_IdIsSet = true;
-}
-
-bool Group::idIsSet() const
-{
-    return m_IdIsSet;
-}
-
-void Group::unsetId()
-{
-    m_IdIsSet = false;
-}
-utility::string_t Group::getUuid() const
-{
-    return m_Uuid;
-}
-
-
-void Group::setUuid(const utility::string_t& value)
-{
-    m_Uuid = value;
-    m_UuidIsSet = true;
-}
-
-bool Group::uuidIsSet() const
-{
-    return m_UuidIsSet;
-}
-
-void Group::unsetUuid()
-{
-    m_UuidIsSet = false;
-}
-utility::string_t Group::getName() const
-{
-    return m_Name;
-}
-
-
-void Group::setName(const utility::string_t& value)
-{
-    m_Name = value;
-    m_NameIsSet = true;
-}
-
-bool Group::nameIsSet() const
-{
-    return m_NameIsSet;
-}
-
-void Group::unsetName()
-{
-    m_NameIsSet = false;
-}
-utility::string_t Group::getTag() const
-{
-    return m_Tag;
-}
-
-
-void Group::setTag(const utility::string_t& value)
-{
-    m_Tag = value;
-    m_TagIsSet = true;
-}
-
-bool Group::tagIsSet() const
-{
-    return m_TagIsSet;
-}
-
-void Group::unsetTag()
-{
-    m_TagIsSet = false;
-}
-utility::string_t Group::getDescription() const
-{
-    return m_Description;
-}
-
-
-void Group::setDescription(const utility::string_t& value)
-{
-    m_Description = value;
-    m_DescriptionIsSet = true;
-}
-
-bool Group::descriptionIsSet() const
-{
-    return m_DescriptionIsSet;
-}
-
-void Group::unsetDescription()
-{
-    m_DescriptionIsSet = false;
-}
-int32_t Group::getType() const
-{
-    return m_Type;
-}
-
-void Group::setType(int32_t value)
-{
-    m_Type = value;
-    m_TypeIsSet = true;
-}
-
-bool Group::typeIsSet() const
-{
-    return m_TypeIsSet;
-}
-
-void Group::unsetType()
-{
-    m_TypeIsSet = false;
-}
-int32_t Group::getPrivacy() const
-{
-    return m_Privacy;
-}
-
-void Group::setPrivacy(int32_t value)
-{
-    m_Privacy = value;
-    m_PrivacyIsSet = true;
-}
-
-bool Group::privacyIsSet() const
-{
-    return m_PrivacyIsSet;
-}
-
-void Group::unsetPrivacy()
-{
-    m_PrivacyIsSet = false;
-}
-utility::string_t Group::getOwnerId() const
-{
-    return m_Owner_id;
-}
-
-
-void Group::setOwnerId(const utility::string_t& value)
-{
-    m_Owner_id = value;
-    m_Owner_idIsSet = true;
-}
-
-bool Group::ownerIdIsSet() const
-{
-    return m_Owner_idIsSet;
-}
-
-void Group::unsetOwner_id()
-{
-    m_Owner_idIsSet = false;
-}
-bool Group::isVerified() const
-{
-    return m_Verified;
-}
-
-void Group::setVerified(bool value)
-{
-    m_Verified = value;
-    m_VerifiedIsSet = true;
-}
-
-bool Group::verifiedIsSet() const
-{
-    return m_VerifiedIsSet;
-}
-
-void Group::unsetVerified()
-{
-    m_VerifiedIsSet = false;
-}
-utility::string_t Group::getPhotoUrl() const
-{
-    return m_Photo_url;
-}
-
-
-void Group::setPhotoUrl(const utility::string_t& value)
-{
-    m_Photo_url = value;
-    m_Photo_urlIsSet = true;
-}
-
-bool Group::photoUrlIsSet() const
-{
-    return m_Photo_urlIsSet;
-}
-
-void Group::unsetPhoto_url()
-{
-    m_Photo_urlIsSet = false;
-}
-utility::string_t Group::getBannerUrl() const
-{
-    return m_Banner_url;
-}
-
-
-void Group::setBannerUrl(const utility::string_t& value)
-{
-    m_Banner_url = value;
-    m_Banner_urlIsSet = true;
-}
-
-bool Group::bannerUrlIsSet() const
-{
-    return m_Banner_urlIsSet;
-}
-
-void Group::unsetBanner_url()
-{
-    m_Banner_urlIsSet = false;
-}
-int32_t Group::getMemberCount() const
-{
-    return m_Member_count;
-}
-
-void Group::setMemberCount(int32_t value)
-{
-    m_Member_count = value;
-    m_Member_countIsSet = true;
-}
-
-bool Group::memberCountIsSet() const
-{
-    return m_Member_countIsSet;
-}
-
-void Group::unsetMember_count()
-{
-    m_Member_countIsSet = false;
-}
-int32_t Group::getFollowerCount() const
-{
-    return m_Follower_count;
-}
-
-void Group::setFollowerCount(int32_t value)
-{
-    m_Follower_count = value;
-    m_Follower_countIsSet = true;
-}
-
-bool Group::followerCountIsSet() const
-{
-    return m_Follower_countIsSet;
-}
-
-void Group::unsetFollower_count()
-{
-    m_Follower_countIsSet = false;
-}
-int32_t Group::getViewCount() const
-{
-    return m_View_count;
-}
-
-void Group::setViewCount(int32_t value)
-{
-    m_View_count = value;
-    m_View_countIsSet = true;
-}
-
-bool Group::viewCountIsSet() const
-{
-    return m_View_countIsSet;
-}
-
-void Group::unsetView_count()
-{
-    m_View_countIsSet = false;
-}
-utility::datetime Group::getCreated() const
-{
-    return m_Created;
-}
-
-
-void Group::setCreated(const utility::datetime& value)
-{
-    m_Created = value;
-    m_CreatedIsSet = true;
-}
-
-bool Group::createdIsSet() const
-{
-    return m_CreatedIsSet;
-}
-
-void Group::unsetCreated()
-{
-    m_CreatedIsSet = false;
-}
-utility::datetime Group::getUpdated() const
-{
-    return m_Updated;
-}
-
-
-void Group::setUpdated(const utility::datetime& value)
-{
-    m_Updated = value;
-    m_UpdatedIsSet = true;
-}
-
-bool Group::updatedIsSet() const
-{
-    return m_UpdatedIsSet;
-}
-
-void Group::unsetUpdated()
-{
-    m_UpdatedIsSet = false;
-}
-
-}
-}
-
-

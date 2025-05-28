@@ -10,160 +10,162 @@
  * Do not edit the class manually.
  */
 
-
-
 #include "tribufu++/model/IntrospectRequest.h"
 
-namespace tribufu {
-namespace models {
-
-IntrospectRequest::IntrospectRequest()
+namespace tribufu
 {
-    m_Token = utility::conversions::to_string_t("");
-    m_TokenIsSet = false;
-    m_Token_type_hintIsSet = false;
-}
-
-IntrospectRequest::~IntrospectRequest()
-{
-}
-
-void IntrospectRequest::validate()
-{
-    // TODO: implement validation
-}
-
-web::json::value IntrospectRequest::toJson() const
-{
-    web::json::value val = web::json::value::object();
-    if(m_TokenIsSet)
-    {   
-        
-        val[utility::conversions::to_string_t(U("token"))] = ModelBase::toJson(m_Token);
-    }
-    if(m_Token_type_hintIsSet)
-    {   
-        
-        val[utility::conversions::to_string_t(U("token_type_hint"))] = ModelBase::toJson(m_Token_type_hint);
-    }
-
-    return val;
-}
-
-bool IntrospectRequest::fromJson(const web::json::value& val)
-{
-    bool ok = true;
-    if(val.has_field(utility::conversions::to_string_t(U("token"))))
+    namespace models
     {
-        const web::json::value& fieldValue = val.at(utility::conversions::to_string_t(U("token")));
-        if(!fieldValue.is_null())
+
+        IntrospectRequest::IntrospectRequest()
         {
-            utility::string_t refVal_setToken;
-            ok &= ModelBase::fromJson(fieldValue, refVal_setToken);
-            setToken(refVal_setToken);
-            
+            m_Token = utility::conversions::to_string_t("");
+            m_TokenIsSet = false;
+            m_Token_type_hintIsSet = false;
         }
-    }
-    if(val.has_field(utility::conversions::to_string_t(U("token_type_hint"))))
-    {
-        const web::json::value& fieldValue = val.at(utility::conversions::to_string_t(U("token_type_hint")));
-        if(!fieldValue.is_null())
+
+        IntrospectRequest::~IntrospectRequest()
         {
-            std::shared_ptr<TokenHintType> refVal_setTokenTypeHint;
-            ok &= ModelBase::fromJson(fieldValue, refVal_setTokenTypeHint);
-            setTokenTypeHint(refVal_setTokenTypeHint);
-            
         }
+
+        void IntrospectRequest::validate()
+        {
+            // TODO: implement validation
+        }
+
+        web::json::value IntrospectRequest::toJson() const
+        {
+            web::json::value val = web::json::value::object();
+            if (m_TokenIsSet)
+            {
+
+                val[utility::conversions::to_string_t(U("token"))] = ModelBase::toJson(m_Token);
+            }
+            if (m_Token_type_hintIsSet)
+            {
+
+                val[utility::conversions::to_string_t(U("token_type_hint"))] = ModelBase::toJson(m_Token_type_hint);
+            }
+
+            return val;
+        }
+
+        bool IntrospectRequest::fromJson(const web::json::value &val)
+        {
+            bool ok = true;
+            if (val.has_field(utility::conversions::to_string_t(U("token"))))
+            {
+                const web::json::value &fieldValue = val.at(utility::conversions::to_string_t(U("token")));
+                if (!fieldValue.is_null())
+                {
+                    utility::string_t refVal_setToken;
+                    ok &= ModelBase::fromJson(fieldValue, refVal_setToken);
+                    setToken(refVal_setToken);
+                }
+            }
+            if (val.has_field(utility::conversions::to_string_t(U("token_type_hint"))))
+            {
+                const web::json::value &fieldValue = val.at(utility::conversions::to_string_t(U("token_type_hint")));
+                if (!fieldValue.is_null())
+                {
+                    std::shared_ptr<TokenHintType> refVal_setTokenTypeHint;
+                    ok &= ModelBase::fromJson(fieldValue, refVal_setTokenTypeHint);
+                    setTokenTypeHint(refVal_setTokenTypeHint);
+                }
+            }
+            return ok;
+        }
+
+        void IntrospectRequest::toMultipart(std::shared_ptr<MultipartFormData> multipart,
+                                            const utility::string_t &prefix) const
+        {
+            utility::string_t namePrefix = prefix;
+            if (namePrefix.size() > 0 &&
+                namePrefix.substr(namePrefix.size() - 1) != utility::conversions::to_string_t(U(".")))
+            {
+                namePrefix += utility::conversions::to_string_t(U("."));
+            }
+            if (m_TokenIsSet)
+            {
+                multipart->add(
+                    ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("token")), m_Token));
+            }
+            if (m_Token_type_hintIsSet)
+            {
+                multipart->add(ModelBase::toHttpContent(
+                    namePrefix + utility::conversions::to_string_t(U("token_type_hint")), m_Token_type_hint));
+            }
+        }
+
+        bool IntrospectRequest::fromMultiPart(std::shared_ptr<MultipartFormData> multipart,
+                                              const utility::string_t &prefix)
+        {
+            bool ok = true;
+            utility::string_t namePrefix = prefix;
+            if (namePrefix.size() > 0 &&
+                namePrefix.substr(namePrefix.size() - 1) != utility::conversions::to_string_t(U(".")))
+            {
+                namePrefix += utility::conversions::to_string_t(U("."));
+            }
+
+            if (multipart->hasContent(utility::conversions::to_string_t(U("token"))))
+            {
+                utility::string_t refVal_setToken;
+                ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(U("token"))),
+                                                 refVal_setToken);
+                setToken(refVal_setToken);
+            }
+            if (multipart->hasContent(utility::conversions::to_string_t(U("token_type_hint"))))
+            {
+                std::shared_ptr<TokenHintType> refVal_setTokenTypeHint;
+                ok &= ModelBase::fromHttpContent(
+                    multipart->getContent(utility::conversions::to_string_t(U("token_type_hint"))),
+                    refVal_setTokenTypeHint);
+                setTokenTypeHint(refVal_setTokenTypeHint);
+            }
+            return ok;
+        }
+
+        utility::string_t IntrospectRequest::getToken() const
+        {
+            return m_Token;
+        }
+
+        void IntrospectRequest::setToken(const utility::string_t &value)
+        {
+            m_Token = value;
+            m_TokenIsSet = true;
+        }
+
+        bool IntrospectRequest::tokenIsSet() const
+        {
+            return m_TokenIsSet;
+        }
+
+        void IntrospectRequest::unsetToken()
+        {
+            m_TokenIsSet = false;
+        }
+        std::shared_ptr<TokenHintType> IntrospectRequest::getTokenTypeHint() const
+        {
+            return m_Token_type_hint;
+        }
+
+        void IntrospectRequest::setTokenTypeHint(const std::shared_ptr<TokenHintType> &value)
+        {
+            m_Token_type_hint = value;
+            m_Token_type_hintIsSet = true;
+        }
+
+        bool IntrospectRequest::tokenTypeHintIsSet() const
+        {
+            return m_Token_type_hintIsSet;
+        }
+
+        void IntrospectRequest::unsetToken_type_hint()
+        {
+            m_Token_type_hintIsSet = false;
+        }
+
     }
-    return ok;
 }
-
-void IntrospectRequest::toMultipart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& prefix) const
-{
-    utility::string_t namePrefix = prefix;
-    if(namePrefix.size() > 0 && namePrefix.substr(namePrefix.size() - 1) != utility::conversions::to_string_t(U(".")))
-    {
-        namePrefix += utility::conversions::to_string_t(U("."));
-    }
-    if(m_TokenIsSet)
-    {
-        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("token")), m_Token));
-    }
-    if(m_Token_type_hintIsSet)
-    {
-        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("token_type_hint")), m_Token_type_hint));
-    }
-}
-
-bool IntrospectRequest::fromMultiPart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& prefix)
-{
-    bool ok = true;
-    utility::string_t namePrefix = prefix;
-    if(namePrefix.size() > 0 && namePrefix.substr(namePrefix.size() - 1) != utility::conversions::to_string_t(U(".")))
-    {
-        namePrefix += utility::conversions::to_string_t(U("."));
-    }
-
-    if(multipart->hasContent(utility::conversions::to_string_t(U("token"))))
-    {
-        utility::string_t refVal_setToken;
-        ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(U("token"))), refVal_setToken );
-        setToken(refVal_setToken);
-    }
-    if(multipart->hasContent(utility::conversions::to_string_t(U("token_type_hint"))))
-    {
-        std::shared_ptr<TokenHintType> refVal_setTokenTypeHint;
-        ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(U("token_type_hint"))), refVal_setTokenTypeHint );
-        setTokenTypeHint(refVal_setTokenTypeHint);
-    }
-    return ok;
-}
-
-
-utility::string_t IntrospectRequest::getToken() const
-{
-    return m_Token;
-}
-
-
-void IntrospectRequest::setToken(const utility::string_t& value)
-{
-    m_Token = value;
-    m_TokenIsSet = true;
-}
-
-bool IntrospectRequest::tokenIsSet() const
-{
-    return m_TokenIsSet;
-}
-
-void IntrospectRequest::unsetToken()
-{
-    m_TokenIsSet = false;
-}
-std::shared_ptr<TokenHintType> IntrospectRequest::getTokenTypeHint() const
-{
-    return m_Token_type_hint;
-}
-
-
-void IntrospectRequest::setTokenTypeHint(const std::shared_ptr<TokenHintType>& value)
-{
-    m_Token_type_hint = value;
-    m_Token_type_hintIsSet = true;
-}
-
-bool IntrospectRequest::tokenTypeHintIsSet() const
-{
-    return m_Token_type_hintIsSet;
-}
-
-void IntrospectRequest::unsetToken_type_hint()
-{
-    m_Token_type_hintIsSet = false;
-}
-
-}
-}
-
-

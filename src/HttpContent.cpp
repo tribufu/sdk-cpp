@@ -12,72 +12,74 @@
 
 #include "tribufu++/HttpContent.h"
 
-namespace tribufu {
-namespace models {
-
-HttpContent::HttpContent()
+namespace tribufu
 {
-}
+    namespace models
+    {
 
-HttpContent::~HttpContent()
-{
-}
+        HttpContent::HttpContent()
+        {
+        }
 
-utility::string_t HttpContent::getContentDisposition() const
-{
-    return m_ContentDisposition;
-}
+        HttpContent::~HttpContent()
+        {
+        }
 
-void HttpContent::setContentDisposition( const utility::string_t & value )
-{
-    m_ContentDisposition = value;
-}
+        utility::string_t HttpContent::getContentDisposition() const
+        {
+            return m_ContentDisposition;
+        }
 
-utility::string_t HttpContent::getName() const
-{
-    return m_Name;
-}
+        void HttpContent::setContentDisposition(const utility::string_t &value)
+        {
+            m_ContentDisposition = value;
+        }
 
-void HttpContent::setName( const utility::string_t & value )
-{
-    m_Name = value;
-}
+        utility::string_t HttpContent::getName() const
+        {
+            return m_Name;
+        }
 
-utility::string_t HttpContent::getFileName() const
-{
-    return m_FileName;
-}
+        void HttpContent::setName(const utility::string_t &value)
+        {
+            m_Name = value;
+        }
 
-void HttpContent::setFileName( const utility::string_t & value )
-{
-    m_FileName = value;
-}
+        utility::string_t HttpContent::getFileName() const
+        {
+            return m_FileName;
+        }
 
-utility::string_t HttpContent::getContentType() const
-{
-    return m_ContentType;
-}
+        void HttpContent::setFileName(const utility::string_t &value)
+        {
+            m_FileName = value;
+        }
 
-void HttpContent::setContentType( const utility::string_t & value )
-{
-    m_ContentType = value;
-}
+        utility::string_t HttpContent::getContentType() const
+        {
+            return m_ContentType;
+        }
 
-std::shared_ptr<std::istream> HttpContent::getData() const
-{
-    return m_Data;
-}
+        void HttpContent::setContentType(const utility::string_t &value)
+        {
+            m_ContentType = value;
+        }
 
-void HttpContent::setData( std::shared_ptr<std::istream> value )
-{
-    m_Data = value;
-}
+        std::shared_ptr<std::istream> HttpContent::getData() const
+        {
+            return m_Data;
+        }
 
-void HttpContent::writeTo( std::ostream& stream )
-{
-    m_Data->seekg( 0, m_Data->beg );
-    stream << m_Data->rdbuf();
-}
+        void HttpContent::setData(std::shared_ptr<std::istream> value)
+        {
+            m_Data = value;
+        }
 
-}
+        void HttpContent::writeTo(std::ostream &stream)
+        {
+            m_Data->seekg(0, m_Data->beg);
+            stream << m_Data->rdbuf();
+        }
+
+    }
 }

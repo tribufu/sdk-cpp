@@ -12,22 +12,23 @@
 
 #include "tribufu++/JsonBody.h"
 
-namespace tribufu {
-namespace models {
-
-JsonBody::JsonBody( const web::json::value& json)
-    : m_Json(json)
+namespace tribufu
 {
-}
+    namespace models
+    {
 
-JsonBody::~JsonBody()
-{
-}
+        JsonBody::JsonBody(const web::json::value &json) : m_Json(json)
+        {
+        }
 
-void JsonBody::writeTo( std::ostream& target )
-{
-    m_Json.serialize(target);
-}
+        JsonBody::~JsonBody()
+        {
+        }
 
-}
+        void JsonBody::writeTo(std::ostream &target)
+        {
+            m_Json.serialize(target);
+        }
+
+    }
 }

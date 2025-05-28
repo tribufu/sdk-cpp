@@ -13,140 +13,135 @@
 /*
  * ProfileGame.h
  *
- * 
+ *
  */
 
 #ifndef TRIBUFU_MODELS_ProfileGame_H_
 #define TRIBUFU_MODELS_ProfileGame_H_
 
-
 #include "tribufu++/ModelBase.h"
 
-#include <cpprest/details/basic_types.h>
 #include "tribufu++/AnyType.h"
+#include <cpprest/details/basic_types.h>
 
-namespace tribufu {
-namespace models {
-
-
-
-class  ProfileGame
-    : public ModelBase
+namespace tribufu
 {
-public:
-    ProfileGame();
-    virtual ~ProfileGame();
+    namespace models
+    {
 
-    /////////////////////////////////////////////
-    /// ModelBase overrides
+        class ProfileGame : public ModelBase
+        {
+        public:
+            ProfileGame();
+            virtual ~ProfileGame();
 
-    void validate() override;
+            /////////////////////////////////////////////
+            /// ModelBase overrides
 
-    web::json::value toJson() const override;
-    bool fromJson(const web::json::value& json) override;
+            void validate() override;
 
-    void toMultipart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& namePrefix) const override;
-    bool fromMultiPart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& namePrefix) override;
+            web::json::value toJson() const override;
+            bool fromJson(const web::json::value &json) override;
 
+            void toMultipart(std::shared_ptr<MultipartFormData> multipart,
+                             const utility::string_t &namePrefix) const override;
+            bool fromMultiPart(std::shared_ptr<MultipartFormData> multipart,
+                               const utility::string_t &namePrefix) override;
 
-    /////////////////////////////////////////////
-    /// ProfileGame members
+            /////////////////////////////////////////////
+            /// ProfileGame members
 
+            utility::string_t getId() const;
+            bool idIsSet() const;
+            void unsetId();
+            void setId(const utility::string_t &value);
 
-    utility::string_t getId() const;
-    bool idIsSet() const;
-    void unsetId();
-    void setId(const utility::string_t& value);
+            utility::string_t getName() const;
+            bool nameIsSet() const;
+            void unsetName();
+            void setName(const utility::string_t &value);
 
-    utility::string_t getName() const;
-    bool nameIsSet() const;
-    void unsetName();
-    void setName(const utility::string_t& value);
+            utility::string_t getCapsuleImageUrl() const;
+            bool capsuleImageUrlIsSet() const;
+            void unsetCapsule_image_url();
+            void setCapsuleImageUrl(const utility::string_t &value);
 
-    utility::string_t getCapsuleImageUrl() const;
-    bool capsuleImageUrlIsSet() const;
-    void unsetCapsule_image_url();
-    void setCapsuleImageUrl(const utility::string_t& value);
+            utility::string_t getLibraryImageUrl() const;
+            bool libraryImageUrlIsSet() const;
+            void unsetLibrary_image_url();
+            void setLibraryImageUrl(const utility::string_t &value);
 
-    utility::string_t getLibraryImageUrl() const;
-    bool libraryImageUrlIsSet() const;
-    void unsetLibrary_image_url();
-    void setLibraryImageUrl(const utility::string_t& value);
+            utility::string_t getSlug() const;
+            bool slugIsSet() const;
+            void unsetSlug();
+            void setSlug(const utility::string_t &value);
 
-    utility::string_t getSlug() const;
-    bool slugIsSet() const;
-    void unsetSlug();
-    void setSlug(const utility::string_t& value);
+            double getTimeUsed() const;
+            bool timeUsedIsSet() const;
+            void unsetTime_used();
+            void setTimeUsed(double value);
 
-    double getTimeUsed() const;
-    bool timeUsedIsSet() const;
-    void unsetTime_used();
-    void setTimeUsed(double value);
+            int32_t getUnlockedAchievements() const;
+            bool unlockedAchievementsIsSet() const;
+            void unsetUnlocked_achievements();
+            void setUnlockedAchievements(int32_t value);
 
-    int32_t getUnlockedAchievements() const;
-    bool unlockedAchievementsIsSet() const;
-    void unsetUnlocked_achievements();
-    void setUnlockedAchievements(int32_t value);
+            int32_t getTotalAchievements() const;
+            bool totalAchievementsIsSet() const;
+            void unsetTotal_achievements();
+            void setTotalAchievements(int32_t value);
 
-    int32_t getTotalAchievements() const;
-    bool totalAchievementsIsSet() const;
-    void unsetTotal_achievements();
-    void setTotalAchievements(int32_t value);
+            std::shared_ptr<AnyType> getStats() const;
+            bool statsIsSet() const;
+            void unsetStats();
+            void setStats(const std::shared_ptr<AnyType> &value);
 
-    std::shared_ptr<AnyType> getStats() const;
-    bool statsIsSet() const;
-    void unsetStats();
-    void setStats(const std::shared_ptr<AnyType>& value);
+            utility::datetime getAcquired() const;
+            bool acquiredIsSet() const;
+            void unsetAcquired();
+            void setAcquired(const utility::datetime &value);
 
-    utility::datetime getAcquired() const;
-    bool acquiredIsSet() const;
-    void unsetAcquired();
-    void setAcquired(const utility::datetime& value);
+            utility::datetime getLastUsed() const;
+            bool lastUsedIsSet() const;
+            void unsetLast_used();
+            void setLastUsed(const utility::datetime &value);
 
-    utility::datetime getLastUsed() const;
-    bool lastUsedIsSet() const;
-    void unsetLast_used();
-    void setLastUsed(const utility::datetime& value);
+        protected:
+            utility::string_t m_Id;
+            bool m_IdIsSet;
 
+            utility::string_t m_Name;
+            bool m_NameIsSet;
 
-protected:
-    utility::string_t m_Id;
-    bool m_IdIsSet;
+            utility::string_t m_Capsule_image_url;
+            bool m_Capsule_image_urlIsSet;
 
-    utility::string_t m_Name;
-    bool m_NameIsSet;
+            utility::string_t m_Library_image_url;
+            bool m_Library_image_urlIsSet;
 
-    utility::string_t m_Capsule_image_url;
-    bool m_Capsule_image_urlIsSet;
+            utility::string_t m_Slug;
+            bool m_SlugIsSet;
 
-    utility::string_t m_Library_image_url;
-    bool m_Library_image_urlIsSet;
+            double m_Time_used;
+            bool m_Time_usedIsSet;
 
-    utility::string_t m_Slug;
-    bool m_SlugIsSet;
+            int32_t m_Unlocked_achievements;
+            bool m_Unlocked_achievementsIsSet;
 
-    double m_Time_used;
-    bool m_Time_usedIsSet;
+            int32_t m_Total_achievements;
+            bool m_Total_achievementsIsSet;
 
-    int32_t m_Unlocked_achievements;
-    bool m_Unlocked_achievementsIsSet;
+            std::shared_ptr<AnyType> m_Stats;
+            bool m_StatsIsSet;
 
-    int32_t m_Total_achievements;
-    bool m_Total_achievementsIsSet;
+            utility::datetime m_Acquired;
+            bool m_AcquiredIsSet;
 
-    std::shared_ptr<AnyType> m_Stats;
-    bool m_StatsIsSet;
+            utility::datetime m_Last_used;
+            bool m_Last_usedIsSet;
+        };
 
-    utility::datetime m_Acquired;
-    bool m_AcquiredIsSet;
-
-    utility::datetime m_Last_used;
-    bool m_Last_usedIsSet;
-
-};
-
-
-}
+    }
 }
 
 #endif /* TRIBUFU_MODELS_ProfileGame_H_ */

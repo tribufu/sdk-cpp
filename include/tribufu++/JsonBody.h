@@ -19,28 +19,28 @@
 #ifndef TRIBUFU_MODELS_JsonBody_H_
 #define TRIBUFU_MODELS_JsonBody_H_
 
-
 #include "tribufu++/IHttpBody.h"
 
 #include <cpprest/json.h>
 
-namespace tribufu {
-namespace models {
-
-class  JsonBody
-    : public IHttpBody
+namespace tribufu
 {
-public:
-    JsonBody( const web::json::value& value );
-    virtual ~JsonBody();
+    namespace models
+    {
 
-    void writeTo( std::ostream& target ) override;
+        class JsonBody : public IHttpBody
+        {
+        public:
+            JsonBody(const web::json::value &value);
+            virtual ~JsonBody();
 
-protected:
-    web::json::value m_Json;
-};
+            void writeTo(std::ostream &target) override;
 
-}
+        protected:
+            web::json::value m_Json;
+        };
+
+    }
 }
 
 #endif /* TRIBUFU_MODELS_JsonBody_H_ */

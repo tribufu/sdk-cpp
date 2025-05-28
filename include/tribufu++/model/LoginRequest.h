@@ -13,67 +13,62 @@
 /*
  * LoginRequest.h
  *
- * 
+ *
  */
 
 #ifndef TRIBUFU_MODELS_LoginRequest_H_
 #define TRIBUFU_MODELS_LoginRequest_H_
 
-
 #include "tribufu++/ModelBase.h"
 
 #include <cpprest/details/basic_types.h>
 
-namespace tribufu {
-namespace models {
-
-
-
-class  LoginRequest
-    : public ModelBase
+namespace tribufu
 {
-public:
-    LoginRequest();
-    virtual ~LoginRequest();
+    namespace models
+    {
 
-    /////////////////////////////////////////////
-    /// ModelBase overrides
+        class LoginRequest : public ModelBase
+        {
+        public:
+            LoginRequest();
+            virtual ~LoginRequest();
 
-    void validate() override;
+            /////////////////////////////////////////////
+            /// ModelBase overrides
 
-    web::json::value toJson() const override;
-    bool fromJson(const web::json::value& json) override;
+            void validate() override;
 
-    void toMultipart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& namePrefix) const override;
-    bool fromMultiPart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& namePrefix) override;
+            web::json::value toJson() const override;
+            bool fromJson(const web::json::value &json) override;
 
+            void toMultipart(std::shared_ptr<MultipartFormData> multipart,
+                             const utility::string_t &namePrefix) const override;
+            bool fromMultiPart(std::shared_ptr<MultipartFormData> multipart,
+                               const utility::string_t &namePrefix) override;
 
-    /////////////////////////////////////////////
-    /// LoginRequest members
+            /////////////////////////////////////////////
+            /// LoginRequest members
 
+            utility::string_t getLogin() const;
+            bool loginIsSet() const;
+            void unsetLogin();
+            void setLogin(const utility::string_t &value);
 
-    utility::string_t getLogin() const;
-    bool loginIsSet() const;
-    void unsetLogin();
-    void setLogin(const utility::string_t& value);
+            utility::string_t getPassword() const;
+            bool passwordIsSet() const;
+            void unsetPassword();
+            void setPassword(const utility::string_t &value);
 
-    utility::string_t getPassword() const;
-    bool passwordIsSet() const;
-    void unsetPassword();
-    void setPassword(const utility::string_t& value);
+        protected:
+            utility::string_t m_Login;
+            bool m_LoginIsSet;
 
+            utility::string_t m_Password;
+            bool m_PasswordIsSet;
+        };
 
-protected:
-    utility::string_t m_Login;
-    bool m_LoginIsSet;
-
-    utility::string_t m_Password;
-    bool m_PasswordIsSet;
-
-};
-
-
-}
+    }
 }
 
 #endif /* TRIBUFU_MODELS_LoginRequest_H_ */

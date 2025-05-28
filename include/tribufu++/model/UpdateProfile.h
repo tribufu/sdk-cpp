@@ -13,67 +13,62 @@
 /*
  * UpdateProfile.h
  *
- * 
+ *
  */
 
 #ifndef TRIBUFU_MODELS_UpdateProfile_H_
 #define TRIBUFU_MODELS_UpdateProfile_H_
 
-
 #include "tribufu++/ModelBase.h"
 
 #include <cpprest/details/basic_types.h>
 
-namespace tribufu {
-namespace models {
-
-
-
-class  UpdateProfile
-    : public ModelBase
+namespace tribufu
 {
-public:
-    UpdateProfile();
-    virtual ~UpdateProfile();
+    namespace models
+    {
 
-    /////////////////////////////////////////////
-    /// ModelBase overrides
+        class UpdateProfile : public ModelBase
+        {
+        public:
+            UpdateProfile();
+            virtual ~UpdateProfile();
 
-    void validate() override;
+            /////////////////////////////////////////////
+            /// ModelBase overrides
 
-    web::json::value toJson() const override;
-    bool fromJson(const web::json::value& json) override;
+            void validate() override;
 
-    void toMultipart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& namePrefix) const override;
-    bool fromMultiPart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& namePrefix) override;
+            web::json::value toJson() const override;
+            bool fromJson(const web::json::value &json) override;
 
+            void toMultipart(std::shared_ptr<MultipartFormData> multipart,
+                             const utility::string_t &namePrefix) const override;
+            bool fromMultiPart(std::shared_ptr<MultipartFormData> multipart,
+                               const utility::string_t &namePrefix) override;
 
-    /////////////////////////////////////////////
-    /// UpdateProfile members
+            /////////////////////////////////////////////
+            /// UpdateProfile members
 
+            utility::string_t getDisplayName() const;
+            bool displayNameIsSet() const;
+            void unsetDisplay_name();
+            void setDisplayName(const utility::string_t &value);
 
-    utility::string_t getDisplayName() const;
-    bool displayNameIsSet() const;
-    void unsetDisplay_name();
-    void setDisplayName(const utility::string_t& value);
+            utility::string_t getBiography() const;
+            bool biographyIsSet() const;
+            void unsetBiography();
+            void setBiography(const utility::string_t &value);
 
-    utility::string_t getBiography() const;
-    bool biographyIsSet() const;
-    void unsetBiography();
-    void setBiography(const utility::string_t& value);
+        protected:
+            utility::string_t m_Display_name;
+            bool m_Display_nameIsSet;
 
+            utility::string_t m_Biography;
+            bool m_BiographyIsSet;
+        };
 
-protected:
-    utility::string_t m_Display_name;
-    bool m_Display_nameIsSet;
-
-    utility::string_t m_Biography;
-    bool m_BiographyIsSet;
-
-};
-
-
-}
+    }
 }
 
 #endif /* TRIBUFU_MODELS_UpdateProfile_H_ */

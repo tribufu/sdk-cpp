@@ -13,52 +13,52 @@
 /*
  * ApplicationType.h
  *
- * 
+ *
  */
 
 #ifndef TRIBUFU_MODELS_ApplicationType_H_
 #define TRIBUFU_MODELS_ApplicationType_H_
 
-
 #include "tribufu++/ModelBase.h"
 
-
-namespace tribufu {
-namespace models {
-
-
-class  ApplicationType
-    : public ModelBase
+namespace tribufu
 {
-public:
-    ApplicationType();
-    virtual ~ApplicationType();
-
-    /////////////////////////////////////////////
-    /// ModelBase overrides
-
-    void validate() override;
-
-    web::json::value toJson() const override;
-    bool fromJson(const web::json::value& json) override;
-
-    void toMultipart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& namePrefix) const override;
-    bool fromMultiPart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& namePrefix) override;
-
-    enum class eApplicationType
+    namespace models
     {
-        ApplicationType_APPLICATION,
-        ApplicationType_GAME,
-    };
 
-    eApplicationType getValue() const;
-    void setValue(eApplicationType const value);
+        class ApplicationType : public ModelBase
+        {
+        public:
+            ApplicationType();
+            virtual ~ApplicationType();
 
-    protected:
-        eApplicationType m_value;
-};
+            /////////////////////////////////////////////
+            /// ModelBase overrides
 
-}
+            void validate() override;
+
+            web::json::value toJson() const override;
+            bool fromJson(const web::json::value &json) override;
+
+            void toMultipart(std::shared_ptr<MultipartFormData> multipart,
+                             const utility::string_t &namePrefix) const override;
+            bool fromMultiPart(std::shared_ptr<MultipartFormData> multipart,
+                               const utility::string_t &namePrefix) override;
+
+            enum class eApplicationType
+            {
+                ApplicationType_APPLICATION,
+                ApplicationType_GAME,
+            };
+
+            eApplicationType getValue() const;
+            void setValue(eApplicationType const value);
+
+        protected:
+            eApplicationType m_value;
+        };
+
+    }
 }
 
 #endif /* TRIBUFU_MODELS_ApplicationType_H_ */

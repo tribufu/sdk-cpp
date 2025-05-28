@@ -13,85 +13,81 @@
 /*
  * LoginResponse.h
  *
- * 
+ *
  */
 
 #ifndef TRIBUFU_MODELS_LoginResponse_H_
 #define TRIBUFU_MODELS_LoginResponse_H_
-
 
 #include "tribufu++/ModelBase.h"
 
 #include "tribufu++/model/UserInfo.h"
 #include <cpprest/details/basic_types.h>
 
-namespace tribufu {
-namespace models {
-
-class UserInfo;
-
-
-class  LoginResponse
-    : public ModelBase
+namespace tribufu
 {
-public:
-    LoginResponse();
-    virtual ~LoginResponse();
+    namespace models
+    {
 
-    /////////////////////////////////////////////
-    /// ModelBase overrides
+        class UserInfo;
 
-    void validate() override;
+        class LoginResponse : public ModelBase
+        {
+        public:
+            LoginResponse();
+            virtual ~LoginResponse();
 
-    web::json::value toJson() const override;
-    bool fromJson(const web::json::value& json) override;
+            /////////////////////////////////////////////
+            /// ModelBase overrides
 
-    void toMultipart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& namePrefix) const override;
-    bool fromMultiPart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& namePrefix) override;
+            void validate() override;
 
+            web::json::value toJson() const override;
+            bool fromJson(const web::json::value &json) override;
 
-    /////////////////////////////////////////////
-    /// LoginResponse members
+            void toMultipart(std::shared_ptr<MultipartFormData> multipart,
+                             const utility::string_t &namePrefix) const override;
+            bool fromMultiPart(std::shared_ptr<MultipartFormData> multipart,
+                               const utility::string_t &namePrefix) override;
 
+            /////////////////////////////////////////////
+            /// LoginResponse members
 
-    std::shared_ptr<UserInfo> getUser() const;
-    bool userIsSet() const;
-    void unsetUser();
-    void setUser(const std::shared_ptr<UserInfo>& value);
+            std::shared_ptr<UserInfo> getUser() const;
+            bool userIsSet() const;
+            void unsetUser();
+            void setUser(const std::shared_ptr<UserInfo> &value);
 
-    utility::string_t getAccessToken() const;
-    bool accessTokenIsSet() const;
-    void unsetAccess_token();
-    void setAccessToken(const utility::string_t& value);
+            utility::string_t getAccessToken() const;
+            bool accessTokenIsSet() const;
+            void unsetAccess_token();
+            void setAccessToken(const utility::string_t &value);
 
-    utility::string_t getRefreshToken() const;
-    bool refreshTokenIsSet() const;
-    void unsetRefresh_token();
-    void setRefreshToken(const utility::string_t& value);
+            utility::string_t getRefreshToken() const;
+            bool refreshTokenIsSet() const;
+            void unsetRefresh_token();
+            void setRefreshToken(const utility::string_t &value);
 
-    int64_t getExpiresIn() const;
-    bool expiresInIsSet() const;
-    void unsetExpires_in();
-    void setExpiresIn(int64_t value);
+            int64_t getExpiresIn() const;
+            bool expiresInIsSet() const;
+            void unsetExpires_in();
+            void setExpiresIn(int64_t value);
 
+        protected:
+            std::shared_ptr<UserInfo> m_User;
+            bool m_UserIsSet;
 
-protected:
-    std::shared_ptr<UserInfo> m_User;
-    bool m_UserIsSet;
+            utility::string_t m_Access_token;
+            bool m_Access_tokenIsSet;
 
-    utility::string_t m_Access_token;
-    bool m_Access_tokenIsSet;
+            utility::string_t m_Refresh_token;
+            bool m_Refresh_tokenIsSet;
 
-    utility::string_t m_Refresh_token;
-    bool m_Refresh_tokenIsSet;
+            int64_t m_Expires_in;
+            bool m_Expires_inIsSet;
+        };
 
-    int64_t m_Expires_in;
-    bool m_Expires_inIsSet;
-
-};
-
-
-}
+    }
 }
 
 #endif /* TRIBUFU_MODELS_LoginResponse_H_ */

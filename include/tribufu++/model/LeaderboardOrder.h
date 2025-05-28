@@ -13,52 +13,52 @@
 /*
  * LeaderboardOrder.h
  *
- * 
+ *
  */
 
 #ifndef TRIBUFU_MODELS_LeaderboardOrder_H_
 #define TRIBUFU_MODELS_LeaderboardOrder_H_
 
-
 #include "tribufu++/ModelBase.h"
 
-
-namespace tribufu {
-namespace models {
-
-
-class  LeaderboardOrder
-    : public ModelBase
+namespace tribufu
 {
-public:
-    LeaderboardOrder();
-    virtual ~LeaderboardOrder();
-
-    /////////////////////////////////////////////
-    /// ModelBase overrides
-
-    void validate() override;
-
-    web::json::value toJson() const override;
-    bool fromJson(const web::json::value& json) override;
-
-    void toMultipart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& namePrefix) const override;
-    bool fromMultiPart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& namePrefix) override;
-
-    enum class eLeaderboardOrder
+    namespace models
     {
-        LeaderboardOrder_LEVEL,
-        LeaderboardOrder_POINTS,
-    };
 
-    eLeaderboardOrder getValue() const;
-    void setValue(eLeaderboardOrder const value);
+        class LeaderboardOrder : public ModelBase
+        {
+        public:
+            LeaderboardOrder();
+            virtual ~LeaderboardOrder();
 
-    protected:
-        eLeaderboardOrder m_value;
-};
+            /////////////////////////////////////////////
+            /// ModelBase overrides
 
-}
+            void validate() override;
+
+            web::json::value toJson() const override;
+            bool fromJson(const web::json::value &json) override;
+
+            void toMultipart(std::shared_ptr<MultipartFormData> multipart,
+                             const utility::string_t &namePrefix) const override;
+            bool fromMultiPart(std::shared_ptr<MultipartFormData> multipart,
+                               const utility::string_t &namePrefix) override;
+
+            enum class eLeaderboardOrder
+            {
+                LeaderboardOrder_LEVEL,
+                LeaderboardOrder_POINTS,
+            };
+
+            eLeaderboardOrder getValue() const;
+            void setValue(eLeaderboardOrder const value);
+
+        protected:
+            eLeaderboardOrder m_value;
+        };
+
+    }
 }
 
 #endif /* TRIBUFU_MODELS_LeaderboardOrder_H_ */

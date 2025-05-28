@@ -10,259 +10,260 @@
  * Do not edit the class manually.
  */
 
-
-
 #include "tribufu++/model/RegisterRequest.h"
 
-namespace tribufu {
-namespace models {
-
-RegisterRequest::RegisterRequest()
+namespace tribufu
 {
-    m_Uuid = utility::conversions::to_string_t("");
-    m_UuidIsSet = false;
-    m_Name = utility::conversions::to_string_t("");
-    m_NameIsSet = false;
-    m_Email = utility::conversions::to_string_t("");
-    m_EmailIsSet = false;
-    m_Password = utility::conversions::to_string_t("");
-    m_PasswordIsSet = false;
-}
-
-RegisterRequest::~RegisterRequest()
-{
-}
-
-void RegisterRequest::validate()
-{
-    // TODO: implement validation
-}
-
-web::json::value RegisterRequest::toJson() const
-{
-    web::json::value val = web::json::value::object();
-    if(m_UuidIsSet)
-    {   
-        
-        val[utility::conversions::to_string_t(U("uuid"))] = ModelBase::toJson(m_Uuid);
-    }
-    if(m_NameIsSet)
-    {   
-        
-        val[utility::conversions::to_string_t(U("name"))] = ModelBase::toJson(m_Name);
-    }
-    if(m_EmailIsSet)
-    {   
-        
-        val[utility::conversions::to_string_t(U("email"))] = ModelBase::toJson(m_Email);
-    }
-    if(m_PasswordIsSet)
-    {   
-        
-        val[utility::conversions::to_string_t(U("password"))] = ModelBase::toJson(m_Password);
-    }
-
-    return val;
-}
-
-bool RegisterRequest::fromJson(const web::json::value& val)
-{
-    bool ok = true;
-    if(val.has_field(utility::conversions::to_string_t(U("uuid"))))
+    namespace models
     {
-        const web::json::value& fieldValue = val.at(utility::conversions::to_string_t(U("uuid")));
-        if(!fieldValue.is_null())
+
+        RegisterRequest::RegisterRequest()
         {
-            utility::string_t refVal_setUuid;
-            ok &= ModelBase::fromJson(fieldValue, refVal_setUuid);
-            setUuid(refVal_setUuid);
-            
+            m_Uuid = utility::conversions::to_string_t("");
+            m_UuidIsSet = false;
+            m_Name = utility::conversions::to_string_t("");
+            m_NameIsSet = false;
+            m_Email = utility::conversions::to_string_t("");
+            m_EmailIsSet = false;
+            m_Password = utility::conversions::to_string_t("");
+            m_PasswordIsSet = false;
         }
-    }
-    if(val.has_field(utility::conversions::to_string_t(U("name"))))
-    {
-        const web::json::value& fieldValue = val.at(utility::conversions::to_string_t(U("name")));
-        if(!fieldValue.is_null())
+
+        RegisterRequest::~RegisterRequest()
         {
-            utility::string_t refVal_setName;
-            ok &= ModelBase::fromJson(fieldValue, refVal_setName);
-            setName(refVal_setName);
-            
         }
-    }
-    if(val.has_field(utility::conversions::to_string_t(U("email"))))
-    {
-        const web::json::value& fieldValue = val.at(utility::conversions::to_string_t(U("email")));
-        if(!fieldValue.is_null())
+
+        void RegisterRequest::validate()
         {
-            utility::string_t refVal_setEmail;
-            ok &= ModelBase::fromJson(fieldValue, refVal_setEmail);
-            setEmail(refVal_setEmail);
-            
+            // TODO: implement validation
         }
-    }
-    if(val.has_field(utility::conversions::to_string_t(U("password"))))
-    {
-        const web::json::value& fieldValue = val.at(utility::conversions::to_string_t(U("password")));
-        if(!fieldValue.is_null())
+
+        web::json::value RegisterRequest::toJson() const
         {
-            utility::string_t refVal_setPassword;
-            ok &= ModelBase::fromJson(fieldValue, refVal_setPassword);
-            setPassword(refVal_setPassword);
-            
+            web::json::value val = web::json::value::object();
+            if (m_UuidIsSet)
+            {
+
+                val[utility::conversions::to_string_t(U("uuid"))] = ModelBase::toJson(m_Uuid);
+            }
+            if (m_NameIsSet)
+            {
+
+                val[utility::conversions::to_string_t(U("name"))] = ModelBase::toJson(m_Name);
+            }
+            if (m_EmailIsSet)
+            {
+
+                val[utility::conversions::to_string_t(U("email"))] = ModelBase::toJson(m_Email);
+            }
+            if (m_PasswordIsSet)
+            {
+
+                val[utility::conversions::to_string_t(U("password"))] = ModelBase::toJson(m_Password);
+            }
+
+            return val;
         }
+
+        bool RegisterRequest::fromJson(const web::json::value &val)
+        {
+            bool ok = true;
+            if (val.has_field(utility::conversions::to_string_t(U("uuid"))))
+            {
+                const web::json::value &fieldValue = val.at(utility::conversions::to_string_t(U("uuid")));
+                if (!fieldValue.is_null())
+                {
+                    utility::string_t refVal_setUuid;
+                    ok &= ModelBase::fromJson(fieldValue, refVal_setUuid);
+                    setUuid(refVal_setUuid);
+                }
+            }
+            if (val.has_field(utility::conversions::to_string_t(U("name"))))
+            {
+                const web::json::value &fieldValue = val.at(utility::conversions::to_string_t(U("name")));
+                if (!fieldValue.is_null())
+                {
+                    utility::string_t refVal_setName;
+                    ok &= ModelBase::fromJson(fieldValue, refVal_setName);
+                    setName(refVal_setName);
+                }
+            }
+            if (val.has_field(utility::conversions::to_string_t(U("email"))))
+            {
+                const web::json::value &fieldValue = val.at(utility::conversions::to_string_t(U("email")));
+                if (!fieldValue.is_null())
+                {
+                    utility::string_t refVal_setEmail;
+                    ok &= ModelBase::fromJson(fieldValue, refVal_setEmail);
+                    setEmail(refVal_setEmail);
+                }
+            }
+            if (val.has_field(utility::conversions::to_string_t(U("password"))))
+            {
+                const web::json::value &fieldValue = val.at(utility::conversions::to_string_t(U("password")));
+                if (!fieldValue.is_null())
+                {
+                    utility::string_t refVal_setPassword;
+                    ok &= ModelBase::fromJson(fieldValue, refVal_setPassword);
+                    setPassword(refVal_setPassword);
+                }
+            }
+            return ok;
+        }
+
+        void RegisterRequest::toMultipart(std::shared_ptr<MultipartFormData> multipart,
+                                          const utility::string_t &prefix) const
+        {
+            utility::string_t namePrefix = prefix;
+            if (namePrefix.size() > 0 &&
+                namePrefix.substr(namePrefix.size() - 1) != utility::conversions::to_string_t(U(".")))
+            {
+                namePrefix += utility::conversions::to_string_t(U("."));
+            }
+            if (m_UuidIsSet)
+            {
+                multipart->add(
+                    ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("uuid")), m_Uuid));
+            }
+            if (m_NameIsSet)
+            {
+                multipart->add(
+                    ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("name")), m_Name));
+            }
+            if (m_EmailIsSet)
+            {
+                multipart->add(
+                    ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("email")), m_Email));
+            }
+            if (m_PasswordIsSet)
+            {
+                multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("password")),
+                                                        m_Password));
+            }
+        }
+
+        bool RegisterRequest::fromMultiPart(std::shared_ptr<MultipartFormData> multipart,
+                                            const utility::string_t &prefix)
+        {
+            bool ok = true;
+            utility::string_t namePrefix = prefix;
+            if (namePrefix.size() > 0 &&
+                namePrefix.substr(namePrefix.size() - 1) != utility::conversions::to_string_t(U(".")))
+            {
+                namePrefix += utility::conversions::to_string_t(U("."));
+            }
+
+            if (multipart->hasContent(utility::conversions::to_string_t(U("uuid"))))
+            {
+                utility::string_t refVal_setUuid;
+                ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(U("uuid"))),
+                                                 refVal_setUuid);
+                setUuid(refVal_setUuid);
+            }
+            if (multipart->hasContent(utility::conversions::to_string_t(U("name"))))
+            {
+                utility::string_t refVal_setName;
+                ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(U("name"))),
+                                                 refVal_setName);
+                setName(refVal_setName);
+            }
+            if (multipart->hasContent(utility::conversions::to_string_t(U("email"))))
+            {
+                utility::string_t refVal_setEmail;
+                ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(U("email"))),
+                                                 refVal_setEmail);
+                setEmail(refVal_setEmail);
+            }
+            if (multipart->hasContent(utility::conversions::to_string_t(U("password"))))
+            {
+                utility::string_t refVal_setPassword;
+                ok &= ModelBase::fromHttpContent(
+                    multipart->getContent(utility::conversions::to_string_t(U("password"))), refVal_setPassword);
+                setPassword(refVal_setPassword);
+            }
+            return ok;
+        }
+
+        utility::string_t RegisterRequest::getUuid() const
+        {
+            return m_Uuid;
+        }
+
+        void RegisterRequest::setUuid(const utility::string_t &value)
+        {
+            m_Uuid = value;
+            m_UuidIsSet = true;
+        }
+
+        bool RegisterRequest::uuidIsSet() const
+        {
+            return m_UuidIsSet;
+        }
+
+        void RegisterRequest::unsetUuid()
+        {
+            m_UuidIsSet = false;
+        }
+        utility::string_t RegisterRequest::getName() const
+        {
+            return m_Name;
+        }
+
+        void RegisterRequest::setName(const utility::string_t &value)
+        {
+            m_Name = value;
+            m_NameIsSet = true;
+        }
+
+        bool RegisterRequest::nameIsSet() const
+        {
+            return m_NameIsSet;
+        }
+
+        void RegisterRequest::unsetName()
+        {
+            m_NameIsSet = false;
+        }
+        utility::string_t RegisterRequest::getEmail() const
+        {
+            return m_Email;
+        }
+
+        void RegisterRequest::setEmail(const utility::string_t &value)
+        {
+            m_Email = value;
+            m_EmailIsSet = true;
+        }
+
+        bool RegisterRequest::emailIsSet() const
+        {
+            return m_EmailIsSet;
+        }
+
+        void RegisterRequest::unsetEmail()
+        {
+            m_EmailIsSet = false;
+        }
+        utility::string_t RegisterRequest::getPassword() const
+        {
+            return m_Password;
+        }
+
+        void RegisterRequest::setPassword(const utility::string_t &value)
+        {
+            m_Password = value;
+            m_PasswordIsSet = true;
+        }
+
+        bool RegisterRequest::passwordIsSet() const
+        {
+            return m_PasswordIsSet;
+        }
+
+        void RegisterRequest::unsetPassword()
+        {
+            m_PasswordIsSet = false;
+        }
+
     }
-    return ok;
 }
-
-void RegisterRequest::toMultipart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& prefix) const
-{
-    utility::string_t namePrefix = prefix;
-    if(namePrefix.size() > 0 && namePrefix.substr(namePrefix.size() - 1) != utility::conversions::to_string_t(U(".")))
-    {
-        namePrefix += utility::conversions::to_string_t(U("."));
-    }
-    if(m_UuidIsSet)
-    {
-        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("uuid")), m_Uuid));
-    }
-    if(m_NameIsSet)
-    {
-        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("name")), m_Name));
-    }
-    if(m_EmailIsSet)
-    {
-        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("email")), m_Email));
-    }
-    if(m_PasswordIsSet)
-    {
-        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("password")), m_Password));
-    }
-}
-
-bool RegisterRequest::fromMultiPart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& prefix)
-{
-    bool ok = true;
-    utility::string_t namePrefix = prefix;
-    if(namePrefix.size() > 0 && namePrefix.substr(namePrefix.size() - 1) != utility::conversions::to_string_t(U(".")))
-    {
-        namePrefix += utility::conversions::to_string_t(U("."));
-    }
-
-    if(multipart->hasContent(utility::conversions::to_string_t(U("uuid"))))
-    {
-        utility::string_t refVal_setUuid;
-        ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(U("uuid"))), refVal_setUuid );
-        setUuid(refVal_setUuid);
-    }
-    if(multipart->hasContent(utility::conversions::to_string_t(U("name"))))
-    {
-        utility::string_t refVal_setName;
-        ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(U("name"))), refVal_setName );
-        setName(refVal_setName);
-    }
-    if(multipart->hasContent(utility::conversions::to_string_t(U("email"))))
-    {
-        utility::string_t refVal_setEmail;
-        ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(U("email"))), refVal_setEmail );
-        setEmail(refVal_setEmail);
-    }
-    if(multipart->hasContent(utility::conversions::to_string_t(U("password"))))
-    {
-        utility::string_t refVal_setPassword;
-        ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(U("password"))), refVal_setPassword );
-        setPassword(refVal_setPassword);
-    }
-    return ok;
-}
-
-
-utility::string_t RegisterRequest::getUuid() const
-{
-    return m_Uuid;
-}
-
-
-void RegisterRequest::setUuid(const utility::string_t& value)
-{
-    m_Uuid = value;
-    m_UuidIsSet = true;
-}
-
-bool RegisterRequest::uuidIsSet() const
-{
-    return m_UuidIsSet;
-}
-
-void RegisterRequest::unsetUuid()
-{
-    m_UuidIsSet = false;
-}
-utility::string_t RegisterRequest::getName() const
-{
-    return m_Name;
-}
-
-
-void RegisterRequest::setName(const utility::string_t& value)
-{
-    m_Name = value;
-    m_NameIsSet = true;
-}
-
-bool RegisterRequest::nameIsSet() const
-{
-    return m_NameIsSet;
-}
-
-void RegisterRequest::unsetName()
-{
-    m_NameIsSet = false;
-}
-utility::string_t RegisterRequest::getEmail() const
-{
-    return m_Email;
-}
-
-
-void RegisterRequest::setEmail(const utility::string_t& value)
-{
-    m_Email = value;
-    m_EmailIsSet = true;
-}
-
-bool RegisterRequest::emailIsSet() const
-{
-    return m_EmailIsSet;
-}
-
-void RegisterRequest::unsetEmail()
-{
-    m_EmailIsSet = false;
-}
-utility::string_t RegisterRequest::getPassword() const
-{
-    return m_Password;
-}
-
-
-void RegisterRequest::setPassword(const utility::string_t& value)
-{
-    m_Password = value;
-    m_PasswordIsSet = true;
-}
-
-bool RegisterRequest::passwordIsSet() const
-{
-    return m_PasswordIsSet;
-}
-
-void RegisterRequest::unsetPassword()
-{
-    m_PasswordIsSet = false;
-}
-
-}
-}
-
-

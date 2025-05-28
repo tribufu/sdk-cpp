@@ -10,161 +10,161 @@
  * Do not edit the class manually.
  */
 
-
-
 #include "tribufu++/model/UpdateProfile.h"
 
-namespace tribufu {
-namespace models {
-
-UpdateProfile::UpdateProfile()
+namespace tribufu
 {
-    m_Display_name = utility::conversions::to_string_t("");
-    m_Display_nameIsSet = false;
-    m_Biography = utility::conversions::to_string_t("");
-    m_BiographyIsSet = false;
-}
-
-UpdateProfile::~UpdateProfile()
-{
-}
-
-void UpdateProfile::validate()
-{
-    // TODO: implement validation
-}
-
-web::json::value UpdateProfile::toJson() const
-{
-    web::json::value val = web::json::value::object();
-    if(m_Display_nameIsSet)
-    {   
-        
-        val[utility::conversions::to_string_t(U("display_name"))] = ModelBase::toJson(m_Display_name);
-    }
-    if(m_BiographyIsSet)
-    {   
-        
-        val[utility::conversions::to_string_t(U("biography"))] = ModelBase::toJson(m_Biography);
-    }
-
-    return val;
-}
-
-bool UpdateProfile::fromJson(const web::json::value& val)
-{
-    bool ok = true;
-    if(val.has_field(utility::conversions::to_string_t(U("display_name"))))
+    namespace models
     {
-        const web::json::value& fieldValue = val.at(utility::conversions::to_string_t(U("display_name")));
-        if(!fieldValue.is_null())
+
+        UpdateProfile::UpdateProfile()
         {
-            utility::string_t refVal_setDisplayName;
-            ok &= ModelBase::fromJson(fieldValue, refVal_setDisplayName);
-            setDisplayName(refVal_setDisplayName);
-            
+            m_Display_name = utility::conversions::to_string_t("");
+            m_Display_nameIsSet = false;
+            m_Biography = utility::conversions::to_string_t("");
+            m_BiographyIsSet = false;
         }
-    }
-    if(val.has_field(utility::conversions::to_string_t(U("biography"))))
-    {
-        const web::json::value& fieldValue = val.at(utility::conversions::to_string_t(U("biography")));
-        if(!fieldValue.is_null())
+
+        UpdateProfile::~UpdateProfile()
         {
-            utility::string_t refVal_setBiography;
-            ok &= ModelBase::fromJson(fieldValue, refVal_setBiography);
-            setBiography(refVal_setBiography);
-            
         }
+
+        void UpdateProfile::validate()
+        {
+            // TODO: implement validation
+        }
+
+        web::json::value UpdateProfile::toJson() const
+        {
+            web::json::value val = web::json::value::object();
+            if (m_Display_nameIsSet)
+            {
+
+                val[utility::conversions::to_string_t(U("display_name"))] = ModelBase::toJson(m_Display_name);
+            }
+            if (m_BiographyIsSet)
+            {
+
+                val[utility::conversions::to_string_t(U("biography"))] = ModelBase::toJson(m_Biography);
+            }
+
+            return val;
+        }
+
+        bool UpdateProfile::fromJson(const web::json::value &val)
+        {
+            bool ok = true;
+            if (val.has_field(utility::conversions::to_string_t(U("display_name"))))
+            {
+                const web::json::value &fieldValue = val.at(utility::conversions::to_string_t(U("display_name")));
+                if (!fieldValue.is_null())
+                {
+                    utility::string_t refVal_setDisplayName;
+                    ok &= ModelBase::fromJson(fieldValue, refVal_setDisplayName);
+                    setDisplayName(refVal_setDisplayName);
+                }
+            }
+            if (val.has_field(utility::conversions::to_string_t(U("biography"))))
+            {
+                const web::json::value &fieldValue = val.at(utility::conversions::to_string_t(U("biography")));
+                if (!fieldValue.is_null())
+                {
+                    utility::string_t refVal_setBiography;
+                    ok &= ModelBase::fromJson(fieldValue, refVal_setBiography);
+                    setBiography(refVal_setBiography);
+                }
+            }
+            return ok;
+        }
+
+        void UpdateProfile::toMultipart(std::shared_ptr<MultipartFormData> multipart,
+                                        const utility::string_t &prefix) const
+        {
+            utility::string_t namePrefix = prefix;
+            if (namePrefix.size() > 0 &&
+                namePrefix.substr(namePrefix.size() - 1) != utility::conversions::to_string_t(U(".")))
+            {
+                namePrefix += utility::conversions::to_string_t(U("."));
+            }
+            if (m_Display_nameIsSet)
+            {
+                multipart->add(ModelBase::toHttpContent(
+                    namePrefix + utility::conversions::to_string_t(U("display_name")), m_Display_name));
+            }
+            if (m_BiographyIsSet)
+            {
+                multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("biography")),
+                                                        m_Biography));
+            }
+        }
+
+        bool UpdateProfile::fromMultiPart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t &prefix)
+        {
+            bool ok = true;
+            utility::string_t namePrefix = prefix;
+            if (namePrefix.size() > 0 &&
+                namePrefix.substr(namePrefix.size() - 1) != utility::conversions::to_string_t(U(".")))
+            {
+                namePrefix += utility::conversions::to_string_t(U("."));
+            }
+
+            if (multipart->hasContent(utility::conversions::to_string_t(U("display_name"))))
+            {
+                utility::string_t refVal_setDisplayName;
+                ok &= ModelBase::fromHttpContent(
+                    multipart->getContent(utility::conversions::to_string_t(U("display_name"))), refVal_setDisplayName);
+                setDisplayName(refVal_setDisplayName);
+            }
+            if (multipart->hasContent(utility::conversions::to_string_t(U("biography"))))
+            {
+                utility::string_t refVal_setBiography;
+                ok &= ModelBase::fromHttpContent(
+                    multipart->getContent(utility::conversions::to_string_t(U("biography"))), refVal_setBiography);
+                setBiography(refVal_setBiography);
+            }
+            return ok;
+        }
+
+        utility::string_t UpdateProfile::getDisplayName() const
+        {
+            return m_Display_name;
+        }
+
+        void UpdateProfile::setDisplayName(const utility::string_t &value)
+        {
+            m_Display_name = value;
+            m_Display_nameIsSet = true;
+        }
+
+        bool UpdateProfile::displayNameIsSet() const
+        {
+            return m_Display_nameIsSet;
+        }
+
+        void UpdateProfile::unsetDisplay_name()
+        {
+            m_Display_nameIsSet = false;
+        }
+        utility::string_t UpdateProfile::getBiography() const
+        {
+            return m_Biography;
+        }
+
+        void UpdateProfile::setBiography(const utility::string_t &value)
+        {
+            m_Biography = value;
+            m_BiographyIsSet = true;
+        }
+
+        bool UpdateProfile::biographyIsSet() const
+        {
+            return m_BiographyIsSet;
+        }
+
+        void UpdateProfile::unsetBiography()
+        {
+            m_BiographyIsSet = false;
+        }
+
     }
-    return ok;
 }
-
-void UpdateProfile::toMultipart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& prefix) const
-{
-    utility::string_t namePrefix = prefix;
-    if(namePrefix.size() > 0 && namePrefix.substr(namePrefix.size() - 1) != utility::conversions::to_string_t(U(".")))
-    {
-        namePrefix += utility::conversions::to_string_t(U("."));
-    }
-    if(m_Display_nameIsSet)
-    {
-        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("display_name")), m_Display_name));
-    }
-    if(m_BiographyIsSet)
-    {
-        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("biography")), m_Biography));
-    }
-}
-
-bool UpdateProfile::fromMultiPart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& prefix)
-{
-    bool ok = true;
-    utility::string_t namePrefix = prefix;
-    if(namePrefix.size() > 0 && namePrefix.substr(namePrefix.size() - 1) != utility::conversions::to_string_t(U(".")))
-    {
-        namePrefix += utility::conversions::to_string_t(U("."));
-    }
-
-    if(multipart->hasContent(utility::conversions::to_string_t(U("display_name"))))
-    {
-        utility::string_t refVal_setDisplayName;
-        ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(U("display_name"))), refVal_setDisplayName );
-        setDisplayName(refVal_setDisplayName);
-    }
-    if(multipart->hasContent(utility::conversions::to_string_t(U("biography"))))
-    {
-        utility::string_t refVal_setBiography;
-        ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(U("biography"))), refVal_setBiography );
-        setBiography(refVal_setBiography);
-    }
-    return ok;
-}
-
-
-utility::string_t UpdateProfile::getDisplayName() const
-{
-    return m_Display_name;
-}
-
-
-void UpdateProfile::setDisplayName(const utility::string_t& value)
-{
-    m_Display_name = value;
-    m_Display_nameIsSet = true;
-}
-
-bool UpdateProfile::displayNameIsSet() const
-{
-    return m_Display_nameIsSet;
-}
-
-void UpdateProfile::unsetDisplay_name()
-{
-    m_Display_nameIsSet = false;
-}
-utility::string_t UpdateProfile::getBiography() const
-{
-    return m_Biography;
-}
-
-
-void UpdateProfile::setBiography(const utility::string_t& value)
-{
-    m_Biography = value;
-    m_BiographyIsSet = true;
-}
-
-bool UpdateProfile::biographyIsSet() const
-{
-    return m_BiographyIsSet;
-}
-
-void UpdateProfile::unsetBiography()
-{
-    m_BiographyIsSet = false;
-}
-
-}
-}
-
-

@@ -13,52 +13,52 @@
 /*
  * ResponseType.h
  *
- * 
+ *
  */
 
 #ifndef TRIBUFU_MODELS_ResponseType_H_
 #define TRIBUFU_MODELS_ResponseType_H_
 
-
 #include "tribufu++/ModelBase.h"
 
-
-namespace tribufu {
-namespace models {
-
-
-class  ResponseType
-    : public ModelBase
+namespace tribufu
 {
-public:
-    ResponseType();
-    virtual ~ResponseType();
-
-    /////////////////////////////////////////////
-    /// ModelBase overrides
-
-    void validate() override;
-
-    web::json::value toJson() const override;
-    bool fromJson(const web::json::value& json) override;
-
-    void toMultipart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& namePrefix) const override;
-    bool fromMultiPart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& namePrefix) override;
-
-    enum class eResponseType
+    namespace models
     {
-        ResponseType_CODE,
-        ResponseType_TOKEN,
-    };
 
-    eResponseType getValue() const;
-    void setValue(eResponseType const value);
+        class ResponseType : public ModelBase
+        {
+        public:
+            ResponseType();
+            virtual ~ResponseType();
 
-    protected:
-        eResponseType m_value;
-};
+            /////////////////////////////////////////////
+            /// ModelBase overrides
 
-}
+            void validate() override;
+
+            web::json::value toJson() const override;
+            bool fromJson(const web::json::value &json) override;
+
+            void toMultipart(std::shared_ptr<MultipartFormData> multipart,
+                             const utility::string_t &namePrefix) const override;
+            bool fromMultiPart(std::shared_ptr<MultipartFormData> multipart,
+                               const utility::string_t &namePrefix) override;
+
+            enum class eResponseType
+            {
+                ResponseType_CODE,
+                ResponseType_TOKEN,
+            };
+
+            eResponseType getValue() const;
+            void setValue(eResponseType const value);
+
+        protected:
+            eResponseType m_value;
+        };
+
+    }
 }
 
 #endif /* TRIBUFU_MODELS_ResponseType_H_ */

@@ -13,7 +13,7 @@
 /*
  * ProfileGroup.h
  *
- * 
+ *
  */
 
 #ifndef TRIBUFU_MODELS_ProfileGroup_H_
@@ -23,123 +23,119 @@
 
 #include "tribufu++/ModelBase.h"
 
-#include <cpprest/details/basic_types.h>
 #include "tribufu++/model/GroupRank.h"
+#include <cpprest/details/basic_types.h>
 
-namespace tribufu {
-namespace models {
-
-
-
-class  ProfileGroup
-    : public ModelBase
+namespace tribufu
 {
-public:
-    ProfileGroup();
-    virtual ~ProfileGroup();
+    namespace models
+    {
 
-    /////////////////////////////////////////////
-    /// ModelBase overrides
+        class ProfileGroup : public ModelBase
+        {
+        public:
+            ProfileGroup();
+            virtual ~ProfileGroup();
 
-    void validate() override;
+            /////////////////////////////////////////////
+            /// ModelBase overrides
 
-    web::json::value toJson() const override;
-    bool fromJson(const web::json::value& json) override;
+            void validate() override;
 
-    void toMultipart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& namePrefix) const override;
-    bool fromMultiPart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& namePrefix) override;
+            web::json::value toJson() const override;
+            bool fromJson(const web::json::value &json) override;
 
+            void toMultipart(std::shared_ptr<MultipartFormData> multipart,
+                             const utility::string_t &namePrefix) const override;
+            bool fromMultiPart(std::shared_ptr<MultipartFormData> multipart,
+                               const utility::string_t &namePrefix) override;
 
-    /////////////////////////////////////////////
-    /// ProfileGroup members
+            /////////////////////////////////////////////
+            /// ProfileGroup members
 
+            utility::string_t getId() const;
+            bool idIsSet() const;
+            void unsetId();
+            void setId(const utility::string_t &value);
 
-    utility::string_t getId() const;
-    bool idIsSet() const;
-    void unsetId();
-    void setId(const utility::string_t& value);
+            utility::string_t getUuid() const;
+            bool uuidIsSet() const;
+            void unsetUuid();
+            void setUuid(const utility::string_t &value);
 
-    utility::string_t getUuid() const;
-    bool uuidIsSet() const;
-    void unsetUuid();
-    void setUuid(const utility::string_t& value);
+            utility::string_t getName() const;
+            bool nameIsSet() const;
+            void unsetName();
+            void setName(const utility::string_t &value);
 
-    utility::string_t getName() const;
-    bool nameIsSet() const;
-    void unsetName();
-    void setName(const utility::string_t& value);
+            utility::string_t getTag() const;
+            bool tagIsSet() const;
+            void unsetTag();
+            void setTag(const utility::string_t &value);
 
-    utility::string_t getTag() const;
-    bool tagIsSet() const;
-    void unsetTag();
-    void setTag(const utility::string_t& value);
+            int32_t getPrivacy() const;
+            bool privacyIsSet() const;
+            void unsetPrivacy();
+            void setPrivacy(int32_t value);
 
-    int32_t getPrivacy() const;
-    bool privacyIsSet() const;
-    void unsetPrivacy();
-    void setPrivacy(int32_t value);
+            bool isVerified() const;
+            bool verifiedIsSet() const;
+            void unsetVerified();
+            void setVerified(bool value);
 
-    bool isVerified() const;
-    bool verifiedIsSet() const;
-    void unsetVerified();
-    void setVerified(bool value);
+            utility::string_t getPhotoUrl() const;
+            bool photoUrlIsSet() const;
+            void unsetPhoto_url();
+            void setPhotoUrl(const utility::string_t &value);
 
-    utility::string_t getPhotoUrl() const;
-    bool photoUrlIsSet() const;
-    void unsetPhoto_url();
-    void setPhotoUrl(const utility::string_t& value);
+            int32_t getMemberCount() const;
+            bool memberCountIsSet() const;
+            void unsetMember_count();
+            void setMemberCount(int32_t value);
 
-    int32_t getMemberCount() const;
-    bool memberCountIsSet() const;
-    void unsetMember_count();
-    void setMemberCount(int32_t value);
+            std::shared_ptr<GroupRank> getRank() const;
+            bool rankIsSet() const;
+            void unsetRank();
+            void setRank(const std::shared_ptr<GroupRank> &value);
 
-    std::shared_ptr<GroupRank> getRank() const;
-    bool rankIsSet() const;
-    void unsetRank();
-    void setRank(const std::shared_ptr<GroupRank>& value);
+            utility::datetime getSince() const;
+            bool sinceIsSet() const;
+            void unsetSince();
+            void setSince(const utility::datetime &value);
 
-    utility::datetime getSince() const;
-    bool sinceIsSet() const;
-    void unsetSince();
-    void setSince(const utility::datetime& value);
+        protected:
+            utility::string_t m_Id;
+            bool m_IdIsSet;
 
+            utility::string_t m_Uuid;
+            bool m_UuidIsSet;
 
-protected:
-    utility::string_t m_Id;
-    bool m_IdIsSet;
+            utility::string_t m_Name;
+            bool m_NameIsSet;
 
-    utility::string_t m_Uuid;
-    bool m_UuidIsSet;
+            utility::string_t m_Tag;
+            bool m_TagIsSet;
 
-    utility::string_t m_Name;
-    bool m_NameIsSet;
+            int32_t m_Privacy;
+            bool m_PrivacyIsSet;
 
-    utility::string_t m_Tag;
-    bool m_TagIsSet;
+            bool m_Verified;
+            bool m_VerifiedIsSet;
 
-    int32_t m_Privacy;
-    bool m_PrivacyIsSet;
+            utility::string_t m_Photo_url;
+            bool m_Photo_urlIsSet;
 
-    bool m_Verified;
-    bool m_VerifiedIsSet;
+            int32_t m_Member_count;
+            bool m_Member_countIsSet;
 
-    utility::string_t m_Photo_url;
-    bool m_Photo_urlIsSet;
+            std::shared_ptr<GroupRank> m_Rank;
+            bool m_RankIsSet;
 
-    int32_t m_Member_count;
-    bool m_Member_countIsSet;
+            utility::datetime m_Since;
+            bool m_SinceIsSet;
+        };
 
-    std::shared_ptr<GroupRank> m_Rank;
-    bool m_RankIsSet;
-
-    utility::datetime m_Since;
-    bool m_SinceIsSet;
-
-};
-
-
-}
+    }
 }
 
 #endif /* TRIBUFU_MODELS_ProfileGroup_H_ */

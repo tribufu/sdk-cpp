@@ -13,7 +13,7 @@
 /*
  * Game.h
  *
- * 
+ *
  */
 
 #ifndef TRIBUFU_MODELS_Game_H_
@@ -23,291 +23,287 @@
 
 #include "tribufu++/ModelBase.h"
 
-#include <cpprest/details/basic_types.h>
 #include "tribufu++/model/ApplicationType.h"
+#include <cpprest/details/basic_types.h>
 
-namespace tribufu {
-namespace models {
-
-
-
-class  Game
-    : public ModelBase
+namespace tribufu
 {
-public:
-    Game();
-    virtual ~Game();
-
-    /////////////////////////////////////////////
-    /// ModelBase overrides
-
-    void validate() override;
-
-    web::json::value toJson() const override;
-    bool fromJson(const web::json::value& json) override;
-
-    void toMultipart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& namePrefix) const override;
-    bool fromMultiPart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& namePrefix) override;
-
-
-    /////////////////////////////////////////////
-    /// Game members
-
-
-    int32_t getGamePort() const;
-    bool gamePortIsSet() const;
-    void unsetGame_port();
-    void setGamePort(int32_t value);
-
-    int32_t getQueryPort() const;
-    bool queryPortIsSet() const;
-    void unsetQuery_port();
-    void setQueryPort(int32_t value);
-
-    int32_t getRconPort() const;
-    bool rconPortIsSet() const;
-    void unsetRcon_port();
-    void setRconPort(int32_t value);
-
-    int32_t getServerCount() const;
-    bool serverCountIsSet() const;
-    void unsetServer_count();
-    void setServerCount(int32_t value);
-
-    int32_t getSteamAppId() const;
-    bool steamAppIdIsSet() const;
-    void unsetSteam_app_id();
-    void setSteamAppId(int32_t value);
-
-    int32_t getSteamServerAppId() const;
-    bool steamServerAppIdIsSet() const;
-    void unsetSteam_server_app_id();
-    void setSteamServerAppId(int32_t value);
-
-    bool isEnableServers() const;
-    bool enableServersIsSet() const;
-    void unsetEnable_servers();
-    void setEnableServers(bool value);
-
-    utility::string_t getRustGamedigId() const;
-    bool rustGamedigIdIsSet() const;
-    void unsetRust_gamedig_id();
-    void setRustGamedigId(const utility::string_t& value);
-
-    utility::string_t getNodeGamedigId() const;
-    bool nodeGamedigIdIsSet() const;
-    void unsetNode_gamedig_id();
-    void setNodeGamedigId(const utility::string_t& value);
-
-    utility::string_t getServerConnectUrl() const;
-    bool serverConnectUrlIsSet() const;
-    void unsetServer_connect_url();
-    void setServerConnectUrl(const utility::string_t& value);
-
-    utility::string_t getServerTags() const;
-    bool serverTagsIsSet() const;
-    void unsetServer_tags();
-    void setServerTags(const utility::string_t& value);
-
-    utility::string_t getId() const;
-    bool idIsSet() const;
-    void unsetId();
-    void setId(const utility::string_t& value);
-
-    utility::string_t getName() const;
-    bool nameIsSet() const;
-    void unsetName();
-    void setName(const utility::string_t& value);
-
-    utility::string_t getDescription() const;
-    bool descriptionIsSet() const;
-    void unsetDescription();
-    void setDescription(const utility::string_t& value);
-
-    std::shared_ptr<ApplicationType> getType() const;
-    bool typeIsSet() const;
-    void unsetType();
-    void setType(const std::shared_ptr<ApplicationType>& value);
-
-    utility::string_t getOrganizationId() const;
-    bool organizationIdIsSet() const;
-    void unsetOrganization_id();
-    void setOrganizationId(const utility::string_t& value);
-
-    utility::string_t getIconUrl() const;
-    bool iconUrlIsSet() const;
-    void unsetIcon_url();
-    void setIconUrl(const utility::string_t& value);
-
-    utility::string_t getBannerUrl() const;
-    bool bannerUrlIsSet() const;
-    void unsetBanner_url();
-    void setBannerUrl(const utility::string_t& value);
-
-    utility::string_t getCapsuleImageUrl() const;
-    bool capsuleImageUrlIsSet() const;
-    void unsetCapsule_image_url();
-    void setCapsuleImageUrl(const utility::string_t& value);
-
-    utility::string_t getLibraryImageUrl() const;
-    bool libraryImageUrlIsSet() const;
-    void unsetLibrary_image_url();
-    void setLibraryImageUrl(const utility::string_t& value);
+    namespace models
+    {
+
+        class Game : public ModelBase
+        {
+        public:
+            Game();
+            virtual ~Game();
+
+            /////////////////////////////////////////////
+            /// ModelBase overrides
+
+            void validate() override;
+
+            web::json::value toJson() const override;
+            bool fromJson(const web::json::value &json) override;
+
+            void toMultipart(std::shared_ptr<MultipartFormData> multipart,
+                             const utility::string_t &namePrefix) const override;
+            bool fromMultiPart(std::shared_ptr<MultipartFormData> multipart,
+                               const utility::string_t &namePrefix) override;
+
+            /////////////////////////////////////////////
+            /// Game members
+
+            int32_t getGamePort() const;
+            bool gamePortIsSet() const;
+            void unsetGame_port();
+            void setGamePort(int32_t value);
+
+            int32_t getQueryPort() const;
+            bool queryPortIsSet() const;
+            void unsetQuery_port();
+            void setQueryPort(int32_t value);
+
+            int32_t getRconPort() const;
+            bool rconPortIsSet() const;
+            void unsetRcon_port();
+            void setRconPort(int32_t value);
+
+            int32_t getServerCount() const;
+            bool serverCountIsSet() const;
+            void unsetServer_count();
+            void setServerCount(int32_t value);
+
+            int32_t getSteamAppId() const;
+            bool steamAppIdIsSet() const;
+            void unsetSteam_app_id();
+            void setSteamAppId(int32_t value);
+
+            int32_t getSteamServerAppId() const;
+            bool steamServerAppIdIsSet() const;
+            void unsetSteam_server_app_id();
+            void setSteamServerAppId(int32_t value);
+
+            bool isEnableServers() const;
+            bool enableServersIsSet() const;
+            void unsetEnable_servers();
+            void setEnableServers(bool value);
+
+            utility::string_t getRustGamedigId() const;
+            bool rustGamedigIdIsSet() const;
+            void unsetRust_gamedig_id();
+            void setRustGamedigId(const utility::string_t &value);
+
+            utility::string_t getNodeGamedigId() const;
+            bool nodeGamedigIdIsSet() const;
+            void unsetNode_gamedig_id();
+            void setNodeGamedigId(const utility::string_t &value);
+
+            utility::string_t getServerConnectUrl() const;
+            bool serverConnectUrlIsSet() const;
+            void unsetServer_connect_url();
+            void setServerConnectUrl(const utility::string_t &value);
+
+            utility::string_t getServerTags() const;
+            bool serverTagsIsSet() const;
+            void unsetServer_tags();
+            void setServerTags(const utility::string_t &value);
+
+            utility::string_t getId() const;
+            bool idIsSet() const;
+            void unsetId();
+            void setId(const utility::string_t &value);
+
+            utility::string_t getName() const;
+            bool nameIsSet() const;
+            void unsetName();
+            void setName(const utility::string_t &value);
+
+            utility::string_t getDescription() const;
+            bool descriptionIsSet() const;
+            void unsetDescription();
+            void setDescription(const utility::string_t &value);
+
+            std::shared_ptr<ApplicationType> getType() const;
+            bool typeIsSet() const;
+            void unsetType();
+            void setType(const std::shared_ptr<ApplicationType> &value);
+
+            utility::string_t getOrganizationId() const;
+            bool organizationIdIsSet() const;
+            void unsetOrganization_id();
+            void setOrganizationId(const utility::string_t &value);
+
+            utility::string_t getIconUrl() const;
+            bool iconUrlIsSet() const;
+            void unsetIcon_url();
+            void setIconUrl(const utility::string_t &value);
+
+            utility::string_t getBannerUrl() const;
+            bool bannerUrlIsSet() const;
+            void unsetBanner_url();
+            void setBannerUrl(const utility::string_t &value);
+
+            utility::string_t getCapsuleImageUrl() const;
+            bool capsuleImageUrlIsSet() const;
+            void unsetCapsule_image_url();
+            void setCapsuleImageUrl(const utility::string_t &value);
+
+            utility::string_t getLibraryImageUrl() const;
+            bool libraryImageUrlIsSet() const;
+            void unsetLibrary_image_url();
+            void setLibraryImageUrl(const utility::string_t &value);
+
+            utility::string_t getParentId() const;
+            bool parentIdIsSet() const;
+            void unsetParent_id();
+            void setParentId(const utility::string_t &value);
+
+            utility::string_t getSlug() const;
+            bool slugIsSet() const;
+            void unsetSlug();
+            void setSlug(const utility::string_t &value);
+
+            int32_t getVisibility() const;
+            bool visibilityIsSet() const;
+            void unsetVisibility();
+            void setVisibility(int32_t value);
 
-    utility::string_t getParentId() const;
-    bool parentIdIsSet() const;
-    void unsetParent_id();
-    void setParentId(const utility::string_t& value);
+            utility::string_t getPassword() const;
+            bool passwordIsSet() const;
+            void unsetPassword();
+            void setPassword(const utility::string_t &value);
 
-    utility::string_t getSlug() const;
-    bool slugIsSet() const;
-    void unsetSlug();
-    void setSlug(const utility::string_t& value);
+            int32_t getPrimary() const;
+            bool primaryIsSet() const;
+            void unsetPrimary();
+            void setPrimary(int32_t value);
 
-    int32_t getVisibility() const;
-    bool visibilityIsSet() const;
-    void unsetVisibility();
-    void setVisibility(int32_t value);
+            int32_t getUserCount() const;
+            bool userCountIsSet() const;
+            void unsetUser_count();
+            void setUserCount(int32_t value);
 
-    utility::string_t getPassword() const;
-    bool passwordIsSet() const;
-    void unsetPassword();
-    void setPassword(const utility::string_t& value);
+            int32_t getAchievementCount() const;
+            bool achievementCountIsSet() const;
+            void unsetAchievement_count();
+            void setAchievementCount(int32_t value);
 
-    int32_t getPrimary() const;
-    bool primaryIsSet() const;
-    void unsetPrimary();
-    void setPrimary(int32_t value);
+            int32_t getBadgeCount() const;
+            bool badgeCountIsSet() const;
+            void unsetBadge_count();
+            void setBadgeCount(int32_t value);
 
-    int32_t getUserCount() const;
-    bool userCountIsSet() const;
-    void unsetUser_count();
-    void setUserCount(int32_t value);
+            int32_t getDownloadCount() const;
+            bool downloadCountIsSet() const;
+            void unsetDownload_count();
+            void setDownloadCount(int32_t value);
 
-    int32_t getAchievementCount() const;
-    bool achievementCountIsSet() const;
-    void unsetAchievement_count();
-    void setAchievementCount(int32_t value);
+            utility::datetime getCreated() const;
+            bool createdIsSet() const;
+            void unsetCreated();
+            void setCreated(const utility::datetime &value);
 
-    int32_t getBadgeCount() const;
-    bool badgeCountIsSet() const;
-    void unsetBadge_count();
-    void setBadgeCount(int32_t value);
+            utility::datetime getUpdated() const;
+            bool updatedIsSet() const;
+            void unsetUpdated();
+            void setUpdated(const utility::datetime &value);
 
-    int32_t getDownloadCount() const;
-    bool downloadCountIsSet() const;
-    void unsetDownload_count();
-    void setDownloadCount(int32_t value);
+        protected:
+            int32_t m_Game_port;
+            bool m_Game_portIsSet;
 
-    utility::datetime getCreated() const;
-    bool createdIsSet() const;
-    void unsetCreated();
-    void setCreated(const utility::datetime& value);
+            int32_t m_Query_port;
+            bool m_Query_portIsSet;
 
-    utility::datetime getUpdated() const;
-    bool updatedIsSet() const;
-    void unsetUpdated();
-    void setUpdated(const utility::datetime& value);
+            int32_t m_Rcon_port;
+            bool m_Rcon_portIsSet;
 
+            int32_t m_Server_count;
+            bool m_Server_countIsSet;
 
-protected:
-    int32_t m_Game_port;
-    bool m_Game_portIsSet;
+            int32_t m_Steam_app_id;
+            bool m_Steam_app_idIsSet;
 
-    int32_t m_Query_port;
-    bool m_Query_portIsSet;
+            int32_t m_Steam_server_app_id;
+            bool m_Steam_server_app_idIsSet;
 
-    int32_t m_Rcon_port;
-    bool m_Rcon_portIsSet;
+            bool m_Enable_servers;
+            bool m_Enable_serversIsSet;
 
-    int32_t m_Server_count;
-    bool m_Server_countIsSet;
+            utility::string_t m_Rust_gamedig_id;
+            bool m_Rust_gamedig_idIsSet;
 
-    int32_t m_Steam_app_id;
-    bool m_Steam_app_idIsSet;
+            utility::string_t m_Node_gamedig_id;
+            bool m_Node_gamedig_idIsSet;
 
-    int32_t m_Steam_server_app_id;
-    bool m_Steam_server_app_idIsSet;
+            utility::string_t m_Server_connect_url;
+            bool m_Server_connect_urlIsSet;
 
-    bool m_Enable_servers;
-    bool m_Enable_serversIsSet;
+            utility::string_t m_Server_tags;
+            bool m_Server_tagsIsSet;
 
-    utility::string_t m_Rust_gamedig_id;
-    bool m_Rust_gamedig_idIsSet;
+            utility::string_t m_Id;
+            bool m_IdIsSet;
 
-    utility::string_t m_Node_gamedig_id;
-    bool m_Node_gamedig_idIsSet;
+            utility::string_t m_Name;
+            bool m_NameIsSet;
 
-    utility::string_t m_Server_connect_url;
-    bool m_Server_connect_urlIsSet;
+            utility::string_t m_Description;
+            bool m_DescriptionIsSet;
 
-    utility::string_t m_Server_tags;
-    bool m_Server_tagsIsSet;
+            std::shared_ptr<ApplicationType> m_Type;
+            bool m_TypeIsSet;
 
-    utility::string_t m_Id;
-    bool m_IdIsSet;
+            utility::string_t m_Organization_id;
+            bool m_Organization_idIsSet;
 
-    utility::string_t m_Name;
-    bool m_NameIsSet;
+            utility::string_t m_Icon_url;
+            bool m_Icon_urlIsSet;
 
-    utility::string_t m_Description;
-    bool m_DescriptionIsSet;
+            utility::string_t m_Banner_url;
+            bool m_Banner_urlIsSet;
 
-    std::shared_ptr<ApplicationType> m_Type;
-    bool m_TypeIsSet;
+            utility::string_t m_Capsule_image_url;
+            bool m_Capsule_image_urlIsSet;
 
-    utility::string_t m_Organization_id;
-    bool m_Organization_idIsSet;
+            utility::string_t m_Library_image_url;
+            bool m_Library_image_urlIsSet;
 
-    utility::string_t m_Icon_url;
-    bool m_Icon_urlIsSet;
+            utility::string_t m_Parent_id;
+            bool m_Parent_idIsSet;
 
-    utility::string_t m_Banner_url;
-    bool m_Banner_urlIsSet;
+            utility::string_t m_Slug;
+            bool m_SlugIsSet;
 
-    utility::string_t m_Capsule_image_url;
-    bool m_Capsule_image_urlIsSet;
+            int32_t m_Visibility;
+            bool m_VisibilityIsSet;
 
-    utility::string_t m_Library_image_url;
-    bool m_Library_image_urlIsSet;
+            utility::string_t m_Password;
+            bool m_PasswordIsSet;
 
-    utility::string_t m_Parent_id;
-    bool m_Parent_idIsSet;
+            int32_t m_Primary;
+            bool m_PrimaryIsSet;
 
-    utility::string_t m_Slug;
-    bool m_SlugIsSet;
+            int32_t m_User_count;
+            bool m_User_countIsSet;
 
-    int32_t m_Visibility;
-    bool m_VisibilityIsSet;
+            int32_t m_Achievement_count;
+            bool m_Achievement_countIsSet;
 
-    utility::string_t m_Password;
-    bool m_PasswordIsSet;
+            int32_t m_Badge_count;
+            bool m_Badge_countIsSet;
 
-    int32_t m_Primary;
-    bool m_PrimaryIsSet;
+            int32_t m_Download_count;
+            bool m_Download_countIsSet;
 
-    int32_t m_User_count;
-    bool m_User_countIsSet;
+            utility::datetime m_Created;
+            bool m_CreatedIsSet;
 
-    int32_t m_Achievement_count;
-    bool m_Achievement_countIsSet;
+            utility::datetime m_Updated;
+            bool m_UpdatedIsSet;
+        };
 
-    int32_t m_Badge_count;
-    bool m_Badge_countIsSet;
-
-    int32_t m_Download_count;
-    bool m_Download_countIsSet;
-
-    utility::datetime m_Created;
-    bool m_CreatedIsSet;
-
-    utility::datetime m_Updated;
-    bool m_UpdatedIsSet;
-
-};
-
-
-}
+    }
 }
 
 #endif /* TRIBUFU_MODELS_Game_H_ */

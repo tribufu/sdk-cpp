@@ -13,99 +13,94 @@
 /*
  * LeaderboardItem.h
  *
- * 
+ *
  */
 
 #ifndef TRIBUFU_MODELS_LeaderboardItem_H_
 #define TRIBUFU_MODELS_LeaderboardItem_H_
 
-
 #include "tribufu++/ModelBase.h"
 
 #include <cpprest/details/basic_types.h>
 
-namespace tribufu {
-namespace models {
-
-
-
-class  LeaderboardItem
-    : public ModelBase
+namespace tribufu
 {
-public:
-    LeaderboardItem();
-    virtual ~LeaderboardItem();
+    namespace models
+    {
 
-    /////////////////////////////////////////////
-    /// ModelBase overrides
+        class LeaderboardItem : public ModelBase
+        {
+        public:
+            LeaderboardItem();
+            virtual ~LeaderboardItem();
 
-    void validate() override;
+            /////////////////////////////////////////////
+            /// ModelBase overrides
 
-    web::json::value toJson() const override;
-    bool fromJson(const web::json::value& json) override;
+            void validate() override;
 
-    void toMultipart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& namePrefix) const override;
-    bool fromMultiPart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& namePrefix) override;
+            web::json::value toJson() const override;
+            bool fromJson(const web::json::value &json) override;
 
+            void toMultipart(std::shared_ptr<MultipartFormData> multipart,
+                             const utility::string_t &namePrefix) const override;
+            bool fromMultiPart(std::shared_ptr<MultipartFormData> multipart,
+                               const utility::string_t &namePrefix) override;
 
-    /////////////////////////////////////////////
-    /// LeaderboardItem members
+            /////////////////////////////////////////////
+            /// LeaderboardItem members
 
+            utility::string_t getName() const;
+            bool nameIsSet() const;
+            void unsetName();
+            void setName(const utility::string_t &value);
 
-    utility::string_t getName() const;
-    bool nameIsSet() const;
-    void unsetName();
-    void setName(const utility::string_t& value);
+            utility::string_t getDisplayName() const;
+            bool displayNameIsSet() const;
+            void unsetDisplay_name();
+            void setDisplayName(const utility::string_t &value);
 
-    utility::string_t getDisplayName() const;
-    bool displayNameIsSet() const;
-    void unsetDisplay_name();
-    void setDisplayName(const utility::string_t& value);
+            utility::string_t getPhotoUrl() const;
+            bool photoUrlIsSet() const;
+            void unsetPhoto_url();
+            void setPhotoUrl(const utility::string_t &value);
 
-    utility::string_t getPhotoUrl() const;
-    bool photoUrlIsSet() const;
-    void unsetPhoto_url();
-    void setPhotoUrl(const utility::string_t& value);
+            int32_t getLevel() const;
+            bool levelIsSet() const;
+            void unsetLevel();
+            void setLevel(int32_t value);
 
-    int32_t getLevel() const;
-    bool levelIsSet() const;
-    void unsetLevel();
-    void setLevel(int32_t value);
+            double getExperience() const;
+            bool experienceIsSet() const;
+            void unsetExperience();
+            void setExperience(double value);
 
-    double getExperience() const;
-    bool experienceIsSet() const;
-    void unsetExperience();
-    void setExperience(double value);
+            double getPoints() const;
+            bool pointsIsSet() const;
+            void unsetPoints();
+            void setPoints(double value);
 
-    double getPoints() const;
-    bool pointsIsSet() const;
-    void unsetPoints();
-    void setPoints(double value);
+        protected:
+            utility::string_t m_Name;
+            bool m_NameIsSet;
 
+            utility::string_t m_Display_name;
+            bool m_Display_nameIsSet;
 
-protected:
-    utility::string_t m_Name;
-    bool m_NameIsSet;
+            utility::string_t m_Photo_url;
+            bool m_Photo_urlIsSet;
 
-    utility::string_t m_Display_name;
-    bool m_Display_nameIsSet;
+            int32_t m_Level;
+            bool m_LevelIsSet;
 
-    utility::string_t m_Photo_url;
-    bool m_Photo_urlIsSet;
+            double m_Experience;
+            bool m_ExperienceIsSet;
 
-    int32_t m_Level;
-    bool m_LevelIsSet;
+            double m_Points;
+            bool m_PointsIsSet;
+        };
 
-    double m_Experience;
-    bool m_ExperienceIsSet;
-
-    double m_Points;
-    bool m_PointsIsSet;
-
-};
-
-
-}
+    }
 }
 
 #endif /* TRIBUFU_MODELS_LeaderboardItem_H_ */

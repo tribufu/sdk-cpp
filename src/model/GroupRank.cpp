@@ -10,113 +10,111 @@
  * Do not edit the class manually.
  */
 
-
-
 #include "tribufu++/model/GroupRank.h"
 
-namespace tribufu {
-namespace models {
-
-namespace
+namespace tribufu
 {
-using EnumUnderlyingType = utility::string_t;
-
-GroupRank::eGroupRank toEnum(const EnumUnderlyingType& val)
-{
-    if (val == utility::conversions::to_string_t(U("member")))
-        return GroupRank::eGroupRank::GroupRank_MEMBER;
-    if (val == utility::conversions::to_string_t(U("leader")))
-        return GroupRank::eGroupRank::GroupRank_LEADER;
-    if (val == utility::conversions::to_string_t(U("owner")))
-        return GroupRank::eGroupRank::GroupRank_OWNER;
-    return {};
-}
-
-EnumUnderlyingType fromEnum(GroupRank::eGroupRank e)
-{
-    switch (e)
+    namespace models
     {
-    case GroupRank::eGroupRank::GroupRank_MEMBER:
-        return U("member");
-    case GroupRank::eGroupRank::GroupRank_LEADER:
-        return U("leader");
-    case GroupRank::eGroupRank::GroupRank_OWNER:
-        return U("owner");
-    default:
-        break;
-    }
-    return {};
-}
-}
 
-GroupRank::GroupRank()
-{
-}
-
-GroupRank::~GroupRank()
-{
-}
-
-void GroupRank::validate()
-{
-    // TODO: implement validation
-}
-
-web::json::value GroupRank::toJson() const
-{
-    auto val = fromEnum(m_value);
-    return web::json::value(val);
-}
-
-bool GroupRank::fromJson(const web::json::value& val)
-{
-    m_value = toEnum(val.as_string());
-    return true;
-}
-
-void GroupRank::toMultipart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& prefix) const
-{
-    utility::string_t namePrefix = prefix;
-    if (!namePrefix.empty() && namePrefix.back() != U('.'))
-    {
-        namePrefix.push_back(U('.'));
-    }
-
-    auto e = fromEnum(m_value);
-    multipart->add(ModelBase::toHttpContent(namePrefix, e));
-}
-
-bool GroupRank::fromMultiPart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& prefix)
-{
-    bool ok = true;
-    utility::string_t namePrefix = prefix;
-    if (!namePrefix.empty() && namePrefix.back() != U('.'))
-    {
-        namePrefix.push_back(U('.'));
-    }
-    {
-        EnumUnderlyingType e;
-        ok = ModelBase::fromHttpContent(multipart->getContent(namePrefix), e);
-        if (ok)
+        namespace
         {
-            auto v = toEnum(e);
-            setValue(v);
+            using EnumUnderlyingType = utility::string_t;
+
+            GroupRank::eGroupRank toEnum(const EnumUnderlyingType &val)
+            {
+                if (val == utility::conversions::to_string_t(U("member")))
+                    return GroupRank::eGroupRank::GroupRank_MEMBER;
+                if (val == utility::conversions::to_string_t(U("leader")))
+                    return GroupRank::eGroupRank::GroupRank_LEADER;
+                if (val == utility::conversions::to_string_t(U("owner")))
+                    return GroupRank::eGroupRank::GroupRank_OWNER;
+                return {};
+            }
+
+            EnumUnderlyingType fromEnum(GroupRank::eGroupRank e)
+            {
+                switch (e)
+                {
+                case GroupRank::eGroupRank::GroupRank_MEMBER:
+                    return U("member");
+                case GroupRank::eGroupRank::GroupRank_LEADER:
+                    return U("leader");
+                case GroupRank::eGroupRank::GroupRank_OWNER:
+                    return U("owner");
+                default:
+                    break;
+                }
+                return {};
+            }
         }
+
+        GroupRank::GroupRank()
+        {
+        }
+
+        GroupRank::~GroupRank()
+        {
+        }
+
+        void GroupRank::validate()
+        {
+            // TODO: implement validation
+        }
+
+        web::json::value GroupRank::toJson() const
+        {
+            auto val = fromEnum(m_value);
+            return web::json::value(val);
+        }
+
+        bool GroupRank::fromJson(const web::json::value &val)
+        {
+            m_value = toEnum(val.as_string());
+            return true;
+        }
+
+        void GroupRank::toMultipart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t &prefix) const
+        {
+            utility::string_t namePrefix = prefix;
+            if (!namePrefix.empty() && namePrefix.back() != U('.'))
+            {
+                namePrefix.push_back(U('.'));
+            }
+
+            auto e = fromEnum(m_value);
+            multipart->add(ModelBase::toHttpContent(namePrefix, e));
+        }
+
+        bool GroupRank::fromMultiPart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t &prefix)
+        {
+            bool ok = true;
+            utility::string_t namePrefix = prefix;
+            if (!namePrefix.empty() && namePrefix.back() != U('.'))
+            {
+                namePrefix.push_back(U('.'));
+            }
+            {
+                EnumUnderlyingType e;
+                ok = ModelBase::fromHttpContent(multipart->getContent(namePrefix), e);
+                if (ok)
+                {
+                    auto v = toEnum(e);
+                    setValue(v);
+                }
+            }
+            return ok;
+        }
+
+        GroupRank::eGroupRank GroupRank::getValue() const
+        {
+            return m_value;
+        }
+
+        void GroupRank::setValue(GroupRank::eGroupRank const value)
+        {
+            m_value = value;
+        }
+
     }
-    return ok;
 }
-
-GroupRank::eGroupRank GroupRank::getValue() const
-{
-   return m_value;
-}
-
-void GroupRank::setValue(GroupRank::eGroupRank const value)
-{
-   m_value = value;
-}
-
-}
-}
-
-

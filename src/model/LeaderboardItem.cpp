@@ -10,354 +10,358 @@
  * Do not edit the class manually.
  */
 
-
-
 #include "tribufu++/model/LeaderboardItem.h"
 
-namespace tribufu {
-namespace models {
-
-LeaderboardItem::LeaderboardItem()
+namespace tribufu
 {
-    m_Name = utility::conversions::to_string_t("");
-    m_NameIsSet = false;
-    m_Display_name = utility::conversions::to_string_t("");
-    m_Display_nameIsSet = false;
-    m_Photo_url = utility::conversions::to_string_t("");
-    m_Photo_urlIsSet = false;
-    m_Level = 0;
-    m_LevelIsSet = false;
-    m_Experience = 0.0;
-    m_ExperienceIsSet = false;
-    m_Points = 0.0;
-    m_PointsIsSet = false;
-}
-
-LeaderboardItem::~LeaderboardItem()
-{
-}
-
-void LeaderboardItem::validate()
-{
-    // TODO: implement validation
-}
-
-web::json::value LeaderboardItem::toJson() const
-{
-    web::json::value val = web::json::value::object();
-    if(m_NameIsSet)
-    {   
-        
-        val[utility::conversions::to_string_t(U("name"))] = ModelBase::toJson(m_Name);
-    }
-    if(m_Display_nameIsSet)
-    {   
-        
-        val[utility::conversions::to_string_t(U("display_name"))] = ModelBase::toJson(m_Display_name);
-    }
-    if(m_Photo_urlIsSet)
-    {   
-        
-        val[utility::conversions::to_string_t(U("photo_url"))] = ModelBase::toJson(m_Photo_url);
-    }
-    if(m_LevelIsSet)
-    {   
-        
-        val[utility::conversions::to_string_t(U("level"))] = ModelBase::toJson(m_Level);
-    }
-    if(m_ExperienceIsSet)
-    {   
-        
-        val[utility::conversions::to_string_t(U("experience"))] = ModelBase::toJson(m_Experience);
-    }
-    if(m_PointsIsSet)
-    {   
-        
-        val[utility::conversions::to_string_t(U("points"))] = ModelBase::toJson(m_Points);
-    }
-
-    return val;
-}
-
-bool LeaderboardItem::fromJson(const web::json::value& val)
-{
-    bool ok = true;
-    if(val.has_field(utility::conversions::to_string_t(U("name"))))
+    namespace models
     {
-        const web::json::value& fieldValue = val.at(utility::conversions::to_string_t(U("name")));
-        if(!fieldValue.is_null())
+
+        LeaderboardItem::LeaderboardItem()
         {
-            utility::string_t refVal_setName;
-            ok &= ModelBase::fromJson(fieldValue, refVal_setName);
-            setName(refVal_setName);
-            
+            m_Name = utility::conversions::to_string_t("");
+            m_NameIsSet = false;
+            m_Display_name = utility::conversions::to_string_t("");
+            m_Display_nameIsSet = false;
+            m_Photo_url = utility::conversions::to_string_t("");
+            m_Photo_urlIsSet = false;
+            m_Level = 0;
+            m_LevelIsSet = false;
+            m_Experience = 0.0;
+            m_ExperienceIsSet = false;
+            m_Points = 0.0;
+            m_PointsIsSet = false;
         }
-    }
-    if(val.has_field(utility::conversions::to_string_t(U("display_name"))))
-    {
-        const web::json::value& fieldValue = val.at(utility::conversions::to_string_t(U("display_name")));
-        if(!fieldValue.is_null())
+
+        LeaderboardItem::~LeaderboardItem()
         {
-            utility::string_t refVal_setDisplayName;
-            ok &= ModelBase::fromJson(fieldValue, refVal_setDisplayName);
-            setDisplayName(refVal_setDisplayName);
-            
         }
-    }
-    if(val.has_field(utility::conversions::to_string_t(U("photo_url"))))
-    {
-        const web::json::value& fieldValue = val.at(utility::conversions::to_string_t(U("photo_url")));
-        if(!fieldValue.is_null())
+
+        void LeaderboardItem::validate()
         {
-            utility::string_t refVal_setPhotoUrl;
-            ok &= ModelBase::fromJson(fieldValue, refVal_setPhotoUrl);
-            setPhotoUrl(refVal_setPhotoUrl);
-            
+            // TODO: implement validation
         }
-    }
-    if(val.has_field(utility::conversions::to_string_t(U("level"))))
-    {
-        const web::json::value& fieldValue = val.at(utility::conversions::to_string_t(U("level")));
-        if(!fieldValue.is_null())
+
+        web::json::value LeaderboardItem::toJson() const
         {
-            int32_t refVal_setLevel;
-            ok &= ModelBase::fromJson(fieldValue, refVal_setLevel);
-            setLevel(refVal_setLevel);
-            
+            web::json::value val = web::json::value::object();
+            if (m_NameIsSet)
+            {
+
+                val[utility::conversions::to_string_t(U("name"))] = ModelBase::toJson(m_Name);
+            }
+            if (m_Display_nameIsSet)
+            {
+
+                val[utility::conversions::to_string_t(U("display_name"))] = ModelBase::toJson(m_Display_name);
+            }
+            if (m_Photo_urlIsSet)
+            {
+
+                val[utility::conversions::to_string_t(U("photo_url"))] = ModelBase::toJson(m_Photo_url);
+            }
+            if (m_LevelIsSet)
+            {
+
+                val[utility::conversions::to_string_t(U("level"))] = ModelBase::toJson(m_Level);
+            }
+            if (m_ExperienceIsSet)
+            {
+
+                val[utility::conversions::to_string_t(U("experience"))] = ModelBase::toJson(m_Experience);
+            }
+            if (m_PointsIsSet)
+            {
+
+                val[utility::conversions::to_string_t(U("points"))] = ModelBase::toJson(m_Points);
+            }
+
+            return val;
         }
-    }
-    if(val.has_field(utility::conversions::to_string_t(U("experience"))))
-    {
-        const web::json::value& fieldValue = val.at(utility::conversions::to_string_t(U("experience")));
-        if(!fieldValue.is_null())
+
+        bool LeaderboardItem::fromJson(const web::json::value &val)
         {
-            double refVal_setExperience;
-            ok &= ModelBase::fromJson(fieldValue, refVal_setExperience);
-            setExperience(refVal_setExperience);
-            
+            bool ok = true;
+            if (val.has_field(utility::conversions::to_string_t(U("name"))))
+            {
+                const web::json::value &fieldValue = val.at(utility::conversions::to_string_t(U("name")));
+                if (!fieldValue.is_null())
+                {
+                    utility::string_t refVal_setName;
+                    ok &= ModelBase::fromJson(fieldValue, refVal_setName);
+                    setName(refVal_setName);
+                }
+            }
+            if (val.has_field(utility::conversions::to_string_t(U("display_name"))))
+            {
+                const web::json::value &fieldValue = val.at(utility::conversions::to_string_t(U("display_name")));
+                if (!fieldValue.is_null())
+                {
+                    utility::string_t refVal_setDisplayName;
+                    ok &= ModelBase::fromJson(fieldValue, refVal_setDisplayName);
+                    setDisplayName(refVal_setDisplayName);
+                }
+            }
+            if (val.has_field(utility::conversions::to_string_t(U("photo_url"))))
+            {
+                const web::json::value &fieldValue = val.at(utility::conversions::to_string_t(U("photo_url")));
+                if (!fieldValue.is_null())
+                {
+                    utility::string_t refVal_setPhotoUrl;
+                    ok &= ModelBase::fromJson(fieldValue, refVal_setPhotoUrl);
+                    setPhotoUrl(refVal_setPhotoUrl);
+                }
+            }
+            if (val.has_field(utility::conversions::to_string_t(U("level"))))
+            {
+                const web::json::value &fieldValue = val.at(utility::conversions::to_string_t(U("level")));
+                if (!fieldValue.is_null())
+                {
+                    int32_t refVal_setLevel;
+                    ok &= ModelBase::fromJson(fieldValue, refVal_setLevel);
+                    setLevel(refVal_setLevel);
+                }
+            }
+            if (val.has_field(utility::conversions::to_string_t(U("experience"))))
+            {
+                const web::json::value &fieldValue = val.at(utility::conversions::to_string_t(U("experience")));
+                if (!fieldValue.is_null())
+                {
+                    double refVal_setExperience;
+                    ok &= ModelBase::fromJson(fieldValue, refVal_setExperience);
+                    setExperience(refVal_setExperience);
+                }
+            }
+            if (val.has_field(utility::conversions::to_string_t(U("points"))))
+            {
+                const web::json::value &fieldValue = val.at(utility::conversions::to_string_t(U("points")));
+                if (!fieldValue.is_null())
+                {
+                    double refVal_setPoints;
+                    ok &= ModelBase::fromJson(fieldValue, refVal_setPoints);
+                    setPoints(refVal_setPoints);
+                }
+            }
+            return ok;
         }
-    }
-    if(val.has_field(utility::conversions::to_string_t(U("points"))))
-    {
-        const web::json::value& fieldValue = val.at(utility::conversions::to_string_t(U("points")));
-        if(!fieldValue.is_null())
+
+        void LeaderboardItem::toMultipart(std::shared_ptr<MultipartFormData> multipart,
+                                          const utility::string_t &prefix) const
         {
-            double refVal_setPoints;
-            ok &= ModelBase::fromJson(fieldValue, refVal_setPoints);
-            setPoints(refVal_setPoints);
-            
+            utility::string_t namePrefix = prefix;
+            if (namePrefix.size() > 0 &&
+                namePrefix.substr(namePrefix.size() - 1) != utility::conversions::to_string_t(U(".")))
+            {
+                namePrefix += utility::conversions::to_string_t(U("."));
+            }
+            if (m_NameIsSet)
+            {
+                multipart->add(
+                    ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("name")), m_Name));
+            }
+            if (m_Display_nameIsSet)
+            {
+                multipart->add(ModelBase::toHttpContent(
+                    namePrefix + utility::conversions::to_string_t(U("display_name")), m_Display_name));
+            }
+            if (m_Photo_urlIsSet)
+            {
+                multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("photo_url")),
+                                                        m_Photo_url));
+            }
+            if (m_LevelIsSet)
+            {
+                multipart->add(
+                    ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("level")), m_Level));
+            }
+            if (m_ExperienceIsSet)
+            {
+                multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("experience")),
+                                                        m_Experience));
+            }
+            if (m_PointsIsSet)
+            {
+                multipart->add(
+                    ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("points")), m_Points));
+            }
         }
+
+        bool LeaderboardItem::fromMultiPart(std::shared_ptr<MultipartFormData> multipart,
+                                            const utility::string_t &prefix)
+        {
+            bool ok = true;
+            utility::string_t namePrefix = prefix;
+            if (namePrefix.size() > 0 &&
+                namePrefix.substr(namePrefix.size() - 1) != utility::conversions::to_string_t(U(".")))
+            {
+                namePrefix += utility::conversions::to_string_t(U("."));
+            }
+
+            if (multipart->hasContent(utility::conversions::to_string_t(U("name"))))
+            {
+                utility::string_t refVal_setName;
+                ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(U("name"))),
+                                                 refVal_setName);
+                setName(refVal_setName);
+            }
+            if (multipart->hasContent(utility::conversions::to_string_t(U("display_name"))))
+            {
+                utility::string_t refVal_setDisplayName;
+                ok &= ModelBase::fromHttpContent(
+                    multipart->getContent(utility::conversions::to_string_t(U("display_name"))), refVal_setDisplayName);
+                setDisplayName(refVal_setDisplayName);
+            }
+            if (multipart->hasContent(utility::conversions::to_string_t(U("photo_url"))))
+            {
+                utility::string_t refVal_setPhotoUrl;
+                ok &= ModelBase::fromHttpContent(
+                    multipart->getContent(utility::conversions::to_string_t(U("photo_url"))), refVal_setPhotoUrl);
+                setPhotoUrl(refVal_setPhotoUrl);
+            }
+            if (multipart->hasContent(utility::conversions::to_string_t(U("level"))))
+            {
+                int32_t refVal_setLevel;
+                ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(U("level"))),
+                                                 refVal_setLevel);
+                setLevel(refVal_setLevel);
+            }
+            if (multipart->hasContent(utility::conversions::to_string_t(U("experience"))))
+            {
+                double refVal_setExperience;
+                ok &= ModelBase::fromHttpContent(
+                    multipart->getContent(utility::conversions::to_string_t(U("experience"))), refVal_setExperience);
+                setExperience(refVal_setExperience);
+            }
+            if (multipart->hasContent(utility::conversions::to_string_t(U("points"))))
+            {
+                double refVal_setPoints;
+                ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(U("points"))),
+                                                 refVal_setPoints);
+                setPoints(refVal_setPoints);
+            }
+            return ok;
+        }
+
+        utility::string_t LeaderboardItem::getName() const
+        {
+            return m_Name;
+        }
+
+        void LeaderboardItem::setName(const utility::string_t &value)
+        {
+            m_Name = value;
+            m_NameIsSet = true;
+        }
+
+        bool LeaderboardItem::nameIsSet() const
+        {
+            return m_NameIsSet;
+        }
+
+        void LeaderboardItem::unsetName()
+        {
+            m_NameIsSet = false;
+        }
+        utility::string_t LeaderboardItem::getDisplayName() const
+        {
+            return m_Display_name;
+        }
+
+        void LeaderboardItem::setDisplayName(const utility::string_t &value)
+        {
+            m_Display_name = value;
+            m_Display_nameIsSet = true;
+        }
+
+        bool LeaderboardItem::displayNameIsSet() const
+        {
+            return m_Display_nameIsSet;
+        }
+
+        void LeaderboardItem::unsetDisplay_name()
+        {
+            m_Display_nameIsSet = false;
+        }
+        utility::string_t LeaderboardItem::getPhotoUrl() const
+        {
+            return m_Photo_url;
+        }
+
+        void LeaderboardItem::setPhotoUrl(const utility::string_t &value)
+        {
+            m_Photo_url = value;
+            m_Photo_urlIsSet = true;
+        }
+
+        bool LeaderboardItem::photoUrlIsSet() const
+        {
+            return m_Photo_urlIsSet;
+        }
+
+        void LeaderboardItem::unsetPhoto_url()
+        {
+            m_Photo_urlIsSet = false;
+        }
+        int32_t LeaderboardItem::getLevel() const
+        {
+            return m_Level;
+        }
+
+        void LeaderboardItem::setLevel(int32_t value)
+        {
+            m_Level = value;
+            m_LevelIsSet = true;
+        }
+
+        bool LeaderboardItem::levelIsSet() const
+        {
+            return m_LevelIsSet;
+        }
+
+        void LeaderboardItem::unsetLevel()
+        {
+            m_LevelIsSet = false;
+        }
+        double LeaderboardItem::getExperience() const
+        {
+            return m_Experience;
+        }
+
+        void LeaderboardItem::setExperience(double value)
+        {
+            m_Experience = value;
+            m_ExperienceIsSet = true;
+        }
+
+        bool LeaderboardItem::experienceIsSet() const
+        {
+            return m_ExperienceIsSet;
+        }
+
+        void LeaderboardItem::unsetExperience()
+        {
+            m_ExperienceIsSet = false;
+        }
+        double LeaderboardItem::getPoints() const
+        {
+            return m_Points;
+        }
+
+        void LeaderboardItem::setPoints(double value)
+        {
+            m_Points = value;
+            m_PointsIsSet = true;
+        }
+
+        bool LeaderboardItem::pointsIsSet() const
+        {
+            return m_PointsIsSet;
+        }
+
+        void LeaderboardItem::unsetPoints()
+        {
+            m_PointsIsSet = false;
+        }
+
     }
-    return ok;
 }
-
-void LeaderboardItem::toMultipart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& prefix) const
-{
-    utility::string_t namePrefix = prefix;
-    if(namePrefix.size() > 0 && namePrefix.substr(namePrefix.size() - 1) != utility::conversions::to_string_t(U(".")))
-    {
-        namePrefix += utility::conversions::to_string_t(U("."));
-    }
-    if(m_NameIsSet)
-    {
-        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("name")), m_Name));
-    }
-    if(m_Display_nameIsSet)
-    {
-        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("display_name")), m_Display_name));
-    }
-    if(m_Photo_urlIsSet)
-    {
-        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("photo_url")), m_Photo_url));
-    }
-    if(m_LevelIsSet)
-    {
-        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("level")), m_Level));
-    }
-    if(m_ExperienceIsSet)
-    {
-        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("experience")), m_Experience));
-    }
-    if(m_PointsIsSet)
-    {
-        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("points")), m_Points));
-    }
-}
-
-bool LeaderboardItem::fromMultiPart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& prefix)
-{
-    bool ok = true;
-    utility::string_t namePrefix = prefix;
-    if(namePrefix.size() > 0 && namePrefix.substr(namePrefix.size() - 1) != utility::conversions::to_string_t(U(".")))
-    {
-        namePrefix += utility::conversions::to_string_t(U("."));
-    }
-
-    if(multipart->hasContent(utility::conversions::to_string_t(U("name"))))
-    {
-        utility::string_t refVal_setName;
-        ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(U("name"))), refVal_setName );
-        setName(refVal_setName);
-    }
-    if(multipart->hasContent(utility::conversions::to_string_t(U("display_name"))))
-    {
-        utility::string_t refVal_setDisplayName;
-        ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(U("display_name"))), refVal_setDisplayName );
-        setDisplayName(refVal_setDisplayName);
-    }
-    if(multipart->hasContent(utility::conversions::to_string_t(U("photo_url"))))
-    {
-        utility::string_t refVal_setPhotoUrl;
-        ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(U("photo_url"))), refVal_setPhotoUrl );
-        setPhotoUrl(refVal_setPhotoUrl);
-    }
-    if(multipart->hasContent(utility::conversions::to_string_t(U("level"))))
-    {
-        int32_t refVal_setLevel;
-        ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(U("level"))), refVal_setLevel );
-        setLevel(refVal_setLevel);
-    }
-    if(multipart->hasContent(utility::conversions::to_string_t(U("experience"))))
-    {
-        double refVal_setExperience;
-        ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(U("experience"))), refVal_setExperience );
-        setExperience(refVal_setExperience);
-    }
-    if(multipart->hasContent(utility::conversions::to_string_t(U("points"))))
-    {
-        double refVal_setPoints;
-        ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(U("points"))), refVal_setPoints );
-        setPoints(refVal_setPoints);
-    }
-    return ok;
-}
-
-
-utility::string_t LeaderboardItem::getName() const
-{
-    return m_Name;
-}
-
-
-void LeaderboardItem::setName(const utility::string_t& value)
-{
-    m_Name = value;
-    m_NameIsSet = true;
-}
-
-bool LeaderboardItem::nameIsSet() const
-{
-    return m_NameIsSet;
-}
-
-void LeaderboardItem::unsetName()
-{
-    m_NameIsSet = false;
-}
-utility::string_t LeaderboardItem::getDisplayName() const
-{
-    return m_Display_name;
-}
-
-
-void LeaderboardItem::setDisplayName(const utility::string_t& value)
-{
-    m_Display_name = value;
-    m_Display_nameIsSet = true;
-}
-
-bool LeaderboardItem::displayNameIsSet() const
-{
-    return m_Display_nameIsSet;
-}
-
-void LeaderboardItem::unsetDisplay_name()
-{
-    m_Display_nameIsSet = false;
-}
-utility::string_t LeaderboardItem::getPhotoUrl() const
-{
-    return m_Photo_url;
-}
-
-
-void LeaderboardItem::setPhotoUrl(const utility::string_t& value)
-{
-    m_Photo_url = value;
-    m_Photo_urlIsSet = true;
-}
-
-bool LeaderboardItem::photoUrlIsSet() const
-{
-    return m_Photo_urlIsSet;
-}
-
-void LeaderboardItem::unsetPhoto_url()
-{
-    m_Photo_urlIsSet = false;
-}
-int32_t LeaderboardItem::getLevel() const
-{
-    return m_Level;
-}
-
-void LeaderboardItem::setLevel(int32_t value)
-{
-    m_Level = value;
-    m_LevelIsSet = true;
-}
-
-bool LeaderboardItem::levelIsSet() const
-{
-    return m_LevelIsSet;
-}
-
-void LeaderboardItem::unsetLevel()
-{
-    m_LevelIsSet = false;
-}
-double LeaderboardItem::getExperience() const
-{
-    return m_Experience;
-}
-
-void LeaderboardItem::setExperience(double value)
-{
-    m_Experience = value;
-    m_ExperienceIsSet = true;
-}
-
-bool LeaderboardItem::experienceIsSet() const
-{
-    return m_ExperienceIsSet;
-}
-
-void LeaderboardItem::unsetExperience()
-{
-    m_ExperienceIsSet = false;
-}
-double LeaderboardItem::getPoints() const
-{
-    return m_Points;
-}
-
-void LeaderboardItem::setPoints(double value)
-{
-    m_Points = value;
-    m_PointsIsSet = true;
-}
-
-bool LeaderboardItem::pointsIsSet() const
-{
-    return m_PointsIsSet;
-}
-
-void LeaderboardItem::unsetPoints()
-{
-    m_PointsIsSet = false;
-}
-
-}
-}
-
-

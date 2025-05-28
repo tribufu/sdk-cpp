@@ -10,161 +10,162 @@
  * Do not edit the class manually.
  */
 
-
-
 #include "tribufu++/model/CryptoViewModel.h"
 
-namespace tribufu {
-namespace models {
-
-CryptoViewModel::CryptoViewModel()
+namespace tribufu
 {
-    m_Encoded = utility::conversions::to_string_t("");
-    m_EncodedIsSet = false;
-    m_Decoded = utility::conversions::to_string_t("");
-    m_DecodedIsSet = false;
-}
-
-CryptoViewModel::~CryptoViewModel()
-{
-}
-
-void CryptoViewModel::validate()
-{
-    // TODO: implement validation
-}
-
-web::json::value CryptoViewModel::toJson() const
-{
-    web::json::value val = web::json::value::object();
-    if(m_EncodedIsSet)
-    {   
-        
-        val[utility::conversions::to_string_t(U("encoded"))] = ModelBase::toJson(m_Encoded);
-    }
-    if(m_DecodedIsSet)
-    {   
-        
-        val[utility::conversions::to_string_t(U("decoded"))] = ModelBase::toJson(m_Decoded);
-    }
-
-    return val;
-}
-
-bool CryptoViewModel::fromJson(const web::json::value& val)
-{
-    bool ok = true;
-    if(val.has_field(utility::conversions::to_string_t(U("encoded"))))
+    namespace models
     {
-        const web::json::value& fieldValue = val.at(utility::conversions::to_string_t(U("encoded")));
-        if(!fieldValue.is_null())
+
+        CryptoViewModel::CryptoViewModel()
         {
-            utility::string_t refVal_setEncoded;
-            ok &= ModelBase::fromJson(fieldValue, refVal_setEncoded);
-            setEncoded(refVal_setEncoded);
-            
+            m_Encoded = utility::conversions::to_string_t("");
+            m_EncodedIsSet = false;
+            m_Decoded = utility::conversions::to_string_t("");
+            m_DecodedIsSet = false;
         }
-    }
-    if(val.has_field(utility::conversions::to_string_t(U("decoded"))))
-    {
-        const web::json::value& fieldValue = val.at(utility::conversions::to_string_t(U("decoded")));
-        if(!fieldValue.is_null())
+
+        CryptoViewModel::~CryptoViewModel()
         {
-            utility::string_t refVal_setDecoded;
-            ok &= ModelBase::fromJson(fieldValue, refVal_setDecoded);
-            setDecoded(refVal_setDecoded);
-            
         }
+
+        void CryptoViewModel::validate()
+        {
+            // TODO: implement validation
+        }
+
+        web::json::value CryptoViewModel::toJson() const
+        {
+            web::json::value val = web::json::value::object();
+            if (m_EncodedIsSet)
+            {
+
+                val[utility::conversions::to_string_t(U("encoded"))] = ModelBase::toJson(m_Encoded);
+            }
+            if (m_DecodedIsSet)
+            {
+
+                val[utility::conversions::to_string_t(U("decoded"))] = ModelBase::toJson(m_Decoded);
+            }
+
+            return val;
+        }
+
+        bool CryptoViewModel::fromJson(const web::json::value &val)
+        {
+            bool ok = true;
+            if (val.has_field(utility::conversions::to_string_t(U("encoded"))))
+            {
+                const web::json::value &fieldValue = val.at(utility::conversions::to_string_t(U("encoded")));
+                if (!fieldValue.is_null())
+                {
+                    utility::string_t refVal_setEncoded;
+                    ok &= ModelBase::fromJson(fieldValue, refVal_setEncoded);
+                    setEncoded(refVal_setEncoded);
+                }
+            }
+            if (val.has_field(utility::conversions::to_string_t(U("decoded"))))
+            {
+                const web::json::value &fieldValue = val.at(utility::conversions::to_string_t(U("decoded")));
+                if (!fieldValue.is_null())
+                {
+                    utility::string_t refVal_setDecoded;
+                    ok &= ModelBase::fromJson(fieldValue, refVal_setDecoded);
+                    setDecoded(refVal_setDecoded);
+                }
+            }
+            return ok;
+        }
+
+        void CryptoViewModel::toMultipart(std::shared_ptr<MultipartFormData> multipart,
+                                          const utility::string_t &prefix) const
+        {
+            utility::string_t namePrefix = prefix;
+            if (namePrefix.size() > 0 &&
+                namePrefix.substr(namePrefix.size() - 1) != utility::conversions::to_string_t(U(".")))
+            {
+                namePrefix += utility::conversions::to_string_t(U("."));
+            }
+            if (m_EncodedIsSet)
+            {
+                multipart->add(
+                    ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("encoded")), m_Encoded));
+            }
+            if (m_DecodedIsSet)
+            {
+                multipart->add(
+                    ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("decoded")), m_Decoded));
+            }
+        }
+
+        bool CryptoViewModel::fromMultiPart(std::shared_ptr<MultipartFormData> multipart,
+                                            const utility::string_t &prefix)
+        {
+            bool ok = true;
+            utility::string_t namePrefix = prefix;
+            if (namePrefix.size() > 0 &&
+                namePrefix.substr(namePrefix.size() - 1) != utility::conversions::to_string_t(U(".")))
+            {
+                namePrefix += utility::conversions::to_string_t(U("."));
+            }
+
+            if (multipart->hasContent(utility::conversions::to_string_t(U("encoded"))))
+            {
+                utility::string_t refVal_setEncoded;
+                ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(U("encoded"))),
+                                                 refVal_setEncoded);
+                setEncoded(refVal_setEncoded);
+            }
+            if (multipart->hasContent(utility::conversions::to_string_t(U("decoded"))))
+            {
+                utility::string_t refVal_setDecoded;
+                ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(U("decoded"))),
+                                                 refVal_setDecoded);
+                setDecoded(refVal_setDecoded);
+            }
+            return ok;
+        }
+
+        utility::string_t CryptoViewModel::getEncoded() const
+        {
+            return m_Encoded;
+        }
+
+        void CryptoViewModel::setEncoded(const utility::string_t &value)
+        {
+            m_Encoded = value;
+            m_EncodedIsSet = true;
+        }
+
+        bool CryptoViewModel::encodedIsSet() const
+        {
+            return m_EncodedIsSet;
+        }
+
+        void CryptoViewModel::unsetEncoded()
+        {
+            m_EncodedIsSet = false;
+        }
+        utility::string_t CryptoViewModel::getDecoded() const
+        {
+            return m_Decoded;
+        }
+
+        void CryptoViewModel::setDecoded(const utility::string_t &value)
+        {
+            m_Decoded = value;
+            m_DecodedIsSet = true;
+        }
+
+        bool CryptoViewModel::decodedIsSet() const
+        {
+            return m_DecodedIsSet;
+        }
+
+        void CryptoViewModel::unsetDecoded()
+        {
+            m_DecodedIsSet = false;
+        }
+
     }
-    return ok;
 }
-
-void CryptoViewModel::toMultipart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& prefix) const
-{
-    utility::string_t namePrefix = prefix;
-    if(namePrefix.size() > 0 && namePrefix.substr(namePrefix.size() - 1) != utility::conversions::to_string_t(U(".")))
-    {
-        namePrefix += utility::conversions::to_string_t(U("."));
-    }
-    if(m_EncodedIsSet)
-    {
-        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("encoded")), m_Encoded));
-    }
-    if(m_DecodedIsSet)
-    {
-        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("decoded")), m_Decoded));
-    }
-}
-
-bool CryptoViewModel::fromMultiPart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& prefix)
-{
-    bool ok = true;
-    utility::string_t namePrefix = prefix;
-    if(namePrefix.size() > 0 && namePrefix.substr(namePrefix.size() - 1) != utility::conversions::to_string_t(U(".")))
-    {
-        namePrefix += utility::conversions::to_string_t(U("."));
-    }
-
-    if(multipart->hasContent(utility::conversions::to_string_t(U("encoded"))))
-    {
-        utility::string_t refVal_setEncoded;
-        ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(U("encoded"))), refVal_setEncoded );
-        setEncoded(refVal_setEncoded);
-    }
-    if(multipart->hasContent(utility::conversions::to_string_t(U("decoded"))))
-    {
-        utility::string_t refVal_setDecoded;
-        ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(U("decoded"))), refVal_setDecoded );
-        setDecoded(refVal_setDecoded);
-    }
-    return ok;
-}
-
-
-utility::string_t CryptoViewModel::getEncoded() const
-{
-    return m_Encoded;
-}
-
-
-void CryptoViewModel::setEncoded(const utility::string_t& value)
-{
-    m_Encoded = value;
-    m_EncodedIsSet = true;
-}
-
-bool CryptoViewModel::encodedIsSet() const
-{
-    return m_EncodedIsSet;
-}
-
-void CryptoViewModel::unsetEncoded()
-{
-    m_EncodedIsSet = false;
-}
-utility::string_t CryptoViewModel::getDecoded() const
-{
-    return m_Decoded;
-}
-
-
-void CryptoViewModel::setDecoded(const utility::string_t& value)
-{
-    m_Decoded = value;
-    m_DecodedIsSet = true;
-}
-
-bool CryptoViewModel::decodedIsSet() const
-{
-    return m_DecodedIsSet;
-}
-
-void CryptoViewModel::unsetDecoded()
-{
-    m_DecodedIsSet = false;
-}
-
-}
-}
-
-

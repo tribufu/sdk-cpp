@@ -13,59 +13,54 @@
 /*
  * HashViewModel.h
  *
- * 
+ *
  */
 
 #ifndef TRIBUFU_MODELS_HashViewModel_H_
 #define TRIBUFU_MODELS_HashViewModel_H_
 
-
 #include "tribufu++/ModelBase.h"
 
 #include <cpprest/details/basic_types.h>
 
-namespace tribufu {
-namespace models {
-
-
-
-class  HashViewModel
-    : public ModelBase
+namespace tribufu
 {
-public:
-    HashViewModel();
-    virtual ~HashViewModel();
+    namespace models
+    {
 
-    /////////////////////////////////////////////
-    /// ModelBase overrides
+        class HashViewModel : public ModelBase
+        {
+        public:
+            HashViewModel();
+            virtual ~HashViewModel();
 
-    void validate() override;
+            /////////////////////////////////////////////
+            /// ModelBase overrides
 
-    web::json::value toJson() const override;
-    bool fromJson(const web::json::value& json) override;
+            void validate() override;
 
-    void toMultipart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& namePrefix) const override;
-    bool fromMultiPart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& namePrefix) override;
+            web::json::value toJson() const override;
+            bool fromJson(const web::json::value &json) override;
 
+            void toMultipart(std::shared_ptr<MultipartFormData> multipart,
+                             const utility::string_t &namePrefix) const override;
+            bool fromMultiPart(std::shared_ptr<MultipartFormData> multipart,
+                               const utility::string_t &namePrefix) override;
 
-    /////////////////////////////////////////////
-    /// HashViewModel members
+            /////////////////////////////////////////////
+            /// HashViewModel members
 
+            utility::string_t getValue() const;
+            bool valueIsSet() const;
+            void unsetValue();
+            void setValue(const utility::string_t &value);
 
-    utility::string_t getValue() const;
-    bool valueIsSet() const;
-    void unsetValue();
-    void setValue(const utility::string_t& value);
+        protected:
+            utility::string_t m_Value;
+            bool m_ValueIsSet;
+        };
 
-
-protected:
-    utility::string_t m_Value;
-    bool m_ValueIsSet;
-
-};
-
-
-}
+    }
 }
 
 #endif /* TRIBUFU_MODELS_HashViewModel_H_ */
