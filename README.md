@@ -6,7 +6,7 @@ C++ SDK to access Tribufu APIs and services.
 [![Discord Chat][discord-badge]][discord-url]
 
 [mit-badge]: https://img.shields.io/badge/license-MIT-blue.svg
-[mit-url]: https://github.com/Tribufu/TribufuCpp/blob/main/LICENSE.txt
+[mit-url]: https://github.com/tribufu/tribufu-cpp/blob/main/LICENSE.txt
 [discord-badge]: https://img.shields.io/discord/276504514616623104.svg?logo=discord&style=flat-square
 [discord-url]: https://www.tribufu.com/discord
 
@@ -17,4 +17,4 @@ C++ SDK to access Tribufu APIs and services.
 
 This project is licensed under the [MIT License].
 
-[MIT License]: https://github.com/Tribufu/TribufuCpp/blob/main/LICENSE.txt
+[MIT License]: https://github.com/tribufu/tribufu-cpp/blob/main/LICENSE.txt
